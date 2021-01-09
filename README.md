@@ -6,12 +6,21 @@
 
 ### Integrantes:
 - Grille Macarena
+19 años.
+Lanús, Buenos Aires.
+Voluntaria en refugios de animales
+Programadora Web Jr.
 ___
 - Garcia Marcos
+23 años.
+Caseros, Buenos Aires.
+Licenciado en Cs. Veterinarias, Chef de alta cocina, Programador Web Jr.
 ___
-- Manell Cristian
-___
+
 - Patiño Gabriel
+24 años.
+Moreno, Buenos Aires
+Dueño de Pet Shop, Inversor en mercado Forex y Programador web Jr.
 ___
 
 ### Temática:
