@@ -24,7 +24,7 @@ ___
 ___
 
 ### Temática:
-En nuestra empresa xxx ofrecemos una amplia gama de productos y alimentos para su mascota, como así también un servicio médico ambulatorio para emergencias veterinarias.  
+En nuestra empresa FootGoose™ ofrecemos una amplia gama de productos y alimentos para su mascota, como así también un servicio médico ambulatorio para emergencias veterinarias.  
 Somos la empresa líder en distribución y abastecimiento de insumos animales.
 Nuestros clientes promueven a las mascotas como un miembro más de la familia, y a cambio nosotros les proveemos un servicio de primer nivel.
 
@@ -39,7 +39,7 @@ Fue elegida en base a las animaciones de los productos.
 [Puppis](https://www.puppis.com.ar/ "Puppis")  
 El concepto de catálogo con las cantidas, precios y descuentos nos pareció de lo más completo.
 
-[TimoteoPets](https://www.timoteopetshop.com/productos/?mpage=3 "Timoteo Pets"  
+[TimoteoPets](https://www.timoteopetshop.com/productos/?mpage=3 "Timoteo Pets")  
 La sección de filtros muy específica nos pareció la indicada para el usuario exigente.
 
 [CentroPet](https://centropet.com/ "Centro Pet") 
