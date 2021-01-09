@@ -36,7 +36,7 @@ Fue elegida en base a su diseño minimalista y amigable con el usuario.
 [Whiskas](https://www.whiskas.com.ar/productos/ "Whiskas")  
 Fue elegida en base a las animaciones de los productos.
 
-[Puppis](https://www.puppis.com.ar/ "Puppis")  
+[Puppis](https://www.puppis.com.ar/perros/accesorios "Puppis")  
 El concepto de catálogo con las cantidas, precios y descuentos nos pareció de lo más completo.
 
 [TimoteoPets](https://www.timoteopetshop.com/productos/?mpage=3 "Timoteo Pets")  
