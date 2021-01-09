@@ -1,4 +1,4 @@
-# TITULO DE PROYECTO
+# FootGoose®
 ![Grupo 6](https://i.pinimg.com/236x/e5/e9/08/e5e908c3969f806af05c39db6222e6a8.jpg)
 ## Comision 5
 
@@ -24,7 +24,7 @@ ___
 ___
 
 ### Temática:
-En nuestra empresa FootGoose™ ofrecemos una amplia gama de productos y alimentos para su mascota, como así también un servicio médico ambulatorio para emergencias veterinarias.  
+En nuestra empresa FootGoose® ofrecemos una amplia gama de productos y alimentos para su mascota, como así también un servicio médico ambulatorio para emergencias veterinarias.  
 Somos la empresa líder en distribución y abastecimiento de insumos animales.
 Nuestros clientes promueven a las mascotas como un miembro más de la familia, y a cambio nosotros les proveemos un servicio de primer nivel.
 
@@ -42,5 +42,5 @@ El concepto de catálogo con las cantidas, precios y descuentos nos pareció de 
 [TimoteoPets](https://www.timoteopetshop.com/productos/?mpage=3 "Timoteo Pets")  
 La sección de filtros muy específica nos pareció la indicada para el usuario exigente.
 
-[CentroPet](https://centropet.com/ "Centro Pet") 
+[CentroPet](https://centropet.com/ "Centro Pet")  
 La separación por animales permite a todos los usuarios ver los productos de su tipo de mascota sin tener que recurrir a los filtros. Una especie de atajo.
