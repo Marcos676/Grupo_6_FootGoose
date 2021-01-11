@@ -8,8 +8,7 @@
 - Grille Macarena  
   19 años.  
   Lanús, Buenos Aires.  
-  Voluntaria en refugios de animales  
-  Programadora Web Jr.
+  Voluntaria en refugios de animales, Programadora Web Jr.
 ___
 - Garcia Marcos  
   23 años.   
