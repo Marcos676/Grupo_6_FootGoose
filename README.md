@@ -29,17 +29,17 @@ Nuestros clientes promueven a las mascotas como un miembro más de la familia, y
 
 
 ### Referencias:
-[Coca-cola](https://tienda.coca-cola.com.ar/amba/combos "Coca-cola")  
+- [Coca-cola](https://tienda.coca-cola.com.ar/amba/combos "Coca-cola")  
 Fue elegida en base a su diseño minimalista y amigable con el usuario.
 
-[Whiskas](https://www.whiskas.com.ar/productos/ "Whiskas")  
+- [Whiskas](https://www.whiskas.com.ar/productos/ "Whiskas")  
 Fue elegida en base a las animaciones de los productos.
 
-[Puppis](https://www.puppis.com.ar/perros/accesorios "Puppis")  
+- [Puppis](https://www.puppis.com.ar/perros/accesorios "Puppis")  
 El concepto de catálogo con las cantidas, precios y descuentos nos pareció de lo más completo.
 
-[TimoteoPets](https://www.timoteopetshop.com/productos/?mpage=3 "Timoteo Pets")  
+- [TimoteoPets](https://www.timoteopetshop.com/productos/?mpage=3 "Timoteo Pets")  
 La sección de filtros muy específica nos pareció la indicada para el usuario exigente.
 
-[CentroPet](https://centropet.com/ "Centro Pet")  
+- [CentroPet](https://centropet.com/ "Centro Pet")  
 La separación por animales permite a todos los usuarios ver los productos de su tipo de mascota sin tener que recurrir a los filtros. Una especie de atajo.
