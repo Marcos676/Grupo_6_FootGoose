@@ -1,5 +1,5 @@
 # FootGoose®
-![Grupo 6](./wireframe/catalogo-Desktop.png)
+![Grupo 6](./logo/logo.png)
 ## Comision 5
 
 ## Grupo 6
