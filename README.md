@@ -43,3 +43,26 @@ La sección de filtros muy específica nos pareció la indicada para el usuario 
 
 - [CentroPet](https://centropet.com/ "Centro Pet")  
 La separación por animales permite a todos los usuarios ver los productos de su tipo de mascota sin tener que recurrir a los filtros. Una especie de atajo.
+
+### Tipografías
+- Staatliches (logo)
+- Work Sans:  
+Títulos (semi-bold 600)  
+Textos y demás (regular 400)  
+Copyright (extra-light 200 italic)  
+
+### Colores
+- #ebebeb  (body)
+- #f2f2f2  (contenidos)
+- #fad586  (Header, footer y botones)
+- #55b054  (carritto y algunos botones)
+- #ff0000  (Algunos botones)
+- #e6ff00  (estrella de favoritos)
+- #000000  (Textos)
+- #ffffff  (Textos)
+
+[Wireframes](https://github.com/Marcos676/Grupo_6_FootGoose/tree/main/wireframe "Wireframes")
+
+[Bocetos](https://github.com/Marcos676/Grupo_6_FootGoose/tree/main/bocetos "Bocetos")
+
+
