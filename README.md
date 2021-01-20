@@ -61,8 +61,9 @@ Copyright (extra-light 200 italic)
 - #000000  (Textos)
 - #ffffff  (Textos)
 
-[Wireframes](https://github.com/Marcos676/Grupo_6_FootGoose/tree/main/wireframe "Wireframes")
+### Wireframes [aquí](https://github.com/Marcos676/Grupo_6_FootGoose/tree/main/wireframe "Wireframes")
 
-[Bocetos](https://github.com/Marcos676/Grupo_6_FootGoose/tree/main/bocetos "Bocetos")
+### Bocetos [aquí](https://github.com/Marcos676/Grupo_6_FootGoose/tree/main/bocetos "Bocetos")
 
+### Tablero de Trello [aquí](https://trello.com/b/hM3ZG8th/grupo6footgoose "Trello")
 
