@@ -89,4 +89,9 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-console.log(`Servidor corriendo en puerto ${port}`);
+console.log(`
+------------------------------------
+Servidor corriendo en purto: ${port}
+http://localhost:3000/
+------------------------------------
+`);
