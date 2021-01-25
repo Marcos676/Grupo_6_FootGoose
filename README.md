@@ -15,7 +15,11 @@ ___
   Caseros, Buenos Aires.  
   Licenciado en Cs. Veterinarias, Chef de alta cocina, Programador Web Jr.
 ___
-
+- Sofia  
+  xx años.   
+  xxxxx, Buenos Aires.  
+  xxxxxxx, Programador Web Jr.
+___
 - Patiño Gabriel  
   24 años.  
   Moreno, Buenos Aires  
