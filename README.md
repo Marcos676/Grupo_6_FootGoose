@@ -15,10 +15,10 @@ ___
   Caseros, Buenos Aires.  
   Licenciado en Cs. Veterinarias, Chef de alta cocina, Programador Web Jr.
 ___
-- Sofia  
-  xx años.   
-  xxxxx, Buenos Aires.  
-  xxxxxxx, Programador Web Jr.
+- Andrada Sofia  
+  20 años.   
+  Tres de Febrero, Buenos Aires.  
+  Técnica Química, Programadora Web Jr.
 ___
 - Patiño Gabriel  
   24 años.  
