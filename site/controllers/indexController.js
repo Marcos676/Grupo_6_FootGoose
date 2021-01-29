@@ -1,10 +1,16 @@
 
-
 module.exports = {
     index: (req, res) => {
 
         res.render('index', {
-           title: 'Home' 
-          })
-      }
+            title: 'Home'
+        })
+    },
+    faqs: (req,res) => {
+
+        res.render('faqs', {
+            title: 'Preguntas frecuentes'
+        })
+    }
+
 }
