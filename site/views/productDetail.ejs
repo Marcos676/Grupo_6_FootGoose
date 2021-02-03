@@ -7,6 +7,56 @@
 
     <h1><%= title %></h1>
 
+    <!--DETALLE DE PRODUCTOS-->
+   
+		<div class="container products-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="products-title">Detalle de producto</h2>
+        </div>
+      </div>
+      <div class="product-detail">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <img src="/images/productos/<%=producto.image%>" alt="<%=producto.name%>" class="product-detail-img">
+            
+          </div>
+          <div class="col-12 col-lg-4">
+            <article class="product-detail-info">
+              <h2 class="product-detail-title"><%=producto.name%></h2>
+                <% if (producto.discount > 0) { %>
+                
+                  <p class="product-detail-price">
+                    $<%= toThousand(producto.price)%>
+                  </p>
+                <% } else { %>
+                <p class="product-detail-price">
+                  $<%= toThousand(producto.price)%>
+                </p>
+                <% } %>
+  
+              <ul class="actions-list">
+                <li>
+                  <i class="fas fa-credit-card"></i>
+                  <p>Pagá en cuotas</p>
+                </li>
+              </ul>
+  
+              <a href="#" class="add-cart-button">AÑADIR AL CARRITO</a><a href="#" class="buy-now-button">COMPRAR AHORA</a>
+              <hr>
+              <p class="product-detail-description">
+                <%= producto.description%>
+              </p>
+              
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+    <!--FIN DE DETALLE DE PRODUCTOS-->
+
   <%- include('./partials/footer') %> 
   </body>
 </html>
