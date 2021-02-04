@@ -6,7 +6,75 @@
     <%- include('./partials/header') %> 
 <div class="contenido">
   
-      <h1><%= title %></h1>
+      <!--CARRUSEL-->
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/carrusel1.jpg" class="imagen-carrusel d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+          <img src="images/carrusel2.jpg" class="imagen-carrusel d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+          <img src="images/carrusel3.jpg" class="imagen-carrusel d-block w-100" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          <a href=""><img src="images/categorias/iconoPerro.png" alt=""></a>
+        </div>
+        <div class="col-sm-2">
+          <a href=""><img src="images/categorias/iconoGato.png" alt=""></a>
+        </div>
+        <div class="col-sm-2">
+          <a href=""><img src="images/categorias/iconoRoedor.png" alt=""></a>
+        </div>
+        <div class="col-sm-2">
+          <a href=""><img src="images/categorias/iconoAve.png" alt=""></a>
+        </div>
+        <div class="col-sm-2">
+          <a href=""><img src="images/categorias/iconoPez.png" alt=""></a>
+        </div>
+        <div class="col-sm-2">
+          <a href=""><img src="images/categorias/iconoReptil.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mt-5 info-nosotros">
+      <p id="nosotros">En nuestra empresa FootGoose® ofrecemos una amplia gama de productos y alimentos para su mascota, como así
+        también un servicio médico ambulatorio para emergencias veterinarias.
+        Somos la empresa líder en distribución y abastecimiento de insumos animales. Nuestros clientes promueven a las
+        mascotas como un miembro más de la familia, y a cambio nosotros les proveemos un servicio de primer nivel.</p>
+    </div>
+
+    <br><br>
+
+    <div class="row info-width">
+
+      <article class="col-12 col-lg-4">
+        <i class="fas fa-credit-card"></i>
+        <h4>Pagá con tarjeta o en efectivo</h4>
+      </article>
+
+      <article class="col-12 col-lg-4">
+        <i class="fas fa-box"></i>
+        <h4>Envío gratis desde $2.000</h4>
+      </article>
+
+      <article class="col-12 col-lg-4">
+        <i class="fas fa-user-shield "></i>
+        <h4>Seguridad, de principio a fin</h4>
+      </article>
+
+    </div>
+
+    <br><br>
 
     <%- include('./partials/footer') %> 
 </div>

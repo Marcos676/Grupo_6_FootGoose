@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: var(--fuente);
+  font-family: var(--font);
   background-color: var(--color-grisClaro);
   transition: background-color .9s;
 }
@@ -43,6 +43,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 5;
 }
  header .header-container {
   max-width: 1350px;
@@ -352,6 +353,195 @@ justify-content: center;
 display: flex;
 margin: 20px 0;
 }
+/*-------------HOME------------- */
+#myCarousel{
+  max-width: absolute;
+  height: absolute;
+}
+.imagen-carrusel{
+  height: 400px;
+  margin-bottom: 20px;
+}
+.info-nosotros{
+  font-size: 25px;
+  text-align: center;
+  max-width: 1350;
+  background-color: var(--color-blanco);
+  padding: 15px;
+}
+.info-width article{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  background-color: var(--color-blanco);
+  padding: 25px;
+}
+
+
+
+/* -------------CREAR PRODUCTO------------- */
+/* Contenido general */
+.nuevo-producto{
+  padding: 0 /* 5px 5px 5px */;
+  background-color: var(--color-blanco);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.nuevo-producto h1{
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Carrusel de Crear Producto */
+.nuevo-producto .carrusel-add-image{
+  width: 80%;
+  justify-self: center;
+  height: auto;
+}
+.nuevo-producto .carrusel-add-image .carousel-item {
+  text-align: center;
+  height: 350px;
+}
+.nuevo-producto .imagen-carrusel {
+  height: 330px;
+  width: auto
+}
+/* Boton de carrusel */
+.nuevo-producto .carrusel-add-image .boton-image{
+  text-align: center;
+}
+.nuevo-producto .carrusel-add-image .boton-image input{
+  display: none;
+}
+.nuevo-producto .carrusel-add-image .carousel-item button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-rojo);
+  z-index: 2;
+}
+/* Campos */
+.nuevo-producto .seleccionar{
+  padding: 4px;
+}
+.nuevo-producto .margen{
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.nuevo-producto span{
+  padding: 0 7px;
+  color: var(--color-rojo);
+}
+.nuevo-producto .campo-animal button,
+.nuevo-producto .campo-categoria button{
+  background-color: white;
+  border: 1px solid var(--color-negro);
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 2px 0;
+}
+.nuevo-producto .vencimiento-precio-final .vencimiento {
+    padding: 0;
+}
+.nuevo-producto .botones {
+  justify-content: space-around;
+  margin: 25px 0;
+}
+.nuevo-producto .completar {
+  border: none;
+}
+
+/*-------CONTENIDO DE PAGINAS ------------ */
+.product-detail {
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-detail-img {
+  width: 65%;
+  display: block;
+  margin: auto;
+}
+
+.product-detail-info {
+  border-left: 1px solid var(--color-grisOscuro);
+  padding: 10px;
+  height: 100%;
+}
+
+.product-detail-title {
+  font-weight: 350;
+  font-size: 2.8em;
+}
+
+.product-detail-description {
+  padding: 10px;
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+.product-detail-price {
+  font-size: 5.5em;
+  margin: 10px 0;
+}
+
+.actions-list {
+  margin-bottom: 50px;
+}
+
+.actions-list li {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+.actions-list i {
+  color: var(--color-naranjaClaro);
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.actions-list p {
+  color: var(--gray);
+  font-size: 1.7em;
+  margin: 0;
+}
+
+.buy-now-button,
+.add-cart-button {
+  background-color: rgb(141, 141, 141);
+  font-size: 1.5em;
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.action-button {
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  color: var(--color-blanco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  margin-top: 15px;
+}
+
+
 
 /* -------------------FOOTER -------------------*/ 
 /* FOOTER */
@@ -507,6 +697,12 @@ margin: 20px 0;
     margin-top: 0;
   }
   
+
+  /* ---------- CARGA DE PRODUCTO ---------- */
+  .nuevo-producto {
+    margin-top: 15px;
+  }
+
 }
 /* DESKTOP Extra Large */
 @media (min-width: 1200px){
