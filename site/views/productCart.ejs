@@ -1,12 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-  
-  <%- include('./partials/head') %> 
+
+<%- include('./partials/head') %>
+
   <body>
-    <%- include('./partials/header') %> 
 
-    <h1><%= title %></h1>
+    <%- include('./partials/header') %>
+      <div class="container-fluid contenido cart">
+        <div class="row titulo">
+          <div class="col-6">
+            <h1>Carrito</h1>
+          </div>
+          <div class="col-6">
+            <h1>Total: $</h1>
+          </div>
+        </div>
+        <div class="row carrito">
+          <div class="col-12 carritoproductos">
+            <div class="row productolista">
+              <!-- IMAGEN -->
+              <div class="col-3 col-md-2">
+                <img class="img-fluid" src="/images/productos/Carne-Adulto.jpg" alt="Producto">
+              </div>
+              <!-- CONTENEDOR DE DETALLE DE PRODUCTO -->
+              <div class="col-9 col-md-10">
+                <!-- nombre de producto -->
+                <div class="row detprimfila">
+                  <div class="col-6">
+                    <h4 class="nombreProducto">Nombre de producto</h4>
+                  </div>
+                  <!-- descuentos -->
+                  <div class="col-6">
+                    <h6>
+                      24%off $12645
+                    </h6>
+                  </div>
+                </div>
+                <!-- cantidad de articulos -->
+                <div class="row detsegfila">
+                  <div class="col-4 cantidad">
+                    <p>Cantidad
+                      <input type="number" min="1"></input>
+                    </p>
+                  </div>
+                  <!-- botones para seguir comprando o quitar del carrito -->
+                  <div class="col-8 grupobotones">
+                    <div class="btn btn-group botons">
+                      <button class="btn-secondary quitar"><i class="fas fa-times-circle"></i> Quitar del
+                        carrito</button>
+                      <button class="btn-secondary seguir"><i class="fas fa-cart-plus"></i> Seguir comprando</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- boton para mobile checkout desplegable -->
 
-  <%- include('./partials/footer') %> 
+          <div class="col-12 divdeboton">
+            <button class="btn btn-success checkmobile" data-pushbar-target="pushbar-checkout"><i
+                class="fas fa-receipt"></i> Finalizar
+              compra</button>
+          </div>
+        </div>
+        <!-- DETALLE -->
+        <div data-pushbar-id="pushbar-checkout" data-pushbar-direction="right"
+          class="pushbar from_left pushbar-checkout">
+          <div>
+            <h4 class="detail">Detalle de compra</h4>
+            <!-- contenedor de descripcion -->
+            <div class="descripcion">
+              <!-- for each para productos -->
+              <div class="row eachProduct">
+                <div class="col-6 product">
+                  <p>1 x Nombre de producto</p>
+                </div>
+                <div class="col-6 productprice">
+                  <p>$15000</p>
+                </div>
+              </div>
+              <div class="row eachProduct">
+                <div class="col-6 product">
+                  <p>1 x Nombre de producto</p>
+                </div>
+                <div class="col-6 productprice">
+                  <p>$15000</p>
+                </div>
+              </div>
+            </div>
+            <!-- impuestos -->
+            <div class="row disctaxes">
+              <div class="col-6">
+                <p>Impuestos (21%):</p>
+              </div>
+              <div class="col-6">
+                <p>$300</p>
+              </div>
+            </div>
+            <div class="row totalizar">
+              <div class="col-6">
+                <p>Total:</p>
+              </div>
+              <div class="col-6">
+                <p>$30000</p>
+              </div>
+            </div>
+            <!-- IR A PAGAR -->
+            <div class="row boton-pagar">
+              <div class="col-12 div-pagar">
+                <button class="btn btn-dark pagar">
+                  <i class="fas fa-cash-register"></i> Ir a medios de pago
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%- include('./partials/footer') %>
+          <script src="https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.js"></script>
+          <script type="text/javascript">
+            const pushbar = new Pushbar({
+              blur: true,
+              overlay: true,
+            });
+          </script>
   </body>
+
 </html>

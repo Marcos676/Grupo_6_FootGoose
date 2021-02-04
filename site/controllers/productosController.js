@@ -8,10 +8,8 @@ module.exports = {
             title: 'Catalogo'
         })
     },
-    detalle: (req, res) => {
-
-
-        res.render('productDetail', {
+	detalle : (req,res)=>{
+        res.render("productDetail", {
             title: 'Detalle'
         })
     },
