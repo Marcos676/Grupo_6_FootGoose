@@ -462,7 +462,7 @@ margin: 20px 0;
   background-color: var(--color-blanco);
   border-radius: 8px;
   overflow: hidden;
-  font-family: 'Work-Sans';
+  font-family: var(--font);
 }
 
 .product-detail-img {
@@ -578,7 +578,7 @@ margin: 20px 0;
 }
 
 .circle-button{
-  font-family: var(--font), sans-serif;
+  font-family: var(--font);
 	color: var(--color-negro);
 	display: inline-block;
   font-size: 3rem;
