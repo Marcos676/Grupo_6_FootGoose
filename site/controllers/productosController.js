@@ -8,13 +8,9 @@ module.exports = {
             title: 'Catalogo'
         })
     },
-	detail: (req, res) => {
-		let producto = products.find(product=>{
-            return product.id == req.params.productId
-		});
-		let title = "Detalles"
-		res.render("detail", {title, producto, toThousand})
-	},
+	detalle : (req,res)=>{
+        res.render("productDetail")
+    },
     carrito: (req, res) => {
 
         
