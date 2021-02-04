@@ -5,11 +5,9 @@
   <body>
     <%- include('./partials/header') %> 
 
-    <h1><%= title %></h1>
-
     <!--DETALLE DE PRODUCTOS-->
    
-		<div class="container products-wrapper">
+		<div class="container contenido products-wrapper">
       <div class="row">
         <div class="col-12">
           <h2 class="products-title">Detalle de producto</h2>
@@ -18,23 +16,18 @@
       <div class="product-detail">
         <div class="row">
           <div class="col-12 col-lg-8">
-            <img src="/images/productos/<%=producto.image%>" alt="<%=producto.name%>" class="product-detail-img">
+            <img src="/images/productos/alimento-aves.png" alt="Alimento Aves" class="product-detail-img">
             
           </div>
           <div class="col-12 col-lg-4">
             <article class="product-detail-info">
-              <h2 class="product-detail-title"><%=producto.name%></h2>
-                <% if (producto.discount > 0) { %>
-                
+              <h2 class="product-detail-title">Alimento de aves</h2>
                   <p class="product-detail-price">
-                    $<%= toThousand(producto.price)%>
+                    $1000
                   </p>
-                <% } else { %>
                 <p class="product-detail-price">
-                  $<%= toThousand(producto.price)%>
+                  $15000
                 </p>
-                <% } %>
-  
               <ul class="actions-list">
                 <li>
                   <i class="fas fa-credit-card"></i>
@@ -45,7 +38,7 @@
               <a href="#" class="add-cart-button">AÑADIR AL CARRITO</a><a href="#" class="buy-now-button">COMPRAR AHORA</a>
               <hr>
               <p class="product-detail-description">
-                <%= producto.description%>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eius porro. Repellendus vero minus in mollitia quo enim ipsa aut necessitatibus, vel, commodi iste aliquam nesciunt tenetur, dolore maiores autem.
               </p>
               
             </article>

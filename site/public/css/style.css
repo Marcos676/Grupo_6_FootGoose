@@ -12,7 +12,7 @@
   --color-amarillo: #e6ff00;
   --color-negro: #000;
   --font: "Work-Sans";
-  --font2: "Staatliches"
+  --font2: "Staatliches";
 }
 /* GENERALES */
 * {
@@ -462,6 +462,7 @@ margin: 20px 0;
   background-color: var(--color-blanco);
   border-radius: 8px;
   overflow: hidden;
+  font-family: 'Work-Sans';
 }
 
 .product-detail-img {
@@ -474,6 +475,7 @@ margin: 20px 0;
   border-left: 1px solid var(--color-grisOscuro);
   padding: 10px;
   height: 100%;
+  color: var(--color-negro);
 }
 
 .product-detail-title {
