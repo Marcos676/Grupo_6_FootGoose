@@ -215,12 +215,15 @@ input[type="checkbox"]:checked::before{
 
 /*-------------HOME------------- */
 #myCarousel{
-  max-width: absolute;
-  height: absolute;
+    width: 100%;
+    display: none;
 }
 .imagen-carrusel{
   height: 400px;
   margin-bottom: 20px;
+}
+.categorias{
+  justify-content: center;
 }
 .info-nosotros{
   font-size: 25px;
@@ -348,7 +351,7 @@ input[type="checkbox"]:checked::before{
 }
 
 .product-detail-price {
-  font-size: 5.5em;
+  font-size: 5em;
   margin: 10px 0;
 }
 
@@ -505,8 +508,14 @@ input[type="checkbox"]:checked::before{
   .contenido {
     margin-top: 0;
   }
-  
-
+  /*HOME*/
+  #myCarousel{
+    display: block;
+  }
+  /*DETALLE DE PRODUCTO*/
+  .product-detail-price {
+    font-size: 3em;
+  }
   /* ---------- CARGA DE PRODUCTO ---------- */
   .nuevo-producto {
     margin-top: 15px;
