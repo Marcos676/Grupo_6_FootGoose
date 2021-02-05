@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-  
-  <%- include('./partials/head') %> 
-  <body>
-    <%- include('./partials/header') %> 
 
-    <h1><%= title %></h1>
+<%- include('partials/head.ejs') %>
 
-  <%- include('./partials/footer') %> 
-  </body>
+<body>
+
+<%- include('partials/header.ejs') %>
+
+
+<div class="container-fluid row contenido form-login-register">
+
+<!--INICIAR SESIÓN-->
+
+<form class="formulario-iniciar row col-12 col-md-6">
+    <h1 class= "col-12"> Ingresar</h1>
+
+<div class="input-contenedor col-12">
+    <i class="fas fa-envelope icon"></i>
+<input type="text" placeholder="correo electronico">
+
+</div>
+
+<div class="input-contenedor col-12">
+    <i class="fas fa-key icon"></i>
+<input type="password" placeholder="contraseña">
+
+</div>
+<div class="col-12">
+<button type="submit" class="btn btn-success"> Ingresar</button>
+</div>
+
+
+
+
+</form> 
+ <!--REGISTRARSE-->
+
+ <form class="formulario-registro col-12 col-md-6">
+    <h1> Registrarse</h1>
+<div class="input-contenedor col-12">
+    <i class="fas fa-user icon"></i>
+<input type="text" placeholder="nombre completo">
+
+</div>
+
+<div class="input-contenedor col-12">
+    <i class="fas fa-envelope icon"></i>
+<input type="text" placeholder="correo electronico">
+
+</div>
+
+<div class="input-contenedor col-12">
+    <i class="fas fa-key icon"></i>
+<input type="password" placeholder="contraseña">
+</div>
+
+<div class= "col-12">
+<button type="submit" class="btn btn-success "> Registrarse</button>
+<p> Al registrarte, aceptas nuestras condiciones de uso y Politica de Privacidad.</p>
+</div>
+
+</form> 
+
+</div>
+
+</body>
+
+
 </html>
+
+      <%- include('partials/head.ejs') %> 
+      <%- include('partials/footer.ejs') %>

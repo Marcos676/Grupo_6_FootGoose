@@ -241,6 +241,39 @@ input[type="checkbox"]:checked::before{
   padding: 25px;
 }
 
+/* -------------REGISTRARSE------------- */
+.form-login-register {
+  justify-content: center;
+  padding-right: 0px;
+  padding-left: 0px;
+  width: auto;
+margin-left: 10px;
+margin-right: 10px;
+}
+.form-login-register .formulario-iniciar{
+border-bottom: 1px solid var(--color-negro);
+height: 250px;
+
+}
+.form-login-register form {
+text-align: center;
+margin: 0;
+margin-bottom: 15px;
+padding: 15px;
+}
+
+.form-login-register .input-contenedor{
+margin-bottom: 15px; 
+padding-bottom: 5px;
+
+
+}
+
+
+
+
+
+
 
 
 /* -------------CREAR PRODUCTO------------- */
@@ -516,6 +549,25 @@ input[type="checkbox"]:checked::before{
   .product-detail-price {
     font-size: 3em;
   }
+  
+/*------ REGISTRARSE ---------*/
+
+
+.form-login-register .formulario-iniciar{
+border:none;
+margin-top: 15px;
+}
+
+.form-login-register .formulario-registro{
+ margin-top: 15px;
+  border-left: 1px solid var(--color-negro);
+
+
+}
+
+
+
+
   /* ---------- CARGA DE PRODUCTO ---------- */
   .nuevo-producto {
     margin-top: 15px;

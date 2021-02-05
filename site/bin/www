@@ -90,8 +90,8 @@ function onListening() {
 }
 
 console.log(`
-------------------------------------
-Servidor corriendo en purto: ${port}
+-------------------------------------
+Servidor corriendo en puerto: ${port}
 http://localhost:${port}/
 ------------------------------------
 `);
