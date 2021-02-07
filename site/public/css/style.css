@@ -62,12 +62,18 @@ header .row .logo-container a img{
   width: 80px;
 }
 
+/* Contenedor del resto */
+  header .container-principal{
+    display: contents;
+}
+
 
 /* BUSCADOR */
 header .buscador {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  display: none;
 }
 header form {
   background-color: var(--color-grisClaro);
@@ -82,6 +88,7 @@ header form input {
   padding: 0px 10px;
   width: 100%;
   flex-grow: 1;
+  font-family: var(--font);
 }
 header form input:focus {
   outline-width: 0px;
@@ -90,7 +97,7 @@ header form button {
   background: none;
   border: none;
   color: var(--color-grisOscuro);
-  margin: 0 8px;
+  margin: 0;
 }
 header form button:focus {
   outline-width: 0px;
@@ -100,8 +107,8 @@ header form button:focus {
 /*INGRESAR*/
 header .ingresar {
   padding:0;
-  display: flex;
   justify-content: center;
+  display: none;
 }
 header .ingresar a {
   text-align: center;
@@ -115,6 +122,10 @@ header .ingresar a {
 header .ingresar a:hover{
   color: var(--color-blanco);
   background-color: var(--color-grisOscuro);
+}
+
+header .solo-mobile{
+  display: flex;
 }
 
 
@@ -265,21 +276,13 @@ padding: 15px;
 .form-login-register .input-contenedor{
 margin-bottom: 15px; 
 padding-bottom: 5px;
-
-
 }
-
-
-
-
-
-
 
 
 /* -------------CREAR PRODUCTO------------- */
 /* Contenido general */
 .nuevo-producto{
-  padding: 0 /* 5px 5px 5px */;
+  padding: 0;
   background-color: var(--color-blanco);
   display: flex;
   flex-flow: row wrap;
@@ -485,6 +488,30 @@ padding-bottom: 5px;
 }
 
 
+
+/*---------- MOBILE M ------------*/
+@media (min-width: 375px){
+/* Header buscador */
+  header .buscador{
+    display: flex;
+  }
+  header form button{
+    margin: 0 8px;
+  }
+/* Header boton ingresar */
+  header .ingresar{
+    display: flex;
+  }
+
+  header .solo-mobile{
+    display: none;
+  }
+  /* Contenedor del resto */
+  header .container-principal{
+    display: flex;
+  }
+
+}
 /*---------- TABLET Y DESKTOP Large ------------*/
 @media (min-width: 768px){
 /*----------------- HEADER ----------------------*/
@@ -564,8 +591,6 @@ margin-top: 15px;
 
 
 }
-
-
 
 
   /* ---------- CARGA DE PRODUCTO ---------- */
