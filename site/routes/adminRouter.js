@@ -3,6 +3,7 @@ var router = express.Router();
 const {productAdd} = require('../controllers/adminController')
 
 
-router.get('/crear', productAdd);
+router.get('/create', productAdd);
+
 
 module.exports = router;

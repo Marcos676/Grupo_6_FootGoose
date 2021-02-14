@@ -1,3 +1,7 @@
+@import "catalogo.css";
+
+
+
 /* IMPORTS*/
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans:ital,wght@0,400;0,600;1,200&display=swap');
 
@@ -287,8 +291,10 @@ padding-bottom: 5px;
 /* Contenido general */
 .nuevo-producto{
   padding: 0;
-  background-color: var(--color-blanco);
   display: flex;
+
+              background-color: white;
+
   flex-flow: row wrap;
   justify-content: center;
   margin-bottom: 15px;
@@ -300,7 +306,7 @@ padding-bottom: 5px;
   text-align: center;
 }
 
-/* Carrusel de Crear Producto */
+/*--------------- Carrusel de Crear Producto -------------------------------------*/
 .nuevo-producto .carrusel-add-image{
   width: 80%;
   justify-self: center;
@@ -360,7 +366,7 @@ padding-bottom: 5px;
   border: none;
 }
 
-/*-------CONTENIDO DE PAGINAS ------------ */
+/*-------Detalle producto ------------ */
 .product-detail {
   background-color: var(--color-blanco);
   border-radius: 8px;
