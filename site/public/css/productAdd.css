@@ -1,0 +1,83 @@
+@import 'style.css';
+@import 'header.css';
+@import 'footer.css';
+
+.nuevo-producto{
+    padding: 0;
+    background-color: var(--color-blanco);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .nuevo-producto h1{
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  /* Carrusel de Crear Producto */
+  .nuevo-producto .carrusel-add-image{
+    width: 80%;
+    justify-self: center;
+    height: auto;
+  }
+  .nuevo-producto .carrusel-add-image .carousel-item {
+    text-align: center;
+    height: 350px;
+  }
+  .nuevo-producto .imagen-carrusel {
+    height: 330px;
+    width: auto
+  }
+  /* Boton de carrusel */
+  .nuevo-producto .carrusel-add-image .boton-image{
+    text-align: center;
+  }
+  .nuevo-producto .carrusel-add-image .boton-image input{
+    display: none;
+  }
+  .nuevo-producto .carrusel-add-image .carousel-item button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-rojo);
+    z-index: 2;
+  }
+  /* Campos */
+  .nuevo-producto .seleccionar{
+    padding: 4px;
+  }
+  .nuevo-producto .margen{
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nuevo-producto span{
+    padding: 0 7px;
+    color: var(--color-rojo);
+  }
+  .nuevo-producto .campo-animal button,
+  .nuevo-producto .campo-categoria button{
+    background-color: white;
+    border: 1px solid var(--color-negro);
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 2px 0;
+  }
+  .nuevo-producto .vencimiento-precio-final .vencimiento {
+      padding: 0;
+  }
+  .nuevo-producto .botones {
+    justify-content: space-around;
+    margin: 25px 0;
+  }
+  .nuevo-producto .completar {
+    border: none;
+  }
+  @media (min-width: 768px){
+    .nuevo-producto {
+        margin-top: 15px;
+      }
+  }  

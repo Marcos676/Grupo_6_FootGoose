@@ -1,0 +1,40 @@
+@import 'style.css';
+@import 'header.css';
+@import 'footer.css';
+
+.form-login-register {
+    justify-content: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  }
+  .form-login-register .formulario-iniciar{
+  border-bottom: 1px solid var(--color-negro);
+  height: 250px;
+  
+  }
+  .form-login-register form {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 15px;
+  }
+  
+  .form-login-register .input-contenedor{
+  margin-bottom: 15px; 
+  padding-bottom: 5px;
+  }
+
+  @media (min-width: 768px){
+    .form-login-register .formulario-iniciar{
+    border:none;
+    margin-top: 15px;
+    }
+    
+    .form-login-register .formulario-registro{
+     margin-top: 15px;
+      border-left: 1px solid var(--color-naranjaClaro);
+    }
+}

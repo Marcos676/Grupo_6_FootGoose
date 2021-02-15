@@ -1,0 +1,148 @@
+@import 'style.css';
+@import 'header.css';
+@import 'footer.css';
+
+.cart .carrito {
+    color: var(--color-negro);
+  }
+  
+  .cart .productolista {
+    background-color: var(--color-blanco);
+  }
+  
+  .cart .productolista img {
+    width: 100px;
+  }
+  
+  .cart .cantidad input {
+  width: 50px;
+  }
+  
+  .cart .titulo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .cart .detprimfila {
+    margin-top: 2em;
+  }
+  
+  .cart .nombreProducto {
+    font-weight: 600;
+  }
+  
+  .cart .detsegfila {
+    margin-top: 1em;
+  }
+  
+  .cart .detsegfila p {
+    font-weight: 100;
+    font-size: small;
+  }
+  
+  .cart .quitar {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: var(--color-rojo);
+  }
+  
+  .cart .seguir {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--color-grisOscuro);
+  }
+  
+  .cart .eachProduct {
+    margin: 20px 0;
+    border-bottom: 1px solid var(--color-negro);
+    padding-bottom: 10px;
+  }
+  
+  .cart .disctaxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .cart .disctaxes p {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .cart .detail {
+    font-family: var(--font2);
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline 2px var(--color-negro);
+  }
+  
+  .cart .product,
+  .cart .productprice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cart .product p,
+  .cart .productprice p {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .cart .totalizar {
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    background-color: var(--color-negro);
+    border-radius: 10px;
+    color: #ebebeb;
+  }
+  
+  .cart .pagar {
+    display: flex;
+  }
+  
+  .cart .pagar i {
+    padding-right: 10px;
+    padding-top: 3px;
+  }
+  
+  .cart .div-pagar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cart .totalizar p {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .cart h6,
+  .cart .grupobotones {
+  text-align: end;
+  }
+  
+  .pushbar {
+    background: var(--color-naranjaClaro);
+    color: var(--color-negro);
+    padding: 20px;
+  }
+  
+  .cart .divdeboton {
+  justify-content: center;
+  display: flex;
+  margin: 20px 0;
+  }
+
+  @media (min-width: 768px){
+
+  header .navegador .carrito{
+    padding-left: 30px;
+  }
+}
