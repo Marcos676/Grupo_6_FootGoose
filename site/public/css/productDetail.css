@@ -1,0 +1,49 @@
+/* contenido general */
+.admin-product-detail .padding-r-no {
+    padding-right: 0;
+}
+.admin-product-detail h3 {
+    text-align: center;
+}
+
+/* carrousel */
+.admin-product-detail .carrusel-add-image{
+    justify-self: center;
+    height: auto;
+  }
+  .admin-product-detail .carrusel-add-image .carousel-item {
+    text-align: center;
+    height: 235px;
+  }
+  .admin-product-detail .imagen-carrusel {
+    width: auto
+  }
+  /* Boton de carrusel */
+  .admin-product-detail .carrusel-add-image .boton-image{
+    text-align: center;
+  }
+  .admin-product-detail .carrusel-add-image .boton-image input{
+    display: none;
+  }
+  .admin-product-detail .carrusel-add-image .carousel-item button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-rojo);
+    z-index: 2;
+  }
+  /* Datos */
+.admin-product-detail .borde-inferior{
+    border-bottom: 1px solid var(--color-naranjaClaro);
+}
+.admin-product-detail ul li {
+    text-align: center;
+}
+.admin-product-detail .botones {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+.admin-product-detail .botones a {
+    width: 106px;
+}
