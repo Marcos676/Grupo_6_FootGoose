@@ -6,7 +6,7 @@
   <body>
     <%- include('./partials/header') %>
 
-      <main class="container contenido nuevo-producto">
+      <div class="container contenido nuevo-producto">
         <!-- Titulo -->
         <h1 class="col-12">NUEVO PRODUCTO</h1>
 
@@ -17,15 +17,12 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img src="/images/productos/casaperro1.jpg" class="imagen-carrusel" alt="...">
-                  <button class="btn btn-danger" type="button">X</button>
                 </div>
                 <div class="carousel-item">
                   <img src="/images/productos/casaperro2.jpg" class="imagen-carrusel" alt="...">
-                  <button class="btn btn-danger" type="button">X</button>
                 </div>
                 <div class="carousel-item">
                   <img src="/images/productos/casaperro3.jpg" class="imagen-carrusel" alt="...">
-                  <button class="btn btn-danger" type="button">X</button>
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carousel-controller" role="button" data-slide="prev">
@@ -42,7 +39,6 @@
               <label class="btn btn-success" for="archivo">Agregar foto</label>
               <span class="obligatorio">*</span>
               <input type="file" name="img" id="archivo" multiple >
-
             </div>
           </div>
 
@@ -137,7 +133,7 @@
             <button class="btn btn-success crear col-5" type="submit">Crear</button>
           </div>
         </form>
-      </main>
+      </div>
 
 
       <%- include('./partials/footer') %>

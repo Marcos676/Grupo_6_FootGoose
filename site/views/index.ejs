@@ -4,27 +4,24 @@
   <%- include('./partials/head') %> 
   <body>
     <%- include('./partials/header') %> 
-<div class="home contenido container-fluid">
-  
-      <!--CARRUSEL -->
 
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="images/carrusel1.jpg" class="imagen-carrusel d-block w-100" alt="">
+    <div class="home row">
+         <!--CARRUSEL -->
+         <div id="myCarousel" class="carousel slide col-12" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/carrusel1.jpg" class="imagen-carrusel d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="images/carrusel2.jpg" class="imagen-carrusel d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="images/carrusel3.jpg" class="imagen-carrusel d-block w-100" alt="">
+            </div>
+          </div>
         </div>
-        <div class="carousel-item">
-          <img src="images/carrusel2.jpg" class="imagen-carrusel d-block w-100" alt="">
-        </div>
-        <div class="carousel-item">
-          <img src="images/carrusel3.jpg" class="imagen-carrusel d-block w-100" alt="">
-        </div>
-      </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-      crossorigin="anonymous"></script>
-
+        
+<div class="contenido container-fluid col-12">
 
     <div class="col-sm-8 container-fluid categorias">
       <div class="row categorias-animales">
@@ -79,9 +76,16 @@
     </div>
 
     <br><br>
-
+  </div>
     <%- include('./partials/footer') %> 
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"></script>
+
+
   </body>
 </html>
 

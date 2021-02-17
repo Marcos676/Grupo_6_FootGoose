@@ -1,0 +1,263 @@
+header {
+    background-color: var(--color-naranjaClaro);
+    padding: 5px 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+  }
+   header .header-container {
+    max-width: 1350px;
+  }
+   header .header-container .row{
+    justify-content: space-between;
+    align-content: center;
+    padding-left: 0;
+    }
+  
+  /* Logo */
+  header .logo-container {
+    padding: 0;
+  }
+  header .row .logo-container a img{
+    width: 80px;
+  }
+  
+  /* Contenedor del resto */
+    header .container-principal{
+      display: contents;
+  }
+  
+  
+  /* BUSCADOR */
+  header .buscador {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    display: none;
+  }
+  header form {
+    background-color: var(--color-grisClaro);
+    border-radius: 50px;
+    display: flex;
+    width: 100%;
+  }
+  header form input {
+    background-color: transparent;
+    border: none;
+    border-right: 2px solid var(--color-grisOscuro);
+    padding: 0px 10px;
+    width: 100%;
+    flex-grow: 1;
+    font-family: var(--font);
+  }
+  header form input:focus {
+    outline-width: 0px;
+  }
+  header form button {
+    background: none;
+    border: none;
+    color: var(--color-grisOscuro);
+    margin: 0;
+  }
+  header form button:focus {
+    outline-width: 0px;
+  }
+  
+  
+  /*INGRESAR*/
+  header .ingresar {
+    padding:0;
+    justify-content: center;
+    display: none;
+  }
+  header .ingresar a {
+    text-align: center;
+    font-size: 18px;
+    font-family: var(--font2);
+    color: var(--color-negro);
+    border-radius: .25rem;
+    padding: 3px .75rem;
+    transition: .5s;
+  }
+  header .ingresar a:hover{
+    color: var(--color-blanco);
+    background-color: var(--color-grisOscuro);
+  }
+  
+  header .solo-mobile{
+    display: flex;
+  }
+  
+  
+  /* NAVEGACION CON BURGUER BUTTON */
+  .boton-hamburguesa {
+    display: flex;
+    justify-content: center;
+  }
+  header nav button.burger {
+    color: var(--color-grisOscuro);
+    font-size: 35px;
+  }
+  header nav button.burger:focus {
+    outline-width: 0px;
+  }
+  
+  
+  /* NAVEGACION */
+  header .navegador ul {
+    font-family: var(--font2);
+    border-bottom: 1px solid var(--color-grisOscuro);
+    padding: 0 15px;
+  }
+  header .navegador ul:last-child{
+    border-bottom: none
+  }
+  header .navegador ul li {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 0px 7px;
+    width: 100%;
+    margin: 10px auto;
+  }
+  header .navegador ul li a {
+    font-size: 30px;
+    color: var(--color-negro);
+    transition: .5s ease;
+  }
+  header .navegador ul li a:hover {
+    font-size: 34px;
+    color: var(--color-grisOscuro);
+  }
+  
+  
+  /* carrito */
+  header .navegador .carrito li a {
+    display: flex;
+    justify-content: center;
+    color: var(--color-verde);
+  }
+  header .navegador .carrito li a:hover {
+    font-size: 34px;
+    color: var(--color-verde);
+    transform: rotate(360deg);  
+  }
+  
+  
+  /* Modo nocturno  */
+  input[type="checkbox"]{
+    -webkit-appearance: none;
+    outline: none;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-image: url(https://assets.codepen.io/1148131/18956-NRVK2Q.jpg);
+    background-size: cover;
+    border-radius: 50px;
+    transition: background-image .9s;
+    box-shadow: 0 2px 5px 1px gray;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: rgb(244, 189, 33);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .9s;
+    background-color: #4fc3f7;
+  }
+  input[type="checkbox"]:checked{
+    background-image: url(https://assets.codepen.io/1148131/114955-OP0CAQ-356.jpg);
+  }
+  input[type="checkbox"]:checked::before{
+    transform: translate(100%);
+    background-color: #fdd835;
+  }
+
+  /*---------- MOBILE M ------------*/
+@media (min-width: 375px){
+  /* Header buscador */
+    header .buscador{
+      display: flex;
+    }
+    header form button{
+      margin: 0 8px;
+    }
+  /* Header boton ingresar */
+    header .ingresar{
+      display: flex;
+    }
+  
+    header .solo-mobile{
+      display: none;
+    }
+    /* Contenedor del resto */
+    header .container-principal{
+      display: flex;
+    }
+  
+  }
+  /*---------- TABLET Y DESKTOP Large ------------*/
+  @media (min-width: 768px){
+  /*----------------- HEADER ----------------------*/
+    header {
+    position: initial;
+    }
+  
+    /* contenedor */
+    header .header-container .row{
+      justify-content: space-evenly;
+    }
+    .header-container-principal {
+      padding: 0;
+    }
+  
+  /* LOGO */
+    header .row .logo-container a img{
+      width: 129px;
+    }
+  
+    /* navegador*/
+    header .navegador ul{
+      border-bottom: none;
+    }
+    header .navegador .menu li {
+      border-right: 2px solid var(--color-negro);;
+    }
+    header .navegador .menu li:last-child{
+      border-right: none
+    }
+    header .navegador .menu ul li a{
+      font-size: 20px;
+    }
+  
+    /* ingresar */  
+    header .ingresar a {
+      font-size: 22px;
+      background-color: var(--color-grisClaro);
+      width: 100%;
+    }
+  
+    /* carrito */
+    header .navegador .carrito{
+      padding-left: 30px;
+    }
+  
+    /* boton nocturno */
+    header .navegador .nocturno{
+      padding-left: 30px;
+      padding-right: 0;
+    }
+  @media (min-width: 1200px){
+      /* ------------HEADER--------------- */
+        header .buscador {
+          padding-left: 39px;
+        }
+}
+}
+    

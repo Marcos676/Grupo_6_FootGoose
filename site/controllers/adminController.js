@@ -44,7 +44,7 @@ module.exports = {
 
         setProducts(getProducts)
 
-        res.redirect('/admin/products')
+        res.redirect('admin/products')
     },
     productDetail: (req, res) => {
 
@@ -88,6 +88,7 @@ module.exports = {
             cuantity: +cuantity,
 			price: +price,
 			discount: +discount,
+            finalPrice: +finalPrice,
 			label,
 			expiration
 		}

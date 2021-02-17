@@ -6,7 +6,7 @@
   <body>
     <%- include('./partials/header') %>
 
-      <main class="container contenido nuevo-producto">
+      <div class="container contenido nuevo-producto">
         <!-- Titulo -->
         <h1 class="col">EDITAR PRODUCTO</h1>
 
@@ -17,15 +17,12 @@
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img src="/images/productos/casaperro1.jpg" class="imagen-carrusel" alt="...">
-                  <button class="btn btn-danger" type="button">X</button>
                 </div>
                 <div class="carousel-item">
                   <img src="/images/productos/casaperro2.jpg" class="imagen-carrusel" alt="...">
-                  <button class="btn btn-danger" type="button">X</button>
                 </div>
                 <div class="carousel-item">
                   <img src="/images/productos/casaperro3.jpg" class="imagen-carrusel" alt="...">
-                  <button class="btn btn-danger" type="button">X</button>
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carousel-controller" role="button" data-slide="prev">
@@ -52,22 +49,22 @@
             <!-- Animales y Categorías -->
             <div class="campo-animal margen">
               <select class="seleccionar col-5" name="animal">
-                <option value="perro">Perro</option>
-                <option value="gato">Gato</option>
-                <option value="ave">Ave</option>
-                <option value="pez">Pez</option>
-                <option value="roedor">Roedor</option>
-                <option value="reptil">Reptil</option>
+                <option value="perro" <%= product.animal === 'perro'?'selected' : null %>>Perro</option>
+                <option value="gato"<%= product.animal === 'gato'?'selected' : null %>>Gato</option>
+                <option value="ave" <%= product.animal === 'ave'?'selected' : null %>>Ave</option>
+                <option value="pez" <%= product.animal === 'pez'?'selected' : null %>>Pez</option>
+                <option value="roedor" <%= product.animal === 'roedor'?'selected' : null %>>Roedor</option>
+                <option value="reptil" <%= product.animal === 'reptil'?'selected' : null %>>Reptil</option>
               </select>
               <span class="obligatorio col-1">*</span>
 
               <select class="seleccionar col-5" name="category">
-                <option value="alimento">Alimento</option>
-                <option value="salud">Salud</option>
-                <option value="juguete">Juguete</option>
-                <option value="accesorio">Accesorio</option>
-                <option value="estetica-higiene">Estetica e higiene</option>
-                <option value="farmacia">Farmacia</option>
+                <option value="alimento" <%= product.category === 'alimento'?'selected' : null %>>Alimento</option>
+                <option value="salud" <%= product.category === 'salud'?'selected' : null %>>Salud</option>
+                <option value="juguete" <%= product.category === 'juguete'?'selected' : null %>>Juguete</option>
+                <option value="accesorio" <%= product.category === 'accesorio'?'selected' : null %>>Accesorio</option>
+                <option value="estetica-higiene"  <%= product.category === 'estetica-higiene'?'selected' : null %>>Estetica e higiene</option>
+                <option value="farmacia" <%= product.category === 'farmacia'?'selected' : null %>>Farmacia</option>
               </select>
               <span class="obligatorio col-1">*</span>
 
@@ -105,9 +102,9 @@
             <!-- etiqueta y descuento -->
             <div class="etiqueta-descuento margen">
                 <select class="seleccionar col-5" name="label" id="etiqueta">
-                  <option value="null">Sin etiqueta</option>
-                  <option value="new">Nuevo</option>
-                  <option value="discount">Descuento</option>
+                  <option value="sin etiqueta" <%= product.label === 'no-label'?'selected' : null %>>Sin etiqueta</option>
+                  <option value="nuevo">Nuevo</option>
+                  <option value="descuento">Descuento</option>
                 </select>  
                 <!-- Espacio -->
                 <div class="col-1"></div>
@@ -137,7 +134,7 @@
             <button class="btn btn-success crear col-5" type="submit">Aceptar</button>
           </div>
         </form>
-      </main>
+      </div>
 
 
       <%- include('./partials/footer') %>

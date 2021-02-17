@@ -6,14 +6,15 @@
     <body>
         <%- include('./partials/header') %>
 
-            <div class="container contenido admin-product-detail padding-r-no row">
-                <!-- Titulo -->
-                <h3 class="col">
-                    <%= product.name %>
-                </h3>
+            <div class="container contenido row admin-product-detail">
+
                 <!-- Carrusel -->
                 <div class="carrusel-add-image col-12 col-lg-6">
-                    <div id="carousel-controller" class="carousel slide" data-ride="carousel">
+                    <!-- Titulo -->
+                    <h3 class="col-12 centrar">
+                        <%= product.name %>
+                    </h3>
+                    <div id="carousel-controller" class="carousel slide col-12" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="/images/productos/casaperro1.jpg" class="imagen-carrusel" alt="...">
@@ -34,63 +35,65 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                </div>
-                <!-- Datos -->
-                <div class="padding-r-no col-12 col-lg-4">
-                    <article>
-                        <p class="borde-inferior">
-                            Descripción: <%= product.description %>
-                        </p>
-                        <ul class="borde-inferior">
-                            <li>
-                                <p>Precio original: $<%= product.price %>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Descuento: <%= product.discount %> %</p>
-                            </li>
-                            <li>
-                                <p>Precio final: $<%= product.finalPrice %>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Etiqueta: <%= product.label %>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Vencimiento de etiqueta: <%= product.expiration %>
-                                </p>
-                            </li>
-                        </ul>
-                        <ul class="borde-inferior">
-                            <li>
-                                <p>Cantidad: <%= product.cuantity %>
-                                </p>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <p>Para: <%= product.animal %>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Categoría: <%= product.category %>
-                                </p>
-                            </li>
-                            <li>
-                                <p>Sub-categoría: <%= product.subCategory %>
-                                </p>
-                            </li>
-                        </ul>
-                        <form action="/admin/products/<%= product.id %>?_method=DELETE " method="POST">
-                            <div class="botones">
-                                <a href="/admin/products/<%= product.id %> /edit" class="btn btn-success">Editar</a>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </div>
-                        </form>
-                    </article>
+                    <!-- descripcion -->
+                    <p class="centrar col-12">Descripción: <%= product.description %>
+                    </p>
                 </div>
 
+                <!-- Datos -->
+                <div class="padding-r-no col-12 col-lg-6 centrar">
+                    
+                    <ul class="borde-inferior">
+                        <li>
+                            <p>Para: <%= product.animal %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Categoría: <%= product.category %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Sub-categoría: <%= product.subCategory %>
+                            </p>
+                        </li>
+                    </ul>
+                    <ul class="borde-inferior">
+                        <li>
+                            <p>Precio original: $<%= product.price %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Descuento: <%= product.discount %>%</p>
+                        </li>
+                        <li>
+                            <p>Precio final: $<%= product.finalPrice %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Etiqueta: <%= product.label %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Vencimiento de etiqueta: <%= product.expiration %>
+                            </p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p>Cantidad: <%= product.cuantity %>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-12">
+                    <form action="/admin/products/<%= product.id %>?_method=DELETE " method="POST">
+                        <div class="botones">
+                            <a href="/admin/products/<%= product.id %> /edit" class="btn btn-success">Editar</a>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <%- include('./partials/footer') %>
