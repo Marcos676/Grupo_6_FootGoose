@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "name": "Cucha de perro",
-    "description": "Cucha impermeable de tales dimensiones",
+    "name": "Casa de perro",
+    "description": "Casa impermeable de tales dimensiones",
     "img": "",
     "animal": "roedor",
     "category": "accesorio",
-    "subCategory": "Cucha  ",
+    "subCategory": "Casa ",
     "cuantity": 11,
     "price": 1200,
     "discount": 10,
     "finalPrice": 1080,
-    "label": "nuevo",
+    "label": "descuento",
     "expiration": "2021-02-20"
   }
 ]

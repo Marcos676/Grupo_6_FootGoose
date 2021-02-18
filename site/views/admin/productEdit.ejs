@@ -102,9 +102,9 @@
             <!-- etiqueta y descuento -->
             <div class="etiqueta-descuento margen">
                 <select class="seleccionar col-5" name="label" id="etiqueta">
-                  <option value="sin etiqueta" <%= product.label === 'no-label'?'selected' : null %>>Sin etiqueta</option>
-                  <option value="nuevo">Nuevo</option>
-                  <option value="descuento">Descuento</option>
+                  <option value="sin etiqueta" <%= product.label === 'sin etiqueta'?'selected' : null %>>Sin etiqueta</option>
+                  <option value="nuevo" <%= product.label === 'nuevo'?'selected' : null %>>Nuevo</option>
+                  <option value="descuento" <%= product.label === 'descuento'?'selected' : null %>>Descuento</option>
                 </select>  
                 <!-- Espacio -->
                 <div class="col-1"></div>

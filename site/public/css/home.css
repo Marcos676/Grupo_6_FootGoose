@@ -1,8 +1,3 @@
-
-.home {
-  display: flex;
-  justify-content: center;
-}
 #myCarousel{
     width: 100%;
     display: none;

@@ -44,7 +44,7 @@ module.exports = {
 
         setProducts(getProducts)
 
-        res.redirect('admin/products')
+        res.redirect('/admin/products')
     },
     productDetail: (req, res) => {
 
