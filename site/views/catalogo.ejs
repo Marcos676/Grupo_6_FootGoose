@@ -1,122 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
-  
-  <%- include('./partials/head') %> 
+
+<%- include('./partials/head') %>
+
   <body>
-    <%- include('./partials/header') %> 
+    <%- include('./partials/header') %>
 
-    <main class="container-fluid contenido catalogo">
+      <main class="container-fluid contenido catalogo">
 
-      <h1>PAGINA EN CONSTRUCCION <i class="fas fa-tools"></i></h1>
+        <h1>PAGINA EN CONSTRUCCION <i class="fas fa-tools"></i></h1>
 
-      <div class="row">
-        <!-- FILTRO SUPERIOR -->
-        <div class="filtro-superior col-12 row">
-          <!-- Rutas -->
-          <nav aria-label="breadcrumb ruta col-5">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
-              <li class="breadcrumb-item active" aria-current="page"> actual </li>
-            </ol>
-          </nav>
-          <!-- Resultados de busqueda -->
-          <div class="resultado col-3">
-            <p>Resultados: 8</p>
+        <div class="row">
+          <!-- FILTRO SUPERIOR -->
+          <div class="filtro-superior col-12 row">
+            <!-- Rutas -->
+            <section aria-label="breadcrumb col-2 ruta">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> actual </li>
+              </ol>
+            </section>
+            <!-- Resultados de busqueda -->
+            <div class="resultado col-2">
+              <p>Resultados: 8</p>
+            </div>
+            <!-- Ordenar por -->
+            <div class="topfilter col-2">
+                <form action="">
+                  <label for="ordenar">Ordenar por: </label>
+                  <select name="oredenar" id="ordenar">
+                    <option value="nuevo">Más nuevo</option>
+                    <option value="vendido">Más vendido</option>
+                    <option value="favoritos">Favoritos</option>
+                  </select>
+                </form>
+            </div>
+
+            <!-- FILTRO IZQUIERDO -->
           </div>
-          <!-- Ordenar por -->
-          <div class="col-4">
-            <form action="">
-          <label for="ordenar">Ordenar por: </label>
-              <select name="oredenar" id="ordenar">
-                  <option value="nuevo">Más nuevo</option>
-                  <option value="vendido">Más vendido</option>
-                 <option value="favoritos">Favoritos</option>
-              </select>
+          <div class="filtro-izquierdo col-3">
+            <!-- animales -->
+            <div class="animales">
+              <h3>Comprar por</h3>
+              <section class="imgs">
+                <button>
+                  <img src="/images/categorias/iconoPerro.png" alt="Enlace a Perro"></a></li>
+                </button>
+                <button>
+                  <img src="/images/categorias/iconoGato.png" alt="Enlace a Gato"></a></li>
+                </button>
+                <button>
+                  <img src="/images/categorias/iconoPez.png" alt="Enlace a Pez"></a></li>
+                </button>
+                <button>
+                  <img src="/images/categorias/iconoAve.png" alt="Enlace a Ave"></a></li>
+                </button>
+                <button>
+                  <img src="/images/categorias/iconoRoedor.png" alt="Enlace a Roedor"></a></li>
+                </button>
+                <button>
+                  <img src="/images/categorias/iconoReptil.png" alt="Enlace a Reptil"></a></li>
+                </button>
+                </ul>
+            </div>
+            <!-- Rango de precio -->
+            <form>
+              <div class="form-group">
+                <label for="formControlRange">Filtrar por precio</label>
+                <input type="range" min="100" max="9000" step="1" class="form-control-range" id="formControlRange">
+                <span>100</span> <span>10000</span>
+              </div>
             </form>
+            <!-- PRODUCTOS -->
           </div>
+          <section class="col-9">
+            <article class="mas-nuevo col-12">
 
-          <!-- FILTRO IZQUIERDO -->
-        </div>
-        <div class="filtro-izquierdo col-4">
-          <!-- animales -->
-          <div class="animales">
-            <h3>Comprar por</h3>
-            <ul>
-              <li><a href=""><img src="/images/categorias/iconoPerro.png" alt="Enlace a Perro"></a></li>
-              <li><a href=""><img src="/images/categorias/iconoGato.png" alt="Enlace a Gato"></a></li>
-              <li><a href=""><img src="/images/categorias/iconoPez.png" alt="Enlace a Pez"></a></li>
-              <li><a href=""><img src="/images/categorias/iconoAve.png" alt="Enlace a Ave"></a></li>
-              <li><a href=""><img src="/images/categorias/iconoRoedor.png" alt="Enlace a Roedor"></a></li>
-              <li><a href=""><img src="/images/categorias/iconoReptil.png" alt="Enlace a Reptil"></a></li>
-            </ul>
-          </div>
-          <!-- Rango de precio -->
-          <form>
-            <div class="form-group">
-              <label for="formControlRange">Filtrar por precio</label>
-              <input type="range" min="100" max="9000" step="1" class="form-control-range" id="formControlRange">
-              <span>100</span> <span>10000</span>
-            </div>
-          </form>
-          <!-- PRODUCTOS -->
-        </div>
-        <section class="col-8">
-          <article class="mas-nuevo col-12">
+              <h3>Lo más nuevo</h3>
 
-            <h3>Lo más nuevo</h3>
-
-            <div class="row">
-              <% for( let index = 1; index <= 4; index++ ) { %>
-                <div class="card producto col-3" >
-                  <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
-                  <div class="producto-datos">
-                    <h5 class="titulo producto">Wiscas adulto de carne</h5>
-                    <p><span class="precio-final">420</span><span class="descontado">500</span></p>
-                    <input type="number" min="1" max="100" step="1" value="1" />
-                    <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
+              <div class="row">
+                <% for( let index=1; index <=3; index++ ) { %>
+                  <div class="card producto col-sm-3">
+                    <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
+                    <div class="producto-datos">
+                      <h5 class="titulo producto">Wiscas adulto de carne</h5>
+                      <p><span class="precio-final">420</span><span class="descontado">500</span></p>
+                      <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
+                    </div>
                   </div>
-                </div>
-              <% } %>
-            </div>
+                  <% } %>
+              </div>
+
+            </article>
             
-          </article>
+            <article class="mas-vendido col-12">
+              <h3>Lo mas vendido</h3>
+              <div class="row">
+                <% for( let index=1; index <=3; index++ ) { %>
+                  <div class="card producto col-sm-3">
+                    <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
+                    <div class="producto-datos">
+                      <h5 class="titulo producto">Wiscas adulto de carne</h5>
+                      <p><span class="precio-final">420</span><span class="descontado">500</span></p>
+                      <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
+                    </div>
+                  </div>
+                  <% } %>
+              </div>
+            </article>
+            <!-- Páginas -->
+            <div class="paginas col-12">
+              <nav aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
 
-          <article class="mas-vendido col-12">
-            <h3>Lo mas vendido</h3>
-          </article>
-          <!-- Páginas -->
-          <div class="paginas col-12">
-            <nav aria-label="...">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
+                </ul>
+              </nav>
+            </div>
+          </section>
 
-              </ul>
-            </nav>
-          </div>
-        </section>
-        
 
-      </div>
+        </div>
 
-      
-    
 
-  <%- include('./partials/footer') %> 
-</main>
+
+
+        <%- include('./partials/footer') %>
+      </main>
   </body>
+
 </html>
