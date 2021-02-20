@@ -2,44 +2,41 @@
 <html lang="es">
 
 <%- include('./partials/head') %>
-
   <body>
     <%- include('./partials/header') %>
 
       <main class="container-fluid contenido catalogo">
 
-        <h1>PAGINA EN CONSTRUCCION <i class="fas fa-tools"></i></h1>
-
         <div class="row">
           <!-- FILTRO SUPERIOR -->
           <div class="filtro-superior col-12 row">
             <!-- Rutas -->
-            <section aria-label="breadcrumb col-2 ruta">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
-                <li class="breadcrumb-item active" aria-current="page"> actual </li>
-              </ol>
-            </section>
+            <div class="col-5">
+              <section aria-label="breadcrumb ruta">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> actual </li>
+                </ol>
+              </section>
+            </div>
             <!-- Resultados de busqueda -->
-            <div class="resultado col-2">
+            <div class="resultado col-5">
               <p>Resultados: 8</p>
             </div>
             <!-- Ordenar por -->
             <div class="topfilter col-2">
-                <form action="">
-                  <label for="ordenar">Ordenar por: </label>
-                  <select name="oredenar" id="ordenar">
-                    <option value="nuevo">Más nuevo</option>
-                    <option value="vendido">Más vendido</option>
-                    <option value="favoritos">Favoritos</option>
-                  </select>
-                </form>
+              <label for="ordenar">Ordenar por: </label>
+              <select name="oredenar" id="ordenar">
+                <option value="nuevo">Más nuevo</option>
+                <option value="vendido">Más vendido</option>
+                <option value="favoritos">Favoritos</option>
+              </select>
             </div>
 
             <!-- FILTRO IZQUIERDO -->
           </div>
-          <div class="filtro-izquierdo col-3">
+          <div class="filtro-izquierdo col-sm-4 col-md-3">
             <!-- animales -->
             <div class="animales">
               <h3>Comprar por</h3>
@@ -74,7 +71,7 @@
             </form>
             <!-- PRODUCTOS -->
           </div>
-          <section class="col-9">
+          <section class="col-sm-8 col-md-9">
             <article class="mas-nuevo col-12">
 
               <h3>Lo más nuevo</h3>
@@ -82,10 +79,16 @@
               <div class="row">
                 <% for( let index=1; index <=3; index++ ) { %>
                   <div class="card producto col-sm-3">
+                    <div class="containerheart">
+                      <i onclick="toggle()" id="btn" class="far fa-star"></i>
+                    </div>
                     <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
                     <div class="producto-datos">
                       <h5 class="titulo producto">Wiscas adulto de carne</h5>
                       <p><span class="precio-final">420</span><span class="descontado">500</span></p>
+                      <div class="box">
+                        <input type="number">
+                        </div>  
                       <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
                     </div>
                   </div>
@@ -93,12 +96,15 @@
               </div>
 
             </article>
-            
+
             <article class="mas-vendido col-12">
               <h3>Lo mas vendido</h3>
               <div class="row">
                 <% for( let index=1; index <=3; index++ ) { %>
                   <div class="card producto col-sm-3">
+                    <div class="containerheart">
+                      <i onclick="toggle()" id="btn" class="far fa-star"></i>
+                    </div>
                     <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
                     <div class="producto-datos">
                       <h5 class="titulo producto">Wiscas adulto de carne</h5>
@@ -137,11 +143,26 @@
 
         </div>
 
-
-
-
         <%- include('./partials/footer') %>
       </main>
+      <script>
+        var btn = document.getElementById('btn');
+    
+        function toggle(){
+          if(btn.classList.contains == "far"){
+          btn.classList.remove("far");
+          btn.classList.add("fas")
+        }else{
+          btn.classList.remove("fas");
+          btn.classList.add("far")
+        }
+        }
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="node_modules/jquery.nice-number/dist/jquery.nice-number.min.js"></script>
+      <script>
+        $('input[type="number"]').niceNumber();
+      </script>
   </body>
-
 </html>
+

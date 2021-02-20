@@ -2,6 +2,10 @@
     margin: 5px 10px;
 }
 
+.filtro-superior {
+	display: none;
+}
+
 .catalogo .animales .imgs img{
     width: 80px;
 }
@@ -14,116 +18,64 @@
     background-color: transparent;
 }
 
-.click {
-	font-size: 33px;
-	color: rgba(0,0,0,.5);
-	width: 38px;
-	height: 38px;
-	margin: 0 auto;
-	margin-top: 20px;
-	position: relative;
-	cursor: pointer;
-}
-
-.click span {
-	margin-left: 4px;
-	margin-top: 3px;
-	z-index: 999;
+.catalogo .containerheart {
 	position: absolute;
+	padding: 5px;
+	left: 75%;
+	top: 5%;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+	border-radius: 30px;
+	background-color: #fafafa;
 }
 
-span:hover {
-	opacity: 0.8;
+.catalogo .containerheart i{
+font-size: 1.5rem;
+transition: .4s;
 }
 
-span:active {
-	transform: scale(0.93,0.93) translateY(2px)
+.catalogo .containerheart .fas {
+	color: gold;
+	transition: .4s;
 }
 
-.ring, .ring2 {
-	opacity: 0;
-	background: grey;
-	width: 1px;
-	height: 1px;
-	position: absolute;
-	top: 19px;
-	left: 18px;
-	border-radius: 50%;
-	cursor: pointer;
+.catalogo .containerheart:hover i{
+	color: gold;
 }
 
-.active span, .active-2 span {
-	color: #F5CC27 !important;
+.catalogo .card .box input {
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+
 }
 
-.active-2 .ring {
-	width: 58px !important;
-	height: 58px !important;
-	top: -10px !important;
-	left: -10px !important;
-	position: absolute;
-	border-radius: 50%;
-	opacity: 1 !important;
+.catalogo .card .box input:hover,
+.catalogo .card .box input:focus {
+background: #f5cd76;
+color: #000;
+}
+/* responsive */
+
+@media (max-width: 320px) {
+.catalogo .animales .imgs img {
+	width: 80px;
 }
 
-.active-2 .ring {
-	background: #F5CC27 !important;
 }
 
-.active-2 .ring2 {
-	background: #fff !important;
+@media (min-width: 425px) {
+	.catalogo .animales .imgs img {
+		width: 100px;
+	}
 }
 
-.active-3 .ring2 {
-	width: 60px !important;
-	height: 60px !important;
-	top: -11px !important;
-	left: -11px !important;
-	position: absolute;
-	border-radius: 50%;
-	opacity: 1 !important;
+@media (min-width: 768px) {
+.catalogo .animales .imgs img {
+	width: 65px;
 }
-
-.info {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 12px;
-	font-weight: 600;
-	text-transform: uppercase;
-	white-space: nowrap;
-	color: grey;
-	position: relative;
-	top: 30px;
-	left: -46px;
-	opacity: 0;
-	transition: all 0.3s ease;
+.filtro-superior {
+display: inline-flex;
 }
-
-.info-tog {
-	color: #F5CC27;
-	position: relative;
-	top: 45px;
-	opacity: 1;
 }
-
-.container{
-    position:absolute;
-    max-width:100%;
-    height:600px;
-  }
-  
-  svg{
-    max-width:100%;
-    visibility:hidden;
-   
-  }
-  text {
-     -moz-user-select: -moz-none;
-     -khtml-user-select: none;
-     -webkit-user-select: none;
-     -ms-user-select: none;
-     user-select: none;
-  }
-  #hit{
-    cursor:pointer;
-    
-  }
