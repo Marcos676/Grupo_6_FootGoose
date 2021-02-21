@@ -48,21 +48,24 @@
 ## Retrospectiva Sprint 3
 
 ### Comenzar a hacer:
-- 
+- Ver las unidades del playgrounds antes de que llegue su respectivo sprint (Marcos)
+- Escribir el daily el mismo día que transcurre para que no se atrasen al final de la semana. (Sofía)
 
 ### Continuar haciendo:
 - Reuniones programadas
 - Productividad en las reuniones
 - Comunicación efectiva entre colaboradores
 - Correcta división del trabajo
+- Dailys diarias
+- Innovación a nivel de diseño
+- Dar prioridad a entregables del proyecto
 
 ### Dejar de hacer:
-- 
+- Frustración frente al estancamiento en el código
 
 ### Hacer menos:
-
+- Tiempo de recreación (Marcos)
+- Elementos adicionales al proyecto sin antes terminar lo requerido (Marcos)
 
 ### Hacer mas: 
-- 
-
-
+- Pedir ayuda cuando es necesario (Marcos)
