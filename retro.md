@@ -48,8 +48,8 @@
 ## Retrospectiva Sprint 3
 
 ### Comenzar a hacer:
-- Ver las unidades del playgrounds antes de que llegue su respectivo sprint (Marcos)
-- Escribir el daily el mismo día que transcurre para que no se atrasen al final de la semana. (Sofía)
+- Ver las unidades del playgrounds antes de que llegue su respectivo sprint
+- Escribir el daily el mismo día que transcurre para que no se atrasen al final de la semana.
 
 ### Continuar haciendo:
 - Reuniones programadas
@@ -68,4 +68,4 @@
 - Elementos adicionales al proyecto sin antes terminar lo requerido (Marcos)
 
 ### Hacer mas: 
-- Pedir ayuda cuando es necesario (Marcos)
+- Pedir ayuda cuando es necesario
