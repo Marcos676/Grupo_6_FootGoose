@@ -2,10 +2,6 @@
     margin: 5px 10px;
 }
 
-.filtro-superior {
-	display: none;
-}
-
 .catalogo .animales .imgs img{
     width: 80px;
 }
@@ -14,8 +10,14 @@
     background-color: transparent;
 }
 
+.catalogo .resultado,
+.catalogo .topfilter {
+text-align: center;
+}
 .catalogo .breadcrumb {
-    background-color: transparent;
+display: flex;
+background-color: transparent;
+justify-content: center;
 }
 
 .catalogo .containerheart {
@@ -75,7 +77,13 @@ color: #000;
 .catalogo .animales .imgs img {
 	width: 65px;
 }
-.filtro-superior {
-display: inline-flex;
+.catalogo .resultado,
+.catalogo .topfilter {
+	text-align: left;
+}
+.catalogo .breadcrumb {
+	display: inline-flex;
+	background-color: transparent;
+	justify-content: left;
 }
 }

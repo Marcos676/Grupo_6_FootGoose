@@ -11,7 +11,7 @@
           <!-- FILTRO SUPERIOR -->
           <div class="filtro-superior col-12 row">
             <!-- Rutas -->
-            <div class="col-5">
+            <div class="col-md-5 col-sm-6">
               <section aria-label="breadcrumb ruta">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -21,17 +21,21 @@
               </section>
             </div>
             <!-- Resultados de busqueda -->
-            <div class="resultado col-5">
+            <div class="resultado col-md-5 col-sm-6">
               <p>Resultados: 8</p>
             </div>
             <!-- Ordenar por -->
-            <div class="topfilter col-2">
-              <label for="ordenar">Ordenar por: </label>
-              <select name="oredenar" id="ordenar">
-                <option value="nuevo">Más nuevo</option>
-                <option value="vendido">Más vendido</option>
-                <option value="favoritos">Favoritos</option>
-              </select>
+            <div class="topfilter col-md-2 col-sm-12">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Ordenar por:
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Más nuevo</a>
+                  <a class="dropdown-item" href="#">Más vendido</a>
+                  <a class="dropdown-item" href="#">Favoritos</a>
+                </div>
+              </div>
             </div>
 
             <!-- FILTRO IZQUIERDO -->
@@ -77,22 +81,22 @@
               <h3>Lo más nuevo</h3>
 
               <div class="row">
-                <% for( let index=1; index <=3; index++ ) { %>
+                <% products.forEach(product => { %>
                   <div class="card producto col-sm-3">
                     <div class="containerheart">
                       <i onclick="toggle()" id="btn" class="far fa-star"></i>
                     </div>
-                    <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
+                    <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
                     <div class="producto-datos">
-                      <h5 class="titulo producto">Wiscas adulto de carne</h5>
-                      <p><span class="precio-final">420</span><span class="descontado">500</span></p>
+                      <h5 class="titulo producto"><%=product.name%> </h5>
+                      <p><span class="precio-final"><%= product.finalPrice %> </span><span class="descontado"><%= product.discount %> </span></p>
                       <div class="box">
-                        <input type="number">
+                        <input type="number" max="<%= product.cuantity %> ">
                         </div>  
                       <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
                     </div>
                   </div>
-                  <% } %>
+                  <% }) %>
               </div>
 
             </article>
@@ -109,6 +113,9 @@
                     <div class="producto-datos">
                       <h5 class="titulo producto">Wiscas adulto de carne</h5>
                       <p><span class="precio-final">420</span><span class="descontado">500</span></p>
+                      <div class="box">
+                        <input type="number">
+                        </div>  
                       <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
                     </div>
                   </div>
@@ -145,7 +152,7 @@
 
         <%- include('./partials/footer') %>
       </main>
-      <script>
+<!--       <script>
         var btn = document.getElementById('btn');
     
         function toggle(){
@@ -162,7 +169,7 @@
       <script src="node_modules/jquery.nice-number/dist/jquery.nice-number.min.js"></script>
       <script>
         $('input[type="number"]').niceNumber();
-      </script>
+      </script> -->
   </body>
 </html>
 
