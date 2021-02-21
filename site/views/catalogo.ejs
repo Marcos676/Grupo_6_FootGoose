@@ -104,22 +104,22 @@
             <article class="mas-vendido col-12">
               <h3>Lo mas vendido</h3>
               <div class="row">
-                <% for( let index=1; index <=3; index++ ) { %>
+                <% products.forEach(product => { %>
                   <div class="card producto col-sm-3">
                     <div class="containerheart">
                       <i onclick="toggle()" id="btn" class="far fa-star"></i>
                     </div>
-                    <img src="/images/productos/Carne-Adulto.jpg" class="card-img-top" alt="imagen de producto">
+                    <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
                     <div class="producto-datos">
-                      <h5 class="titulo producto">Wiscas adulto de carne</h5>
-                      <p><span class="precio-final">420</span><span class="descontado">500</span></p>
+                      <h5 class="titulo producto"><%=product.name%> </h5>
+                      <p><span class="precio-final"><%= product.finalPrice %> </span><span class="descontado"><%= product.discount %> </span></p>
                       <div class="box">
-                        <input type="number">
+                        <input type="number" max="<%= product.cuantity %> ">
                         </div>  
                       <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
                     </div>
                   </div>
-                  <% } %>
+                  <% }) %>
               </div>
             </article>
             <!-- Páginas -->
