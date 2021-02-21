@@ -17,6 +17,7 @@
 ### Hacer mas: 
 - Productividad en las reuniones
 
+
 ## Retrospectiva Sprint 2
 
 ### Comenzar a hacer:
@@ -42,3 +43,26 @@
 ### Hacer mas: 
 - Buscar referencias o plantillas para diseño/desarrollo en la web
 - Innovación a nivel de diseño
+
+
+## Retrospectiva Sprint 3
+
+### Comenzar a hacer:
+- 
+
+### Continuar haciendo:
+- Reuniones programadas
+- Productividad en las reuniones
+- Comunicación efectiva entre colaboradores
+- Correcta división del trabajo
+
+### Dejar de hacer:
+- 
+
+### Hacer menos:
+
+
+### Hacer mas: 
+- 
+
+
