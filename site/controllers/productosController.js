@@ -1,11 +1,12 @@
-
+const {getProducts, setProducts} = require('../data/products_db');
 
 module.exports = {
     catalogo: (req, res) => {
 
 
         res.render('catalogo', {
-            title: 'Catalogo'
+            title: 'Catalogo',
+            products: getProducts
         })
     },
 	detalle : (req,res)=>{

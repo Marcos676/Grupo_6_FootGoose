@@ -6,7 +6,7 @@ module.exports = {
 
         res.render('admin/products', {
             title: 'Lista de productos',
-            productsList: getProducts
+            products: getProducts
         })
     },
     productAdd: (req, res) => {
@@ -17,7 +17,7 @@ module.exports = {
     },
     createProcess: (req, res) => {
         let {animal, category, subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice} = req.body
-        res.send(req.file)
+
         let lastID = 0
         getProducts.forEach(product => {
             if (lastID < product.id) {
@@ -29,7 +29,7 @@ module.exports = {
             id: +lastID + 1,
             name,
             description,
-            img: req.body.img,
+            img: req.files[0].filename,
             animal,
             category,
             subCategory,

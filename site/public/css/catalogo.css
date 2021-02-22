@@ -1,0 +1,89 @@
+.catalogo .card {
+    margin: 5px 10px;
+}
+
+.catalogo .animales .imgs img{
+    width: 80px;
+}
+.catalogo .animales .imgs button {
+    border: none;
+    background-color: transparent;
+}
+
+.catalogo .resultado,
+.catalogo .topfilter {
+text-align: center;
+}
+.catalogo .breadcrumb {
+display: flex;
+background-color: transparent;
+justify-content: center;
+}
+
+.catalogo .containerheart {
+	position: absolute;
+	padding: 5px;
+	left: 75%;
+	top: 5%;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+	border-radius: 30px;
+	background-color: #fafafa;
+}
+
+.catalogo .containerheart i{
+font-size: 1.5rem;
+transition: .4s;
+}
+
+.catalogo .containerheart .fas {
+	color: gold;
+	transition: .4s;
+}
+
+.catalogo .containerheart:hover i{
+	color: gold;
+}
+
+.catalogo .card .box input {
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+
+}
+
+.catalogo .card .box input:hover,
+.catalogo .card .box input:focus {
+background: #f5cd76;
+color: #000;
+}
+/* responsive */
+
+@media (max-width: 320px) {
+.catalogo .animales .imgs img {
+	width: 80px;
+}
+
+}
+
+@media (min-width: 425px) {
+	.catalogo .animales .imgs img {
+		width: 100px;
+	}
+}
+
+@media (min-width: 768px) {
+.catalogo .animales .imgs img {
+	width: 65px;
+}
+.catalogo .resultado,
+.catalogo .topfilter {
+	text-align: left;
+}
+.catalogo .breadcrumb {
+	display: inline-flex;
+	background-color: transparent;
+	justify-content: left;
+}
+}
