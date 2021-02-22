@@ -17,7 +17,7 @@ module.exports = {
     },
     createProcess: (req, res) => {
         let {animal, category, subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice} = req.body
-
+        res.send(req.file)
         let lastID = 0
         getProducts.forEach(product => {
             if (lastID < product.id) {

@@ -3,59 +3,79 @@
     "nombre": "Fairfax Dunhill",
     "correo electrónico": "fdunhill0@goo.gl",
     "dirección": "16602 Saint Paul Center",
-    "teléfono": "4185114199"
+    "teléfono": "4185114199",
+    "favoritos": [1,4,21,132],
+    "admin": 1
   }, {
     "id": 2,
     "nombre": "Kimberley Gerg",
     "correo electrónico": "kgerg1@huffingtonpost.com",
     "address": "68892 Golf Course Park",
-    "teléfono": "9128525450"
+    "teléfono": "9128525450",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 3,
     "nombre": "Hazlett Cadalleder",
     "correo electrónico": "hcadalleder2@xrea.com",
     "address": "972 Burning Wood Drive",
-    "teléfono": "1123146709"
+    "teléfono": "1123146709",
+    "favoritos": [1,4,21,132],
+    "admin": 1
   }, {
     "id": 4,
     "nombre": "Dorree Rzehorz",
     "correo electrónico": "drzehorz3@fda.gov",
     "address": "7 Gerald Court",
-    "teléfono": "4992559497"
+    "teléfono": "4992559497",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 5,
     "nombre": "Cale Farrar",
     "email": "cfarrar4@google.ca",
     "address": "1 Colorado Circle",
-    "teléfono": "7157852833"
+    "teléfono": "7157852833",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 6,
     "nombre": "Eduard Dupree",
     "correo electrónico": "edupree5@uiuc.edu",
     "dirección": "80113 Prairieview Terrace",
-    "teléfono": "7708149078"
+    "teléfono": "7708149078",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 7,
     "nombre": "Ruby Filewood",
     "correo electrónico": "rfilewood6@state.tx.us",
     "address": "28216 Canary Junction",
-    "teléfono": "3362114526"
+    "teléfono": "3362114526",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 8,
     "nombre": "Chelsae Kitter",
     "correo electrónico": "ckitter7@bandcamp.com",
     "address": "3 Walton Terrace",
-    "teléfono": "1084541685"
+    "teléfono": "1084541685",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 9,
     "nombre": "Evan Darker",
     "correo electrónico": "edarker8@tamu.edu",
     "dirección": "12 Schiller Road",
-    "teléfono": "1992608621"
+    "teléfono": "1992608621",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }, {
     "id": 10,
     "nombre": "Britney Scarlet",
     "correo electrónico": "bscarlet9@yahoo.com",
     "dirección": "4 Shopko Point",
-    "teléfono": "5497578927"
+    "teléfono": "5497578927",
+    "favoritos": [1,4,21,132],
+    "admin": 0
   }]
