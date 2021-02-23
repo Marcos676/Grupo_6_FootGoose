@@ -25,11 +25,16 @@ module.exports = {
             }
         });
 
+        let images = []
+        req.files.map(nombre => {
+            images.push(nombre.filename)
+        })
+
         newProduct = {
             id: +lastID + 1,
             name,
             description,
-            img: req.files[0].filename,
+            img: images,
             animal,
             category,
             subCategory,
@@ -40,6 +45,7 @@ module.exports = {
             expiration,
             finalPrice: +finalPrice
         }
+        
         getProducts.push(newProduct)
 
         setProducts(getProducts)
@@ -56,7 +62,8 @@ module.exports = {
 
         res.render('admin/productDetail', {
             title: 'Detalle',
-            product: producto
+            product: producto,
+            img: producto.img
         })
     },
     productEdit: (req,res) => {
