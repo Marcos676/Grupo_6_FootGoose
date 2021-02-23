@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "name": "Alimento para aves",
+    "description": "",
+    "img": [
+      "products-1614050370860.png"
+    ],
+    "animal": "ave",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 250,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 225
+  },
+  {
+    "id": 2,
+    "name": "Alimento para gatos",
+    "description": "",
+    "img": [
+      "products-1614050417626.png"
+    ],
+    "animal": "gato",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 250,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 225
+  },
+  {
+    "id": 3,
+    "name": "Alimento para reptiles",
+    "description": "",
+    "img": [
+      "products-1614050479686.jpg"
+    ],
+    "animal": "reptil",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 250,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 225
+  },
+  {
+    "id": 4,
+    "name": "Casa para perro primer modelo",
+    "description": "",
+    "img": [
+      "products-1614050518586.jpg"
+    ],
+    "animal": "perro",
+    "category": "accesorio",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 500,
+    "discount": 10,
+    "label": "null",
+    "expiration": "2021-02-23",
+    "finalPrice": 450
+  },
+  {
+    "id": 5,
+    "name": "Casa para perro segundo modelo",
+    "description": "",
+    "img": [
+      "products-1614050550265.jpg"
+    ],
+    "animal": "perro",
+    "category": "accesorio",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 500,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 450
+  },
+  {
+    "id": 6,
+    "name": "Alpiste",
+    "description": "",
+    "img": [
+      "products-1614050600001.jpg"
+    ],
+    "animal": "ave",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 200,
+    "discount": 5,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 190
+  },
+  {
+    "id": 7,
+    "name": "Bebedero de hamster",
+    "description": "",
+    "img": [
+      "products-1614050634771.jpg"
+    ],
+    "animal": "roedor",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 250,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 225
+  },
+  {
+    "id": 8,
+    "name": "Juguete para gato",
+    "description": "",
+    "img": [
+      "products-1614050666132.jpg"
+    ],
+    "animal": "gato",
+    "category": "juguete",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 200,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 180
+  },
+  {
+    "id": 9,
+    "name": "Cueva de reptiles",
+    "description": "",
+    "img": [
+      "products-1614050695135.jpg"
+    ],
+    "animal": "reptil",
+    "category": "accesorio",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 500,
+    "discount": 10,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 450
+  },
+  {
+    "id": 10,
+    "name": "Pecera",
+    "description": "",
+    "img": [
+      "products-1614050725774.jpg"
+    ],
+    "animal": "pez",
+    "category": "accesorio",
+    "subCategory": "",
+    "cuantity": 10,
+    "price": 250,
+    "discount": 5,
+    "label": "new",
+    "expiration": "2021-02-23",
+    "finalPrice": 230
+  }
+]

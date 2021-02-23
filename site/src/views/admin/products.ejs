@@ -106,10 +106,8 @@
                     <div class="producto-datos">
                       <h5 class="titulo producto"><%=product.name%> </h5>
                       <p><span class="precio-final"><%= product.finalPrice %> </span><span class="descontado"><%= product.discount %> </span></p>
-                      <div class="box">
-                        <input type="number" max="<%= product.cuantity %> ">
-                        </div>  
-                      <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
+                     
+                      <a href="/admin/products/<%= product.id %> "  class="btn btn-success">Detaller</a>
                     </div>
                   </div>
                   <% }) %>

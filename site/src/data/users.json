@@ -1,7 +1,7 @@
 [{
     "id": 1,
     "nombre": "Fairfax Dunhill",
-    "correo electrónico": "fdunhill0@goo.gl",
+    "email": "fdunhill0@goo.gl",
     "dirección": "16602 Saint Paul Center",
     "teléfono": "4185114199",
     "favoritos": [1,4,21,132],
@@ -9,7 +9,7 @@
   }, {
     "id": 2,
     "nombre": "Kimberley Gerg",
-    "correo electrónico": "kgerg1@huffingtonpost.com",
+    "email": "kgerg1@huffingtonpost.com",
     "address": "68892 Golf Course Park",
     "teléfono": "9128525450",
     "favoritos": [1,4,21,132],
@@ -17,7 +17,7 @@
   }, {
     "id": 3,
     "nombre": "Hazlett Cadalleder",
-    "correo electrónico": "hcadalleder2@xrea.com",
+    "email": "hcadalleder2@xrea.com",
     "address": "972 Burning Wood Drive",
     "teléfono": "1123146709",
     "favoritos": [1,4,21,132],
@@ -25,7 +25,7 @@
   }, {
     "id": 4,
     "nombre": "Dorree Rzehorz",
-    "correo electrónico": "drzehorz3@fda.gov",
+    "email": "drzehorz3@fda.gov",
     "address": "7 Gerald Court",
     "teléfono": "4992559497",
     "favoritos": [1,4,21,132],
@@ -41,7 +41,7 @@
   }, {
     "id": 6,
     "nombre": "Eduard Dupree",
-    "correo electrónico": "edupree5@uiuc.edu",
+    "email": "edupree5@uiuc.edu",
     "dirección": "80113 Prairieview Terrace",
     "teléfono": "7708149078",
     "favoritos": [1,4,21,132],
@@ -49,7 +49,7 @@
   }, {
     "id": 7,
     "nombre": "Ruby Filewood",
-    "correo electrónico": "rfilewood6@state.tx.us",
+    "email": "rfilewood6@state.tx.us",
     "address": "28216 Canary Junction",
     "teléfono": "3362114526",
     "favoritos": [1,4,21,132],
@@ -57,7 +57,7 @@
   }, {
     "id": 8,
     "nombre": "Chelsae Kitter",
-    "correo electrónico": "ckitter7@bandcamp.com",
+    "email": "ckitter7@bandcamp.com",
     "address": "3 Walton Terrace",
     "teléfono": "1084541685",
     "favoritos": [1,4,21,132],
@@ -65,7 +65,7 @@
   }, {
     "id": 9,
     "nombre": "Evan Darker",
-    "correo electrónico": "edarker8@tamu.edu",
+    "email": "edarker8@tamu.edu",
     "dirección": "12 Schiller Road",
     "teléfono": "1992608621",
     "favoritos": [1,4,21,132],
@@ -73,7 +73,7 @@
   }, {
     "id": 10,
     "nombre": "Britney Scarlet",
-    "correo electrónico": "bscarlet9@yahoo.com",
+    "email": "bscarlet9@yahoo.com",
     "dirección": "4 Shopko Point",
     "teléfono": "5497578927",
     "favoritos": [1,4,21,132],
