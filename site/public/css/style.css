@@ -13,6 +13,7 @@
 @import 'productCart.css';
 /* users */
 @import 'loginRegister.css';
+@import 'profileEdit.css';
 /* admin */
 @import 'adminProductDetail.css';
 @import 'product-Add-Edit.css';

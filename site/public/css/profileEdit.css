@@ -1,0 +1,30 @@
+/* distribucion general */
+.user-profile{
+    text-align: center;
+}
+.user-profile div{
+    margin: 15px 0;
+}
+.user-profile img {
+    width: 200px;
+    border-radius: 100px;
+}
+
+/* inputs */
+.user-profile input {
+    border: var(--color-naranjaClaro) 0 solid;
+    border-radius: 10px;
+    transition: .5s;
+}
+.user-profile input:hover {
+    border: var(--color-naranjaClaro) 1px solid;
+}
+
+/* infut file */
+.user-profile .boton-image{
+    text-align: center;
+    margin: 25px 0;
+  }
+  .user-profile .boton-image input{
+    display: none;
+  }

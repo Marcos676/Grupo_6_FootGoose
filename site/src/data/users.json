@@ -1,81 +1,162 @@
-[{
+[
+  {
     "id": 1,
-    "nombre": "Fairfax Dunhill",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Fairfax Dunhill",
     "email": "fdunhill0@goo.gl",
-    "dirección": "16602 Saint Paul Center",
-    "teléfono": "4185114199",
-    "favoritos": [1,4,21,132],
+    "password": "hgjfgjygyufdyrdhhug",
+    "address": "16602 Saint Paul Center",
+    "tel": "4185114199",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 1
-  }, {
+  },
+  {
     "id": 2,
-    "nombre": "Kimberley Gerg",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Kimberley Gerg",
     "email": "kgerg1@huffingtonpost.com",
+    "password": "hgjfgjygyufdyrdhhug",
     "address": "68892 Golf Course Park",
-    "teléfono": "9128525450",
-    "favoritos": [1,4,21,132],
+    "tel": "9128525450",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 3,
-    "nombre": "Hazlett Cadalleder",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Hazlett Cadalleder",
     "email": "hcadalleder2@xrea.com",
+    "password": "hgjfgjygyufdyrdhhug",
     "address": "972 Burning Wood Drive",
-    "teléfono": "1123146709",
-    "favoritos": [1,4,21,132],
+    "tel": "1123146709",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 1
-  }, {
+  },
+  {
     "id": 4,
-    "nombre": "Dorree Rzehorz",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Dorree Rzehorz",
     "email": "drzehorz3@fda.gov",
+    "password": "hgjfgjygyufdyrdhhug",
     "address": "7 Gerald Court",
-    "teléfono": "4992559497",
-    "favoritos": [1,4,21,132],
+    "tel": "4992559497",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 5,
-    "nombre": "Cale Farrar",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Cale Farrar",
     "email": "cfarrar4@google.ca",
+    "password": "hgjfgjygyufdyrdhhug",
     "address": "1 Colorado Circle",
-    "teléfono": "7157852833",
-    "favoritos": [1,4,21,132],
+    "tel": "7157852833",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 6,
-    "nombre": "Eduard Dupree",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Eduard Dupree",
     "email": "edupree5@uiuc.edu",
-    "dirección": "80113 Prairieview Terrace",
-    "teléfono": "7708149078",
-    "favoritos": [1,4,21,132],
+    "password": "hgjfgjygyufdyrdhhug",
+    "address": "80113 Prairieview Terrace",
+    "tel": "7708149078",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 7,
-    "nombre": "Ruby Filewood",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Ruby Filewood",
     "email": "rfilewood6@state.tx.us",
+    "password": "hgjfgjygyufdyrdhhug",
     "address": "28216 Canary Junction",
-    "teléfono": "3362114526",
-    "favoritos": [1,4,21,132],
+    "tel": "3362114526",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 8,
-    "nombre": "Chelsae Kitter",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Chelsae Kitter",
     "email": "ckitter7@bandcamp.com",
+    "password": "hgjfgjygyufdyrdhhug",
     "address": "3 Walton Terrace",
-    "teléfono": "1084541685",
-    "favoritos": [1,4,21,132],
+    "tel": "1084541685",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 9,
-    "nombre": "Evan Darker",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Evan Darker",
     "email": "edarker8@tamu.edu",
-    "dirección": "12 Schiller Road",
-    "teléfono": "1992608621",
-    "favoritos": [1,4,21,132],
+    "password": "hgjfgjygyufdyrdhhug",
+    "address": "12 Schiller Road",
+    "tel": "1992608621",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }, {
+  },
+  {
     "id": 10,
-    "nombre": "Britney Scarlet",
+    "img": "kjfakjfkbafj.PNG",
+    "name": "Britney Scarlet",
     "email": "bscarlet9@yahoo.com",
-    "dirección": "4 Shopko Point",
-    "teléfono": "5497578927",
-    "favoritos": [1,4,21,132],
+    "password": "hgjfgjygyufdyrdhhug",
+    "address": "4 Shopko Point",
+    "tel": "5497578927",
+    "favoritos": [
+      1,
+      4,
+      21,
+      132
+    ],
     "admin": 0
-  }]
+  }
+]

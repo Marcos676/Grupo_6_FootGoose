@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('../partials/head.ejs') %>
+
+<body>
+
+<%- include('../partials/header.ejs') %>
+
+
+<div class="container-fluid contenido">
+ <!--EDITAR-->
+ <form class="row user-profile" action="/usuario/editar/:<%= user.id %>?_method=PUT" method="POST" >
+
+    <!-- imagen + input -->
+    <div class="col-12" >
+        <!-- img perfil -->
+        <img src="/images/users/undefined.PNG" alt="">
+
+        <!-- input file perfil -->
+        <div class="boton-image">
+            <label class="btn btn-success" for="archivo">Cambiar foto</label>
+            <input type="file" name="img" id="archivo" >
+          </div>
+    </div>
+<div class="col-12 col-md-6">
+<h4>Generales</h4>
+        <!-- nombre de usuario -->
+    <div class=" col-12">
+        <i class="fas fa-user icon"></i>
+    <input type="text" placeholder=" Nombre completo" name="name" value="<%= user.name %> ">
+    </div>
+    
+    <!-- email -->
+    <div class=" col-12">
+        <i class="fas fa-envelope icon"></i>
+    <input type="email" placeholder=" Correo electrónico" name="email" value="<%= user.email %>">
+    </div>
+    
+    <!-- direccion -->
+    <div class=" col-12">
+        <i class="fas fa-home"></i>
+    <input type="text" placeholder=" Dirección" name="address" value="<%= user.address %>">
+    </div>
+    
+    <!-- telefono -->
+    <div class=" col-12">
+        <i class="fas fa-phone-alt"></i>
+    <input type="tel" placeholder=" Teléfono" name="tel" value="<%= user.tel %>">
+    </div>
+    
+</div>
+<!-- contraseñas -->
+<div class=" col-12 col-md-6">
+    <h4>Cambiar contraseña</h4>
+    <!-- password original -->
+    <div class=" col-12">
+        <i class="fas fa-key icon"></i>
+    <input type="password" placeholder=" Actual" name="password">
+    </div>
+    <!-- nuevo password -->
+    <div class=" col-12">
+        <i class="fas fa-key icon"></i>
+    <input type="password" placeholder=" Nueva" name="pass1">
+    </div>
+    <!-- revalidarpassword -->
+    <div class=" col-12">
+        <i class="fas fa-key icon"></i>
+    <input type="password" placeholder=" Repetir nueva" name="pass2">
+    </div>
+</div>
+
+<div class= "col-12">
+<button type="submit" class="btn btn-success ">Guardar</button>
+</div>
+
+</form> 
+</div>
+<%- include('../partials/footer.ejs') %>
+</body>
+
+
+</html>
+
+      
