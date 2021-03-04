@@ -1,162 +1,57 @@
 [
   {
     "id": 1,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Fairfax Dunhill",
-    "email": "fdunhill0@goo.gl",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "16602 Saint Paul Center",
-    "tel": "4185114199",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 1
+    "name": "Esteban Quito",
+    "email": "nohayasiento@gmail.com",
+    "password": "$2b$10$0Q1Hn3Qu7PZQlMDdZwhvk.cOtRTLIlbKzk8Ai/wokNV9Ym9WPGXTq",
+    "address": null,
+    "tel": null,
+    "img": null,
+    "admin": 0,
+    "favoritos": []
   },
   {
     "id": 2,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Kimberley Gerg",
-    "email": "kgerg1@huffingtonpost.com",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "68892 Golf Course Park",
-    "tel": "9128525450",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
+    "name": "Flor Masetta",
+    "email": "primaveralover@gmail.com",
+    "password": "$2b$10$5srDQNeTWzP9VbgL6pFtHuDhuvP2waTsr4KiGxUPlHP1kqolSCYDu",
+    "address": null,
+    "tel": null,
+    "img": null,
+    "admin": 0,
+    "favoritos": []
   },
   {
     "id": 3,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Hazlett Cadalleder",
-    "email": "hcadalleder2@xrea.com",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "972 Burning Wood Drive",
-    "tel": "1123146709",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 1
+    "name": "Elsa Pallo",
+    "email": "hortalizas2007@gmail.com",
+    "password": "$2b$10$jhoamsNi7X5SUswqQLo0Me59XmHpekzWmfh.UkjbtSfDYOSzaDTQS",
+    "address": null,
+    "tel": null,
+    "img": null,
+    "admin": 0,
+    "favoritos": []
   },
   {
     "id": 4,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Dorree Rzehorz",
-    "email": "drzehorz3@fda.gov",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "7 Gerald Court",
-    "tel": "4992559497",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
+    "name": "Susana Horia",
+    "email": "movimientonaranja@gmail.com",
+    "password": "$2b$10$SzGMM05HUIruoD1HEiXydu.dnD6PoPS7vTgWqo2QSYDpdYo1Af9LS",
+    "address": null,
+    "tel": null,
+    "img": null,
+    "admin": 0,
+    "favoritos": []
   },
   {
     "id": 5,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Cale Farrar",
-    "email": "cfarrar4@google.ca",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "1 Colorado Circle",
-    "tel": "7157852833",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
-  },
-  {
-    "id": 6,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Eduard Dupree",
-    "email": "edupree5@uiuc.edu",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "80113 Prairieview Terrace",
-    "tel": "7708149078",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
-  },
-  {
-    "id": 7,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Ruby Filewood",
-    "email": "rfilewood6@state.tx.us",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "28216 Canary Junction",
-    "tel": "3362114526",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
-  },
-  {
-    "id": 8,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Chelsae Kitter",
-    "email": "ckitter7@bandcamp.com",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "3 Walton Terrace",
-    "tel": "1084541685",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
-  },
-  {
-    "id": 9,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Evan Darker",
-    "email": "edarker8@tamu.edu",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "12 Schiller Road",
-    "tel": "1992608621",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
-  },
-  {
-    "id": 10,
-    "img": "kjfakjfkbafj.PNG",
-    "name": "Britney Scarlet",
-    "email": "bscarlet9@yahoo.com",
-    "password": "hgjfgjygyufdyrdhhug",
-    "address": "4 Shopko Point",
-    "tel": "5497578927",
-    "favoritos": [
-      1,
-      4,
-      21,
-      132
-    ],
-    "admin": 0
+    "name": "Mark Zuckerberg",
+    "email": "facebooksceo@facebook.com",
+    "password": "$2b$10$5lsM6Q8GuV87c6huC4E.quQLsuoCHd74NMUncSbw7kYKsjAP5jBhe",
+    "address": null,
+    "tel": null,
+    "img": null,
+    "admin": 0,
+    "favoritos": []
   }
 ]
