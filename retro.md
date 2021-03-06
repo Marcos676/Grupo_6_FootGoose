@@ -69,3 +69,28 @@
 
 ### Hacer mas: 
 - Pedir ayuda cuando es necesario
+
+## Retrospectiva Sprint 4
+
+### Comenzar a hacer:
+
+
+### Continuar haciendo:
+- Reuniones programadas
+- Productividad en las reuniones
+- Comunicación efectiva entre colaboradores
+- Correcta división del trabajo
+- Dailys diarias
+- Innovación a nivel de diseño
+- Dar prioridad a entregables del proyecto
+
+### Dejar de hacer:
+- Frustración frente al estancamiento en el código
+
+### Hacer menos:
+
+
+### Hacer mas: 
+- Pedir ayuda cuando es necesario
+- Administrar tiempos para cumplir con fechas de entrega
+
