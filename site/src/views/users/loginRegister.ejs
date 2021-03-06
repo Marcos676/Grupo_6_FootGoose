@@ -12,18 +12,18 @@
 
 <!--INICIAR SESIÓN-->
 
-<form class="formulario-iniciar row col-12 col-md-6">
+<form class="formulario-iniciar row col-12 col-md-6" method="POST" action="/usuario/logeo">
     <h1 class= "col-12"> Ingresar</h1>
 
 <div class="input-contenedor col-12">
     <i class="fas fa-envelope icon"></i>
-<input type="text" placeholder="correo electronico">
+<input type="text" placeholder="correo electronico" name="email">
 
 </div>
 
 <div class="input-contenedor col-12">
     <i class="fas fa-key icon"></i>
-<input type="password" placeholder="contraseña">
+<input type="password" placeholder="contraseña" name="pass">
 
 </div>
 <div class="col-12">
@@ -40,19 +40,19 @@
     <h1> Registrarse</h1>
 <div class="input-contenedor col-12">
     <i class="fas fa-user icon"></i>
-<input name="name" type="text" placeholder="Nombre/s y apellido/s">
+    <input name="name" type="text" placeholder="Nombre/s y apellido/s">
 
 </div>
 
 <div class="input-contenedor col-12">
     <i class="fas fa-envelope icon"></i>
-<input name="email" type="text" placeholder="Correo electronico">
+    <input name="email" type="text" placeholder="Correo electronico">
 
 </div>
 
 <div class="input-contenedor col-12">
     <i class="fas fa-key icon"></i>
-<input name="password" type="password" placeholder="Contraseña">
+    <input name="password" type="password" placeholder="Contraseña">
 </div>
 
 <div class= "col-12">
