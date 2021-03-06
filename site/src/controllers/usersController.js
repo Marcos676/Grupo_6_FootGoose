@@ -73,3 +73,5 @@ module.exports = {
         res.redirect('/usuario/ingresar')
     },
 }
+
+
