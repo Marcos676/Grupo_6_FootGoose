@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const {catalogo, detalle, carrito} = require('../controllers/productosController')
 
+const {catalogo, detalle, carrito} = require('../controllers/productosController')
+const checkUser = require('../middlewares/checkUser');
 
 router.get('/',catalogo);
 router.get('/detalle',detalle);
-router.get('/carrito',carrito);
+router.get('/carrito', checkUser,carrito);
 
 module.exports = router;

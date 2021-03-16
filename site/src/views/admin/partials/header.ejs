@@ -19,7 +19,7 @@
                 </div>
                 <!-- INGRESAR -->
                 <div class="ingresar col-2 col-md-3">
-                    <a href="/usuario/ingresar"> <i class="fas fa-paw"></i> INGRESAR</a>
+                    <a href="/usuario/ingresar"> <i class="fas fa-paw"></i> <%= typeof localUser != 'undefined'? `  ${localUser.firstName}` : "  INGRESAR"%></a>
                 </div>
                 <!-- BURGUER BUTTON -->
                 <nav class="navbar-expand-md boton-hamburguesa col-2 col-md-12">

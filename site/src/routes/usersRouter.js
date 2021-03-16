@@ -2,21 +2,28 @@
 
 var express = require('express');
 var router = express.Router();
-const {loginRegister, edit, editProcess,loginProcess } = require('../controllers/usersController')
+const {loginRegister, edit, editProcess,loginProcess, createUser, profile, logout } = require('../controllers/usersController')
 
 /* middlewares */
-const uploadProduct = require('../utils/uploadProduct');
+const uploadProfilePic = require('../utils/uploadProfilePic');
 const registerValidator = require('../validations/registerValidator');
-const checkUser = require('../middlewares/checkUser');
 const loginValidator = require('../validations/loginValidator');
+const editUserValidator = require('../validations/editUserValidator');
+const checkUser = require('../middlewares/checkUser');
+const sessionCheck = require('../middlewares/sessionCheck');
 
+/* Formulario */
+router.get('/ingresar', sessionCheck, loginRegister);
+/* Registro */
+router.post('/register', registerValidator, createUser); 
+/* Login */
+router.post('/ingresar', loginValidator, loginProcess);
+/* Perfil */
+router.get('/perfil', checkUser,profile);
+/* Editar */
+router.get('/editar/:id', checkUser,edit);
+router.put('/editar/:id', uploadProfilePic.any(), editUserValidator, editProcess);
 
-router.get('/ingresar',loginRegister);
-router.post('/logeo', loginProcess);
-
-router.get('/editar/:id',edit);
-router.put('/editar/:id',editProcess);
-
-router.get('/register',loginRegister); 
+router.get('/logout', logout)
 
 module.exports = router;

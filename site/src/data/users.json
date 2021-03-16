@@ -3,12 +3,10 @@
     "id": 1,
     "name": "Esteban Quito",
     "email": "nohayasiento@gmail.com",
-    "password": "$2b$10$0Q1Hn3Qu7PZQlMDdZwhvk.cOtRTLIlbKzk8Ai/wokNV9Ym9WPGXTq",
-    "address": null,
-    "tel": null,
-    "img": null,
-    "admin": 0,
-    "favoritos": []
+    "password": "$2b$10$b9DIFaXg8Wiu3F8S/rZfTuxM1OUqgxEKhT.aTU89VMl/n0kCUIVOO",
+    "address": "",
+    "tel": "1122334455",
+    "img": "user-1615826020813.png"
   },
   {
     "id": 2,
@@ -17,7 +15,7 @@
     "password": "$2b$10$5srDQNeTWzP9VbgL6pFtHuDhuvP2waTsr4KiGxUPlHP1kqolSCYDu",
     "address": null,
     "tel": null,
-    "img": null,
+    "img": "undefined.PNG",
     "admin": 0,
     "favoritos": []
   },
@@ -28,7 +26,7 @@
     "password": "$2b$10$jhoamsNi7X5SUswqQLo0Me59XmHpekzWmfh.UkjbtSfDYOSzaDTQS",
     "address": null,
     "tel": null,
-    "img": null,
+    "img": "undefined.PNG",
     "admin": 0,
     "favoritos": []
   },
@@ -39,7 +37,7 @@
     "password": "$2b$10$SzGMM05HUIruoD1HEiXydu.dnD6PoPS7vTgWqo2QSYDpdYo1Af9LS",
     "address": null,
     "tel": null,
-    "img": null,
+    "img": "undefined.PNG",
     "admin": 0,
     "favoritos": []
   },
@@ -50,8 +48,18 @@
     "password": "$2b$10$5lsM6Q8GuV87c6huC4E.quQLsuoCHd74NMUncSbw7kYKsjAP5jBhe",
     "address": null,
     "tel": null,
-    "img": null,
+    "img": "undefined.PNG",
     "admin": 0,
     "favoritos": []
+  },
+  {
+    "id": 6,
+    "name": "Gabriel Patiño",
+    "email": "gaby@gg.com",
+    "password": "$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq",
+    "address": "Zapiola",
+    "tel": "123123123",
+    "img": "undefined.PNG",
+    "admin": 0
   }
 ]

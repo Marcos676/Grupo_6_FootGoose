@@ -10,12 +10,12 @@
 
 <div class="container-fluid contenido">
  <!--EDITAR-->
- <form class="row user-profile" action="/usuario/editar/:<%= user.id %>?_method=PUT" method="POST" >
+ <form class="row user-profile" action="/usuario/editar/<%=user.id%>?_method=PUT" method="POST"  enctype="multipart/form-data">
 
     <!-- imagen + input -->
     <div class="col-12" >
         <!-- img perfil -->
-        <img src="/images/users/undefined.PNG" alt="">
+        <img src="/images/users/<%= user.img %>" alt="foto de perfil">
 
         <!-- input file perfil -->
         <div class="boton-image">
@@ -28,25 +28,29 @@
         <!-- nombre de usuario -->
     <div class=" col-12">
         <i class="fas fa-user icon"></i>
-    <input type="text" placeholder=" Nombre completo" name="name" value="<%= user.name %> ">
+    <input type="text" placeholder=" Nombre completo" name="name" value="<%= (typeof old != 'undefined' && old.name ? old.name : user.name) %>"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : null %> </span>
     </div>
     
     <!-- email -->
     <div class=" col-12">
         <i class="fas fa-envelope icon"></i>
-    <input type="email" placeholder=" Correo electrónico" name="email" value="<%= user.email %>">
+    <input type="email" placeholder=" Correo electrónico" name="email" value="<%= (typeof old != 'undefined' && old.email ? old.email : user.email) %>"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : null %> </span>
     </div>
     
     <!-- direccion -->
     <div class=" col-12">
         <i class="fas fa-home"></i>
-    <input type="text" placeholder=" Dirección" name="address" value="<%= user.address %>">
+    <input type="text" placeholder=" Dirección" name="address" value="<%= (typeof old != 'undefined' && old.address ? old.address : user.address) %>"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.address) ? errores.address.msg : null %> </span>
     </div>
     
     <!-- telefono -->
     <div class=" col-12">
         <i class="fas fa-phone-alt"></i>
-    <input type="tel" placeholder=" Teléfono" name="tel" value="<%= user.tel %>">
+    <input type="tel" placeholder=" Teléfono" name="tel" value="<%= (typeof old != 'undefined' && old.tel ? old.tel : user.tel) %>"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.tel) ? errores.tel.msg : null %> </span>
     </div>
     
 </div>
@@ -56,17 +60,20 @@
     <!-- password original -->
     <div class=" col-12">
         <i class="fas fa-key icon"></i>
-    <input type="password" placeholder=" Actual" name="password">
+    <input type="password" placeholder=" Actual" name="password"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.password) ? errores.password.msg : null %> </span>
     </div>
     <!-- nuevo password -->
     <div class=" col-12">
         <i class="fas fa-key icon"></i>
-    <input type="password" placeholder=" Nueva" name="pass1">
+    <input type="password" placeholder=" Nueva" name="pass1"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass1) ? errores.pass1.msg : null %> </span>
     </div>
     <!-- revalidarpassword -->
     <div class=" col-12">
         <i class="fas fa-key icon"></i>
-    <input type="password" placeholder=" Repetir nueva" name="pass2">
+    <input type="password" placeholder=" Repetir nueva" name="pass2"><br>
+    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass2) ? errores.pass2.msg : null %> </span>
     </div>
 </div>
 

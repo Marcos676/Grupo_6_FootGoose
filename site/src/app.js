@@ -15,7 +15,9 @@ const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const adminRouter = require('./routes/adminRouter')
 
-
+/* Middlewares */
+const cookieCheck = require('./middlewares/cookieCheck')
+const localsCheck = require('./middlewares/localsCheck')
 
 /* CONFIGURACIONES */
 
@@ -28,8 +30,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(methodOverride('_method')); 
+app.use(session({
+  secret: "supercalifragilisticoespialidoso",
+  resave: true,
+  saveUninitialized: false
+}));
 
-app.use(session( { secret: "nuestro mensaje secreto"}))
+app.use(localsCheck);
+app.use(cookieCheck);
 
 /*RUTAS*/
 
@@ -38,8 +46,7 @@ app.use('/productos', productsRouter);
 app.use('/usuario', usersRouter);
 app.use('/admin', adminRouter);
 
-/* app.use(localsCheck); *//* Falta requerir localsCheck */
-/* app.use(cookieCheck); *//* Falta requerir cookiesCheck */
+
 
 
 // catch 404 and forward to error handler

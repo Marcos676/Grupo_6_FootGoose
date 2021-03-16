@@ -2,6 +2,7 @@
 <html lang="es">
 
 <%- include('./partials/head') %>
+
   <body>
     <%- include('./partials/header') %>
 
@@ -27,7 +28,8 @@
             <!-- Ordenar por -->
             <div class="topfilter col-md-2 col-sm-12">
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Ordenar por:
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -81,22 +83,41 @@
               <h3>Lo más nuevo</h3>
 
               <div class="row">
-                <% products.forEach(product => { %>
+                <% products.forEach(product=> { %>
                   <div class="card producto col-sm-3">
-                    <div class="containerheart">
-                      <i onclick="toggle()" id="btn" class="far fa-star"></i>
-                    </div>
+                    <!-- favorito -->
+                    <% if (typeof localUser !=='undefined' ) { %>
+                      <div class="containerheart">
+                        <i onclick="toggle()" id="btn" class="far fa-star"></i>
+                      </div>
+                      <% } %>
+                  <!-- imagen -->
                     <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
                     <div class="producto-datos">
-                      <h5 class="titulo producto"><%=product.name%> </h5>
-                      <p><span class="precio-final"><%= product.finalPrice %> </span><span class="descontado"><%= product.discount %> </span></p>
-                      <div class="box">
-                        <input type="number" max="<%= product.cuantity %> ">
-                        </div>  
-                      <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
+                      <!-- nombre -->
+                      <h5 class="titulo producto">
+                        <%=product.name%>
+                      </h5>
+                      <!-- precio y descuento -->
+                      <p><span class="precio-final">
+                          <%= product.finalPrice %>
+                        </span><span class="descontado">
+                          <%= product.discount %>
+                        </span></p>
+                        <!-- cantidad y comprar -->
+                      <% if (typeof localUser !=='undefined' ) { %>
+                        <div class="box">
+                          <input type="number" max="<%= product.cuantity %> ">
+                        </div>
+                        <button type="button" class="btn btn-success"><i
+                            class="fas fa-shopping-cart"></i>Agregar</button>
+                        <% } %>
                     </div>
                   </div>
                   <% }) %>
+              </div>
+            </article>
+            <!-- Páginas -->
               </div>
 
             </article>
@@ -104,19 +125,35 @@
             <article class="mas-vendido col-12">
               <h3>Lo mas vendido</h3>
               <div class="row">
-                <% products.forEach(product => { %>
+                <% products.forEach(product=> { %>
                   <div class="card producto col-sm-3">
-                    <div class="containerheart">
-                      <i onclick="toggle()" id="btn" class="far fa-star"></i>
-                    </div>
+                    <!-- favorito -->
+                    <% if (typeof localUser !=='undefined' ) { %>
+                      <div class="containerheart">
+                        <i onclick="toggle()" id="btn" class="far fa-star"></i>
+                      </div>
+                      <% } %>
+                  <!-- imagen -->
                     <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
                     <div class="producto-datos">
-                      <h5 class="titulo producto"><%=product.name%> </h5>
-                      <p><span class="precio-final"><%= product.finalPrice %> </span><span class="descontado"><%= product.discount %> </span></p>
-                      <div class="box">
-                        <input type="number" max="<%= product.cuantity %> ">
-                        </div>  
-                      <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>Agregar</button>
+                      <!-- nombre -->
+                      <h5 class="titulo producto">
+                        <%=product.name%>
+                      </h5>
+                      <!-- precio y descuento -->
+                      <p><span class="precio-final">
+                          <%= product.finalPrice %>
+                        </span><span class="descontado">
+                          <%= product.discount %>
+                        </span></p>
+                        <!-- cantidad y comprar -->
+                      <% if (typeof localUser !=='undefined' ) { %>
+                        <div class="box">
+                          <input type="number" max="<%= product.cuantity %> ">
+                        </div>
+                        <button type="button" class="btn btn-success"><i
+                            class="fas fa-shopping-cart"></i>Agregar</button>
+                        <% } %>
                     </div>
                   </div>
                   <% }) %>
@@ -152,7 +189,7 @@
 
         <%- include('./partials/footer') %>
       </main>
-<!--       <script>
+      <!--       <script>
         var btn = document.getElementById('btn');
     
         function toggle(){
@@ -171,5 +208,5 @@
         $('input[type="number"]').niceNumber();
       </script> -->
   </body>
-</html>
 
+</html>

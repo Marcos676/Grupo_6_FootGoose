@@ -31,8 +31,10 @@
                   <p>Pagá en cuotas</p>
                 </li>
               </ul>
-  
-              <a href="#" class="add-cart-button">AÑADIR AL CARRITO</a><a href="#" class="buy-now-button">COMPRAR AHORA</a>
+              <% if (typeof localUser !=='undefined' ) { %>
+                <a href="#" class="add-cart-button">AÑADIR AL CARRITO</a><a href="#" class="buy-now-button">COMPRAR AHORA</a>
+                <% } %>
+             
               <hr>
               <p class="product-detail-description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eius porro. Repellendus vero minus in mollitia quo enim ipsa aut necessitatibus, vel, commodi iste aliquam nesciunt tenetur, dolore maiores autem.
