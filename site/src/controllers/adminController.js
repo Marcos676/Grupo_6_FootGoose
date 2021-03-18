@@ -1,6 +1,4 @@
 const { getProducts, setProducts } = require('../data/products_db')
-
-
 module.exports = {
     productList: (req, res) => {
 

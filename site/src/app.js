@@ -8,6 +8,7 @@ const logger = require('morgan');
 const app = express();
 const methodOverride =  require('method-override')
 const session = require('express-session')
+require('dotenv').config()
 
 /* Requerimientos de rutas */
 const indexRouter = require('./routes/indexRouter');
