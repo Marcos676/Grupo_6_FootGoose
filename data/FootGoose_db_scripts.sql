@@ -65,7 +65,7 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `footgoose`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `footgoose`.`products` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(70) NOT NULL,
   `description` VARCHAR(300) NULL,
   `cuantity` SMALLINT NOT NULL,
@@ -109,10 +109,21 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `footgoose`.`location`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `footgoose`.`location` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `location` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `footgoose`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `footgoose`.`users` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -121,8 +132,15 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`users` (
   `tel` INT NULL,
   `img` VARCHAR(45) NOT NULL DEFAULT 'undefined.PNG',
   `admin` TINYINT(1) NOT NULL DEFAULT 0,
+  `location_id` INT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  INDEX `fk_location_id_idx` (`location_id` ASC),
+  CONSTRAINT `fk_location_id`
+    FOREIGN KEY (`location_id`)
+    REFERENCES `footgoose`.`location` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -171,17 +189,6 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`favorites` (
     REFERENCES `footgoose`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `footgoose`.`location`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `footgoose`.`location` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `location` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
