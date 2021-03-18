@@ -65,20 +65,20 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `footgoose`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `footgoose`.`products` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(70) NOT NULL,
-  `description` VARCHAR(300) NULL,
-  `cuantity` SMALLINT NOT NULL,
-  `price` SMALLINT NOT NULL,
-  `discount` TINYINT(100) NULL,
-  `expiration` DATETIME NULL,
-  `final_price` SMALLINT NOT NULL,
+  `description` VARCHAR(300) NULL DEFAULT NULL,
+  `cuantity` SMALLINT(6) NOT NULL,
+  `price` SMALLINT(6) NOT NULL,
+  `discount` TINYINT(100) NULL DEFAULT NULL,
+  `expiration` DATETIME NULL DEFAULT NULL,
+  `final_price` SMALLINT(6) NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
-  `animal_id` INT NOT NULL,
-  `category_id` INT NOT NULL,
-  `sub_category_id` INT NOT NULL,
-  `label_id` INT NOT NULL,
+  `animal_id` INT(11) NOT NULL,
+  `category_id` INT(11) NOT NULL,
+  `sub_category_id` INT(11) NOT NULL,
+  `label_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_animales_id_idx` (`animal_id` ASC),
   INDEX `fk_category_id_idx` (`category_id` ASC),
@@ -128,11 +128,11 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`users` (
   `last_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `address` VARCHAR(70) NULL,
-  `tel` INT NULL,
+  `address` VARCHAR(70) NULL DEFAULT NULL,
+  `tel` INT(11) NULL DEFAULT NULL,
   `img` VARCHAR(45) NOT NULL DEFAULT 'undefined.PNG',
   `admin` TINYINT(1) NOT NULL DEFAULT 0,
-  `location_id` INT NULL,
+  `location_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
   INDEX `fk_location_id_idx` (`location_id` ASC),
@@ -174,13 +174,13 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `footgoose`.`favorites` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `favorite_id` INT(11) NOT NULL,
+  `user_id` INT(11) NOT NULL,
   `product_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_product_id_idx` (`product_id` ASC),
-  INDEX `fk_favoriter_id_idx` (`favorite_id` ASC),
+  INDEX `fk_favoriter_id_idx` (`user_id` ASC),
   CONSTRAINT `fk_favorite_id`
-    FOREIGN KEY (`favorite_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `footgoose`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -197,9 +197,9 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `footgoose`.`img_product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `footgoose`.`img_product` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `img_name` VARCHAR(45) NULL DEFAULT 'undefinedProduct.png',
-  `product_id` INT NOT NULL,
+  `product_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_img_product_id_idx` (`product_id` ASC),
   CONSTRAINT `fk_img_product_id`
@@ -207,7 +207,8 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`img_product` (
     REFERENCES `footgoose`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
