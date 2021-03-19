@@ -71,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`products` (
   `cuantity` SMALLINT(6) NOT NULL,
   `price` SMALLINT(6) NOT NULL,
   `discount` TINYINT(100) NULL DEFAULT NULL,
+  `sold` INT NULL DEFAULT 0,
   `expiration` DATETIME NULL DEFAULT NULL,
   `final_price` SMALLINT(6) NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,

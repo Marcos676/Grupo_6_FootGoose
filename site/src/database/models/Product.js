@@ -28,6 +28,10 @@ module.exports = (sequelize, dataType) => {
         discount: {
             type: dataType.INTEGER(100)
         },
+        sold: {
+            type: dataType.INTEGER,
+            defaulValue: 0
+        },
         expiration: {
             type: dataType.DATE
         },
