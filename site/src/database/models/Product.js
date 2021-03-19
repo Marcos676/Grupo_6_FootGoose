@@ -22,11 +22,11 @@ module.exports = (sequelize, dataType) => {
             allowNull: true,
         },
         price: {
-            type: dataType.INTEGER,
+            type: dataType.DECIMAL(5,1),
             allowNull: true
         },
         discount: {
-            type: dataType.INTEGER(100)
+            type: dataType.INTEGER(3)
         },
         sold: {
             type: dataType.INTEGER,
@@ -36,7 +36,7 @@ module.exports = (sequelize, dataType) => {
             type: dataType.DATE
         },
         final_price: {
-            type: dataType.INTEGER,
+            type: dataType.DECIMAL(5,1),
             allowNull: true,
         },
         created_at: {
