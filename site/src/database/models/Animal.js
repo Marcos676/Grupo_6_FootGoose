@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataType) => {
-	
+
     const alias = "Animals";
- 
+
     const cols = {
         id: {
             type: dataType.INTEGER,
@@ -14,17 +14,20 @@ module.exports = (sequelize, dataType) => {
             allowNull: true
         },
     }
- 
-    const config = {
-            tableName: "animal",
-                timestamps: false,
-    }
- 
-    const Animal = sequelize.define(alias, cols, config)
-    Animal.hasMany(models.Products, {
-        as: "products",
-        foreingKey: "animal_id"
-    })
 
-    return animal
- }
+    const config = {
+        tableName: "animal",
+        timestamps: false,
+    }
+
+    const Animal = sequelize.define(alias, cols, config)
+    Animal.associate = (models) => {
+
+        Animal.hasMany(models.Products, {
+            as: "products",
+            foreingKey: "animal_id"
+        })
+    }
+
+    return Animal
+}

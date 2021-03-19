@@ -73,6 +73,5 @@ module.exports = (sequelize, dataType) => {
             otherKey: 'product_id'
         })
     }
- 
-    return user
+    return User
  }

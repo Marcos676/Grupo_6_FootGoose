@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataType) => {
-	
+
     const alias = "Categories";
- 
+
     const cols = {
         id: {
             type: dataType.INTEGER,
@@ -14,17 +14,18 @@ module.exports = (sequelize, dataType) => {
             allowNull: true
         },
     }
- 
-    const config = {
-            tableName: "category",
-                timestamps: false,
-    }
- 
-    const Category = sequelize.define(alias, cols, config)
-    Category.hasMany(models.Products, {
-        as: "category",
-        foreingKey: "category_id"
-    })
 
-    return category
- }
+    const config = {
+        tableName: "category",
+        timestamps: false,
+    }
+
+    const Category = sequelize.define(alias, cols, config)
+    Category.associate = (models) => {
+        Category.hasMany(models.Products, {
+            as: "products",
+            foreingKey: "category_id"
+        })
+    }
+    return Category
+}

@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataType) => {
-	
+
     const alias = "SubCategories";
- 
+
     const cols = {
         id: {
             type: dataType.INTEGER,
@@ -14,17 +14,18 @@ module.exports = (sequelize, dataType) => {
             allowNull: true
         },
     }
- 
-    const config = {
-            tableName: "sub_category",
-                timestamps: false,
-    }
- 
-    const Sub_Category = sequelize.define(alias, cols, config)
-    Sub_Category.hasMany(models.Products, {
-        as: "sub_category",
-        foreingKey: "sub_category_id"
-    })
 
-    return sub_category
- }
+    const config = {
+        tableName: "sub_category",
+        timestamps: false,
+    }
+
+    const SubCategory = sequelize.define(alias, cols, config)
+    SubCategory.associate = (models) => {
+        SubCategory.hasMany(models.Products, {
+            as: "products",
+            foreingKey: "sub_category_id"
+        })
+    }
+    return SubCategory
+}
