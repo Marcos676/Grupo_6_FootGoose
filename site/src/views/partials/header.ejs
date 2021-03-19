@@ -19,7 +19,13 @@
                 </div>
                 <!-- INGRESAR -->
                 <div class="ingresar col-2 col-md-3">
-                    <a href="/usuario/ingresar"> <i class="fas fa-paw"></i><%= typeof localUser != 'undefined'? `  ${localUser.firstName}` : "  INGRESAR"%> </a>
+                    <% if (typeof localUser != 'undefined') { %>
+                        <a href="/usuario/ingresar"><img style="width: 15%; border-radius: 50%;" src="/images/users/<%= localUser.img %> " alt="imagen de perfil"> <%= `  ${localUser.firstName}`%> </a>
+                    <% } else { %>
+                        <a href="/usuario/ingresar"> <i class="fas fa-paw"></i>  INGRESAR </a>
+                    <% } %>
+
+                   
                 </div>
                 <!-- BURGUER BUTTON -->
                 <nav class="navbar-expand-md boton-hamburguesa col-2 col-md-12">

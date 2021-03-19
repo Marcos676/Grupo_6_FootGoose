@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <h1>Bienvenido admin <%= localUser.firstName %> </h1>
+
+    <a href="/usuario/logout">Cerrar sesión</a>
+
+
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

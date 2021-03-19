@@ -1,5 +1,23 @@
 const { getProducts, setProducts } = require('../data/products_db')
+const { getUsers } = require('../data/users_db');
+
 module.exports = {
+    profile: (req, res) => {
+        let user = getUsers.find(usuario => {
+            return usuario.id === req.session.user.id
+        });
+        res.render('admin/adminProfile', {
+            title: 'Perfil',
+            user
+        })
+    },
+    logout : (req,res) => {
+        if (req.cookies.FootGoose) {
+            res.cookie('FootGoose', '', { maxAge: -1 }); 
+        }
+        delete req.session.user
+        res.redirect('/')
+    },
     productList: (req, res) => {
 
         res.render('admin/products', {
@@ -78,15 +96,20 @@ module.exports = {
     },
     editProcess: (req,res) => {
 
-        let {name, description, img, animal, category, subCategory, cuantity, price, discount, label, expiration, finalPrice} = req.body
+        let {name, description, animal, category, subCategory, cuantity, price, discount, label, expiration, finalPrice} = req.body
 
         let id = req.params.id
-
+        
+        let images = []
+        req.files.map(nombre => {
+            images.push(nombre.filename)
+        })
+        
         const updatedList = {
 			id: +id,
 			name,
             description,
-            img,
+            img: images,
             animal,
             category,
             subCategory,

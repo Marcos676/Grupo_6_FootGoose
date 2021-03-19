@@ -60,6 +60,18 @@
     "address": "Zapiola",
     "tel": "123123123",
     "img": "user-1615943422007.jpg",
-    "admin": 1
+    "admin": 0
+  },
+  {
+    "id": 7,
+    "firstName": "Marcos",
+    "lastName": "Patiño",
+    "email": "gaby@aa.com",
+    "password": "$2b$10$mmlzhFLWsMWCzqaN3XYtM.XsWBsidowWdMI/reoDshAGzjl1sZrXi",
+    "address": "Independencia",
+    "tel": "123123",
+    "img": "undefined.PNG",
+    "admin": 1,
+    "favoritos": []
   }
 ]

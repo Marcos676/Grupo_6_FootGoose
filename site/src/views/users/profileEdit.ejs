@@ -28,7 +28,7 @@
         <!-- nombre de usuario -->
     <div class=" col-12">
         <i class="fas fa-user icon"></i>
-    <input type="text" placeholder=" Nombre completo" name="name" value="<%= (typeof old != 'undefined' && old.name ? old.name : user.name) %>"><br>
+    <input type="text" placeholder=" Nombre completo" name="name" value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.firstName} ${user.lastName}`) %>"><br>
     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : null %> </span>
     </div>
     

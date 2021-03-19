@@ -23,7 +23,7 @@ router.get('/perfil', checkUser,profile);
 /* Editar */
 router.get('/editar/:id', checkUser,edit);
 router.put('/editar/:id', uploadProfilePic.any(), editUserValidator, editProcess);
-
+/* cerrar sesión */
 router.get('/logout', logout)
 
 module.exports = router;

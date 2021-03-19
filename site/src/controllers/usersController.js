@@ -23,10 +23,12 @@ module.exports = {
                     lastID = user.id
                 }
             });
+            let names= name.trim().split(" ")
 
             let newUser = {
                 id: +lastID + 1,
-                name: name.trim(),
+                firstName: names[0],
+                lastName: names[1],
                 email: email.trim(),
                 password: passcrypt,
                 address: null,
@@ -58,11 +60,11 @@ module.exports = {
                 return usuario.email === email.trim()
             });
             if (bcrypt.compareSync(password.trim(),user.password)) {
-                let firstName= user.name.split(" ")
                 req.session.user = {
                     id: user.id,
-                    name: user.name,
-                    firstName: firstName[0],
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    img: user.img,
                     admin: user.admin
                 }
                 if (rememberme) {
@@ -70,7 +72,7 @@ module.exports = {
                         maxAge: 1000 * 60 * 2 /* Vive por 2 minuto */
                     })
                 }
-                user.admin === 1 ? res.redirect('/admin/products') : res.redirect('/usuario/perfil')
+                user.admin === 1 ? res.redirect('/admin/perfil') : res.redirect('/usuario/perfil')
             } else {
                 return res.render('users/loginRegister', {
                     title: 'Iniciar sesión y registrarse',
@@ -128,10 +130,12 @@ module.exports = {
             } else {
                 var passcrypt = user.password;
             }
-           
+            let names= name.trim().split(" ")
+
             const updatedList = {
                 id: +req.params.id,
-                name,
+                firstName: names[0],
+                lastName: names[1],
                 email,
                 password: passcrypt,
                 address,
@@ -149,11 +153,11 @@ module.exports = {
             });
             setUsers(getUsers);
 
-            let firstName= user.name.split(" ")
                 req.session.user = {
                     id: user.id,
-                    name: user.name,
-                    firstName: firstName[0],
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    img: user.img,
                     admin: user.admin
                 }
                 res.locals.localUser = req.session.user

@@ -10,7 +10,7 @@
         <!-- Titulo -->
         <h1 class="col">EDITAR PRODUCTO</h1>
 
-        <form class="col-12 row" action="/admin/products/<%= product.id %>?_method=PUT " method="POST">
+        <form class="col-12 row" action="/admin/products/<%= product.id %>?_method=PUT " method="POST" enctype="multipart/form-data">
           <!-- Carrusel -->
           <div class="carrusel-add-image col-12 col-lg-6">
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
