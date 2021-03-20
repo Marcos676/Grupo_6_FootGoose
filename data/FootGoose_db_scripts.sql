@@ -23,8 +23,10 @@ USE `footgoose` ;
 CREATE TABLE IF NOT EXISTS `footgoose`.`animal` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `animal` VARCHAR(30) NOT NULL,
+  `img` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -34,7 +36,14 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `footgoose`.`category` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(30) NOT NULL,
-  PRIMARY KEY (`id`))
+  `animal_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_anim_categ_id_idx` (`animal_id` ASC),
+  CONSTRAINT `fk_anim_categ_id`
+    FOREIGN KEY (`animal_id`)
+    REFERENCES `footgoose`.`animal` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -56,7 +65,14 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `footgoose`.`sub_category` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `sub_category` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  `category_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_categ_subcateg_id_idx` (`category_id` ASC),
+  CONSTRAINT `fk_categ_subcateg_id`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `footgoose`.`category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -71,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`products` (
   `cuantity` SMALLINT(6) NOT NULL,
   `price` DECIMAL(5,2) NOT NULL,
   `discount` TINYINT(3) NULL DEFAULT NULL,
-  `sold` INT NULL DEFAULT 0,
+  `sold` INT(11) NULL DEFAULT 0,
   `expiration` DATETIME NULL DEFAULT NULL,
   `final_price` DECIMAL(5,2) NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
@@ -106,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`products` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
 
 

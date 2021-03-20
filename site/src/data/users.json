@@ -71,7 +71,7 @@
     "address": "Independencia",
     "tel": "123123",
     "img": "undefined.PNG",
-    "admin": 1,
+    "admin": 0,
     "favoritos": []
   }
 ]

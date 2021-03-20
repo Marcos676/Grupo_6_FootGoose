@@ -13,6 +13,10 @@ module.exports = (sequelize, dataType) => {
             type: dataType.STRING(45),
             allowNull: true
         },
+        category_id: {
+            type: dataType.INTEGER(11),
+            allowNull: true
+        }
     }
 
     const config = {
@@ -25,6 +29,10 @@ module.exports = (sequelize, dataType) => {
         SubCategory.hasMany(models.Products, {
             as: "products",
             foreingKey: "sub_category_id"
+        })
+        SubCategory.belongsTo(models.Categories, {
+            as: "category",
+            foreingKey: category_id
         })
     }
     return SubCategory

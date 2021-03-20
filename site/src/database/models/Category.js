@@ -26,6 +26,10 @@ module.exports = (sequelize, dataType) => {
             as: "products",
             foreingKey: "category_id"
         })
+        Category.hasMany(models.SubCategories, {
+            as: "subCategory",
+            foreingKey: category_id
+        })
     }
     return Category
 }
