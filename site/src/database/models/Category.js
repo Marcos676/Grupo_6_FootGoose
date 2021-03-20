@@ -13,6 +13,10 @@ module.exports = (sequelize, dataType) => {
             type: dataType.STRING(30),
             allowNull: true
         },
+        animal_id: {
+            type: dataType.INTEGER,
+            allowNull: true
+        }
     }
 
     const config = {
@@ -29,6 +33,10 @@ module.exports = (sequelize, dataType) => {
         Category.hasMany(models.SubCategories, {
             as: "subCategory",
             foreingKey: category_id
+        })
+        Category.belongsTo(models.Animals, {
+            as: "animal",
+            foreingKey: animal_id
         })
     }
     return Category
