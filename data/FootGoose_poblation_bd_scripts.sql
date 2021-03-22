@@ -1,0 +1,163 @@
+insert into animal (id, animal, img) values (1, 'Perro', 'iconoPerro');
+insert into animal (id, animal, img) values (2, 'Gato', 'iconoGato');
+insert into animal (id, animal, img) values (3, 'Pez', 'iconoPez');
+insert into animal (id, animal, img) values (4, 'Roedor', 'iconoRoedor');
+insert into animal (id, animal, img) values (5, 'Ave', 'iconoAve');
+insert into animal (id, animal, img) values (6, 'Reptil', 'iconoReptil');
+
+insert into category (id, category, animal_id) values (1, 'Alimento', 1);
+insert into category (id, category, animal_id) values (2, 'Accesorio', 1);
+insert into category (id, category, animal_id) values (3, 'Higiene', 1);
+insert into category (id, category, animal_id) values (4, 'Salud', 1);
+insert into category (id, category, animal_id) values (5, 'Alimento', 2);
+insert into category (id, category, animal_id) values (6, 'Accesorio', 2);
+insert into category (id, category, animal_id) values (7, 'Higiene', 2);
+insert into category (id, category, animal_id) values (8, 'Salud', 2);
+insert into category (id, category, animal_id) values (9, 'Alimento', 3);
+insert into category (id, category, animal_id) values (10, 'Accesorio', 3);
+insert into category (id, category, animal_id) values (11, 'Higiene', 3);
+insert into category (id, category, animal_id) values (12, 'Salud', 3);
+insert into category (id, category, animal_id) values (13, 'Alimento', 4);
+insert into category (id, category, animal_id) values (14, 'Accesorio', 4);
+insert into category (id, category, animal_id) values (15, 'Higiene', 4);
+insert into category (id, category, animal_id) values (16, 'Salud', 4);
+insert into category (id, category, animal_id) values (17, 'Alimento', 5);
+insert into category (id, category, animal_id) values (18, 'Accesorio', 5);
+insert into category (id, category, animal_id) values (19, 'Higiene', 5);
+insert into category (id, category, animal_id) values (20, 'Salud', 5);
+insert into category (id, category, animal_id) values (21, 'Alimento', 6);
+insert into category (id, category, animal_id) values (22, 'Accesorio', 6);
+insert into category (id, category, animal_id) values (23, 'Higiene', 6);
+insert into category (id, category, animal_id) values (24, 'Salud', 6);
+
+insert into sub_category (id, sub_category, category_id) values (1, 'Alimento seco', 1);
+insert into sub_category (id, sub_category, category_id) values (2, 'Alimento humedo', 1);
+insert into sub_category (id, sub_category, category_id) values (3, 'Alimento medicado', 1);
+insert into sub_category (id, sub_category, category_id) values (4, 'Juguetes', 2);
+insert into sub_category (id, sub_category, category_id) values (5, 'Cuchas y colchonetas', 2);
+insert into sub_category (id, sub_category, category_id) values (6, 'Comederos y bebederos', 2);
+insert into sub_category (id, sub_category, category_id) values (7, 'Paseo y collares', 2);
+insert into sub_category (id, sub_category, category_id) values (8, 'Vestimenta', 2);
+insert into sub_category (id, sub_category, category_id) values (9, 'Shampoo y acondicionador', 3);
+insert into sub_category (id, sub_category, category_id) values (10, 'Cuidado dental', 3);
+insert into sub_category (id, sub_category, category_id) values (11, 'Corta uñas', 3);
+insert into sub_category (id, sub_category, category_id) values (12, 'Paños y pañales', 3);
+insert into sub_category (id, sub_category, category_id) values (13, 'Antipulgas y garrapatas', 4);
+insert into sub_category (id, sub_category, category_id) values (14, 'Antiparasitarios', 4);
+insert into sub_category (id, sub_category, category_id) values (15, 'Repelentes', 4);
+
+insert into sub_category (id, sub_category, category_id) values (16, 'Alimento seco', 5);
+insert into sub_category (id, sub_category, category_id) values (17, 'Alimento humedo', 5);
+insert into sub_category (id, sub_category, category_id) values (18, 'Alimento medicado', 5);
+insert into sub_category (id, sub_category, category_id) values (20, 'Juguetes', 6);
+insert into sub_category (id, sub_category, category_id) values (21, 'Rascadores y trepadores', 6);
+insert into sub_category (id, sub_category, category_id) values (22, 'Collares', 6);
+insert into sub_category (id, sub_category, category_id) values (23, 'Transporte', 6);
+insert into sub_category (id, sub_category, category_id) values (24, 'Shampooo y acondicionador', 7);
+insert into sub_category (id, sub_category, category_id) values (25, 'Cuidado dental', 7);
+insert into sub_category (id, sub_category, category_id) values (26, 'Corta uñas', 7);
+insert into sub_category (id, sub_category, category_id) values (27, 'Piedras, literas y palitas', 7);
+insert into sub_category (id, sub_category, category_id) values (28, 'Peines y cepillos', 7);
+insert into sub_category (id, sub_category, category_id) values (29, 'Antipulgas y garrapatas', 8);
+insert into sub_category (id, sub_category, category_id) values (30, 'Antiparasitarios', 8);
+insert into sub_category (id, sub_category, category_id) values (31, 'Repelentes', 8);
+
+insert into sub_category (id, sub_category, category_id) values (32, 'Alimento flotante', 9);
+insert into sub_category (id, sub_category, category_id) values (33, 'Alimento sumergible', 9);
+insert into sub_category (id, sub_category, category_id) values (34, 'Alimento con hojuelas', 9);
+insert into sub_category (id, sub_category, category_id) values (35, 'Alimento microparticulado', 9);
+insert into sub_category (id, sub_category, category_id) values (36, 'Peceras', 10);
+insert into sub_category (id, sub_category, category_id) values (37, 'ambientación', 10);
+insert into sub_category (id, sub_category, category_id) values (38, 'Iluminación', 10);
+insert into sub_category (id, sub_category, category_id) values (39, 'Aireadores y filtros', 11);
+insert into sub_category (id, sub_category, category_id) values (40, 'Limpieza', 11);
+insert into sub_category (id, sub_category, category_id) values (41, 'Calefacción', 11);
+insert into sub_category (id, sub_category, category_id) values (42, 'Antibacterias y parásitos', 12);
+insert into sub_category (id, sub_category, category_id) values (43, 'Vitaminas', 12);
+
+insert into sub_category (id, sub_category, category_id) values (44, 'Conejo', 13);
+insert into sub_category (id, sub_category, category_id) values (45, 'Hamster', 13);
+insert into sub_category (id, sub_category, category_id) values (46, 'Uron', 13);
+insert into sub_category (id, sub_category, category_id) values (47, 'Chinchilla', 13);
+insert into sub_category (id, sub_category, category_id) values (48, 'Comederos y bebederos', 14);
+insert into sub_category (id, sub_category, category_id) values (49, 'Jaulas', 14);
+insert into sub_category (id, sub_category, category_id) values (50, 'Esferas', 14);
+insert into sub_category (id, sub_category, category_id) values (51, 'Cepillos', 15);
+insert into sub_category (id, sub_category, category_id) values (52, 'Arena para baño', 15);
+insert into sub_category (id, sub_category, category_id) values (53, 'Antiparasitario externo', 16);
+insert into sub_category (id, sub_category, category_id) values (54, 'Antiparasitario externo', 16);
+
+insert into sub_category (id, sub_category, category_id) values (55, 'Alimento en pasta', 17);
+insert into sub_category (id, sub_category, category_id) values (56, 'Alpiste', 17);
+insert into sub_category (id, sub_category, category_id) values (57, 'Nectar', 17);
+insert into sub_category (id, sub_category, category_id) values (58, 'Jaulas', 18);
+insert into sub_category (id, sub_category, category_id) values (59, 'Nidos', 18);
+insert into sub_category (id, sub_category, category_id) values (60, 'Bebederos y comederos', 18);
+insert into sub_category (id, sub_category, category_id) values (61, 'Bañadera', 19);
+insert into sub_category (id, sub_category, category_id) values (62, 'Palitas', 19);
+insert into sub_category (id, sub_category, category_id) values (63, 'Antiparasitario externo', 20);
+insert into sub_category (id, sub_category, category_id) values (64, 'Antiparasitario externo', 20);
+
+insert into sub_category (id, sub_category, category_id) values (65, 'Tortugas', 21);
+insert into sub_category (id, sub_category, category_id) values (66, 'Iguanas', 21);
+insert into sub_category (id, sub_category, category_id) values (67, 'Terrarios', 22);
+insert into sub_category (id, sub_category, category_id) values (68, 'Calefaccion e iluminación', 22);
+insert into sub_category (id, sub_category, category_id) values (69, 'Detergente biodegradables', 23);
+insert into sub_category (id, sub_category, category_id) values (70, 'Desinfectante ambiental', 23);
+insert into sub_category (id, sub_category, category_id) values (71, 'Calsio', 24);
+insert into sub_category (id, sub_category, category_id) values (72, 'Multivitamínicos', 24);
+
+Insert into label (id, label, img) values (1, 'Sin etiqueta', null);
+Insert into label (id, label, img) values (2, 'Nuevo', 'labelNuevo.png');
+Insert into label (id, label, img) values (3, 'Descuento, labelDescuento.png');
+
+insert into users (id, first_name, last_name, email, password, admin) values (1, 'Sofia', 'Andrada', 'sofi@ss.com', '$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 0);
+insert into users (id, first_name, last_name, email, password, admin) values (2, 'Gabriel', 'Patiño', 'gaby@gg.com','$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 0);
+insert into users (id, first_name, last_name, email, password, admin) values (3, 'Macarena', 'Grille', 'maca@mm.com','$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 0);
+insert into users (id, first_name, last_name, email, password, admin) values (4, 'Marcos', 'Garbini', 'marcos@mg.com','$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 1);
+insert into users (id, first_name, last_name, email, password, admin) values (5, 'Mark', 'Facebook', 'mark@fb.com', '$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 1);
+insert into users (id, first_name, last_name, email, password, admin) values (6, 'Ada', 'Lovelace', 'ada@love.com', '$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 1);
+
+
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (1, 'Alimento para Aves', 'a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra', 23, 4427.3, 69, 72, '2021-03-26','2021-03-30', '2021/03/27', 1, 2);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (2, 'Alimento para Gatos', 'cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit', 57, 4853.65, 42,'2021-03-28', 4795.43, '2021-03-24', '2021/03/24', 1, 3);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (3, 'Alimento para Reptiles', 'felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc', 91, 600.31, 51,'2021-03-24', 4627.89, '2021-03-23', '2021/03/24', 1, 2);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (4, 'Casa para perro primer modelo', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 19, 2036.66, 24, 182, '2021-03-21','2021-03-19', '2021/03/26', 5, 1);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (5, 'Casa para perro segundo modelo', 'eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis', 99, 1599.72, 6,'2021-03-30', 3270.51, '2021-03-24', '2021/03/26', 5, 1);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (6, 'Alpiste', 'commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit', 48, 4629.69, 82, 242, '2021-03-25','2021-03-24', '2021/03/20', 1, 2);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (7, 'Bebedero para hamster', 'consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus', 16, 1553.92, 39,'2021-03-29', 1274.35, '2021-03-22', '2021/03/29', 48, 2);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (8, 'Juguete para gato', 'blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu', 59, 2712.24, 47,'2021-03-28', 3137.02, '2021-03-25', '2021/03/28', 20, 3);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (9, 'Cueva de reptiles', 'donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue', 38, 2708.51, 83,'2021-03-20', 2495.63, '2021-03-20', '2021/03/19', 67, 3);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (10, 'Pecera', 'lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', 85, 1365.53, 5,'2021-03-29', 4618.53, '2021-03-23', '2021/03/21', 56, 2);
+
+insert into img_product (id, img_name, product_id) value (1, 'products.1614050370860.png', 1);
+insert into img_product (id, img_name, product_id) value (2, 'products.1614050417626.png', 2);
+insert into img_product (id, img_name, product_id) value (3, 'products.1614050479686.png', 3);
+insert into img_product (id, img_name, product_id) value (4, 'products.1614050518586.png', 4);
+insert into img_product (id, img_name, product_id) value (5, 'products.1614050550265.png', 5);
+insert into img_product (id, img_name, product_id) value (6, 'products.1614050600001.png', 6);
+insert into img_product (id, img_name, product_id) value (7, 'products.1614050634771.png', 7);
+insert into img_product (id, img_name, product_id) value (8, 'products.1614050666132.png', 8);
+insert into img_product (id, img_name, product_id) value (9, 'products.1614050695135.png', 9);
+insert into img_product (id, img_name, product_id) value (10, 'products.1614050725774.png', 10);
+
+
+insert into cart (id, user_id, product_id) values (1, 1, 1);
+insert into cart (id, user_id, product_id) values (2, 1, 8);
+insert into cart (id, user_id, product_id) values (3, 1, 9);
+insert into cart (id, user_id, product_id) values (4, 2, 2);
+insert into cart (id, user_id, product_id) values (5, 2, 4);
+insert into cart (id, user_id, product_id) values (6, 2, 5);
+insert into cart (id, user_id, product_id) values (7, 3, 4);
+insert into cart (id, user_id, product_id) values (8, 3, 10);
+insert into cart (id, user_id, product_id) values (9, 3, 6);
+
+insert into favorites (id, user_id, product_id) values (1, 1, 4);
+insert into favorites (id, user_id, product_id) values (2, 1, 3);
+insert into favorites (id, user_id, product_id) values (3, 2, 4);
+insert into favorites (id, user_id, product_id) values (4, 2, 1);
+insert into favorites (id, user_id, product_id) values (5, 3, 9);
+insert into favorites (id, user_id, product_id) values (6, 3, 8);
+insert into favorites (id, user_id, product_id) values (7, 2, 1);
+insert into favorites (id, user_id, product_id) values (8, 3, 9);
+insert into favorites (id, user_id, product_id) values (9, 3, 8);

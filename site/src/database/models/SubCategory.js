@@ -32,7 +32,7 @@ module.exports = (sequelize, dataType) => {
         })
         SubCategory.belongsTo(models.Categories, {
             as: "category",
-            foreingKey: category_id
+            foreingKey: 'category_id'
         })
     }
     return SubCategory

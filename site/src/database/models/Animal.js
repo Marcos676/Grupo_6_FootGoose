@@ -27,13 +27,9 @@ module.exports = (sequelize, dataType) => {
     const Animal = sequelize.define(alias, cols, config)
     Animal.associate = (models) => {
 
-        Animal.hasMany(models.Products, {
-            as: "products",
-            foreingKey: "animal_id"
-        })
         Animal.hasMany(models.Categories, {
             as: "category",
-            foreingKey: animal_id
+            foreingKey: "animal_id"
         })
     }
 

@@ -26,17 +26,14 @@ module.exports = (sequelize, dataType) => {
 
     const Category = sequelize.define(alias, cols, config)
     Category.associate = (models) => {
-        Category.hasMany(models.Products, {
-            as: "products",
-            foreingKey: "category_id"
-        })
+
         Category.hasMany(models.SubCategories, {
             as: "subCategory",
-            foreingKey: category_id
+            foreingKey: 'category_id'
         })
         Category.belongsTo(models.Animals, {
             as: "animal",
-            foreingKey: animal_id
+            foreingKey: 'animal_id'
         })
     }
     return Category

@@ -34,16 +34,17 @@ module.exports = (sequelize, dataType) => {
         },
         img: {
             type:dataType.STRING(45),
-            allowNull: true,
             defaultValue: 'undefined.PNG'
         },
         admin: {
             type:dataType.INTEGER(1),
-            allowNull: true,
             defaultValue: 0
         },
-        location_id: {
-            type: dataType.INTEGER
+        zone: {
+            type: dataType.STRING(45)
+        },
+        locality: {
+            type: dataType.STRING(45)
         }
     }	
     const config = {
@@ -52,12 +53,7 @@ module.exports = (sequelize, dataType) => {
     }
     const User = sequelize.define(alias, cols, config)   
         
-        Users.associate = (models) => {
-
-        User.belongsTo(models.locations, {
-            as: "location",
-            foreingKey: "location_id"
-        })
+        User.associate = (models) => {
 
         User.belongsToMany(models.Products,{
             as: 'productCart',
@@ -67,7 +63,7 @@ module.exports = (sequelize, dataType) => {
         })
 
         User.belongsToMany(models.Products,{
-            as: 'favorites',
+            as: 'favorite',
             through: 'favorites',
             foreingKey: 'user_id',
             otherKey: 'product_id'

@@ -168,5 +168,35 @@
     "label": "new",
     "expiration": "2021-02-23",
     "finalPrice": 230
+  },
+  {
+    "id": 11,
+    "name": "",
+    "description": "nbkh",
+    "img": [],
+    "animal": "perro",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 0,
+    "price": 0,
+    "discount": 0,
+    "label": "null",
+    "expiration": "",
+    "finalPrice": 0
+  },
+  {
+    "id": 12,
+    "name": "",
+    "description": "nbkh",
+    "img": [],
+    "animal": "perro",
+    "category": "alimento",
+    "subCategory": "",
+    "cuantity": 0,
+    "price": 0,
+    "discount": 0,
+    "label": "null",
+    "expiration": "",
+    "finalPrice": 0
   }
 ]

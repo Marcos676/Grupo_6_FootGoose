@@ -4,15 +4,18 @@ module.exports = (sequelize, dataType) => {
 
     const cols = {
         id: {
-            type: dataType.INTEGER,
+            type: dataType.INTEGER(11),
             allowNull: true,
             autoIncrement: true,
             primaryKey: true
         },
-        category: {
+        img_name: {
             type: dataType.STRING(40),
-            allowNull: true
         },
+        productId: {
+            type: dataType.INTEGER(11),
+            allowNull: true
+        }
     }
 
     const config = {
@@ -21,12 +24,6 @@ module.exports = (sequelize, dataType) => {
     }
 
     const ImgProduct = sequelize.define(alias, cols, config)
-    ImgProduct.associate = (models) => {
-        Img_product.hasMany(models.Products, {
-            as: "products",
-            foreingKey: "product_id"
-        })
-    }
 
     return ImgProduct
 }

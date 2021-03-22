@@ -42,20 +42,12 @@ module.exports = (sequelize, dataType) => {
         created_at: {
             type: dataType.DATE,
             allowNull: true,
-            defaultValue: NULL
+            defaultValue: null
         },
         updated_at: {
             type: dataType.DATE,
             allowNull: true,
-            defaultValue: NULL
-        },
-        animal_id: {
-            type: dataType.INTEGER,
-            allowNull: true
-        },
-        category_id: {
-            type: dataType.INTEGER,
-            allowNull: true
+            defaultValue: null
         },
         sub_category_id: {
             type: dataType.INTEGER,
@@ -67,39 +59,32 @@ module.exports = (sequelize, dataType) => {
         }
     }
     const config = {
-        tableName: "products"
+        tableName: "products",
+        timestamps: true,
+        underscored: true
     }
     const Product = sequelize.define(alias, cols, config)
 
     Product.associate = (models) => {
 
-        Product.belongsTo(models.animals, {
-            as: "animal",
-            foreingKey: "animal_id"
-        })
-        Product.belongsTo(models.categories, {
-            as: "category",
-            foreingKey: "category_id"
-        })
-        Product.belongsTo(models.subCategories, {
+        Product.belongsTo(models.SubCategories, {
             as: "subCategory",
             foreingKey: "sub_category_id"
         })
-        Product.belongsTo(models.labels, {
+        Product.belongsTo(models.Labels, {
             as: "label",
             foreingKey: "label_id"
         })
-        Product.hasMany(models.images, {
+        Product.hasMany(models.ProductsImages, {
             as: "images",
             foreingKey: "product_id"
         })
-        Product.belongsToMany(models.users,{
+        Product.belongsToMany(models.Users,{
             as: 'cartProduct',
             through: 'cart',
             foreingKey: 'product_id',
             otherKey: 'favorite_id'
         })
-
         Product.belongsToMany(models.Users,{
             as: 'favoriteOfUser',
             through: 'favorites',
