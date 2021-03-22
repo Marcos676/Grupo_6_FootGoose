@@ -2,6 +2,16 @@
     margin: 5px 10px;
 }
 
+.catalogo .card img {
+	height: 280px;
+	width: 220px;
+	object-fit: contain;
+}
+
+.catalogo .card .producto-datos {
+	align-items: baseline;
+}
+
 .catalogo .animales .imgs img{
     width: 80px;
 }
