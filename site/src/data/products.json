@@ -3,15 +3,13 @@
     "id": 1,
     "name": "Alimento para aves",
     "description": "multivitamínica comida para aves exóticas",
-    "img": [
-      "products-1616164641988.png"
-    ],
+    "img": [],
     "animal": "ave",
     "category": "alimento",
-    "subCategory": "    ",
+    "subCategory": "     ",
     "cuantity": 10,
     "price": 250,
-    "discount": 10,
+    "discount": 11,
     "finalPrice": 225,
     "label": "sin etiqueta",
     "expiration": "2021-02-23"

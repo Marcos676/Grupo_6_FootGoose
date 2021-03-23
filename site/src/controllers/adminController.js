@@ -13,14 +13,14 @@ module.exports = {
             user
         })
 
-         /* db.Users.finfByPk(req.session.user.id)
-         .then(user => {
-             return res.render('admin/adminProfile', {
-                 title: 'Perfil',
-                 user
-             })
-         })
-         .catch(error => res.send(error)) */
+        /* db.Users.finfByPk(req.session.user.id)
+        .then(user => {
+            return res.render('admin/adminProfile', {
+                title: 'Perfil',
+                user
+            })
+        })
+        .catch(error => res.send(error)) */
 
     },
     logout: (req, res) => {
@@ -32,19 +32,21 @@ module.exports = {
     },
     productList: (req, res) => {
 
-        res.render('admin/products', {
-            title: 'Lista de productos',
-            products: getProducts
-        })
+        /*   res.render('admin/products', {
+              title: 'Lista de productos',
+              products: getProducts
+          }) */
 
-       /*  db.Products.findAll()
-        .then(products => {
-            return res.render('admin/products', {
-                title: 'Lista de productos',
-                products
-            })
+        db.Products.findAll({
+            include: [{ association: 'images' }]
         })
-        .catch(error => res.send(error)) */
+            .then(products => {
+                return res.render('admin/products', {
+                    title: 'Lista de productos',
+                    products
+                })
+            })
+            .catch(error => res.send(error))
 
     },
     productAdd: (req, res) => {
@@ -90,34 +92,34 @@ module.exports = {
 
 
 
-/*        db.Products.create({
-            name,
-            description,
-            animal,
-            category,
-            subCategory,
-            cuantity: +cuantity,
-            price: +price,
-            discount: +discount,
-            label: +label,
-            expiration,
-            finalPrice: +finalPrice
-        })
-            .then((product) => {
-
-                const imgs = req.files.map(nombre => {
-                    return db.ProductsImages.create({
-                        img_name: nombre.filename,
-                        product_id: product.id
-                    })
+        /*        db.Products.create({
+                    name,
+                    description,
+                    animal,
+                    category,
+                    subCategory,
+                    cuantity: +cuantity,
+                    price: +price,
+                    discount: +discount,
+                    label: +label,
+                    expiration,
+                    finalPrice: +finalPrice
                 })
-                Promise.all(imgs)
-                    .then(() => {
-                        return res.redirect('/admin/products')
+                    .then((product) => {
+        
+                        const imgs = req.files.map(nombre => {
+                            return db.ProductsImages.create({
+                                img_name: nombre.filename,
+                                product_id: product.id
+                            })
+                        })
+                        Promise.all(imgs)
+                            .then(() => {
+                                return res.redirect('/admin/products')
+                            })
+                            .catch(error => res.send(error))
                     })
-                    .catch(error => res.send(error))
-            })
-            .catch(error => res.send(error)) */
+                    .catch(error => res.send(error)) */
     },
     productDetail: (req, res) => {
 
@@ -134,30 +136,29 @@ module.exports = {
         })
 
 
-        /*let img = bd.productsImages.findAll({
+        let img = bd.productsImages.findAll({
             where: {
                 product_id: req.params.id
             }
         })
-         let product = db.Products.findOne({
+        let product = db.Products.findOne({
             where: {
                 id: req.params.id
-            }, 
+            },
             include: [
                 { association: 'subCategory' },
-                { association: 'label' } 
-
-                }
+                { association: 'label' }
             ]
         })
         Promise.all([img, product])
-        .then((img, product) => {
-            return res.render('admin/productDetail', {
-            title: 'Detalle',
-            product,
-            img
-        })
-        .catch(error => res.send(error)) */
+            .then((img, product) => {
+                return res.render('admin/productDetail', {
+                    title: 'Detalle',
+                    product,
+                    img
+                })
+                    .catch(error => res.send(error))
+            })
     },
     productEdit: (req, res) => {
         let id = req.params.id

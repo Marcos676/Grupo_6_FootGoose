@@ -1,15 +1,7 @@
-const { getProducts } = require('../data/products_db');
-
 const db = require('../database/models')
 
 module.exports = {
     catalogo: (req, res) => {
-      /*   res.render('catalogo', {
-            title: 'Catalogo',
-            products: getProducts
-        }) */
-
-
 
         db.Products.findAll({
             include: [{association: 'images'}]
@@ -28,8 +20,6 @@ module.exports = {
         })
     },
     carrito: (req, res) => {
-
-
         res.render('productCart', {
             title: 'Carrito'
         })
