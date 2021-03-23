@@ -1,0 +1,62 @@
+
+.welcome .welcomeBox {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    padding: 40px;
+    margin: auto;
+    margin-top: 30px;
+    background: white;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    }
+    
+    .welcome .welcomeBox h3 {
+    color: #4BB543;
+    }
+    
+    .welcome .welcomeBox h1 b {
+    color: #ff6666;
+    }
+    
+    .welcome .botonEditarUser {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: block;
+    padding: 20px;
+    margin-top: 40px;
+    color: white;
+    background: #4782C9;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 10px;
+    }
+    
+    .welcome .botonDesloguear {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    display: block;
+    padding: 20px;
+    margin-top: 40px;
+    color: white;
+    background: #B23B3B;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 10px;
+    }
+    
+    .welcome .botonEditarUser:hover,
+    .welcome .botonDesloguear:hover{
+    background: #D8D8D8;
+    color: #000000
+    }
+    
+    @media screen and (max-width: 500px) {
+
+     .welcomeBox {
+    font-weight: 400;
+    font-size: 30px;
+    }
+    }
