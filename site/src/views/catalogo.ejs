@@ -84,7 +84,7 @@
 
               <div class="row">
                 <% products.forEach(product=> { %>
-                  <div class="card producto col-sm-3">
+                  <div class="card producto container-fluid col-sm-5 col-lg-3">
                     <!-- favorito -->
                     <% if (typeof localUser !=='undefined' ) { %>
                       <div class="containerheart">
@@ -99,18 +99,20 @@
                         <%=product.name%>
                       </h5>
                       <!-- precio y descuento -->
-                      <p><span class="precio-final">
+                      <p><span class="precio-final">$
                           <%= product.finalPrice %>
                         </span><span class="descontado">
-                          <%= product.discount %>
+                          <%= product.discount %>%off
                         </span></p>
                         <!-- cantidad y comprar -->
                       <% if (typeof localUser !=='undefined' ) { %>
                         <div class="box">
                           <input type="number" max="<%= product.cuantity %> ">
                         </div>
-                        <button type="button" class="btn btn-success"><i
-                            class="fas fa-shopping-cart"></i>Agregar</button>
+                        <div class="btn-compra">
+                          <button type="button" class="btn btn-success"><i
+                              class="fas fa-shopping-cart"></i>Agregar</button>
+                        </div>
                         <% } %>
                     </div>
                   </div>
@@ -118,15 +120,11 @@
               </div>
             </article>
             <!-- Páginas -->
-              </div>
-
-            </article>
-
             <article class="mas-vendido col-12">
               <h3>Lo mas vendido</h3>
               <div class="row">
                 <% products.forEach(product=> { %>
-                  <div class="card producto col-sm-3">
+                  <div class="card producto container-fluid col-sm-5 col-lg-3">
                     <!-- favorito -->
                     <% if (typeof localUser !=='undefined' ) { %>
                       <div class="containerheart">
@@ -142,9 +140,9 @@
                       </h5>
                       <!-- precio y descuento -->
                       <p><span class="precio-final">
-                          <%= product.finalPrice %>
+                          <%= product.finalPrice %>$
                         </span><span class="descontado">
-                          <%= product.discount %>
+                          <%= product.discount %>% off
                         </span></p>
                         <!-- cantidad y comprar -->
                       <% if (typeof localUser !=='undefined' ) { %>

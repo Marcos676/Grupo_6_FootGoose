@@ -89,6 +89,11 @@ header {
     display: flex;
   }
   
+  header .ingresar a img {
+    width: 15%;
+    border-radius: 50%;
+  }
+
   
   /* NAVEGACION CON BURGUER BUTTON */
   .boton-hamburguesa {

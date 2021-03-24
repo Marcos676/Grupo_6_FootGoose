@@ -21,11 +21,12 @@
   },
   {
     "id": 3,
-    "name": "Elsa Pallo",
+    "firstName": "Marcos",
+    "lastName": "Verdulero",
     "email": "hortalizas2007@gmail.com",
     "password": "$2b$10$jhoamsNi7X5SUswqQLo0Me59XmHpekzWmfh.UkjbtSfDYOSzaDTQS",
-    "address": null,
-    "tel": null,
+    "address": "",
+    "tel": "",
     "img": "undefined.PNG",
     "admin": 0,
     "favoritos": []

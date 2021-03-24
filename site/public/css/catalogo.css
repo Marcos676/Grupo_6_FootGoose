@@ -2,6 +2,26 @@
     margin: 5px 10px;
 }
 
+.catalogo .card .precio-final {
+	color: green;
+	font-size: 1.3em;
+}
+
+.catalogo .card .descontado {
+	color: red;
+	font-size: 10px;
+}
+
+.catalogo .card img {
+	height: 280px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.catalogo .card .producto-datos {
+	align-items: baseline;
+}
+
 .catalogo .animales .imgs img{
     width: 80px;
 }
@@ -50,7 +70,12 @@ transition: .4s;
 	padding: 5px;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+	width: 100%;
+}
 
+.catalogo .card .btn-compra {
+	text-align: center;
+	margin: 10px;
 }
 
 .catalogo .card .box input:hover,
