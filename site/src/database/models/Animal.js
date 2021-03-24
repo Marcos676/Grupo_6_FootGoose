@@ -22,6 +22,7 @@ module.exports = (sequelize, dataType) => {
     const config = {
         tableName: "animal",
         timestamps: false,
+        underscored: true
     }
 
     const Animal = sequelize.define(alias, cols, config)
@@ -29,7 +30,8 @@ module.exports = (sequelize, dataType) => {
 
         Animal.hasMany(models.Categories, {
             as: "category",
-            foreingKey: "animal_id"
+            foreingKey: "animal_id",
+            underscored: true
         })
     }
 

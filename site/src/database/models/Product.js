@@ -22,7 +22,7 @@ module.exports = (sequelize, dataType) => {
             allowNull: true,
         },
         price: {
-            type: dataType.DECIMAL(5,1),
+            type: dataType.DECIMAL(7,2),
             allowNull: true
         },
         discount: {
@@ -36,17 +36,15 @@ module.exports = (sequelize, dataType) => {
             type: dataType.DATE
         },
         final_price: {
-            type: dataType.DECIMAL(5,1),
+            type: dataType.DECIMAL(7,2),
             allowNull: true,
         },
         created_at: {
             type: dataType.DATE,
-            allowNull: true,
             defaultValue: null
         },
         updated_at: {
             type: dataType.DATE,
-            allowNull: true,
             defaultValue: null
         },
         sub_category_id: {
@@ -69,27 +67,32 @@ module.exports = (sequelize, dataType) => {
 
         Product.belongsTo(models.SubCategories, {
             as: "subCategory",
-            foreingKey: "sub_category_id"
+            foreingKey: "sub_category_id",
+            underscored: true
         })
         Product.belongsTo(models.Labels, {
             as: "label",
-            foreingKey: "label_id"
+            foreingKey: "label_id",
+            underscored: true
         })
         Product.hasMany(models.ProductsImages, {
             as: "images",
-            foreingKey: "product_id"
+            foreingKey: "product_id",
+            underscored: true
         })
         Product.belongsToMany(models.Users,{
             as: 'cartProduct',
             through: 'cart',
             foreingKey: 'product_id',
-            otherKey: 'favorite_id'
+            otherKey: 'favorite_id',
+            underscored: true
         })
         Product.belongsToMany(models.Users,{
             as: 'favoriteOfUser',
             through: 'favorites',
             foreingKey: 'product_id',
-            otherKey: 'user_id'
+            otherKey: 'user_id',
+            underscored: true
         })
     }
     return Product

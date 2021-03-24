@@ -22,17 +22,20 @@ module.exports = (sequelize, dataType) => {
     const config = {
         tableName: "sub_category",
         timestamps: false,
+        underscored: true
     }
 
     const SubCategory = sequelize.define(alias, cols, config)
     SubCategory.associate = (models) => {
         SubCategory.hasMany(models.Products, {
             as: "products",
-            foreingKey: "sub_category_id"
+            foreingKey: "sub_category_id",
+            underscored: true
         })
         SubCategory.belongsTo(models.Categories, {
             as: "category",
-            foreingKey: 'category_id'
+            foreingKey: 'category_id',
+            underscored: true
         })
     }
     return SubCategory

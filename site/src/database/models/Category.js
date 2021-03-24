@@ -22,6 +22,7 @@ module.exports = (sequelize, dataType) => {
     const config = {
         tableName: "category",
         timestamps: false,
+        underscored: true
     }
 
     const Category = sequelize.define(alias, cols, config)
@@ -29,11 +30,13 @@ module.exports = (sequelize, dataType) => {
 
         Category.hasMany(models.SubCategories, {
             as: "subCategory",
-            foreingKey: 'category_id'
+            foreingKey: 'category_id',
+            underscored: true
         })
         Category.belongsTo(models.Animals, {
             as: "animal",
-            foreingKey: 'animal_id'
+            foreingKey: 'animal_id',
+            underscored: true
         })
     }
     return Category

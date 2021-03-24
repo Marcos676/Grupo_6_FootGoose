@@ -23,13 +23,15 @@ module.exports = (sequelize, dataType) => {
     const config = {
         tableName: "label",
         timestamps: false,
+        underscored: true
     }
 
     const Label = sequelize.define(alias, cols, config)
     Label.associate = (models) => {
         Label.hasMany(models.Products, {
             as: "products",
-            foreinkey: "label_id"
+            foreinkey: "label_id",
+            underscored: true
         })
     }
     return Label

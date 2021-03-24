@@ -69,7 +69,7 @@ module.exports = {
                 }
                 if (rememberme) {
                     res.cookie('FootGoose', req.session.user, {
-                        maxAge: 1000 * 60 * 2 /* Vive por 2 minuto */
+                        maxAge: 1000 * 60 * 60 * 24 * 7 /*La cookie vive por una semana*/
                     })
                 }
                 user.admin === 1 ? res.redirect('/admin/perfil') : res.redirect('/usuario/perfil')

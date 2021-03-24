@@ -12,7 +12,7 @@ module.exports = (sequelize, dataType) => {
         img_name: {
             type: dataType.STRING(40),
         },
-        productId: {
+        product_id: {
             type: dataType.INTEGER(11),
             allowNull: true
         }
@@ -21,6 +21,7 @@ module.exports = (sequelize, dataType) => {
     const config = {
         tableName: "img_product",
         timestamps: false,
+         underscored: true
     }
 
     const ImgProduct = sequelize.define(alias, cols, config)

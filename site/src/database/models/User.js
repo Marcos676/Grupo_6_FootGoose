@@ -49,7 +49,8 @@ module.exports = (sequelize, dataType) => {
     }	
     const config = {
         tableName: "users",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     }
     const User = sequelize.define(alias, cols, config)   
         
@@ -59,14 +60,16 @@ module.exports = (sequelize, dataType) => {
             as: 'productCart',
             through: 'cart',
             foreingKey: 'user_id',
-            otherKey: 'product_id'
+            otherKey: 'product_id',
+            underscored: true
         })
 
         User.belongsToMany(models.Products,{
             as: 'favorite',
             through: 'favorites',
             foreingKey: 'user_id',
-            otherKey: 'product_id'
+            otherKey: 'product_id',
+            underscored: true
         })
     }
     return User

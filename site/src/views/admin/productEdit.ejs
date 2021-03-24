@@ -16,11 +16,11 @@
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="/images/productos/<%= product.img[0] %>" class="imagen-carrusel" alt="...">
+                  <img src="/images/productos/<%= product.images[0].img_name %>" class="imagen-carrusel" alt="...">
                 </div>
-                <% for( let index = 1; index < product.img.length; index++ ) { %>
+                <% for( let index = 1; index < product.images.length; index++ ) { %>
                   <div class="carousel-item">
-                      <img src="/images/productos/<%= product.img[index] %> " class="imagen-carrusel" alt="...">
+                      <img src="/images/productos/<%= product.images[index].img_name %> " class="imagen-carrusel" alt="...">
                   </div>
               <% } %>
                 
@@ -49,12 +49,12 @@
             <!-- Animales y Categorías -->
             <div class="campo-animal margen">
               <select class="seleccionar col-5" name="animal">
-                <option value="perro" <%= product.animal === 'perro'?'selected' : null %>>Perro</option>
-                <option value="gato"<%= product.animal === 'gato'?'selected' : null %>>Gato</option>
-                <option value="ave" <%= product.animal === 'ave'?'selected' : null %>>Ave</option>
-                <option value="pez" <%= product.animal === 'pez'?'selected' : null %>>Pez</option>
-                <option value="roedor" <%= product.animal === 'roedor'?'selected' : null %>>Roedor</option>
-                <option value="reptil" <%= product.animal === 'reptil'?'selected' : null %>>Reptil</option>
+                <option value="1" <%= product.animal == '1'?'selected' : null %>>Perro</option>
+                <option value="2"<%= product.animal == '2'?'selected' : null %>>Gato</option>
+                <option value="5" <%= product.animal == '5'?'selected' : null %>>Ave</option>
+                <option value="3" <%= product.animal == '3'?'selected' : null %>>Pez</option>
+                <option value="4" <%= product.animal == '4'?'selected' : null %>>Roedor</option>
+                <option value="6" <%= product.animal == '6'?'selected' : null %>>Reptil</option>
               </select>
               <span class="obligatorio col-1">*</span>
 
@@ -137,7 +137,7 @@
       </div>
 
 
-      <%- include('./partials/footer') %>
+      <%- include('../partials/footer') %>
   </body>
 
 </html>
