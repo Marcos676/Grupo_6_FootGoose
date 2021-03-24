@@ -96,17 +96,14 @@ module.exports = {
 
         let { subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice } = req.body
 
-        res.send(req.files)
-
         db.Products.create({
             name,
             description,
             cuantity: +cuantity,
-            price: +priice,
+            price: +price,
             discount,
-            expiration,/* verificar como llega a workbench */
+            expiration,
             final_price: finalPrice,
-             /* created_at: moment(tiempo real ahora), */
             sub_category_id: +subCategory,
             label_id: label
         })
