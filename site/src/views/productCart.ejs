@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <%- include('./partials/head') %>
 
   <body>
@@ -58,14 +57,11 @@
           <!-- boton para mobile checkout desplegable -->
 
           <div class="col-12 divdeboton">
-            <button class="btn btn-success checkmobile" data-pushbar-target="pushbar-checkout"><i
-                class="fas fa-receipt"></i> Finalizar
-              compra</button>
+            <button class="btn btn-success" data-pushbar-target="pushbar-checkout"><i class="fas fa-receipt"></i>  Finalizar compra</button>
           </div>
         </div>
         <!-- DETALLE -->
-        <div data-pushbar-id="pushbar-checkout" data-pushbar-direction="right"
-          class="pushbar from_left pushbar-checkout">
+        <div data-pushbar-id="pushbar-checkout" data-pushbar-direction="right" class="pushbar pushbar-checkout">
           <div>
             <h4 class="detail">Detalle de compra</h4>
             <!-- contenedor de descripcion -->
@@ -115,13 +111,14 @@
             </div>
           </div>
         </div>
+      </div>
         <%- include('./partials/footer') %>
           <script src="https://cdn.jsdelivr.net/npm/pushbar.js@1.0.0/src/pushbar.min.js"></script>
           <script type="text/javascript">
             const pushbar = new Pushbar({
-              blur: true,
-              overlay: true,
-            });
+                  blur:true,
+                  overlay:true,
+                });
           </script>
   </body>
 

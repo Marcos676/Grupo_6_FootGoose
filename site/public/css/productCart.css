@@ -126,7 +126,7 @@
   text-align: end;
   }
   
-  .pushbar {
+  .cart .pushbar{
     background: var(--color-naranjaClaro);
     color: var(--color-negro);
     padding: 20px;

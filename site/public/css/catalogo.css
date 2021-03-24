@@ -64,15 +64,33 @@ transition: .4s;
 	color: gold;
 }
 
+.catalogo .card .box {
+	text-align: center;
+}
+
 .catalogo .card .box input {
 	border: none;
 	outline: none;
 	padding: 5px;
 	border-radius: 5px;
+	margin: 0 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
 	width: 100%;
 }
 
+.catalogo .card .box button {
+	background-color: var(--color-grisOscuro);
+	color: var(--color-blanco);
+	border: none;
+	outline: none;
+	padding: 0 10px;
+	border-radius: 5px;
+}
+
+.catalogo .card .box button:hover {
+	background-color: var(--color-naranjaClaro);
+	color: #000;
+}
 .catalogo .card .btn-compra {
 	text-align: center;
 	margin: 10px;

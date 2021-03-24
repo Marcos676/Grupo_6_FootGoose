@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<%- include('./partials/head') %>
+<%- include('./partials/head')%>
 
   <body>
     <%- include('./partials/header') %>
@@ -91,30 +91,30 @@
                         <i onclick="toggle()" id="btn" class="far fa-star"></i>
                       </div>
                       <% } %>
-                  <!-- imagen -->
-                    <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
-                    <div class="producto-datos">
-                      <!-- nombre -->
-                      <h5 class="titulo producto">
-                        <%=product.name%>
-                      </h5>
-                      <!-- precio y descuento -->
-                      <p><span class="precio-final">$
-                          <%= product.finalPrice %>
-                        </span><span class="descontado">
-                          <%= product.discount %>%off
-                        </span></p>
-                        <!-- cantidad y comprar -->
-                      <% if (typeof localUser !=='undefined' ) { %>
-                        <div class="box">
-                          <input type="number" max="<%= product.cuantity %> ">
+                        <!-- imagen -->
+                        <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
+                        <div class="producto-datos">
+                          <!-- nombre -->
+                          <h5 class="titulo producto">
+                            <%=product.name%>
+                          </h5>
+                          <!-- precio y descuento -->
+                          <p><span class="precio-final">$
+                              <%= product.finalPrice %>
+                            </span><span class="descontado">
+                              <%= product.discount %>%off
+                            </span></p>
+                          <!-- cantidad y comprar -->
+                          <% if (typeof localUser !=='undefined' ) { %>
+                            <div class="box">
+                              <input type="number" value="0" min="0" max="<%= product.cuantity %> ">
+                            </div>
+                            <div class="btn-compra">
+                              <button type="button" class="btn btn-success"><i
+                                  class="fas fa-shopping-cart"></i>Agregar</button>
+                            </div>
+                            <% } %>
                         </div>
-                        <div class="btn-compra">
-                          <button type="button" class="btn btn-success"><i
-                              class="fas fa-shopping-cart"></i>Agregar</button>
-                        </div>
-                        <% } %>
-                    </div>
                   </div>
                   <% }) %>
               </div>
@@ -131,28 +131,28 @@
                         <i onclick="toggle()" id="btn" class="far fa-star"></i>
                       </div>
                       <% } %>
-                  <!-- imagen -->
-                    <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
-                    <div class="producto-datos">
-                      <!-- nombre -->
-                      <h5 class="titulo producto">
-                        <%=product.name%>
-                      </h5>
-                      <!-- precio y descuento -->
-                      <p><span class="precio-final">
-                          <%= product.finalPrice %>$
-                        </span><span class="descontado">
-                          <%= product.discount %>% off
-                        </span></p>
-                        <!-- cantidad y comprar -->
-                      <% if (typeof localUser !=='undefined' ) { %>
-                        <div class="box">
-                          <input type="number" max="<%= product.cuantity %> ">
+                        <!-- imagen -->
+                        <img src="/images/productos/<%=product.img%>" class="card-img-top" alt="imagen de producto">
+                        <div class="producto-datos">
+                          <!-- nombre -->
+                          <h5 class="titulo producto">
+                            <%=product.name%>
+                          </h5>
+                          <!-- precio y descuento -->
+                          <p><span class="precio-final">
+                              <%= product.finalPrice %>$
+                            </span><span class="descontado">
+                              <%= product.discount %>% off
+                            </span></p>
+                          <!-- cantidad y comprar -->
+                          <% if (typeof localUser !=='undefined' ) { %>
+                            <div class="box">
+                              <input type="number" value="0" min="0" max="<%= product.cuantity %> ">
+                            </div>
+                            <button type="button" class="btn btn-success"><i
+                                class="fas fa-shopping-cart"></i>Agregar</button>
+                            <% } %>
                         </div>
-                        <button type="button" class="btn btn-success"><i
-                            class="fas fa-shopping-cart"></i>Agregar</button>
-                        <% } %>
-                    </div>
                   </div>
                   <% }) %>
               </div>
@@ -185,26 +185,15 @@
 
         </div>
 
-        <%- include('./partials/footer') %>
       </main>
-      <!--       <script>
-        var btn = document.getElementById('btn');
-    
-        function toggle(){
-          if(btn.classList.contains == "far"){
-          btn.classList.remove("far");
-          btn.classList.add("fas")
-        }else{
-          btn.classList.remove("fas");
-          btn.classList.add("far")
-        }
-        }
-      </script>
-      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <script src="node_modules/jquery.nice-number/dist/jquery.nice-number.min.js"></script>
-      <script>
-        $('input[type="number"]').niceNumber();
-      </script> -->
+      <%- include('./partials/footer') %>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+          integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
+          </script>
+        <script src="https://unpkg.com/jquery.nice-number@2.1.0/dist/jquery.nice-number.min.js"></script>
+        <script>
+          $('input[type="number"]').niceNumber();
+        </script>
   </body>
 
 </html>
