@@ -60,40 +60,6 @@ module.exports = {
             .catch(error => res.send(error))
     },
     createProcess: (req, res) => {
-
-        /*   let lastID = 0
-          getProducts.forEach(product => {
-              if (lastID < product.id) {
-                  lastID = product.id
-              }
-          });
-  
-          let images = []
-          req.files.map(nombre => {
-              images.push(nombre.filename)
-          })
-  
-          newProduct = {
-              id: +lastID + 1,
-              name,
-              description,
-              img: images,
-              animal,
-              category,
-              subCategory,
-              cuantity: +cuantity,
-              price: +price,
-              discount: +discount,
-              label,
-              expiration,
-              finalPrice: +finalPrice
-          }
-  
-          getProducts.push(newProduct)
-  
-          setProducts(getProducts)
-   */
-
         let { subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice } = req.body
 
         db.Products.create({
@@ -108,15 +74,22 @@ module.exports = {
             label_id: label
         })
             .then((product) => {
-
-                const imgs = req.files.map(nombre => {
-                    return db.ProductsImages.create({
-                        img_name: nombre.filename,
+                if (typeof req.files[0] !== 'undefined') {
+                    var imgs = req.files.map(nombre => {
+                        return db.ProductsImages.create({
+                            img_name: nombre.filename,
+                            product_id: product.id
+                        })
+                    })
+                } else {
+                    var imgs = db.ProductsImages.create({
+                        img_name: 'undefinedProduct.png',
                         product_id: product.id
                     })
-                })
+                    imgs = [imgs]   
+                }
                 Promise.all(imgs)
-                    .then(() => {
+                    .then((imgs) => {
                         return res.redirect('/admin/products')
                     })
                     .catch(error => res.send(error))
@@ -124,8 +97,11 @@ module.exports = {
             .catch(error => res.send(error))
     },
     productDetail: (req, res) => {
-
-        db.Products.findOne({
+        const animals = db.Animals.findAll()
+        const categories = db.Categories.findAll()
+        const subCategories = db.SubCategories.findAll()
+        const labels = db.Labels.findAll()
+        const product = db.Products.findOne({
             where: {
                 id: req.params.id
             },
@@ -142,27 +118,17 @@ module.exports = {
             ]
 
         })
-            .then((product) => {
-
+        Promise.all([animals, categories, subCategories, labels, product])
+            .then((dataProduct) => {
+                res.send(dataProduct)
                 return res.render('admin/productDetail', {
                     title: 'Detalle',
-                    product
+                    dataProduct
                 })
             })
             .catch(error => res.send(error))
     },
     productEdit: (req, res) => {
-        /* let id = req.params.id
-
-        let producto = getProducts.find(product => {
-            return product.id === +id
-        });
-
-        res.render('admin/productEdit', {
-            title: 'Editar',
-            product: producto
-        }) */
-
         let img = db.ProductsImages.findAll({
             where: {
                 product_id: req.params.id

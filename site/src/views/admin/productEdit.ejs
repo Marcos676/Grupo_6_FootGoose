@@ -16,11 +16,11 @@
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="/images/productos/<%= product.images[0].img_name %>" class="imagen-carrusel" alt="...">
+                  <img src="/images/productos/<%= dataProduct[4].images[0].img_name %>" class="imagen-carrusel" alt="...">
                 </div>
-                <% for( let index = 1; index < product.images.length; index++ ) { %>
+                <% for( let index = 1; index < dataProduct[4].images.length; index++ ) { %>
                   <div class="carousel-item">
-                      <img src="/images/productos/<%= product.images[index].img_name %> " class="imagen-carrusel" alt="...">
+                      <img src="/images/productos/<%= dataProduct[4].images[index].img_name %> " class="imagen-carrusel" alt="...">
                   </div>
               <% } %>
                 
@@ -49,16 +49,19 @@
             <!-- Animales y Categorías -->
             <div class="campo-animal margen">
               <select class="seleccionar col-5" name="animal">
-                <option value="1" <%= product.animal == '1'?'selected' : null %>>Perro</option>
-                <option value="2"<%= product.animal == '2'?'selected' : null %>>Gato</option>
-                <option value="5" <%= product.animal == '5'?'selected' : null %>>Ave</option>
-                <option value="3" <%= product.animal == '3'?'selected' : null %>>Pez</option>
-                <option value="4" <%= product.animal == '4'?'selected' : null %>>Roedor</option>
-                <option value="6" <%= product.animal == '6'?'selected' : null %>>Reptil</option>
+                <% dataProduct[0].forEach(data=> { %>
+                  <option value=<%=data.id %> <%= data.id === dataProduct[4].subCategory.category.animal.id? selected : null %>  ><%= data.animal %> </option>
+                  <% }) %>
               </select>
               <span class="obligatorio col-1">*</span>
 
               <select class="seleccionar col-5" name="category">
+
+                <% classifications[1].forEach(categoria=> { %>
+                  <option value=<%=categoria.id %> ><%= categoria.category %>
+                  </option>
+                  <% }) %>
+
                 <option value="alimento" <%= product.category === 'alimento'?'selected' : null %>>Alimento</option>
                 <option value="salud" <%= product.category === 'salud'?'selected' : null %>>Salud</option>
                 <option value="juguete" <%= product.category === 'juguete'?'selected' : null %>>Juguete</option>
