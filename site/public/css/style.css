@@ -46,6 +46,9 @@ body.active{
   background-color: #09071e;
   color: var(--color-gris50)
 }
+a{
+  color: initial;
+}
 a:hover {
   text-decoration: none;
   color: initial;

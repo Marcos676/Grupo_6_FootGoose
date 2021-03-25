@@ -10,7 +10,7 @@
         <!-- Titulo -->
         <h1 class="col">EDITAR PRODUCTO</h1>
 
-        <form class="col-12 row" action="/admin/products/<%= product.id %>?_method=PUT " method="POST" enctype="multipart/form-data">
+        <form class="col-12 row" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST" enctype="multipart/form-data">
           <!-- Carrusel -->
           <div class="carrusel-add-image col-12 col-lg-6">
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
@@ -37,9 +37,7 @@
             <!-- Boton agregar imagen -->
             <div class="boton-image col-12">
               <label class="btn btn-success" for="archivo">Agregar foto</label>
-              <span class="obligatorio">*</span>
               <input type="file" name="img" id="archivo" multiple >
-
             </div>
           </div>
 
@@ -50,90 +48,88 @@
             <div class="campo-animal margen">
               <select class="seleccionar col-5" name="animal">
                 <% dataProduct[0].forEach(data=> { %>
-                  <option value=<%=data.id %> <%= data.id === dataProduct[4].subCategory.category.animal.id? selected : null %>  ><%= data.animal %> </option>
+                  <option value=<%=data.id %> <%= data.id === dataProduct[4].subCategory.category.animal.id? 'selected' : null %>  ><%= data.animal %> </option>
                   <% }) %>
               </select>
               <span class="obligatorio col-1">*</span>
 
               <select class="seleccionar col-5" name="category">
 
-                <% classifications[1].forEach(categoria=> { %>
-                  <option value=<%=categoria.id %> ><%= categoria.category %>
+                <% dataProduct[1].forEach(categoria=> { %>
+                  <option value=<%=categoria.id %> <%= categoria.id === dataProduct[4].subCategory.category.id? 'selected' : null %> ><%= categoria.category %>
                   </option>
                   <% }) %>
 
-                <option value="alimento" <%= product.category === 'alimento'?'selected' : null %>>Alimento</option>
-                <option value="salud" <%= product.category === 'salud'?'selected' : null %>>Salud</option>
-                <option value="juguete" <%= product.category === 'juguete'?'selected' : null %>>Juguete</option>
-                <option value="accesorio" <%= product.category === 'accesorio'?'selected' : null %>>Accesorio</option>
-                <option value="estetica-higiene"  <%= product.category === 'estetica-higiene'?'selected' : null %>>Estetica e higiene</option>
-                <option value="farmacia" <%= product.category === 'farmacia'?'selected' : null %>>Farmacia</option>
               </select>
               <span class="obligatorio col-1">*</span>
 
             </div>
 
             <!-- Subcategoria -->
-            <div class="sub-categoria margen">
-              <input class="completar col-11" type="text" name="subCategory"
-                placeholder="Sub-categoria ej: pretal, alimento seco, etc." value="<%= product.subCategory %> ">
-              <span class="obligatorio col-1">*</span>
-            </div>
+            <select class="sub-categoria margen" name="subCategory">
+
+              <% dataProduct[2].forEach(subcat=> { %>
+                <option value=<%=subcat.id %> <%= subcat.id === dataProduct[4].subCategory.id? 'selected' : null %> ><%= subcat.sub_category %>
+                </option>
+                <% }) %>
+
+            </select>
 
             <!-- Nombre -->
             <div class="nombre margen">
-              <input class="completar col-11" type="text" name="name" placeholder="Nombre" value="<%= product.name %>">
+              <input class="completar col-11" type="text" name="name" placeholder="Nombre" value="<%= dataProduct[4].name %>">
               <span class="obligatorio col-1">*</span>
             </div>
 
             <!-- Descripcion -->
             <div class="descripcion margen">
               <textarea class="completar col-11" name="description" cols="30" rows="3"
-                placeholder="Descripción"><%= product.description %></textarea>
+                placeholder="Descripción"><%= dataProduct[4].description %></textarea>
             </div>
 
             <!-- Cantidad y precio -->
             <div class="cantidad-precio margen">
               <!-- cantidad -->
-                <input class="completar col-5" type="number" name="cuantity" min="1" step="1" placeholder="Cantidad"  value="<%= product.cuantity %>" />
+                <input class="completar col-5" type="number" name="cuantity" min="1" step="1" placeholder="Cantidad"  value="<%= dataProduct[4].cuantity %>" />
                 <span class="obligatorio col-1">*</span>
               <!-- Precio -->
-                <input class="input-precio completar col-5" type="number" name="price" min="1" step="1" placeholder="$ Precio"  value="<%= product.price %>" />
+                <input class="input-precio completar col-5" type="number" name="price" min="1" step="1" placeholder="$ Precio"  value="<%= dataProduct[4].price %>" />
                 <span class="obligatorio col-1">*</span>
             </div>
 
             <!-- etiqueta y descuento -->
             <div class="etiqueta-descuento margen">
-                <select class="seleccionar col-5" name="label" id="etiqueta">
-                  <option value="sin etiqueta" <%= product.label === 'sin etiqueta'?'selected' : null %>>Sin etiqueta</option>
-                  <option value="nuevo" <%= product.label === 'nuevo'?'selected' : null %>>Nuevo</option>
-                  <option value="descuento" <%= product.label === 'descuento'?'selected' : null %>>Descuento</option>
-                </select>  
+              <select class="seleccionar col-5" name="label" id="etiqueta">
+              <% dataProduct[3].forEach(etiqueta=> { %>
+                <option value=<%=etiqueta.id %> <%= etiqueta.id === dataProduct[4].label.id? 'selected' : null %> ><%= etiqueta.label %>
+                </option>
+                <% }) %>
+              </select>
                 <!-- Espacio -->
                 <div class="col-1"></div>
 
               <!-- descuento -->
-                <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento"  value="<%= product.discount %>" />
+                <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento"  value="<%= dataProduct[4].discount %>" />
             </div>
 
             <!-- vencimiento(etiqueta-descuento) y precio final -->
             <div class="vencimiento-precio-final margen">
               <!-- vencimiento -->
               
-                <input class="vencimiento seleccionar col-5" type="date" name="expiration" placeholder="Vencimiento"  value="<%= product.expiration %>">
+                <input class="vencimiento seleccionar col-5" type="date" name="expiration" placeholder="Vencimiento"  value="<%= dataProduct[4].expiration %>">
                 <!-- Espacio -->
                 <div class="col-1"></div>
               
               <!-- Precio final -->
               
-                <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"  value="<%= product.finalPrice %>">
+                <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"  value="<%= dataProduct[4].final_price %>">
               
             </div>
             <span class="margen">* Campos obligatorios</span>
           </div>
           <!-- Botones -->
           <div class="botones col-12 row">
-            <a href="/admin/products/<%= product.id %> " class="btn btn-danger resetear col-5">Cancelar</a>
+            <a href="/admin/products/<%= dataProduct[4].id %> " class="btn btn-danger resetear col-5">Cancelar</a>
             <button class="btn btn-success crear col-5" type="submit">Aceptar</button>
           </div>
         </form>

@@ -81,9 +81,7 @@
               <div class="row">
                 <% products.forEach(product => { %>
                   <div class="card producto col-sm-3">
-                    <div class="containerheart">
-                      <i onclick="toggle()" id="btn" class="far fa-star"></i>
-                    </div>
+                    <a href="/admin/products/<%= product.id %>" >
                     <!-- carusel -->
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                       <div class="carousel-inner">
@@ -94,7 +92,7 @@
 
                         <% for( let index = 1; index < product.images.length; index++ ) { %>
                           <div class="carousel-item">
-                            <img src="/images/productos/<%= product.images.img_name %>" class="d-block w-100" data-interval="1000" alt="...">
+                            <img src="/images/productos/<%= product.images[index].img_name %>" class="d-block w-100" data-interval="1000" alt="...">
                         </div>
                       <% } %>
                         
@@ -103,10 +101,11 @@
 
                     <div class="producto-datos">
                       <h5 class="titulo producto"><%=product.name%> </h5>
-                      <p><span class="precio-final"><%= product.finalPrice %> </span><span class="descontado"><%= product.discount %> </span></p>
-                     
-                      <a href="/admin/products/<%= product.id %> "  class="btn btn-success">Detaller</a>
+                      <p><span class="precio-final">$<%= product.final_price %>
+                      </span><span class="descontado"><%= product.discount %>%off
+                      </span></p>
                     </div>
+                  </a>
                   </div>
                   <% }) %>
               </div>

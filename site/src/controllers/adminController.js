@@ -1,4 +1,3 @@
-const { getProducts, setProducts } = require('../data/products_db')
 const { getUsers } = require('../data/users_db');
 
 const db = require('../database/models')
@@ -12,7 +11,6 @@ module.exports = {
             title: 'Perfil',
             user
         })
-
         /* db.Users.finfByPk(req.session.user.id)
         .then(user => {
             return res.render('admin/adminProfile', {
@@ -21,7 +19,6 @@ module.exports = {
             })
         })
         .catch(error => res.send(error)) */
-
     },
     logout: (req, res) => {
         if (req.cookies.FootGoose) {
@@ -42,7 +39,6 @@ module.exports = {
                 })
             })
             .catch(error => res.send(error))
-
     },
     productAdd: (req, res) => {
         const animals = db.Animals.findAll()
@@ -83,7 +79,6 @@ module.exports = {
                     })
                 } else {
                     var imgs = db.ProductsImages.create({
-                        img_name: 'undefinedProduct.png',
                         product_id: product.id
                     })
                     imgs = [imgs]   
@@ -92,117 +87,117 @@ module.exports = {
                     .then((imgs) => {
                         return res.redirect('/admin/products')
                     })
-                    .catch(error => res.send(error))
             })
             .catch(error => res.send(error))
     },
     productDetail: (req, res) => {
-        const animals = db.Animals.findAll()
-        const categories = db.Categories.findAll()
-        const subCategories = db.SubCategories.findAll()
-        const labels = db.Labels.findAll()
-        const product = db.Products.findOne({
+        db.Products.findOne({
             where: {
                 id: req.params.id
             },
             include: [
                 { association: 'images' },
                 { association: 'label' },
-                {
-                    association: 'subCategory',
-                    include: [{
-                        association: 'category',
-                        include: [{ association: 'animal' }]
+                {association: 'subCategory',
+                    include: [
+                        {association: 'category',
+                             include: [{ association: 'animal' }]
                     }]
                 }
             ]
-
         })
-        Promise.all([animals, categories, subCategories, labels, product])
-            .then((dataProduct) => {
-                res.send(dataProduct)
+            .then((product) => {
                 return res.render('admin/productDetail', {
                     title: 'Detalle',
-                    dataProduct
+                    product
                 })
             })
             .catch(error => res.send(error))
     },
     productEdit: (req, res) => {
-        let img = db.ProductsImages.findAll({
-            where: {
-                product_id: req.params.id
-            }
-        })
+        const animals = db.Animals.findAll()
+        const categories = db.Categories.findAll()
+        const subCategories = db.SubCategories.findAll()
+        const labels = db.Labels.findAll()
         let product = db.Products.findOne({
             where: {
                 id: req.params.id
             },
             include: [
                 { association: 'images' },
-                { association: 'subCategory' },
-                { association: 'label' }
+                { association: 'label' },
+                { association: 'subCategory',
+                     include: [
+                         { association: 'category', 
+                            include: [{association: 'animal'}]
+                        }] 
+                }
             ]
         })
-        Promise.all([img, product])
-            .then((img, product) => {
+        Promise.all([animals, categories, subCategories, labels, product])
+            .then((dataProduct) => {
                 return res.render('admin/productEdit', {
                     title: 'Detalle',
-                    product,
-                    img
+                    dataProduct,
                 })
             })
             .catch(error => res.send(error))
-
-
     },
     editProcess: (req, res) => {
+        let { name, description, subCategory, cuantity, price, discount, label, expiration, finalPrice } = req.body
 
-        let { name, description, animal, category, subCategory, cuantity, price, discount, label, expiration, finalPrice } = req.body
-
-        let id = req.params.id
-
-        let images = []
-        req.files.map(nombre => {
-            images.push(nombre.filename)
-        })
-
-        const updatedList = {
-            id: +id,
+        db.Products.update({
             name,
             description,
-            img: images,
-            animal,
-            category,
-            subCategory,
             cuantity: +cuantity,
             price: +price,
-            discount: +discount,
-            finalPrice: +finalPrice,
-            label,
-            expiration
-        }
+            discount,
+            expiration,
+            final_price: finalPrice,
+            sub_category_id: +subCategory,
+            label_id: label
+            },
+            {where: {id: req.params.id}})
 
-        getProducts.forEach((product, index) => {
-            if (product.id === +id) {
-                getProducts.splice(index, 1, updatedList)
+        .then((product) => {
+            if (typeof req.files[0] !== 'undefined') {
+                db.ProductsImages.destroy({
+                    where: {
+                        product_id: req.params.id
+                    }
+                })
+                var imgs = req.files.map(nombre => {
+                    return db.ProductsImages.create({
+                        img_name: nombre.filename,
+                        product_id: req.params.id
+                    })
+                })
+            } else {
+                var imgs = []
             }
+            Promise.all(imgs)
+                .then((imgs) => {
+                    return res.redirect('/admin/products')
+                })
+                .catch(error => res.send(error))
         })
-
-        setProducts(getProducts)
-
-        res.redirect('/admin/products')
-
-
+        .catch(error => res.send(error))
     },
     productDelete: (req, res) => {
-        let id = req.params.id
-        let updatedList = getProducts.filter(producto => {
-            return producto.id !== +id
+        const product = db.Products.destroy({
+            where: {
+                id: req.params.id
+            }
         })
-
-        setProducts(updatedList)
-
-        res.redirect('/admin/products')
+        const images = db.ProductsImages.destroy({
+            where: {
+                product_id: req.params.id
+            }
+        })
+        Promise.all([product, images])
+        .then(() => {
+            res.redirect('/admin/products')
+        })
+        .catch(error => res.send(error))
     }
 }
