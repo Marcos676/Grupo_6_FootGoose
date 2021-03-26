@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`products` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 59
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`users` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -172,6 +172,8 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`favorites` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
   `product_id` INT(11) NOT NULL,
+  `created_at` VARCHAR(45) NULL DEFAULT NULL,
+  `updated_at` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_product_id_idx` (`product_id` ASC),
   INDEX `fk_favoriter_id_idx` (`user_id` ASC),
@@ -206,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `footgoose`.`img_product` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 49
 DEFAULT CHARACTER SET = latin1;
 
 

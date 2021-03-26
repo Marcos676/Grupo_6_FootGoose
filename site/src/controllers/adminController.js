@@ -1,24 +1,19 @@
-const { getUsers } = require('../data/users_db');
-
 const db = require('../database/models')
 
 module.exports = {
     profile: (req, res) => {
-        let user = getUsers.find(usuario => {
-            return usuario.id === req.session.user.id
-        });
-        res.render('admin/adminProfile', {
-            title: 'Perfil',
-            user
+        db.Users.findOne({
+            where: {
+                id: req.session.user.id
+            }
         })
-        /* db.Users.finfByPk(req.session.user.id)
-        .then(user => {
-            return res.render('admin/adminProfile', {
-                title: 'Perfil',
-                user
+            .then(user => {
+                res.render('admin/adminProfile', {
+                    title: 'Perfil',
+                    user
+                })
             })
-        })
-        .catch(error => res.send(error)) */
+            .catch(error => res.send(error))
     },
     logout: (req, res) => {
         if (req.cookies.FootGoose) {
@@ -81,7 +76,7 @@ module.exports = {
                     var imgs = db.ProductsImages.create({
                         product_id: product.id
                     })
-                    imgs = [imgs]   
+                    imgs = [imgs]
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
@@ -98,11 +93,13 @@ module.exports = {
             include: [
                 { association: 'images' },
                 { association: 'label' },
-                {association: 'subCategory',
+                {
+                    association: 'subCategory',
                     include: [
-                        {association: 'category',
-                             include: [{ association: 'animal' }]
-                    }]
+                        {
+                            association: 'category',
+                            include: [{ association: 'animal' }]
+                        }]
                 }
             ]
         })
@@ -126,11 +123,13 @@ module.exports = {
             include: [
                 { association: 'images' },
                 { association: 'label' },
-                { association: 'subCategory',
-                     include: [
-                         { association: 'category', 
-                            include: [{association: 'animal'}]
-                        }] 
+                {
+                    association: 'subCategory',
+                    include: [
+                        {
+                            association: 'category',
+                            include: [{ association: 'animal' }]
+                        }]
                 }
             ]
         })
@@ -156,32 +155,32 @@ module.exports = {
             final_price: finalPrice,
             sub_category_id: +subCategory,
             label_id: label
-            },
-            {where: {id: req.params.id}})
+        },
+            { where: { id: req.params.id } })
 
-        .then((product) => {
-            if (typeof req.files[0] !== 'undefined') {
-                db.ProductsImages.destroy({
-                    where: {
-                        product_id: req.params.id
-                    }
-                })
-                var imgs = req.files.map(nombre => {
-                    return db.ProductsImages.create({
-                        img_name: nombre.filename,
-                        product_id: req.params.id
+            .then((product) => {
+                if (typeof req.files[0] !== 'undefined') {
+                    db.ProductsImages.destroy({
+                        where: {
+                            product_id: req.params.id
+                        }
                     })
-                })
-            } else {
-                var imgs = []
-            }
-            Promise.all(imgs)
-                .then((imgs) => {
-                    return res.redirect('/admin/products')
-                })
-                .catch(error => res.send(error))
-        })
-        .catch(error => res.send(error))
+                    var imgs = req.files.map(nombre => {
+                        return db.ProductsImages.create({
+                            img_name: nombre.filename,
+                            product_id: req.params.id
+                        })
+                    })
+                } else {
+                    var imgs = []
+                }
+                Promise.all(imgs)
+                    .then((imgs) => {
+                        return res.redirect('/admin/products')
+                    })
+                    .catch(error => res.send(error))
+            })
+            .catch(error => res.send(error))
     },
     productDelete: (req, res) => {
         const product = db.Products.destroy({
@@ -195,9 +194,9 @@ module.exports = {
             }
         })
         Promise.all([product, images])
-        .then(() => {
-            res.redirect('/admin/products')
-        })
-        .catch(error => res.send(error))
+            .then(() => {
+                res.redirect('/admin/products')
+            })
+            .catch(error => res.send(error))
     }
 }

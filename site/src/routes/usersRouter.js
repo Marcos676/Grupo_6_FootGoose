@@ -1,5 +1,4 @@
 /* variables */
-
 var express = require('express');
 var router = express.Router();
 const {loginRegister, edit, editProcess,loginProcess, createUser, profile, logout } = require('../controllers/usersController')
