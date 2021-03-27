@@ -131,15 +131,15 @@ insert into products (id, name, description, cuantity, price, discount, expirati
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (10, 'Pecera', 'lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', 85, 1365.53, 5,'2021-03-29', 4618.53, '2021-03-23', '2021/03/21', 56, 2);
 
 insert into img_product (id, img_name, productId) value (1, 'products-1616164641988.png', 1);
-insert into img_product (id, img_name, productId) value (2, 'products-1614050417626.png', 2);
-insert into img_product (id, img_name, productId) value (3, 'products.1614050479686.png', 3);
-insert into img_product (id, img_name, productId) value (4, 'products-1614050518586.jpg', 4);
-insert into img_product (id, img_name, productId) value (5, 'products-1614050550265.jpg', 5);
-insert into img_product (id, img_name, productId) value (6, 'products-1614050600001.jpg', 6);
-insert into img_product (id, img_name, productId) value (7, 'products-1614050634771.jpg', 7);
-insert into img_product (id, img_name, productId) value (8, 'products-1614050666132.jpg', 8);
-insert into img_product (id, img_name, productId) value (9, 'products-1614050695135.jpg', 9);
-insert into img_product (id, img_name, productId) value (10, 'products-1614050725774.jpg', 10);
+insert into img_product (id, img_name, product_id) value (2, 'products-1614050417626.png', 2);
+insert into img_product (id, img_name, product_id) value (3, 'products.1614050479686.png', 3);
+insert into img_product (id, img_name, product_id) value (4, 'products-1614050518586.jpg', 4);
+insert into img_product (id, img_name, product_id) value (5, 'products-1614050550265.jpg', 5);
+insert into img_product (id, img_name, product_id) value (6, 'products-1614050600001.jpg', 6);
+insert into img_product (id, img_name, product_id) value (7, 'products-1614050634771.jpg', 7);
+insert into img_product (id, img_name, product_id) value (8, 'products-1614050666132.jpg', 8);
+insert into img_product (id, img_name, product_id) value (9, 'products-1614050695135.jpg', 9);
+insert into img_product (id, img_name, product_id) value (10, 'products-1614050725774.jpg', 10);
 
 
 insert into cart (id, user_id, product_id) values (1, 1, 1);
