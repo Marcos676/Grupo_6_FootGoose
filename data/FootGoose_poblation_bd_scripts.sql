@@ -130,7 +130,7 @@ insert into products (id, name, description, cuantity, price, discount, expirati
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (9, 'Cueva de reptiles', 'donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue', 38, 2708.51, 83,'2021-03-20', 2495.63, '2021-03-20', '2021/03/19', 67, 3);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (10, 'Pecera', 'lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', 85, 1365.53, 5,'2021-03-29', 4618.53, '2021-03-23', '2021/03/21', 56, 2);
 
-insert into img_product (id, img_name, productId) value (1, 'products-1616164641988.png', 1);
+insert into img_product (id, img_name, product_id) value (1, 'products-1616164641988.png', 1);
 insert into img_product (id, img_name, product_id) value (2, 'products-1614050417626.png', 2);
 insert into img_product (id, img_name, product_id) value (3, 'products.1614050479686.png', 3);
 insert into img_product (id, img_name, product_id) value (4, 'products-1614050518586.jpg', 4);
