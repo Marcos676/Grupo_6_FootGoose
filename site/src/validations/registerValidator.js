@@ -54,9 +54,6 @@ module.exports = [
                 return true
             }
         }).withMessage('Debe tener numeros, letras minúsculas, mayúsculas y caracteres especiales'),
-        
-
-       
 
     body('confirmacion').custom((value, { req }) => {
         if (value !== req.body.password) {

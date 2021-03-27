@@ -10,7 +10,7 @@ const loginValidator = require('../validations/loginValidator');
 const editUserValidator = require('../validations/editUserValidator');
 const checkUser = require('../middlewares/checkUser');
 const sessionCheck = require('../middlewares/sessionCheck');
-const imgUserCheck = require('../middlewares/imgUserCheck');
+const imgUserValidator = require('../validations/imgUserValidator');
 
 /* Formulario */
 router.get('/ingresar', sessionCheck, loginRegister);
@@ -22,7 +22,7 @@ router.post('/ingresar', loginValidator, loginProcess);
 router.get('/perfil', checkUser,profile);
 /* Editar */
 router.get('/editar/:id', checkUser,edit);
-router.put('/editar/:id', uploadProfilePic.any(), imgUserCheck, editUserValidator, editProcess);
+router.put('/editar/:id', uploadProfilePic.any(), imgUserValidator, editUserValidator, editProcess);
 /* cerrar sesión */
 router.get('/logout', logout)
 

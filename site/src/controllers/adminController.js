@@ -1,4 +1,5 @@
 const db = require('../database/models')
+const { validationResult } = require('express-validator');
 
 module.exports = {
     profile: (req, res) => {
@@ -51,6 +52,26 @@ module.exports = {
             .catch(error => res.send(error))
     },
     createProcess: (req, res) => {
+        let errores = validationResult(req);
+
+        if (!errores.isEmpty()) {
+            const animals = db.Animals.findAll()
+            const categories = db.Categories.findAll()
+            const subCategories = db.SubCategories.findAll()
+            const labels = db.Labels.findAll()
+
+            Promise.all([animals, categories, subCategories, labels])
+                .then((classifications) => {
+                    return res.render('admin/productCreate', {
+                        title: 'Crear producto',
+                        classifications,
+                        old: req.body,
+                        errores: errores.mapped(),
+                    })
+                })
+                .catch(error => res.send(error))
+        }
+
         let { subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice } = req.body
 
         db.Products.create({
@@ -84,6 +105,8 @@ module.exports = {
                     })
             })
             .catch(error => res.send(error))
+
+
     },
     productDetail: (req, res) => {
         db.Products.findOne({
@@ -136,13 +159,49 @@ module.exports = {
         Promise.all([animals, categories, subCategories, labels, product])
             .then((dataProduct) => {
                 return res.render('admin/productEdit', {
-                    title: 'Detalle',
+                    title: 'Editar Producto',
                     dataProduct,
                 })
             })
             .catch(error => res.send(error))
     },
     editProcess: (req, res) => {
+        let errores = validationResult(req);
+        
+        if (!errores.isEmpty()) {
+            const animals = db.Animals.findAll()
+            const categories = db.Categories.findAll()
+            const subCategories = db.SubCategories.findAll()
+            const labels = db.Labels.findAll()
+            let product = db.Products.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [
+                    { association: 'images' },
+                    { association: 'label' },
+                    {
+                        association: 'subCategory',
+                        include: [
+                            {
+                                association: 'category',
+                                include: [{ association: 'animal' }]
+                            }]
+                    }
+                ]
+            })
+
+            Promise.all([animals, categories, subCategories, labels, product])
+                .then((dataProduct) => {
+                    return res.render('admin/productEdit', {
+                        title: 'Editar Producto',
+                        old: req.body,
+                        errores: errores.mapped(),
+                        dataProduct
+                    })
+                })
+        }
+
         let { name, description, subCategory, cuantity, price, discount, label, expiration, finalPrice } = req.body
 
         db.Products.update({

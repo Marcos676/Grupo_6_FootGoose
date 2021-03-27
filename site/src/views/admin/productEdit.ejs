@@ -10,20 +10,25 @@
         <!-- Titulo -->
         <h1 class="col">EDITAR PRODUCTO</h1>
 
-        <form class="col-12 row" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST" enctype="multipart/form-data">
+        <form class="col-12 row" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST"
+          enctype="multipart/form-data">
           <!-- Carrusel -->
           <div class="carrusel-add-image col-12 col-lg-6">
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
+
                 <div class="carousel-item active">
-                  <img src="/images/productos/<%= dataProduct[4].images[0].img_name %>" class="imagen-carrusel" alt="...">
+                  <img src="/images/productos/<%= dataProduct[4].images[0].img_name %>" class="imagen-carrusel"
+                    alt="...">
                 </div>
-                <% for( let index = 1; index < dataProduct[4].images.length; index++ ) { %>
+
+                <% for( let index=1; index < dataProduct[4].images.length; index++ ) { %>
                   <div class="carousel-item">
-                      <img src="/images/productos/<%= dataProduct[4].images[index].img_name %> " class="imagen-carrusel" alt="...">
+                    <img src="/images/productos/<%= dataProduct[4].images[index].img_name %> " class="imagen-carrusel"
+                      alt="...">
                   </div>
-              <% } %>
-                
+                  <% } %>
+
               </div>
               <a class="carousel-control-prev" href="#carousel-controller" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -34,102 +39,172 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
+            
             <!-- Boton agregar imagen -->
             <div class="boton-image col-12">
               <label class="btn btn-success" for="archivo">Agregar foto</label>
-              <input type="file" name="img" id="archivo" multiple >
+              <input type="file" name="img" id="archivo" multiple>
             </div>
+            <span class="obligatorio col-1">
+              <%= (typeof errores !='undefined' && errores.imgs) ? errores.imgs.msg : null %>
+            </span>
           </div>
 
           <!-- CAMPOS -->
-          
+
           <div class="col-12 col-lg-6">
             <!-- Animales y Categorías -->
+            <!-- ANIMALES -->
             <div class="campo-animal margen">
               <select class="seleccionar col-5" name="animal">
-                <% dataProduct[0].forEach(data=> { %>
-                  <option value=<%=data.id %> <%= data.id === dataProduct[4].subCategory.category.animal.id? 'selected' : null %>  ><%= data.animal %> </option>
-                  <% }) %>
-              </select>
-              <span class="obligatorio col-1">*</span>
+                <option value="">Elija una mascota</option>
 
+                <% dataProduct[0].forEach(data=> { %>
+
+                  <option value=<%=data.id %>
+                    <%=(typeof old !='undefined' && old.animal && old.animal==data.id ? "selected" :
+                      (data.id===dataProduct[4].subCategory.category.animal.id ? 'selected' : null)) %> ><%= data.animal
+                        %>
+                  </option>
+
+                  <% }) %>
+
+              </select>
+              <span class="obligatorio col-1">
+                <%= (typeof errores !='undefined' && errores.animal) ? "*" : null %>
+              </span>
+
+              <!-- CATEGORIAS -->
               <select class="seleccionar col-5" name="category">
+                <option value="">Elija una categoría</option>
 
                 <% dataProduct[1].forEach(categoria=> { %>
-                  <option value=<%=categoria.id %> <%= categoria.id === dataProduct[4].subCategory.category.id? 'selected' : null %> ><%= categoria.category %>
+
+                  <option value=<%=categoria.id %>
+                    <%=(typeof old !='undefined' && old.category && old.category==categoria.id ? "selected"
+                      :(categoria.id===dataProduct[4].subCategory.category.id? 'selected' : null)) %> ><%=
+                        categoria.category %>
                   </option>
+
                   <% }) %>
 
               </select>
-              <span class="obligatorio col-1">*</span>
+              <span class="obligatorio col-1">
+                <%= (typeof errores !='undefined' && errores.category) ? "*" : null %>
+              </span>
 
             </div>
 
-            <!-- Subcategoria -->
+            <!-- SUBCATEGORIAS -->
             <select class="sub-categoria margen" name="subCategory">
+              <option value="">Elija una subcategoría</option>
 
               <% dataProduct[2].forEach(subcat=> { %>
-                <option value=<%=subcat.id %> <%= subcat.id === dataProduct[4].subCategory.id? 'selected' : null %> ><%= subcat.sub_category %>
-                </option>
-                <% }) %>
 
+                <option value=<%=subcat.id %>
+                  <%=(typeof old !='undefined' && old.subCategory && old.subCategory==subcat.id ? "selected"
+                    :(subcat.id===dataProduct[4].subCategory.id? 'selected' : null)) %>
+                    ><%= subcat.sub_category %>
+                </option>
+
+                <% }) %>
             </select>
+            <span class="obligatorio col-1">
+              <%= (typeof errores !='undefined' && errores.subCategory) ? "*" : null %>
+            </span>
 
             <!-- Nombre -->
             <div class="nombre margen">
-              <input class="completar col-11" type="text" name="name" placeholder="Nombre" value="<%= dataProduct[4].name %>">
-              <span class="obligatorio col-1">*</span>
+              <input class="completar col-11" type="text" name="name" placeholder="Nombre"
+              value="<%= (typeof old != 'undefined' && old.name ? old.name : dataProduct[4].name) %>" >
+
+               <span class="obligatorio col-1">
+                <%= (typeof errores != 'undefined' && errores.name) ? "*" : null %>
+              </span>
+              <br>
+              <% if (typeof errores != 'undefined' && errores.name && (errores.name.msg === 'El nombre debe tener al menos 5 caracteres') ) { %>
+                <span class="obligatorio"><%= errores.name.msg %> </span>
+              <% } %>
             </div>
 
             <!-- Descripcion -->
             <div class="descripcion margen">
               <textarea class="completar col-11" name="description" cols="30" rows="3"
-                placeholder="Descripción"><%= dataProduct[4].description %></textarea>
+                placeholder="Descripción"><%=(typeof old != 'undefined' && old.description ? old.description : dataProduct[4].description) %></textarea>
+
+                <span class="obligatorio col-1">
+                  <%= (typeof errores != 'undefined' && errores.description) ? "*" : null %>
+                </span>
+                <br>
+                <% if (typeof errores != 'undefined' && errores.description && (errores.description.msg === 'La descripción debe tener al menos 20 caracteres') ) { %>
+                  <span class="obligatorio"><%= errores.description.msg %> </span>
+                <% } %>
             </div>
 
             <!-- Cantidad y precio -->
             <div class="cantidad-precio margen">
               <!-- cantidad -->
-                <input class="completar col-5" type="number" name="cuantity" min="1" step="1" placeholder="Cantidad"  value="<%= dataProduct[4].cuantity %>" />
-                <span class="obligatorio col-1">*</span>
+              <input class="completar col-5" type="number" name="cuantity" min="1" step="1" placeholder="Cantidad"
+              value="<%= (typeof old != 'undefined' && old.cuantity ? old.cuantity : dataProduct[4].cuantity) %>" />
+
+             <span class="obligatorio col-1">
+                <%= (typeof errores != 'undefined' && errores.cuantity) ? "*" : null %>
+              </span>
+
               <!-- Precio -->
-                <input class="input-precio completar col-5" type="number" name="price" min="1" step="1" placeholder="$ Precio"  value="<%= dataProduct[4].price %>" />
-                <span class="obligatorio col-1">*</span>
+              <input class="input-precio completar col-5" type="number" name="price" min="1" step="1"
+                placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : dataProduct[4].price) %>" />
+
+               <span class="obligatorio col-1">
+                <%= (typeof errores != 'undefined' && errores.price) ? "*" : null %>
+              </span>
             </div>
 
             <!-- etiqueta y descuento -->
             <div class="etiqueta-descuento margen">
               <select class="seleccionar col-5" name="label" id="etiqueta">
-              <% dataProduct[3].forEach(etiqueta=> { %>
-                <option value=<%=etiqueta.id %> <%= etiqueta.id === dataProduct[4].label.id? 'selected' : null %> ><%= etiqueta.label %>
-                </option>
-                <% }) %>
+                <% dataProduct[3].forEach(etiqueta=> { %>
+
+                  <option value=<%=etiqueta.id %>
+                    <%=(typeof old !='undefined' && old.label && old.label==etiqueta.id ? "selected" :
+                    (etiqueta.id===dataProduct[4].label.id? 'selected' : null)) %>
+                    ><%= etiqueta.label %>
+                  </option>
+                  
+                  <% }) %>
               </select>
-                <!-- Espacio -->
-                <div class="col-1"></div>
+              <!-- Espacio -->
+              <div class="col-1"></div>
 
               <!-- descuento -->
-                <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento"  value="<%= dataProduct[4].discount %>" />
+              <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= typeof old != 'undefined' && old.discount ? old.discount : dataProduct[4].discount %>" />
             </div>
 
             <!-- vencimiento(etiqueta-descuento) y precio final -->
             <div class="vencimiento-precio-final margen">
               <!-- vencimiento -->
-              
-                <input class="vencimiento seleccionar col-5" type="date" name="expiration" placeholder="Vencimiento"  value="<%= dataProduct[4].expiration %>">
-                <!-- Espacio -->
-                <div class="col-1"></div>
-              
+
+              <input class="vencimiento seleccionar col-5" type="date" name="expiration" placeholder="Vencimiento"
+              value="<%= (typeof old != 'undefined' && old.expiration ? old.expiration : dataProduct[4].expiration) %>" >
+              <!-- Espacio -->
+              <div class="col-1"></div>
+
               <!-- Precio final -->
-              
-                <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"  value="<%= dataProduct[4].final_price %>">
-              
+
+              <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"
+              value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].final_price) %>" >
             </div>
-            <span class="margen">* Campos obligatorios</span>
+
+            <% if (typeof errores != 'undefined' && (errores.animal || errores.category || errores.subCategory || errores.name || errores.cuantity || errores.price)) { %>
+
+              <span class="margen">* Campos obligatorios</span>
+
+            <% } %>
+
           </div>
           <!-- Botones -->
           <div class="botones col-12 row">
-            <a href="/admin/products/<%= dataProduct[4].id %> " class="btn btn-danger resetear col-5">Cancelar</a>
+            <a href="/admin/products/<%= dataProduct[4].id %>" class="btn btn-danger resetear col-5">Cancelar</a>
             <button class="btn btn-success crear col-5" type="submit">Aceptar</button>
           </div>
         </form>
