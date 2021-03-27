@@ -21,6 +21,11 @@
         <div class="boton-image">
             <label class="btn btn-success" for="archivo">Cambiar foto</label>
             <input type="file" name="img" id="archivo" >
+            <br>
+            <% if (typeof errores != 'undefined' && errores.img) { %>
+                <span class="text-danger" ><%= errores.img.msg %></span>
+            <% } %>
+
           </div>
     </div>
 <div class="col-12 col-md-6">
