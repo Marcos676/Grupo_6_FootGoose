@@ -1,0 +1,19 @@
+JavaScript 
+* nodeJs 
+* Express 
+* HTML 
+* CSS 
+* MySQL 
+* React 
+* Rest
+* MVC
+*Git
+*GitHub
+Metodologías ágiles SCRUM
+
+estas son las herramientas tecnicas que pueden sumar a su CV
+y recuerden escribir :
+
+Digital House y Fundación Formar
+Programacion web Full Stack
+Octubre 2020-Marzo 2021

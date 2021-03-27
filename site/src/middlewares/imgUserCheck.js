@@ -8,8 +8,12 @@ module.exports = (req, res, next) => {
     })
         .then(user => {
             if (typeof req.files[0] !== 'undefined') {
-                req.files.map(imagen => {
-                    if (!imagen.filename.includes('.jpg' || '.png' || '.jpeg' || '.gif')) {
+
+                    if (req.files[0].filename.includes(".png") || req.files[0].filename.includes(".jpg") || req.files[0].filename.includes(".jpeg") || req.files[0].filename.includes(".gif")) {
+                        return next()
+
+                    } else {
+                        
                         return res.render('users/profileEdit', {
                             title: 'Editar perfil',
                             errores: {
@@ -18,12 +22,10 @@ module.exports = (req, res, next) => {
                             old: req.body,
                             user
                         })
-                    } else {
-                        next()
                     }
-                })
+                
             } else {
-                next()
+                return next()
             }
         })
         .catch(error => res.send(error))
