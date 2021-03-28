@@ -4,7 +4,7 @@
 <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/headerAdmin') %>
 
       <div class="container contenido nuevo-producto">
         <!-- Titulo -->
@@ -137,6 +137,13 @@
 
 
       <%- include('../partials/footer') %>
+      <script>
+        var check = document.getElementById("cambiarModo");
+    
+        check.onclick = () => {
+            document.querySelector("body").classList.toggle('active');
+        }
+    </script>
   </body>
 
 </html>

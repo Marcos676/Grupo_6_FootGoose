@@ -3,7 +3,7 @@
 
 <%- include('./partials/head') %>
   <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/headerAdmin') %>
 
       <main class="container-fluid contenido catalogo">
 
@@ -158,6 +158,13 @@
       </script>
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script src="node_modules/jquery.nice-number/dist/jquery.nice-number.min.js"></script>
+      <script>
+        var check = document.getElementById("cambiarModo");
+    
+        check.onclick = () => {
+            document.querySelector("body").classList.toggle('active');
+        }
+    </script>
       <script>
         $('input[type="number"]').niceNumber();
       </script>
