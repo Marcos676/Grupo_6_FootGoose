@@ -8,23 +8,11 @@ window.addEventListener('load', () => {
     let form = qs('form.creatEdit')
 
     let imgs = form.elements[0];
-    let animal = form.elements[1];
-    let category = form.elements[2];
-    let subCategory = form.elements[3];
     let name = form.elements[4];
     let description = form.elements[5];
-    let cuantity = form.elements[6];
-    let price = form.elements[7];
-    let label = form.elements[8];
-    let discount = form.elements[9];
-    let expiration = form.elements[10];
-    let finalPrice = form.elements[11];
 
     const oneMB = 1048576;
     (imgs.value) ? imgs.value = "" : null
-
-
-
 
     /* validación de extensión de imagen */
     imgs.addEventListener('change', (e) => {
@@ -57,7 +45,7 @@ window.addEventListener('load', () => {
     })
 
 
-
+/* Validaciones de nombre */
     name.addEventListener('blur', () => {
         if (name.value === "") {
             name.classList.add('is-invalid')
@@ -72,6 +60,7 @@ window.addEventListener('load', () => {
         }
     })
 
+    /* Validaciones de descripción */
     description.addEventListener('blur', () => {
         if (description.value === "") {
             description.classList.add('is-invalid')
@@ -83,6 +72,17 @@ window.addEventListener('load', () => {
             qs('.errorDescription').innerHTML = '';
             description.classList.remove('is-invalid');
             description.classList.add('is-valid');
+        }
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        if(
+            !imgs.classList.contains('is-invalid') &&
+            !name.classList.contains('is-invalid') &&
+            !description.classList.contains('is-invalid')
+        ) {
+            form.submit()
         }
     })
 
