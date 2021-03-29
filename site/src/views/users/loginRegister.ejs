@@ -59,13 +59,13 @@
 <!-- password -->
 <div class="input-contenedor col-12">
     <i class="fas fa-key icon"></i>
-    <input name="password" type="password" placeholder="Contraseña"><br>
+    <input name="password" type="password" placeholder="Contraseña" class="pass"><br>
     <span class="text-danger"><%= (typeof erroresRegister != 'undefined' && erroresRegister.password) ? erroresRegister.password.msg : null %> </span>
 </div>
 <!-- confirmar password -->
 <div class="input-contenedor col-12">
     <i class="fas fa-key icon"></i>
-    <input name="confirmacion" type="password" placeholder="Confirmar contraseña"><br>
+    <input name="confirmacion" type="password" placeholder="Confirmar contraseña" class="confirm"><br>
     <span class="text-danger"><%= (typeof erroresRegister != 'undefined' && erroresRegister.confirmacion) ? erroresRegister.confirmacion.msg : null %> </span>
 </div>
 

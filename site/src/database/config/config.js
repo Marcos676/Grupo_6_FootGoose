@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DATABASE,
-    "host": process.env.DB_PORT,
+    "username": process.env.DB_USERNAME || "root",
+    "password": process.env.DB_PASSWORD || null,
+    "database": process.env.DATABASE || "footgoose",
+    "host": process.env.DB_PORT || "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
