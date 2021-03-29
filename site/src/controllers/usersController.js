@@ -4,9 +4,9 @@ const { validationResult } = require('express-validator');
 
 module.exports = {
     loginRegister: (req, res) => {
-        res.render('users/loginRegister', {
-            title: 'Iniciar sesión y registrarse'
-        });
+            res.render('users/loginRegister', {
+                title: 'Iniciar sesión y registrarse',
+            });
     },
     createUser: (req, res) => {
         let errores = validationResult(req);

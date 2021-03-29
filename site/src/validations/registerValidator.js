@@ -15,7 +15,7 @@ module.exports = [
 
     body('name').custom(value => {
         let names = value.trim().split(" ")
-        if ((names[0].length > 2) && (names[1].length > 2)) {
+        if ((names[0].length > 2) || (names[1].length > 2)) {
             return true
         } else {
             return false
@@ -33,13 +33,13 @@ module.exports = [
 
 
     check('email')
-        .notEmpty().withMessage('Se requiere el email.'),
+        .notEmpty().withMessage('Se requiere el email'),
     check('email')
         .isEmail().withMessage('El email no es válido'),
 
 
     check('password')
-        .notEmpty().withMessage('Se requiere la contraseña.'),
+        .notEmpty().withMessage('Se requiere la contraseña'),
 
     check('password')
         .isLength({

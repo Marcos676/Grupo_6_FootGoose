@@ -16,17 +16,17 @@
     <h1 class= "col-12"> Ingresar</h1>
 
 <!-- email -->
-<div class="input-contenedor col-12">
+<div class="input-contenedor form-group col-12">
     <i class="fas fa-envelope icon"></i>
-<input type="text" placeholder="Correo electrónico" name="email" value="<%= (typeof old != 'undefined' && old.email ? old.email : null) %>"><br>
-<span class="text-danger"><%= (typeof erroresLogin != 'undefined' && erroresLogin.email) ? erroresLogin.email.msg : null %> </span>
+<input class="form-control" type="text" placeholder="Correo electrónico" name="email" value="<%= (typeof old != 'undefined' && old.email ? old.email : null) %>"><br>
+<span class="text-danger errorLoginEmail"><%= (typeof erroresLogin != 'undefined' && erroresLogin.email) ? erroresLogin.email.msg : null %> </span>
 </div>
 
 <!-- Password -->
-<div class="input-contenedor col-12">
+<div class="input-contenedor form-group col-12">
     <i class="fas fa-key icon"></i>
-<input type="password" placeholder="Contraseña" name="password"><br>
-<span class="text-danger"><%= (typeof erroresLogin != 'undefined' && erroresLogin.password) ? erroresLogin.password.msg : null %> </span>
+<input class="form-control" type="password" placeholder="Contraseña" name="password"><br>
+<span class="text-danger errorLoginPass"><%= (typeof erroresLogin != 'undefined' && erroresLogin.password) ? erroresLogin.password.msg : null %> </span>
 </div>
 
 <!-- Rememberme -->
@@ -45,28 +45,28 @@
  <form class="formulario-registro col-12 col-md-6" method="POST" action="/usuario/register">
     <h1> Registrarse</h1>
     <!-- nombre -->
-<div class="input-contenedor col-12">
+<div class="input-contenedor form-group col-12">
     <i class="fas fa-user icon"></i>
-    <input name="name" type="text" placeholder="Nombre y apellido" value="<%= (typeof oldRegister != 'undefined' && oldRegister.name ? oldRegister.name : null) %>"> <br>
-    <span class="text-danger"><%= (typeof erroresRegister != 'undefined' && erroresRegister.name) ? erroresRegister.name.msg : null %> </span>
+    <input class="form-control" name="name" type="text" placeholder="Nombre y apellido" value="<%= (typeof oldRegister != 'undefined' && oldRegister.name ? oldRegister.name : null) %>"> <br>
+    <span class="text-danger errorRegisterName"><%= (typeof erroresRegister != 'undefined' && erroresRegister.name) ? erroresRegister.name.msg : null %> </span>
 </div>
 <!-- email -->
-<div class="input-contenedor col-12">
+<div class="input-contenedor form-group col-12">
     <i class="fas fa-envelope icon"></i>
-    <input name="email" type="text" placeholder="Correo electrónico" value="<%= (typeof oldRegister != 'undefined' && oldRegister.email ? oldRegister.email : null) %>"><br>
-    <span class="text-danger"><%= (typeof erroresRegister != 'undefined' && erroresRegister.email) ? erroresRegister.email.msg : null %> </span>
+    <input class="form-control" name="email" type="text" placeholder="Correo electrónico" value="<%= (typeof oldRegister != 'undefined' && oldRegister.email ? oldRegister.email : null) %>"><br>
+    <span class="text-danger errorRegisterEmail"><%= (typeof erroresRegister != 'undefined' && erroresRegister.email) ? erroresRegister.email.msg : null %> </span>
 </div>
 <!-- password -->
-<div class="input-contenedor col-12">
+<div class="input-contenedor form-group col-12">
     <i class="fas fa-key icon"></i>
-    <input name="password" type="password" placeholder="Contraseña"><br>
-    <span class="text-danger"><%= (typeof erroresRegister != 'undefined' && erroresRegister.password) ? erroresRegister.password.msg : null %> </span>
+    <input class="form-control" name="password" type="password" placeholder="Contraseña"><br>
+    <span class="text-danger errorRegisterPass"><%= (typeof erroresRegister != 'undefined' && erroresRegister.password) ? erroresRegister.password.msg : null %> </span>
 </div>
 <!-- confirmar password -->
-<div class="input-contenedor col-12">
+<div class="input-contenedor form-group col-12">
     <i class="fas fa-key icon"></i>
-    <input name="confirmacion" type="password" placeholder="Confirmar contraseña"><br>
-    <span class="text-danger"><%= (typeof erroresRegister != 'undefined' && erroresRegister.confirmacion) ? erroresRegister.confirmacion.msg : null %> </span>
+    <input class="form-control" name="confirmacion" type="password" placeholder="Confirmar contraseña"><br>
+    <span class="text-danger errorRegisterConfirm"><%= (typeof erroresRegister != 'undefined' && erroresRegister.confirmacion) ? erroresRegister.confirmacion.msg : null %> </span>
 </div>
 
 <div class= "col-12">
@@ -78,6 +78,8 @@
 
 </div>
 <%- include('../partials/footer.ejs') %>
+
+<script src="/javascripts/loginRegisterValidator.js"></script>
 </body>
 
 

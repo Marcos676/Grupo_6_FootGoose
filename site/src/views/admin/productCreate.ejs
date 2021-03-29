@@ -10,14 +10,14 @@
         <!-- Titulo -->
         <h1 class="col-12">NUEVO PRODUCTO</h1>
 
-        <form class="col-12 row" action="/admin/products/create" method="POST" enctype="multipart/form-data">
+        <form class="col-12 row creatEdit" action="/admin/products/create" method="POST" enctype="multipart/form-data">
           <!-- Carrusel -->
           <div class="carrusel-add-image col-12 col-lg-5">
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <!-- SOLO UNO DE ESTOS DIVS QUE CONTIENEN LA IMAGEN DEBE TENER LA CLASE "active" -->
                 <div class="carousel-item active">
-                  <img src="/images/productos/undefinedProduct.png" class="imagen-carrusel" alt="...">
+                  <img src="/images/productos/undefinedProduct.png" class="imagen-carrusel" alt="..." id="img1">
                 </div>
                 <!--   <div class="carousel-item">
                   <img src="/images/productos/casaperro2.jpg" class="imagen-carrusel" alt="...">
@@ -38,11 +38,11 @@
               </div>
             </div>
             <!-- Botón agregar imagen -->
-            <div class="boton-image col-12">
-              <label class="btn btn-success" for="archivo">Agregar foto</label>
-              <input type="file" name="img" id="archivo" multiple>
+            <div class="boton-image col-12 form-group">
+              <label class="btn btn-success form-control" for="archivo">Agregar foto</label>
+              <input type="file" name="img" id="archivo">
             </div>
-            <span class="obligatorio col-1">
+            <span class="obligatorio col-1 errorImgs">
               <%= (typeof errores != 'undefined' && errores.imgs) ? errores.imgs.msg : null %>
             </span>
           </div>
@@ -99,10 +99,10 @@
             </span>
 
             <!-- Nombre -->
-            <div class="nombre margen">
-              <input class="completar col-11" type="text" name="name" placeholder="Nombre" value="<%= (typeof old != 'undefined' && old.name ? old.name : null) %>">
+            <div class="nombre margen form-group">
+              <input class="completar col-11  form-control" type="text" name="name" placeholder="Nombre" value="<%= (typeof old != 'undefined' && old.name ? old.name : null) %>">
 
-              <span class="obligatorio col-1">
+              <span class="obligatorio errorName col-1">
                 <%= (typeof errores != 'undefined' && errores.name) ? "*" : null %>
               </span>
 
@@ -113,11 +113,11 @@
             </div>
 
             <!-- Descripción -->
-            <div class="descripcion margen">
-              <textarea class="completar col-11" name="description" cols="30" rows="3"
+            <div class="descripcion margen form-group">
+              <textarea class="completar col-11 form-control" name="description" cols="30" rows="3"
                 placeholder="Descripción"><%= (typeof old != 'undefined' && old.description ? old.description : null) %></textarea>
                 
-                <span class="obligatorio col-1">
+                <span class="obligatorio col-1 errorDescription">
                   <%= (typeof errores != 'undefined' && errores.description) ? "*" : null %>
                 </span>
                 <br>
@@ -189,6 +189,7 @@
 
 
       <%- include('../partials/footer') %>
-  </body>
+      <script src="/javascripts/CreateEditProductValidator.js"></script>
 
+  </body>
 </html>
