@@ -15,17 +15,22 @@
           <div class="carrusel-add-image col-12 col-lg-5">
             <div id="carousel-controller" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <!-- SOLO UNO DE ESTOS DIVS QUE CONTIENEN LA IMAGEN DEBE TENER LA CLASE "active" -->
+                
                 <div class="carousel-item active">
-                  <img src="/images/productos/undefinedProduct.png" class="imagen-carrusel" alt="..." id="img1">
+                  <img src="/images/productos/undefinedProduct.png" class="imagen-carrusel" alt="..." id="img0">
                 </div>
-                <!--   <div class="carousel-item">
-                  <img src="/images/productos/casaperro2.jpg" class="imagen-carrusel" alt="...">
-                </div>
+                  
                 <div class="carousel-item">
-                  <img src="/images/productos/casaperro3.jpg" class="imagen-carrusel" alt="...">
+                  <img
+                  src="/images/productos/1MoreImages.png" class="imagen-carrusel" id="img1"
+                    alt="...">
                 </div>
-              </div> -->
+
+                <div class="carousel-item">
+                  <img
+                  src="/images/productos/1MoreImages.png" class="imagen-carrusel" id="img2"
+                    alt="...">
+                </div>
 
                 <a class="carousel-control-prev" href="#carousel-controller" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,7 +45,7 @@
             <!-- Botón agregar imagen -->
             <div class="boton-image col-12 form-group">
               <label class="btn btn-success form-control" for="archivo">Agregar foto</label>
-              <input type="file" name="img" id="archivo">
+              <input type="file" name="img" id="archivo" multiple>
             </div>
             <span class="obligatorio col-1 errorImgs">
               <%= (typeof errores != 'undefined' && errores.imgs) ? errores.imgs.msg : null %>

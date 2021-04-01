@@ -24,10 +24,15 @@ window.addEventListener('load', () => {
                 qs('#img1').src = "/images/productos/undefinedProduct.png"
                 break;
 
-            case imgs.files[0].size > oneMB * 3:
-                qs('.errorImgs').innerHTML = "Cada archivo deben pesar menos de 3Mb"
+            case imgs.files[0].size > oneMB * 2:
+                qs('.errorImgs').innerHTML = "Cada archivo deben pesar menos de 2Mb"
                 imgs.classList.add('is-invalid')
                 qs('#img1').src = "/images/productos/undefinedProduct.png"
+                break;
+
+            case imgs.files.length > 3:
+                qs('.errorImgs').innerHTML = "Solo puede subir hasta 3 imágenes"
+                imgs.classList.add('is-invalid')
                 break;
 
             default:
@@ -38,14 +43,39 @@ window.addEventListener('load', () => {
                 let reader = new FileReader();
                 reader.readAsDataURL(e.target.files[0])
                 reader.onload = () => {
-                    qs('#img1').src = reader.result
+                    qs('#img0').src = reader.result
+
+                    if (typeof e.target.files[1] !== "undefined") {
+                        reader.readAsDataURL(e.target.files[1])
+                        reader.onload = () => {
+                            let sinfoto1 = 'hey! no soy undefined'
+                            qs('#img1').src = reader.result
+
+                            if (typeof e.target.files[2] !== "undefined") {
+                                reader.readAsDataURL(e.target.files[2])
+                                reader.onload = () => {
+                                    let sinfoto2 = 'hey! no soy undefined'
+                                    qs('#img2').src = reader.result
+
+                                }
+                            } else {
+                                qs('#img2').src = "/images/productos/1MoreImages.png"
+                            }
+                        }
+                    } else {
+                        qs('#img1').src = "/images/productos/1MoreImages.png"
+                        qs('#img2').src = "/images/productos/1MoreImages.png"
+                    }
                 }
+
+
+
                 break;
         }
     })
 
 
-/* Validaciones de nombre */
+    /* Validaciones de nombre */
     name.addEventListener('blur', () => {
         if (name.value === "") {
             name.classList.add('is-invalid')
@@ -75,9 +105,10 @@ window.addEventListener('load', () => {
         }
     })
 
+    /* Condición para enviar formulario */
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        if(
+        if (
             !imgs.classList.contains('is-invalid') &&
             !name.classList.contains('is-invalid') &&
             !description.classList.contains('is-invalid')
