@@ -25,13 +25,18 @@ module.exports = {
     },
     productList: (req, res) => {
 
-        db.Products.findAll({
+        const products = db.Products.findAll({
             include: [{ association: 'images' }]
         })
-            .then(products => {
-                return res.render('admin/products', {
-                    title: 'Lista de productos',
-                    products
+        const animal = db.Animals.findAll()
+
+        Promise.all([products, animal])
+            .then(data => {
+                return res.render('catalogo', {
+                    title: 'Productos',
+                    products: data[0],
+                    animals: data[1],
+                    data
                 })
             })
             .catch(error => res.send(error))
