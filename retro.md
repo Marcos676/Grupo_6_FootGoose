@@ -74,7 +74,6 @@
 
 ### Comenzar a hacer:
 
-
 ### Continuar haciendo:
 - Reuniones programadas
 - Productividad en las reuniones
@@ -94,3 +93,26 @@
 - Pedir ayuda cuando es necesario
 - Administrar tiempos para cumplir con fechas de entrega
 
+
+## Retrospectiva Sprint 6
+
+### Comenzar a hacer:
+
+### Continuar haciendo:
+- Productividad en las reuniones
+- Correcta división del trabajo
+- Innovación a nivel de diseño
+- Dar prioridad a entregables del proyecto
+- Continuar trabajando con ramas para cada integrante
+- Encuentros grupales exponiendo nuestras tareas hechas
+
+### Dejar de hacer:
+
+### Hacer menos:
+- Frustración frente al estancamiento en el código
+
+### Hacer mas: 
+- Comunicación efectiva entre colaboradores
+- Dailys diarias
+- Pedir ayuda cuando es necesario
+- Administrar tiempos para cumplir con fechas de entrega
