@@ -12,8 +12,6 @@ const imgsEditProductValidator = require('../validations/imgsEditProductValidato
 router.get('/perfil', adminCheck,profile);
 /* cerrar sesión */
 router.get('/logout', logout)
-/* Listar */
-router.get('/products', adminCheck, productList)
 /* Crear */
 router.get('/products/create', adminCheck, productAdd);
 router.post('/products/create', uploadProduct.any(), imgsCreateProductValidator, productValidator, createProcess);

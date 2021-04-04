@@ -1,9 +1,9 @@
-insert into animal (id, animal, img) values (1, 'Perro', 'iconoPerro');
-insert into animal (id, animal, img) values (2, 'Gato', 'iconoGato');
-insert into animal (id, animal, img) values (3, 'Pez', 'iconoPez');
-insert into animal (id, animal, img) values (4, 'Roedor', 'iconoRoedor');
-insert into animal (id, animal, img) values (5, 'Ave', 'iconoAve');
-insert into animal (id, animal, img) values (6, 'Reptil', 'iconoReptil');
+insert into animal (id, animal, img) values (1, 'Perro', 'iconoPerro.png');
+insert into animal (id, animal, img) values (2, 'Gato', 'iconoGato.png');
+insert into animal (id, animal, img) values (3, 'Pez', 'iconoPez.png');
+insert into animal (id, animal, img) values (4, 'Roedor', 'iconoRoedor.png');
+insert into animal (id, animal, img) values (5, 'Ave', 'iconoAve.png');
+insert into animal (id, animal, img) values (6, 'Reptil', 'iconoReptil.png');
 
 insert into category (id, category, animal_id) values (1, 'Alimento', 1);
 insert into category (id, category, animal_id) values (2, 'Accesorio', 1);
@@ -119,12 +119,12 @@ insert into users (id, first_name, last_name, email, password, admin) values (5,
 insert into users (id, first_name, last_name, email, password, admin) values (6, 'Ada', 'Lovelace', 'ada@love.com', '$2b$12$fIKitNiiiDRgKK7AEe91vONvms66S9CaWqI.iN/ABUZy.wuPzGaEq', 1);
 
 
-insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (1, 'Alimento para Aves', 'a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra', 23, 4427.3, 69, 72, '2021-03-26','2021-03-30', '2021/03/27', 1, 2);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (1, 'Alimento para Aves', 'a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra', 23, 4427.3, 69, '2021-03-26', 72,'2021-03-30', '2021/03/27', 1, 2);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (2, 'Alimento para Gatos', 'cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit', 57, 4853.65, 42,'2021-03-28', 4795.43, '2021-03-24', '2021/03/24', 1, 3);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (3, 'Alimento para Reptiles', 'felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc', 91, 600.31, 51,'2021-03-24', 4627.89, '2021-03-23', '2021/03/24', 1, 2);
-insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (4, 'Casa para perro primer modelo', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 19, 2036.66, 24, 182, '2021-03-21','2021-03-19', '2021/03/26', 5, 1);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (4, 'Casa para perro primer modelo', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum', 19, 2036.66, 24, '2021-03-21', 182,'2021-03-19', '2021/03/26', 5, 1);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (5, 'Casa para perro segundo modelo', 'eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis', 99, 1599.72, 6,'2021-03-30', 3270.51, '2021-03-24', '2021/03/26', 5, 1);
-insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (6, 'Alpiste', 'commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit', 48, 4629.69, 82, 242, '2021-03-25','2021-03-24', '2021/03/20', 1, 2);
+insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (6, 'Alpiste', 'commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit', 48, 4629.69, 82, '2021-03-25', 242,'2021-03-24', '2021/03/20', 1, 2);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (7, 'Bebedero para hamster', 'consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus', 16, 1553.92, 39,'2021-03-29', 1274.35, '2021-03-22', '2021/03/29', 48, 2);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (8, 'Juguete para gato', 'blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu', 59, 2712.24, 47,'2021-03-28', 3137.02, '2021-03-25', '2021/03/28', 20, 3);
 insert into products (id, name, description, cuantity, price, discount, expiration, final_price, created_at, updated_at, sub_category_id, label_id) values (9, 'Cueva de reptiles', 'donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue', 38, 2708.51, 83,'2021-03-20', 2495.63, '2021-03-20', '2021/03/19', 67, 3);
@@ -132,7 +132,7 @@ insert into products (id, name, description, cuantity, price, discount, expirati
 
 insert into img_product (id, img_name, product_id) value (1, 'products-1616164641988.png', 1);
 insert into img_product (id, img_name, product_id) value (2, 'products-1614050417626.png', 2);
-insert into img_product (id, img_name, product_id) value (3, 'products.1614050479686.png', 3);
+insert into img_product (id, img_name, product_id) value (3, 'products-1614050479686.jpg', 3);
 insert into img_product (id, img_name, product_id) value (4, 'products-1614050518586.jpg', 4);
 insert into img_product (id, img_name, product_id) value (5, 'products-1614050550265.jpg', 5);
 insert into img_product (id, img_name, product_id) value (6, 'products-1614050600001.jpg', 6);

@@ -139,7 +139,7 @@
                 <%= (typeof errores != 'undefined' && errores.cuantity) ? "*" : null %>
               </span>
               <!-- Precio -->
-              <input class="input-precio completar col-5" type="number" name="price" min="1" step="1" placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : null) %>" />
+              <input class="input-precio completar col-5" type="number" name="price" min="1" step=".1" placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : null) %>" />
               <span class="obligatorio col-1">
                 <%= (typeof errores != 'undefined' && errores.price) ? "*" : null %>
               </span>

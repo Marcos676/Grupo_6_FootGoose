@@ -23,24 +23,6 @@ module.exports = {
         delete req.session.user
         res.redirect('/')
     },
-    productList: (req, res) => {
-
-        const products = db.Products.findAll({
-            include: [{ association: 'images' }]
-        })
-        const animal = db.Animals.findAll()
-
-        Promise.all([products, animal])
-            .then(data => {
-                return res.render('catalogo', {
-                    title: 'Productos',
-                    products: data[0],
-                    animals: data[1],
-                    data
-                })
-            })
-            .catch(error => res.send(error))
-    },
     productAdd: (req, res) => {
         const animals = db.Animals.findAll()
         const categories = db.Categories.findAll()
@@ -247,17 +229,17 @@ module.exports = {
             .catch(error => res.send(error))
     },
     productDelete: (req, res) => {
-        const product = db.Products.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
         const images = db.ProductsImages.destroy({
             where: {
                 product_id: req.params.id
             }
         })
-        Promise.all([product, images])
+        const product = db.Products.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        Promise.all([ images, product])
             .then(() => {
                 res.redirect('/admin/products')
             })
