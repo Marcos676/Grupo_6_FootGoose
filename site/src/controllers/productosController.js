@@ -5,7 +5,10 @@ module.exports = {
     catalogo: (req, res) => {
 
         const products = db.Products.findAll({
-            include: [{ association: 'images' }]
+            include: [{ association: 'images' }],
+            order: [
+                ['id', 'DESC']
+            ]
         })
         const animal = db.Animals.findAll()
 

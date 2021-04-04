@@ -88,7 +88,7 @@ module.exports = {
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
-                        return res.redirect('/admin/products')
+                        return res.redirect('/productos')
                     })
             })
             .catch(error => res.send(error))
@@ -222,26 +222,36 @@ module.exports = {
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
-                        return res.redirect('/admin/products')
+                        return res.redirect('/productos')
                     })
                     .catch(error => res.send(error))
             })
             .catch(error => res.send(error))
     },
     productDelete: (req, res) => {
-        const images = db.ProductsImages.destroy({
-            where: {
-                product_id: req.params.id
-            }
-        })
         const product = db.Products.destroy({
             where: {
                 id: req.params.id
             }
         })
-        Promise.all([ images, product])
+        const images = db.ProductsImages.destroy({
+            where: {
+                product_id: req.params.id
+            }
+        })
+        const favorite = db.Favorites.destroy({
+            where: {
+                product_id: req.params.id
+            }
+        })
+        const cart = db.Carts.destroy({
+            where: {
+                product_id: req.params.id
+            }
+        })
+        Promise.all([product, images, favorite], cart)
             .then(() => {
-                res.redirect('/admin/products')
+                res.redirect('/productos')
             })
             .catch(error => res.send(error))
     }
