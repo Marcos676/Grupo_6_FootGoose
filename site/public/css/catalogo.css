@@ -21,14 +21,20 @@
 .catalogo .card .producto-datos {
 	align-items: baseline;
 }
-
-.catalogo .animales .imgs img{
-    width: 80px;
+.catalogo .animales .imgs {
+	display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
-.catalogo .animales .imgs button {
+.catalogo .animales .imgs .animal-list {
+	display: inline;
     border: none;
     background-color: transparent;
 }
+.catalogo .animales .imgs img{
+    width: 80px;
+}
+
 
 .catalogo .resultado,
 .catalogo .topfilter {

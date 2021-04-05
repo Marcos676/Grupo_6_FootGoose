@@ -27,27 +27,15 @@
 
             <div class="col-12 container-fluid categorias">
               <div class="row categorias-animales">
-                <div>
-                  <a href=""><img src="images/categorias/iconoPerro.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoGato.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoRoedor.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoAve.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoPez.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoReptil.png" alt=""></a>
-                </div>
+
+                <% animals.forEach(animal => { %>
+                  <div>
+                    <a href="/productos/filtro/<%= animal.id %>"><img src="images/categorias/<%= animal.img %> " alt="<%= animal.animal %> "></a>
+                  </div>
+                <% }) %>
+
               </div>
             </div>
-
 
             <div class="mt-5 col-12 info-nosotros">
               <p id="nosotros">En nuestra empresa FootGoose® ofrecemos una amplia gama de productos y alimentos para su

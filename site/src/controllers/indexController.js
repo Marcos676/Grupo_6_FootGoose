@@ -2,12 +2,16 @@ const db = require('../database/models')
 
 module.exports = {
     index: (req, res) => {
-        res.render('index', {
-            title: 'Home'
+        db.Animals.findAll()
+        .then(animals => {
+            res.render('index', {
+                title: 'Home',
+                animals
+            })
         })
+        .catch(error => res.send(error))        
     },
     faqs: (req,res) => {
-
         res.render('faqs', {
             title: 'Preguntas frecuentes'
         })
