@@ -3,90 +3,115 @@
 
 <%- include('../partials/head.ejs') %>
 
-<body>
+    <body>
 
-<%- include('../partials/header.ejs') %>
+        <%- include('../partials/header.ejs') %>
 
 
-<div class="container-fluid contenido">
- <!--EDITAR-->
- <form class="row user-profile" action="/usuario/editar/<%=user.id%>?_method=PUT" method="POST"  enctype="multipart/form-data">
+            <div class="container-fluid contenido">
+                <!--EDITAR-->
+                <form class="row user-profile" action="/usuario/editar/<%=user.id%>?_method=PUT" method="POST"
+                    enctype="multipart/form-data">
 
-    <!-- imagen + input -->
-    <div class="col-12" >
-        <!-- img perfil -->
-        <img src="/images/users/<%= user.img %>" alt="foto de perfil">
+                    <!-- imagen + input -->
+                    <div class="col-12">
+                        <!-- img perfil -->
+                        <img src="/images/users/<%= user.img %>" alt="foto de perfil" id="image">
 
-        <!-- input file perfil -->
-        <div class="boton-image">
-            <label class="btn btn-success" for="archivo">Cambiar foto</label>
-            <input type="file" name="img" id="archivo" >
-          </div>
-    </div>
-<div class="col-12 col-md-6">
-<h4>Generales</h4>
-        <!-- nombre de usuario -->
-    <div class=" col-12">
-        <i class="fas fa-user icon"></i>
-    <input type="text" placeholder=" Nombre completo" name="name" value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.firstName} ${user.lastName}`) %>"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : null %> </span>
-    </div>
-    
-    <!-- email -->
-    <div class=" col-12">
-        <i class="fas fa-envelope icon"></i>
-    <input type="email" placeholder=" Correo electrónico" name="email" value="<%= (typeof old != 'undefined' && old.email ? old.email : user.email) %>"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : null %> </span>
-    </div>
-    
-    <!-- direccion -->
-    <div class=" col-12">
-        <i class="fas fa-home"></i>
-    <input type="text" placeholder=" Dirección" name="address" value="<%= (typeof old != 'undefined' && old.address ? old.address : user.address) %>"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.address) ? errores.address.msg : null %> </span>
-    </div>
-    
-    <!-- telefono -->
-    <div class=" col-12">
-        <i class="fas fa-phone-alt"></i>
-    <input type="tel" placeholder=" Teléfono" name="tel" value="<%= (typeof old != 'undefined' && old.tel ? old.tel : user.tel) %>"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.tel) ? errores.tel.msg : null %> </span>
-    </div>
-    
-</div>
-<!-- contraseñas -->
-<div class=" col-12 col-md-6">
-    <h4>Cambiar contraseña</h4>
-    <!-- password original -->
-    <div class=" col-12">
-        <i class="fas fa-key icon"></i>
-    <input type="password" placeholder=" Actual" name="password"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.password) ? errores.password.msg : null %> </span>
-    </div>
-    <!-- nuevo password -->
-    <div class=" col-12">
-        <i class="fas fa-key icon"></i>
-    <input type="password" placeholder=" Nueva" name="pass1"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass1) ? errores.pass1.msg : null %> </span>
-    </div>
-    <!-- revalidarpassword -->
-    <div class=" col-12">
-        <i class="fas fa-key icon"></i>
-    <input type="password" placeholder=" Repetir nueva" name="pass2"><br>
-    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass2) ? errores.pass2.msg : null %> </span>
-    </div>
-</div>
+                        <!-- input file perfil -->
+                        <div class="boton-image form-group">
+                            <label class="btn btn-success labelImg" for="archivo">Cambiar foto</label>
+                            <input class="form-control" type="file" name="img" id="archivo" accept="image/*">
+                            <br>
+                            <span class="text-danger errorImg">
+                                <%= (typeof errores !='undefined' && errores.img) ? errores.img.msg : null %>
+                            </span>
 
-<div class= "col-12">
-<button type="submit" class="btn btn-success ">Guardar</button>
-</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h4>Generales</h4>
 
-</form> 
-</div>
-<%- include('../partials/footer.ejs') %>
-</body>
+                        <!-- nombre de usuario -->
+                        <div class="col-12 form-group">
+                            <i class="fas fa-user icon"></i>
+                            <input class="form-control" type="text" placeholder=" Nombre completo" name="name"
+                                value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.first_name} ${user.last_name}`) %>"><br>
+                            <span class="text-danger errorName">
+                                <%= (typeof errores !='undefined' && errores.name) ? errores.name.msg : null %>
+                            </span>
+                        </div>
+
+                        <!-- email -->
+                        <div class="col-12 form-group">
+                            <i class="fas fa-envelope icon"></i>
+                            <input class="form-control" type="email" placeholder=" Correo electrónico" name="email"
+                                value="<%= (typeof old != 'undefined' && old.email ? old.email : user.email) %>"><br>
+                            <span class="text-danger errorEmail">
+                                <%= (typeof errores !='undefined' && errores.email) ? errores.email.msg : null %>
+                            </span>
+                        </div>
+
+                        <!-- direccion -->
+                        <div class="col-12 form-group">
+                            <i class="fas fa-home"></i>
+                            <input class="form-control" type="text" placeholder=" Dirección" name="address"
+                                value="<%= (typeof old != 'undefined' && old.address ? old.address : user.address) %>"><br>
+                            <span class="text-danger">
+                                <%= (typeof errores !='undefined' && errores.address) ? errores.address.msg : null %>
+                            </span>
+                        </div>
+
+                        <!-- telefono -->
+                        <div class="col-12 form-group">
+                            <i class="fas fa-phone-alt"></i>
+                            <input class="form-control" type="tel" placeholder=" Teléfono" name="tel"
+                                value="<%= (typeof old != 'undefined' && old.tel ? old.tel : user.tel) %>"><br>
+                            <span class="text-danger">
+                                <%= (typeof errores !='undefined' && errores.tel) ? errores.tel.msg : null %>
+                            </span>
+                        </div>
+
+                    </div>
+                    <!-- contraseñas -->
+                    <div class=" col-12 col-md-6">
+                        <h4>Cambiar contraseña</h4>
+
+                        <!-- password original -->
+                        <div class=" col-12 form-group">
+                            <i class="fas fa-key icon"></i>
+                            <input class="form-control" type="password" placeholder=" Actual" name="password"><br>
+                            <span class="text-danger errorPass">
+                                <%= (typeof errores !='undefined' && errores.password) ? errores.password.msg : null %>
+                            </span>
+                        </div>
+                        <!-- nuevo password -->
+                        <div class=" col-12 form-group">
+                            <i class="fas fa-key icon"></i>
+                            <input class="form-control" type="password" placeholder=" Nueva" name="pass1"><br>
+                            <span class="text-danger errorNewPass">
+                                <%= (typeof errores !='undefined' && errores.pass1) ? errores.pass1.msg : null %>
+                            </span>
+                        </div>
+                        <!-- Revalidarpassword -->
+                        <div class=" col-12 form-group">
+                            <i class="fas fa-key icon"></i>
+                            <input class="form-control" type="password" placeholder=" Repetir nueva" name="pass2"><br>
+                            <span class="text-danger errorConfirmNew">
+                                <%= (typeof errores !='undefined' && errores.pass2) ? errores.pass2.msg : null %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success ">Guardar</button>
+                    </div>
+
+                </form>
+            </div>
+            <%- include('../partials/footer.ejs') %>
+                <script src="/javascripts/editUserValidator.js"></script>
+    </body>
 
 
 </html>
-
-      

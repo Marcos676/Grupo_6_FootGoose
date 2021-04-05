@@ -5,13 +5,24 @@
     <%- include('../partials/head.ejs') %>
 </head>
 <body>
-    <%- include('../partials/header.ejs') %>
-    <h1>Bienvenido admin <%= localUser.firstName %> </h1>
-
-    <a href="/usuario/logout">Cerrar sesión</a>
-
-
+    <%- include('../partials/headerAdmin.ejs') %>
+   
+    <div class="contenido container-fluid welcome">
+        <div class ="welcomeBox">
+        <h1> Bienvenido <br><b><%= localUser.firstName %></b> </h1>
+        <h3><i class="fas fa-user-shield"></i>  PERMISOS DE ADMINISTRADOR: ACTIVADOS</i></h3>
+        <a class='botonEditarUser' href="/usuario/editar/<%= user.id %> "><i class="far fa-edit"></i>   Editar</a>
+        <a class='botonDesloguear' href="/usuario/logout"><i class="fas fa-sign-out-alt"></i>   Cerrar sesión</a>
+        </div>
+        </div>
 
     <%- include('../partials/footer.ejs') %>
+    <script>
+        var check = document.getElementById("cambiarModo");
+    
+        check.onclick = () => {
+            document.querySelector("body").classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

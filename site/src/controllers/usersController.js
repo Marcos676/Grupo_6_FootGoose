@@ -1,13 +1,12 @@
-const { getUsers, setUsers } = require('../data/users_db');
+const db = require('../database/models')
 const bcrypt = require('bcrypt');
-
 const { validationResult } = require('express-validator');
 
 module.exports = {
     loginRegister: (req, res) => {
-        res.render('users/loginRegister', {
-            title: 'Iniciar sesión y registrarse'
-        });
+            res.render('users/loginRegister', {
+                title: 'Iniciar sesión y registrarse',
+            });
     },
     createUser: (req, res) => {
         let errores = validationResult(req);
@@ -15,33 +14,40 @@ module.exports = {
         if (errores.isEmpty()) {
             let { name, email, password } = req.body;
 
-            let passcrypt = bcrypt.hashSync(password, 10);
-
-            let lastID = 0
-            getUsers.forEach(user => {
-                if (lastID < user.id) {
-                    lastID = user.id
+            db.Users.findOne({
+                where: {
+                    email: email.trim()
                 }
-            });
-            let names= name.trim().split(" ")
+            })
+                .then(user => {
+                    if (user) {
+                        return res.render('users/loginRegister', {
+                            title: 'Iniciar sesión y registrarse',
+                            erroresRegister: {
+                                email: {
+                                    msg: 'Este email ya está registrado'
+                                }
+                            },
+                            oldRegister: req.body
+                        })
+                    }
 
-            let newUser = {
-                id: +lastID + 1,
-                firstName: names[0],
-                lastName: names[1],
-                email: email.trim(),
-                password: passcrypt,
-                address: null,
-                tel: null,
-                img: "undefined.PNG",
-                admin: 0,
-                favoritos: []
-            };
+                    let passcrypt = bcrypt.hashSync(password, 10);
 
-            getUsers.push(newUser);
-            setUsers(getUsers);
+                    let names = name.trim().split(" ")
 
-            res.redirect('/usuario/perfil')
+                    db.Users.create({
+                        first_name: names[0],
+                        last_name: names[1],
+                        email: email.trim(),
+                        password: passcrypt,
+                    })
+                        .then(() => {
+                            res.redirect('/usuario/perfil')
+                        })
+                        .catch(error => res.send(error))
+                })
+                .catch(error => res.send(error))
 
         } else {
             return res.render('users/loginRegister', {
@@ -56,34 +62,54 @@ module.exports = {
 
         if (errores.isEmpty()) {
             const { email, password, rememberme } = req.body;
-            let user = getUsers.find(usuario => {
-                return usuario.email === email.trim()
-            });
-            if (bcrypt.compareSync(password.trim(),user.password)) {
-                req.session.user = {
-                    id: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    img: user.img,
-                    admin: user.admin
+
+            db.Users.findOne({
+                where: {
+                    email: email.trim()
                 }
-                if (rememberme) {
-                    res.cookie('FootGoose', req.session.user, {
-                        maxAge: 1000 * 60 * 60 * 24 * 7 /*La cookie vive por una semana*/
-                    })
-                }
-                user.admin === 1 ? res.redirect('/admin/perfil') : res.redirect('/usuario/perfil')
-            } else {
-                return res.render('users/loginRegister', {
-                    title: 'Iniciar sesión y registrarse',
-                    erroresLogin: {
-                            password: {
-                                msg: "Contraseña incorrecta"
-                            }
-                    },
-                    old: req.body
+            })
+                .then(user => {
+
+                    if (!user) {
+                        return res.render('users/loginRegister', {
+                            title: 'Iniciar sesión y registrarse',
+                            erroresLogin: {
+                                email: { msg: 'Dirección de correo electrónico no registrada' }
+                            },
+                            old: req.body
+                        })
+                    }
+
+                    if (bcrypt.compareSync(password.trim(), user.password)) {
+                        req.session.user = {
+                            id: user.id,
+                            firstName: user.first_name,
+                            lastName: user.last_name,
+                            img: user.img,
+                            admin: user.admin
+                        }
+
+                        if (rememberme) {
+                            res.cookie('FootGoose', req.session.user, {
+                                maxAge: 1000 * 60 * 60 * 24 * 7 /*La cookie vive por una semana*/
+                            })
+                        }
+                        user.admin === 1 ? res.redirect('/admin/perfil') : res.redirect('/usuario/perfil')
+
+                    } else {
+                        return res.render('users/loginRegister', {
+                            title: 'Iniciar sesión y registrarse',
+                            erroresLogin: {
+                                password: {
+                                    msg: "Contraseña incorrecta"
+                                }
+                            },
+                            old: req.body
+                        })
+                    }
+
                 })
-            }
+                .catch(error => res.send(error))
         } else {
             return res.render('users/loginRegister', {
                 title: 'Iniciar sesión y registrarse',
@@ -93,92 +119,129 @@ module.exports = {
         }
     },
     profile: (req, res) => {
-        let user = getUsers.find(usuario => {
-            return usuario.id === req.session.user.id
-        });
-        
-
-        res.render('users/profile', {
-            title: 'Perfil',
-            user
+        db.Users.findOne({
+            where: {
+                id: req.session.user.id
+            },
+            include: [{ association: 'favorite' }]
         })
-    },
-    edit: (req, res) => {
-
-        let user = getUsers.find(result => {
-            return result.id === +req.params.id
-        });
-
-        res.render('users/profileEdit', {
-            title: 'Editar perfil',
-            user
-        })
-    },
-    editProcess: (req, res) => {
-        
-        let user = getUsers.find(result => {
-            return result.id === +req.params.id
-        });
-        
-        let errores = validationResult(req);
-        if (errores.isEmpty()) {
-
-            const { name, email, pass1, address, tel } = req.body;
-
-            if (pass1.length > 0) {
-                var passcrypt = bcrypt.hashSync(pass1, 12);
-            } else {
-                var passcrypt = user.password;
-            }
-            let names= name.trim().split(" ")
-
-            const updatedList = {
-                id: +req.params.id,
-                firstName: names[0],
-                lastName: names[1],
-                email,
-                password: passcrypt,
-                address,
-                tel,
-                img: req.files[0]? req.files[0].filename : "undefined.PNG",
-                admin: 0,
-                favoritos: user.favoritos
-
-            };
-            
-            getUsers.forEach((usuario, index) => {
-                if (usuario.id === +req.params.id) {
-                    getUsers.splice(index, 1, updatedList)
-                }
-            });
-            setUsers(getUsers);
-
-                req.session.user = {
-                    id: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    img: user.img,
-                    admin: user.admin
-                }
-                res.locals.localUser = req.session.user
-
+            .then(user => {
                 res.render('users/profile', {
                     title: 'Perfil',
                     user
                 })
-        } else {
-            
-            return res.render('users/profileEdit', {
-                title: 'Editar perfil',
-                errores: errores.mapped(),
-                old: req.body,
-                user
             })
+            .catch(error => res.send(error))
+    },
+    edit: (req, res) => {
+        db.Users.findOne({
+            where: { id: req.params.id }
+        })
+            .then(user => {
+                res.render('users/profileEdit', {
+                    title: 'Editar perfil',
+                    user
+                })
+            })
+            .catch(error => res.send(error))
+    },
+    editProcess: (req, res) => {
+        let errores = validationResult(req);
+
+        if (errores.isEmpty()) {
+            const { name, email, password, pass1, address, tel } = req.body;
+
+            const usuario = db.Users.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            const emailSearch = db.Users.findOne({
+                where: {
+                    email: email
+                }
+            })
+            Promise.all([usuario, emailSearch])
+                .then(promise => {
+                    if (promise[1] && email.trim() !== promise[0].email) {
+                        return res.render('users/profileEdit', {
+                            title: 'Editar perfil',
+                            errores: {
+                                email: { msg: 'Este email ya está registrado' }
+                            },
+                            user: promise[0],
+                            old: req.body
+                        })
+                    }
+
+                    if (bcrypt.compareSync(password.trim(), promise[0].password) || password.length === 0) {
+                        if (pass1.length > 0) {
+                            var passcrypt = bcrypt.hashSync(pass1, 12);
+                        } else {
+                            var passcrypt = promise[0].password;
+                        }
+
+                        let names = name.trim().split(" ")
+
+                        db.Users.update({
+                            first_name: names[0],
+                            last_name: names[1],
+                            email,
+                            password: passcrypt,
+                            address,
+                            tel,
+                            img: req.files[0] ? req.files[0].filename : promise[0].img,
+                        }, {
+                            where: { id: req.params.id }
+                        })
+                            .then(() => {
+                                req.session.user = {
+                                    id: promise[0].id,
+                                    firstName: names[0],
+                                    lastName: names[1],
+                                    img: req.files[0] ? req.files[0].filename : promise[0].img,
+                                    admin: promise[0].admin
+                                }
+                                res.locals.localUser = req.session.user
+
+                                return res.render('users/profile', {
+                                    title: 'Perfil',
+                                    user: promise[0]
+                                })
+                            })
+                            .catch(error => res.send(error))
+                    } else {
+                        return res.render('users/profileEdit', {
+                            title: 'Editar perfil',
+                            errores: {
+                                password: { msg: "Contraseña incorrecta" }
+                            },
+                            user: promise[0],
+                            old: req.body
+                        })
+                    }
+                })
+                .catch(error => res.send(error))
+        } else {
+            db.Users.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+                .then(user => {
+                    return res.render('users/profileEdit', {
+                        title: 'Editar perfil',
+                        errores: errores.mapped(),
+                        old: req.body,
+                        user
+                    })
+                })
+                .catch(error => res.send(error))
         }
     },
-    logout : (req,res) => {
+    logout: (req, res) => {
         if (req.cookies.FootGoose) {
-            res.cookie('FootGoose', '', { maxAge: -1 }); 
+            res.cookie('FootGoose', '', { maxAge: -1 });
         }
         delete req.session.user
         res.redirect('/')

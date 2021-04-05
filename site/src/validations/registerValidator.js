@@ -1,32 +1,64 @@
-const {check, body} = require('express-validator');
-const {getUsers} = require('../data/users_db')
+const { check, body } = require('express-validator');
 
 module.exports = [
     check('name')
-    .notEmpty().withMessage('Se requiere su nombre'),
+        .notEmpty().withMessage('Se requiere su nombre y apellido'),
 
-    check('email')
-    .isEmail().withMessage('El email no es válido'),
+        body('name').custom(value => {
+            let names = value.trim().split(" ")
+            if ( names.length === 1 ) {
+                return false
+            } else {
+                return true
+            }
+        }).withMessage('Se requiere su nombre y apellido'),
 
-    body('email').custom(value => {
-        let result = getUsers.find(user => user.email === value);
-        if(result){
+    body('name').custom(value => {
+        let names = value.trim().split(" ")
+        if ((names[0].length > 2) || (names[1].length > 2)) {
+            return true
+        } else {
             return false
-        }else{
+        }
+    }).withMessage('El nombre y apellido deben tener más de 2 caracteres'),
+
+    body('name').custom(value => {
+        let names = value.trim().split(" ")
+        if (names.length > 2) {
+            return false
+        } else {
             return true
         }
-    }).withMessage('Este email ya está registrado'),
+    }).withMessage('Si su apellido tiene 2 palabras escríbelo junto'),
+
+
+    check('email')
+        .notEmpty().withMessage('Se requiere el email'),
+    check('email')
+        .isEmail().withMessage('El email no es válido'),
+
 
     check('password')
-    .isLength({
-        min : 6,
-        max : 32
-    }).withMessage('La contraseña debe tener entre 6 y 36 caracteres'),
+        .notEmpty().withMessage('Se requiere la contraseña'),
 
-    body('confirmacion').custom((value, {req}) => {
-        if(value !== req.body.password){
+    check('password')
+        .isLength({
+            min: 8
+        }).withMessage('La contraseña debe tener como mínimo 8'),
+
+        body('password').custom((value, { req }) => {
+            let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[:!"#$%&'[()*+,\-./:;<=>?@^_`{|}:]).{8,}$/; 
+            if (!regExPass.test(value)) {
+                return false
+            } else {
+                return true
+            }
+        }).withMessage('Debe tener numeros, letras minúsculas, mayúsculas y caracteres especiales'),
+
+    body('confirmacion').custom((value, { req }) => {
+        if (value !== req.body.password) {
             return false
-        }else{
+        } else {
             return true
         }
     }).withMessage('Las contraseñas no coinciden!!')

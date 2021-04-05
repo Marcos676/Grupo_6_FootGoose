@@ -1,24 +1,20 @@
-const { getUsers } = require('../data/users_db');
-
 const db = require('../database/models')
+const { validationResult } = require('express-validator');
 
 module.exports = {
     profile: (req, res) => {
-        let user = getUsers.find(usuario => {
-            return usuario.id === req.session.user.id
-        });
-        res.render('admin/adminProfile', {
-            title: 'Perfil',
-            user
+        db.Users.findOne({
+            where: {
+                id: req.session.user.id
+            }
         })
-        /* db.Users.finfByPk(req.session.user.id)
-        .then(user => {
-            return res.render('admin/adminProfile', {
-                title: 'Perfil',
-                user
+            .then(user => {
+                res.render('admin/adminProfile', {
+                    title: 'Perfil',
+                    user
+                })
             })
-        })
-        .catch(error => res.send(error)) */
+            .catch(error => res.send(error))
     },
     logout: (req, res) => {
         if (req.cookies.FootGoose) {
@@ -26,19 +22,6 @@ module.exports = {
         }
         delete req.session.user
         res.redirect('/')
-    },
-    productList: (req, res) => {
-
-        db.Products.findAll({
-            include: [{ association: 'images' }]
-        })
-            .then(products => {
-                return res.render('admin/products', {
-                    title: 'Lista de productos',
-                    products
-                })
-            })
-            .catch(error => res.send(error))
     },
     productAdd: (req, res) => {
         const animals = db.Animals.findAll()
@@ -56,6 +39,26 @@ module.exports = {
             .catch(error => res.send(error))
     },
     createProcess: (req, res) => {
+        let errores = validationResult(req);
+
+        if (!errores.isEmpty()) {
+            const animals = db.Animals.findAll()
+            const categories = db.Categories.findAll()
+            const subCategories = db.SubCategories.findAll()
+            const labels = db.Labels.findAll()
+
+            Promise.all([animals, categories, subCategories, labels])
+                .then((classifications) => {
+                    return res.render('admin/productCreate', {
+                        title: 'Crear producto',
+                        classifications,
+                        old: req.body,
+                        errores: errores.mapped(),
+                    })
+                })
+                .catch(error => res.send(error))
+        }
+
         let { subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice } = req.body
 
         db.Products.create({
@@ -81,7 +84,7 @@ module.exports = {
                     var imgs = db.ProductsImages.create({
                         product_id: product.id
                     })
-                    imgs = [imgs]   
+                    imgs = [imgs]
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
@@ -89,6 +92,8 @@ module.exports = {
                     })
             })
             .catch(error => res.send(error))
+
+
     },
     productDetail: (req, res) => {
         db.Products.findOne({
@@ -98,11 +103,13 @@ module.exports = {
             include: [
                 { association: 'images' },
                 { association: 'label' },
-                {association: 'subCategory',
+                {
+                    association: 'subCategory',
                     include: [
-                        {association: 'category',
-                             include: [{ association: 'animal' }]
-                    }]
+                        {
+                            association: 'category',
+                            include: [{ association: 'animal' }]
+                        }]
                 }
             ]
         })
@@ -126,24 +133,62 @@ module.exports = {
             include: [
                 { association: 'images' },
                 { association: 'label' },
-                { association: 'subCategory',
-                     include: [
-                         { association: 'category', 
-                            include: [{association: 'animal'}]
-                        }] 
+                {
+                    association: 'subCategory',
+                    include: [
+                        {
+                            association: 'category',
+                            include: [{ association: 'animal' }]
+                        }]
                 }
             ]
         })
         Promise.all([animals, categories, subCategories, labels, product])
             .then((dataProduct) => {
                 return res.render('admin/productEdit', {
-                    title: 'Detalle',
+                    title: 'Editar Producto',
                     dataProduct,
                 })
             })
             .catch(error => res.send(error))
     },
     editProcess: (req, res) => {
+        let errores = validationResult(req);
+        
+        if (!errores.isEmpty()) {
+            const animals = db.Animals.findAll()
+            const categories = db.Categories.findAll()
+            const subCategories = db.SubCategories.findAll()
+            const labels = db.Labels.findAll()
+            let product = db.Products.findOne({
+                where: {
+                    id: req.params.id
+                },
+                include: [
+                    { association: 'images' },
+                    { association: 'label' },
+                    {
+                        association: 'subCategory',
+                        include: [
+                            {
+                                association: 'category',
+                                include: [{ association: 'animal' }]
+                            }]
+                    }
+                ]
+            })
+
+            Promise.all([animals, categories, subCategories, labels, product])
+                .then((dataProduct) => {
+                    return res.render('admin/productEdit', {
+                        title: 'Editar Producto',
+                        old: req.body,
+                        errores: errores.mapped(),
+                        dataProduct
+                    })
+                })
+        }
+
         let { name, description, subCategory, cuantity, price, discount, label, expiration, finalPrice } = req.body
 
         db.Products.update({
@@ -156,48 +201,48 @@ module.exports = {
             final_price: finalPrice,
             sub_category_id: +subCategory,
             label_id: label
-            },
-            {where: {id: req.params.id}})
+        },
+            { where: { id: req.params.id } })
 
-        .then((product) => {
-            if (typeof req.files[0] !== 'undefined') {
-                db.ProductsImages.destroy({
-                    where: {
-                        product_id: req.params.id
-                    }
-                })
-                var imgs = req.files.map(nombre => {
-                    return db.ProductsImages.create({
-                        img_name: nombre.filename,
-                        product_id: req.params.id
+            .then((product) => {
+                if (typeof req.files[0] !== 'undefined') {
+                    db.ProductsImages.destroy({
+                        where: {
+                            product_id: req.params.id
+                        }
                     })
-                })
-            } else {
-                var imgs = []
-            }
-            Promise.all(imgs)
-                .then((imgs) => {
-                    return res.redirect('/admin/products')
-                })
-                .catch(error => res.send(error))
-        })
-        .catch(error => res.send(error))
+                    var imgs = req.files.map(nombre => {
+                        return db.ProductsImages.create({
+                            img_name: nombre.filename,
+                            product_id: req.params.id
+                        })
+                    })
+                } else {
+                    var imgs = []
+                }
+                Promise.all(imgs)
+                    .then((imgs) => {
+                        return res.redirect('/admin/products')
+                    })
+                    .catch(error => res.send(error))
+            })
+            .catch(error => res.send(error))
     },
     productDelete: (req, res) => {
-        const product = db.Products.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
         const images = db.ProductsImages.destroy({
             where: {
                 product_id: req.params.id
             }
         })
-        Promise.all([product, images])
-        .then(() => {
-            res.redirect('/admin/products')
+        const product = db.Products.destroy({
+            where: {
+                id: req.params.id
+            }
         })
-        .catch(error => res.send(error))
+        Promise.all([ images, product])
+            .then(() => {
+                res.redirect('/admin/products')
+            })
+            .catch(error => res.send(error))
     }
 }
