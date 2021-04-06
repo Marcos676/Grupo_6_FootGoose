@@ -15,6 +15,11 @@ module.exports = {
         res.render('faqs', {
             title: 'Preguntas frecuentes'
         })
+    },
+    rupert: (req,res) => {
+        res.render('rupert', {
+            title: 'RUPERT CONFIRMED?'
+        })
     }
 
 }
