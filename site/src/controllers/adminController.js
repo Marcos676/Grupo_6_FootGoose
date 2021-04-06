@@ -16,6 +16,20 @@ module.exports = {
             })
             .catch(error => res.send(error))
     },
+    createAdmin: (req,res) => {
+        db.Users.findOne({
+            where: {
+                id: req.session.user.id
+            }
+        })
+            .then(user => {
+                res.render('admin/adminCreate', {
+                    title: 'Creación de Admin',
+                    user
+                })
+            })
+            .catch(error => res.send(error))
+    },
     logout: (req, res) => {
         if (req.cookies.FootGoose) {
             res.cookie('FootGoose', '', { maxAge: -1 });
