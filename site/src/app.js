@@ -1,5 +1,5 @@
 /* VARIABLES E IMPORTACIONES */
-
+require('dotenv').config()
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -8,7 +8,7 @@ const logger = require('morgan');
 const app = express();
 const methodOverride =  require('method-override')
 const session = require('express-session')
-require('dotenv').config()
+
 
 /* Requerimientos de rutas */
 const indexRouter = require('./routes/indexRouter');

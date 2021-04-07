@@ -95,7 +95,7 @@
               <% classifications[2].forEach(subCategoria => { %>
 
                 <option value=<%= subCategoria.id %> <%= (typeof old != 'undefined' && old.subCategory && old.subCategory == subCategoria.id ? "selected" : null) %> >
-                  <%= subCategoria.sub_category %>
+                  <%= subCategoria.subCategory %>
                 </option>
                 <% }) %>
             </select>

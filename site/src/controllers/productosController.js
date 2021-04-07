@@ -3,29 +3,49 @@ const { Op } = require('sequelize')
 
 module.exports = {
     catalogo: (req, res) => {
+        let offset = req.params.pag || 0
 
-        const products = db.Products.findAll({
-            include: [{ association: 'images' }],
+        const products = db.Product.findAll({
+            include: [{ association: 'images' },{ association: 'label' }],
             order: [
                 ['id', 'DESC']
-            ]
+            ],
+            //distinct: true,
+            //limit : 6,
+           // offset: +offset
         })
-        const animal = db.Animals.findAll()
+        const animal = db.Animal.findAll()
 
-        Promise.all([products, animal])
+
+        const count = db.Product.count()
+        
+        Promise.all([products, animal, count])
             .then(data => {
+                //res.send(data[0])
+
+                let pagT = data[2] / 6
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
+                
                 return res.render('catalogo', {
                     title: 'Catalogo',
                     products: data[0],
                     animals: data[1],
-                    data
+                    count: data[2],
+                    data,
+                    pagT,
+                    offsetP: +offset + 6,
+                    offsetN: +offset - 6,
+                    offset
                 })
             })
             .catch(error => res.send(error))
     },
     detalle: (req, res) => {
 
-        db.Products.findOne({
+        db.Product.findOne({
             where: {
                 id: req.params.id
             },
@@ -52,7 +72,7 @@ module.exports = {
     },
     animal: (req, res) => {
 
-        const productos = db.Animals.findOne({
+        const productos = db.Animal.findOne({
             where: {
                 id: req.params.animalId
             },
@@ -67,7 +87,7 @@ module.exports = {
                 }]
             }]
         })
-        const animals = db.Animals.findAll()
+        const animals = db.Animal.findAll()
         Promise.all([productos, animals])
             .then(data => {
 
@@ -100,7 +120,7 @@ module.exports = {
     },
     category: (req, res) => {
 
-        const productos = db.Animals.findOne({
+        const productos = db.Animal.findOne({
             where: {
                 id: req.params.animalId
             },
@@ -119,9 +139,9 @@ module.exports = {
             }]
         })
 
-        const animals = db.Animals.findAll()
+        const animals = db.Animal.findAll()
 
-        const categoria = db.Categories.findByPk(req.params.categoryId)
+        const categoria = db.Category.findByPk(req.params.categoryId)
 
         Promise.all([productos, animals, categoria])
             .then(data => {
@@ -159,7 +179,7 @@ module.exports = {
     },
     subCategory: (req, res) => {
 
-        const productos = db.Animals.findOne({
+        const productos = db.Animal.findOne({
             where: {
                 id: req.params.animalId
             },
@@ -181,13 +201,13 @@ module.exports = {
             }]
         })
 
-        const animals = db.Animals.findAll()
+        const animals = db.Animal.findAll()
 
-        const categoria = db.Categories.findByPk(req.params.categoryId)
+        const categoria = db.Category.findByPk(req.params.categoryId)
 
-        const subCategoria = db.SubCategories.findByPk(req.params.subCategoryId)
+        const subCategoria = db.SubCategory.findByPk(req.params.subCategoryId)
 
-        const subCategoryList = db.Animals.findOne({
+        const subCategoryList = db.Animal.findOne({
             where: {
                 id: req.params.animalId
             },
@@ -237,7 +257,7 @@ module.exports = {
 
     },
     search: (req, res) => {
-        const products = db.Products.findAll({
+        const products = db.Product.findAll({
             where: {
                 [Op.or]: [
                     { name: { [Op.like]: `%${req.query.b}%` } },
@@ -246,7 +266,7 @@ module.exports = {
             },
             include: [{ association: 'images' }]
         })
-        const animal = db.Animals.findAll()
+        const animal = db.Animal.findAll()
 
         Promise.all([products, animal])
             .then(data => {

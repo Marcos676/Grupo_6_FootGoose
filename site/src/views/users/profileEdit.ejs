@@ -36,7 +36,7 @@
                         <div class="col-12 form-group">
                             <i class="fas fa-user icon"></i>
                             <input class="form-control" type="text" placeholder=" Nombre completo" name="name"
-                                value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.first_name} ${user.last_name}`) %>"><br>
+                                value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.firstName} ${user.lastName}`) %>"><br>
                             <span class="text-danger errorName">
                                 <%= (typeof errores !='undefined' && errores.name) ? errores.name.msg : null %>
                             </span>

@@ -179,6 +179,8 @@ window.addEventListener('load', () => {
     /* Condición para la ejecución de submit en Login */
     formLogin.addEventListener('submit', (e) => {
         e.preventDefault()
+
+
         if( 
             emailLogin.classList.contains('is-valid') &&
             passLogin.classList.contains('is-valid')

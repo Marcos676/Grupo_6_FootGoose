@@ -18,20 +18,20 @@
               <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                  <img src="/images/productos/<%= dataProduct[4].images[0].img_name %>" class="imagen-carrusel" id="img0"
+                  <img src="/images/productos/<%= dataProduct[4].images[0].imgName %>" class="imagen-carrusel" id="img0"
                     alt="...">
                 </div>
 
                   <div class="carousel-item">
                     <img
-                    src="/images/productos/<%= typeof dataProduct[4].images[1] !== "undefined"? dataProduct[4].images[1].img_name : "1MoreImages.png"%> " class="imagen-carrusel" id="img1"
+                    src="/images/productos/<%= typeof dataProduct[4].images[1] !== "undefined"? dataProduct[4].images[1].imgName : "1MoreImages.png"%> " class="imagen-carrusel" id="img1"
                       alt="...">
                   </div>
                
 
                   <div class="carousel-item">
                     <img
-                    src="/images/productos/<%= typeof dataProduct[4].images[2] !== "undefined"? dataProduct[4].images[2].img_name : "1MoreImages.png"%> " class="imagen-carrusel" id="img2"
+                    src="/images/productos/<%= typeof dataProduct[4].images[2] !== "undefined"? dataProduct[4].images[2].imgName : "1MoreImages.png"%> " class="imagen-carrusel" id="img2"
                       alt="...">
                   </div>
 
@@ -110,7 +110,7 @@
                 <option value=<%=subcat.id %>
                   <%=(typeof old !='undefined' && old.subCategory && old.subCategory==subcat.id ? "selected"
                     :(subcat.id===dataProduct[4].subCategory.id? 'selected' : null)) %>
-                    ><%= subcat.sub_category %>
+                    ><%= subcat.subCategory %>
                 </option>
 
                 <% }) %>
@@ -198,7 +198,7 @@
               <!-- Precio final -->
 
               <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"
-              value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].final_price) %>" >
+              value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].finalPrice) %>" >
             </div>
 
             <% if (typeof errores != 'undefined' && (errores.animal || errores.category || errores.subCategory || errores.name || errores.cuantity || errores.price)) { %>

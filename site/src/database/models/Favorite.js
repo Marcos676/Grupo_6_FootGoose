@@ -1,39 +1,24 @@
-module.exports = (sequelize, dataType) => {
-
-    const alias = "Favorites";
-
-    const cols = {
-        id: {
-            type: dataType.INTEGER,
-            allowNull: true,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        user_id: {
-            type: dataType.INTEGER(11),
-            allowNull: true
-        },
-        product_id: {
-            type: dataType.INTEGER(11),
-            allowNull: true
-        }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Favorite extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-
-    const config = {
-        tableName: "favorites",
-        timestamps: true,
-        underscored: true
-    }
-
-    const Favorite = sequelize.define(alias, cols, config)
-   /*  Animal.associate = (models) => {
-
-        Animal.hasMany(models.Categories, {
-            as: "category",
-            foreingKey: "animal_id",
-            underscored: true
-        })
-    } */
-
-    return Favorite
-}
+  };
+  Favorite.init({
+    userId: DataTypes.INTEGER,
+    productId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Favorite',
+  });
+  return Favorite;
+};

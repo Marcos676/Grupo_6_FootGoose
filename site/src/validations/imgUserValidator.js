@@ -1,7 +1,7 @@
 const db = require('../database/models')
 
 module.exports = (req, res, next) => {
-    db.Users.findOne({
+    db.User.findOne({
         where: {
             id: req.params.id
         }

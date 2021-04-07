@@ -1,39 +1,28 @@
-module.exports = (sequelize, dataType) => {
-
-    const alias = "Animals";
-
-    const cols = {
-        id: {
-            type: dataType.INTEGER,
-            allowNull: true,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        animal: {
-            type: dataType.STRING(30),
-            allowNull: true
-        },
-        img: {
-            type: dataType.INTEGER(45),
-            allowNull: true
-        }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Animal extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Animal.hasMany(models.Category, {
+        as: "category",
+        foreingKey: "animalId"
+    })
     }
-
-    const config = {
-        tableName: "animal",
-        timestamps: false,
-        underscored: true
-    }
-
-    const Animal = sequelize.define(alias, cols, config)
-    Animal.associate = (models) => {
-
-        Animal.hasMany(models.Categories, {
-            as: "category",
-            foreingKey: "animal_id",
-            underscored: true
-        })
-    }
-
-    return Animal
-}
+  };
+  Animal.init({
+    animal: DataTypes.STRING,
+    img: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Animal',
+  });
+  return Animal;
+};

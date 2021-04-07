@@ -1,5 +1,10 @@
+.catalogo .products {
+	justify-content: space-evenly;
+}
+
 .catalogo .card {
-    margin: 5px 10px;
+    margin: 30px 10px;
+	justify-content: space-between;
 }
 
 .catalogo .card .precio-final {
@@ -13,7 +18,7 @@
 }
 
 .catalogo .card img {
-	height: 280px;
+	height: 148px;
 	width: 100%;
 	object-fit: contain;
 }
@@ -49,11 +54,12 @@ justify-content: center;
 .catalogo .containerheart {
 	position: absolute;
 	padding: 5px;
-	left: 75%;
-	top: 5%;
+	left: 80%;
+	top: 0%;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 	border-radius: 30px;
 	background-color: #fafafa;
+	z-index: 1;
 }
 
 .catalogo .containerheart i{
@@ -106,6 +112,10 @@ transition: .4s;
 .catalogo .card .box input:focus {
 background: #f5cd76;
 color: #000;
+}
+
+.catalogo .pagination {
+	justify-content: center;
 }
 /* responsive */
 
