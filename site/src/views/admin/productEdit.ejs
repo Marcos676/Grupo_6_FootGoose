@@ -4,13 +4,13 @@
 <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/headerAdmin.ejs') %>
 
       <div class="container contenido nuevo-producto">
         <!-- Titulo -->
         <h1 class="col">EDITAR PRODUCTO</h1>
 
-        <form class="col-12 row" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST"
+        <form class="col-12 row creatEdit" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST"
           enctype="multipart/form-data">
           <!-- Carrusel -->
           <div class="carrusel-add-image col-12 col-lg-6">
@@ -18,16 +18,22 @@
               <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                  <img src="/images/productos/<%= dataProduct[4].images[0].img_name %>" class="imagen-carrusel"
+                  <img src="/images/productos/<%= dataProduct[4].images[0].img_name %>" class="imagen-carrusel" id="img0"
                     alt="...">
                 </div>
 
-                <% for( let index=1; index < dataProduct[4].images.length; index++ ) { %>
                   <div class="carousel-item">
-                    <img src="/images/productos/<%= dataProduct[4].images[index].img_name %> " class="imagen-carrusel"
+                    <img
+                    src="/images/productos/<%= typeof dataProduct[4].images[1] !== "undefined"? dataProduct[4].images[1].img_name : "1MoreImages.png"%> " class="imagen-carrusel" id="img1"
                       alt="...">
                   </div>
-                  <% } %>
+               
+
+                  <div class="carousel-item">
+                    <img
+                    src="/images/productos/<%= typeof dataProduct[4].images[2] !== "undefined"? dataProduct[4].images[2].img_name : "1MoreImages.png"%> " class="imagen-carrusel" id="img2"
+                      alt="...">
+                  </div>
 
               </div>
               <a class="carousel-control-prev" href="#carousel-controller" role="button" data-slide="prev">
@@ -41,11 +47,11 @@
             </div>
             
             <!-- Boton agregar imagen -->
-            <div class="boton-image col-12">
-              <label class="btn btn-success" for="archivo">Agregar foto</label>
+            <div class="boton-image col-12 form-group">
+              <label class="btn btn-success form-control" for="archivo">Agregar foto</label>
               <input type="file" name="img" id="archivo" multiple>
             </div>
-            <span class="obligatorio col-1">
+            <span class="obligatorio col-1 errorImgs">
               <%= (typeof errores !='undefined' && errores.imgs) ? errores.imgs.msg : null %>
             </span>
           </div>
@@ -55,8 +61,7 @@
           <div class="col-12 col-lg-6">
             <!-- Animales y Categorías -->
             <!-- ANIMALES -->
-            <div class="campo-animal margen">
-              <select class="seleccionar col-5" name="animal">
+              <select class="seleccionar col-11" name="animal">
                 <option value="">Elija una mascota</option>
 
                 <% dataProduct[0].forEach(data=> { %>
@@ -75,7 +80,7 @@
               </span>
 
               <!-- CATEGORIAS -->
-              <select class="seleccionar col-5" name="category">
+              <select class="seleccionar col-11" name="category">
                 <option value="">Elija una categoría</option>
 
                 <% dataProduct[1].forEach(categoria=> { %>
@@ -93,10 +98,8 @@
                 <%= (typeof errores !='undefined' && errores.category) ? "*" : null %>
               </span>
 
-            </div>
-
             <!-- SUBCATEGORIAS -->
-            <select class="sub-categoria margen" name="subCategory">
+            <select class="sub-categoria margen col-11" name="subCategory">
               <option value="">Elija una subcategoría</option>
 
               <% dataProduct[2].forEach(subcat=> { %>
@@ -114,11 +117,11 @@
             </span>
 
             <!-- Nombre -->
-            <div class="nombre margen">
-              <input class="completar col-11" type="text" name="name" placeholder="Nombre"
+            <div class="nombre margen form-group">
+              <input class="completar col-11 form-control" type="text" name="name" placeholder="Nombre"
               value="<%= (typeof old != 'undefined' && old.name ? old.name : dataProduct[4].name) %>" >
 
-               <span class="obligatorio col-1">
+               <span class="obligatorio errorName col-1">
                 <%= (typeof errores != 'undefined' && errores.name) ? "*" : null %>
               </span>
               <br>
@@ -128,11 +131,11 @@
             </div>
 
             <!-- Descripcion -->
-            <div class="descripcion margen">
-              <textarea class="completar col-11" name="description" cols="30" rows="3"
+            <div class="descripcion margen form-group">
+              <textarea class="completar col-11 form-control" name="description" cols="30" rows="3"
                 placeholder="Descripción"><%=(typeof old != 'undefined' && old.description ? old.description : dataProduct[4].description) %></textarea>
 
-                <span class="obligatorio col-1">
+                <span class="obligatorio col-1 errorDescription">
                   <%= (typeof errores != 'undefined' && errores.description) ? "*" : null %>
                 </span>
                 <br>
@@ -152,7 +155,7 @@
               </span>
 
               <!-- Precio -->
-              <input class="input-precio completar col-5" type="number" name="price" min="1" step="1"
+              <input class="input-precio completar col-5" type="number" name="price" min="1" step=".1"
                 placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : dataProduct[4].price) %>" />
 
                <span class="obligatorio col-1">
@@ -181,19 +184,17 @@
             </div>
 
             <!-- vencimiento(etiqueta-descuento) y precio final -->
-            <div class="vencimiento-precio-final margen">
               <!-- vencimiento -->
 
-              <input class="vencimiento seleccionar col-5" type="date" name="expiration" placeholder="Vencimiento"
+              <input class="vencimiento seleccionar col-11" type="date" name="expiration" placeholder="Vencimiento"
               value="<%= (typeof old != 'undefined' && old.expiration ? old.expiration : dataProduct[4].expiration) %>" >
               <!-- Espacio -->
               <div class="col-1"></div>
 
               <!-- Precio final -->
 
-              <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"
+              <input class="completar col-11" type="text" name="finalPrice" placeholder="$ Precio final"
               value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].final_price) %>" >
-            </div>
 
             <% if (typeof errores != 'undefined' && (errores.animal || errores.category || errores.subCategory || errores.name || errores.cuantity || errores.price)) { %>
 
@@ -212,6 +213,7 @@
 
 
       <%- include('../partials/footer') %>
+      <script src="/javascripts/CreateEditProductValidator.js"></script>
   </body>
 
 </html>

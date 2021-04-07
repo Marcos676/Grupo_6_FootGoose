@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {profile, logout,productAdd, productList, createProcess, productDetail, productEdit, editProcess, productDelete} = require('../controllers/adminController')
+const {profile, logout,createAdmin, productAdd, productList, createProcess, productDetail, productEdit, editProcess, productDelete} = require('../controllers/adminController')
 
 const uploadProduct = require('../utils/uploadProduct')
 const adminCheck = require('../middlewares/adminCheck');
@@ -11,9 +11,8 @@ const imgsEditProductValidator = require('../validations/imgsEditProductValidato
 
 router.get('/perfil', adminCheck,profile);
 /* cerrar sesión */
+router.get('/crear', createAdmin)
 router.get('/logout', logout)
-/* Listar */
-router.get('/products', adminCheck, productList)
 /* Crear */
 router.get('/products/create', adminCheck, productAdd);
 router.post('/products/create', uploadProduct.any(), imgsCreateProductValidator, productValidator, createProcess);

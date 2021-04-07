@@ -57,3 +57,58 @@
 #### Gabriel
 - Debo analizar con mas detalle las sub-tareas que pueden generarse al comenzar alguna de las tareas principales.
 
+## Daily Sprint 6
+
+### Tareas completadas:
+#### Sofia
+- 
+#### Macarena
+-  
+#### Marcos
+- Solucioné el script del input number para que tenga un diseño más bonito
+- Realicé las vistas de bienvenida al usuario y admin.
+- Solucioné el script slider del carrito
+- Modifiqué el css del header para los administradores.
+#### Gabriel
+- Integración de tareas de validaciones de sprint 4
+- Creación de tablas de base de datos
+- Creación y aplicación de modelos con sequelize
+- CRUD de productos y usuarios
+- Validaciones de back-end
+- Validaciones de front-end
+
+
+### Impedimentos que tuvimos:
+#### Sofia
+- 
+#### Macarena
+- 
+#### Marcos
+- No se implementó correctamente mi rama del git
+- El script slider del carrito se actualizó, con lo cuál su ejecución quedó estancada en una versión anterior
+#### Gabriel
+- Todos los impedimentos que tuve durante los sprint 4, 5 y 6 los solucione:
+Aplicando diferentes ideas sobre como solucionarlo y buscando paso por paso la ubicación del error. Y en los casos en los ya no encontré la manera pedí ayuda.
+
+### Soluciones a los impedimentos:
+#### Sofia
+-  
+#### Macarena
+- 
+#### Marcos
+- Crear una rama totalmente nueva a partir de develop, luego de haber mergeado los cambios con main
+- En cuanto al slider, leí los cambios de la nueva versión, y procedí a llamar correctamente las funciones del mismo
+#### Gabriel
+- Todos los impedimentos que tuve durante los sprint 4, 5 y 6 los solucione:
+Aplicando diferentes ideas sobre como solucionarlo y buscando paso por paso la ubicación del error. Y en los casos en los ya no encontré la manera pedí ayuda.
+
+### Conclusiones de integrantes
+#### Sofia
+- 
+- 
+#### Macarena
+- 
+#### Marcos
+- A pesar de seguir atrasado con la cursada, puedo ir resolviendo y encargandome de la parte front del proyecto, dando así una mano para que el mismo se vaya actualizando sprint a sprint. No obstante, mi idea es poder aplicar y analizar el mismo nivel de código que mis compañeros.
+#### Gabriel
+- Esforzarme aun más para poder terminar las tareas extras.

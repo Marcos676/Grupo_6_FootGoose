@@ -6,7 +6,7 @@ header {
     width: 100%;
     z-index: 5;
   }
-   header .header-container {
+  header .header-container {
     max-width: 1350px;
   }
    header .header-container .row{
@@ -14,7 +14,7 @@ header {
     align-content: center;
     padding-left: 0;
     }
-  
+
   /* Logo */
   header .logo-container {
     padding: 0;
@@ -28,7 +28,7 @@ header {
       display: contents;
   }
   
-  
+
   /* BUSCADOR */
   header .buscador {
     display: flex;
@@ -77,8 +77,8 @@ header {
     font-family: var(--font2);
     color: var(--color-negro);
     border-radius: .25rem;
-    padding: 3px .75rem;
     transition: .5s;
+    margin-right: 10px;
   }
   header .ingresar a:hover{
     color: var(--color-blanco);
@@ -98,7 +98,6 @@ header {
   /* NAVEGACION CON BURGUER BUTTON */
   .boton-hamburguesa {
     display: flex;
-    justify-content: center;
   }
   header nav button.burger {
     color: var(--color-grisOscuro);
@@ -254,7 +253,7 @@ header {
     }
   
     /* boton nocturno */
-    header .navegador .nocturno{
+    .navegador .nocturno{
       padding-left: 30px;
       padding-right: 0;
     }
@@ -265,4 +264,285 @@ header {
         }
 }
 }
-    
+
+/* ADMIN HEADER */
+
+.headerAdmin {
+  background-color: var(--color-negro);
+  padding: 5px 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+ .headerAdmin .header-container-admin {
+  max-width: 1350px;
+}
+ .headerAdmin .header-container-admin .row{
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 0;
+  }
+
+/* Logo */
+.headerAdmin .logo-container {
+  padding: 0;
+}
+.headerAdmin .row .logo-container a img{
+  width: 80px;
+}
+
+/* Contenedor del resto */
+  .headerAdmin .container-principal{
+    display: contents;
+}
+
+/* BUSCADOR */
+.headerAdmin .buscador {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  display: none;
+}
+.headerAdmin form {
+  background-color: var(--color-grisClaro);
+  border-radius: 50px;
+  display: flex;
+  width: 100%;
+}
+.headerAdmin form input {
+  background-color: transparent;
+  border: none;
+  border-right: 2px solid var(--color-grisOscuro);
+  padding: 0px 10px;
+  width: 100%;
+  flex-grow: 1;
+  font-family: var(--font);
+}
+.headerAdmin form input:focus {
+  outline-width: 0px;
+}
+.headerAdmin form button {
+  background: none;
+  border: none;
+  color: var(--color-grisOscuro);
+  margin: 0;
+}
+.headerAdmin form button:focus {
+  outline-width: 0px;
+}
+
+.headerAdmin .agregarProducto {
+  display: none;
+}
+
+.headerAdmin .agregarProducto a{
+  color: white;
+  font-family: var(--font2);
+  font-size: 1em;
+  background-color: #303030;
+  padding: 7px;
+  border-radius: 10px;
+  border: whitesmoke 2px solid;
+  display: none;
+  max-width: 220px;
+}
+
+.headerAdmin .miCuenta{
+ color: white;
+ font-family: var(--font2);
+ font-size: 1em;
+ background-color: #303030;
+ padding: 5px;
+ border-radius: 10px;
+ border: whitesmoke 2px solid;
+ display: none;
+}
+
+.headerAdmin .miCuenta i,
+.headerAdmin .agregarProducto i{
+  padding: 6px;
+}
+
+
+/* NAVEGACION CON BURGUER BUTTON */
+.boton-hamburguesa {
+  display: flex;
+  margin-right: 10px;
+}
+.headerAdmin nav button.burger {
+  color: var(--color-grisOscuro);
+  font-size: 35px;
+}
+.headerAdmin nav button.burger:focus {
+  outline-width: 0px;
+}
+
+.headerAdmin .navbar-toggler {
+  align-items: center;
+}
+
+/* NAVEGACION */
+.headerAdmin .navegador ul {
+  font-family: var(--font2);
+  border-bottom: 1px solid var(--color-grisOscuro);
+  padding: 0 15px;
+}
+.headerAdmin .navegador ul:last-child{
+  border-bottom: none
+}
+.headerAdmin .navegador ul li {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 0px 7px;
+  width: 100%;
+  margin: 10px auto;
+}
+.headerAdmin .ingresar {
+  text-align: center;
+}
+.headerAdmin .navegador ul li a {
+  font-size: 30px;
+  color: var(--color-grisClaro);
+  transition: .5s ease;
+}
+.headerAdmin .navegador ul li a:hover {
+  font-size: 34px;
+  color: var(--color-grisOscuro);
+}
+
+/* Modo nocturno  */
+.nocturno input[type="checkbox"]{
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-image: url(https://assets.codepen.io/1148131/18956-NRVK2Q.jpg);
+  background-size: cover;
+  border-radius: 50px;
+  transition: background-image .9s;
+  box-shadow: 0 2px 5px 1px gray;
+  cursor: pointer;
+}
+.nocturno input[type="checkbox"]:before{
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: rgb(244, 189, 33);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .9s;
+  background-color: #4fc3f7;
+}
+.nocturno input[type="checkbox"]:checked{
+  background-image: url(https://assets.codepen.io/1148131/114955-OP0CAQ-356.jpg);
+}
+.nocturno input[type="checkbox"]:checked::before{
+  transform: translate(100%);
+  background-color: #fdd835;
+}
+
+/*---------- MOBILE M ------------*/
+@media (min-width: 375px){
+/* Header buscador */
+  .headerAdmin .buscador{
+    display: flex;
+  }
+  .headerAdmin form button{
+    margin: 0 8px;
+  }
+/* Header boton ingresar */
+  .headerAdmin .ingresar a{
+    display: flex;
+  }
+
+  .headerAdmin .navbar-nav form {
+    display: none;
+  }  
+
+  /* Contenedor del resto */
+  .headerAdmin .container-principal{
+    display: flex;
+  }
+
+}
+/*---------- TABLET Y DESKTOP Large ------------*/
+@media (min-width: 768px){
+/*----------------- HEADER ----------------------*/
+  .headerAdmin {
+  position: initial;
+  }
+
+  .headerAdmin .solo-mobile{
+    display: none;
+  }
+
+  /* contenedor */
+  .headerAdmin .header-container-admin .row{
+    justify-content: space-evenly;
+  }
+  .header-container-principal {
+    padding: 0;
+  }
+
+/* LOGO */
+  .headerAdmin .row .logo-container a img{
+    width: 129px;
+  }
+
+  /* navegador*/
+  .headerAdmin .navegador ul{
+    border-bottom: none;
+  }
+  .headerAdmin .navegador .menu li {
+    border-right: 2px solid var(--color-grisOscuro);;
+  }
+  .headerAdmin .navegador .menu li:last-child{
+    border-right: none;
+  }
+  .headerAdmin .navegador .menu ul li a{
+    font-size: 20px;
+  }
+
+  /* ingresar */  
+  .headerAdmin .ingresar a {
+    font-size: 22px;
+    background-color: var(--color-grisClaro);
+    width: 100%;
+  }
+
+  .headerAdmin .agregarProducto a,
+  .headerAdmin .agregarProducto,
+  .headerAdmin .miCuenta{
+    display: flex;
+    align-items: center;
+  }
+
+  /* carrito */
+  .headerAdmin .navegador .carrito{
+    padding-left: 30px;
+  }
+
+  /* boton nocturno */
+  .headerAdmin .navegador .nocturno{
+    padding-left: 30px;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1200px){
+    /* ------------HEADER--------------- */
+      .headerAdmin .buscador {
+        padding-left: 39px;
+      }
+.headerAdmin .agregarProducto a,
+.headerAdmin .miCuenta{
+  font-size: 1.5em;
+}
+
+}
+  

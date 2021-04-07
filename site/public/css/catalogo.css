@@ -1,5 +1,18 @@
+.catalogo .products {
+	justify-content: space-evenly;
+}
+
+.catalogo .form-group {
+	display: none;
+}
+
+.catalogo .type-categories a {
+	color: #7f7f7f;
+}
+
 .catalogo .card {
-    margin: 5px 10px;
+    margin: 30px 10px;
+	justify-content: space-between;
 }
 
 .catalogo .card .precio-final {
@@ -16,19 +29,26 @@
 	height: 280px;
 	width: 100%;
 	object-fit: contain;
+	padding: 10px;
 }
 
 .catalogo .card .producto-datos {
 	align-items: baseline;
 }
-
-.catalogo .animales .imgs img{
-    width: 80px;
+.catalogo .animales .imgs {
+	display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
-.catalogo .animales .imgs button {
+.catalogo .animales .imgs .animal-list {
+	display: inline;
     border: none;
     background-color: transparent;
 }
+.catalogo .animales .imgs img{
+    width: 80px;
+}
+
 
 .catalogo .resultado,
 .catalogo .topfilter {
@@ -40,11 +60,15 @@ background-color: transparent;
 justify-content: center;
 }
 
+.catalogo .breadcrumb a {
+	color: #7f7f7f;
+}
+
 .catalogo .containerheart {
 	position: absolute;
 	padding: 5px;
-	left: 75%;
-	top: 5%;
+	left: 80%;
+	top: 0%;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 	border-radius: 30px;
 	background-color: #fafafa;

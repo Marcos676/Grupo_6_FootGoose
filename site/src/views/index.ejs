@@ -27,27 +27,15 @@
 
             <div class="col-12 container-fluid categorias">
               <div class="row categorias-animales">
-                <div>
-                  <a href=""><img src="images/categorias/iconoPerro.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoGato.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoRoedor.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoAve.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoPez.png" alt=""></a>
-                </div>
-                <div>
-                  <a href=""><img src="images/categorias/iconoReptil.png" alt=""></a>
-                </div>
+
+                <% animals.forEach(animal => { %>
+                  <div>
+                    <a href="/productos/filtro/<%= animal.id %>"><img src="images/categorias/<%= animal.img %> " alt="<%= animal.animal %> "></a>
+                  </div>
+                <% }) %>
+
               </div>
             </div>
-
 
             <div class="mt-5 col-12 info-nosotros">
               <p id="nosotros">En nuestra empresa FootGoose® ofrecemos una amplia gama de productos y alimentos para su
@@ -58,6 +46,13 @@
                 las
                 mascotas como un miembro más de la familia, y a cambio nosotros les proveemos un servicio de primer
                 nivel.
+                <br>
+                El proyecto FootGoose® surge cuando en 1984 Alejandro Patiño (padre del dueño de la marca), le realiza maniobras de RCP a un ganso en una playa de la costa este de los
+                Estados Unidos. Al salvarle la vida al animal, un extraño hombre le agradeció, era el mismísimo Kenny Loggins, dueño del ganso llamado <a href="/rupert">Rupert</a>.
+                <br>
+                <b><i>-"Jamás imaginé que conocería a Kenny Loggins, ni mucho menos descubrir que tenía un ganso mascota"-</i> dijo Alejandro.</b>
+                <br>
+                A partir de ese momento, Loggins formó una gran amistad con Patiño, y juntos fundaron FootGoose®, el primer centro veterinario con temática ochentosa.
               </p>
             </div>
 
