@@ -61,8 +61,7 @@
           <div class="col-12 col-lg-6">
             <!-- Animales y Categorías -->
             <!-- ANIMALES -->
-            <div class="campo-animal margen">
-              <select class="seleccionar col-5" name="animal">
+              <select class="seleccionar col-11" name="animal">
                 <option value="">Elija una mascota</option>
 
                 <% dataProduct[0].forEach(data=> { %>
@@ -81,7 +80,7 @@
               </span>
 
               <!-- CATEGORIAS -->
-              <select class="seleccionar col-5" name="category">
+              <select class="seleccionar col-11" name="category">
                 <option value="">Elija una categoría</option>
 
                 <% dataProduct[1].forEach(categoria=> { %>
@@ -99,10 +98,8 @@
                 <%= (typeof errores !='undefined' && errores.category) ? "*" : null %>
               </span>
 
-            </div>
-
             <!-- SUBCATEGORIAS -->
-            <select class="sub-categoria margen" name="subCategory">
+            <select class="sub-categoria margen col-11" name="subCategory">
               <option value="">Elija una subcategoría</option>
 
               <% dataProduct[2].forEach(subcat=> { %>
@@ -187,19 +184,17 @@
             </div>
 
             <!-- vencimiento(etiqueta-descuento) y precio final -->
-            <div class="vencimiento-precio-final margen">
               <!-- vencimiento -->
 
-              <input class="vencimiento seleccionar col-5" type="date" name="expiration" placeholder="Vencimiento"
+              <input class="vencimiento seleccionar col-11" type="date" name="expiration" placeholder="Vencimiento"
               value="<%= (typeof old != 'undefined' && old.expiration ? old.expiration : dataProduct[4].expiration) %>" >
               <!-- Espacio -->
               <div class="col-1"></div>
 
               <!-- Precio final -->
 
-              <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"
+              <input class="completar col-11" type="text" name="finalPrice" placeholder="$ Precio final"
               value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].final_price) %>" >
-            </div>
 
             <% if (typeof errores != 'undefined' && (errores.animal || errores.category || errores.subCategory || errores.name || errores.cuantity || errores.price)) { %>
 

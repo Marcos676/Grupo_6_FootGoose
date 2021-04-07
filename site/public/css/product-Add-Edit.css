@@ -53,6 +53,11 @@
     border: none;
   }
 
+  .nuevo-producto form select,
+  .nuevo-producto form input {
+    margin: 5px 0;
+  }
+
   @media (min-width: 425px){
     .nuevo-producto .imagen-carrusel {
       width: 300px;
