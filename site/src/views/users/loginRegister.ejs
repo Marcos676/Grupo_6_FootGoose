@@ -20,7 +20,7 @@
                     <!-- email -->
                     <div class="input-contenedor form-group col-12">
 
-                        <i class="fas fa-envelope icon"></i>
+                        <p><i class="fas fa-envelope icon"></i> Correo electrónico</p>
 
                         <input class="form-control <%= typeof emailInvalid !== 'undefined'? 'is-invalid' : null %> <%= typeof emailValid !== 'undefined'? 'is-valid' : null %>" type="text" placeholder="Correo electrónico" name="email"
                             value="<%= (typeof old != 'undefined' && old.email ? old.email : null) %>">
@@ -36,7 +36,7 @@
                     <!-- Password -->
                     <div class="input-contenedor form-group col-12">
 
-                        <i class="fas fa-key icon"></i>
+                        <p><i class="fas fa-key icon"></i> Contraseña</p>
 
                         <input class="form-control <%= typeof passInvalid !== 'undefined'? 'is-invalid' : null %>" type="password" placeholder="Contraseña" name="password">
                         

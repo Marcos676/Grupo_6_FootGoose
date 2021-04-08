@@ -301,17 +301,18 @@ module.exports = {
             .catch(error => res.send(error))
     },
     productDelete: (req, res) => {
-        const images = db.ProductsImages.destroy({
-            where: {
-                product_id: req.params.id
-            }
-        })
         const product = db.Products.destroy({
             where: {
                 id: req.params.id
             }
         })
-        Promise.all([images, product])
+        const images = db.ProductsImages.destroy({
+            where: {
+                product_id: req.params.id
+            }
+        })
+        
+        Promise.all([product, images])
             .then(() => {
                 res.redirect('/productos')
             })
