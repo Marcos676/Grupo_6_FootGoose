@@ -28,7 +28,9 @@ module.exports = {
                                     msg: 'Este email ya está registrado'
                                 }
                             },
-                            oldRegister: req.body
+                            oldRegister: req.body,
+                            regValid: 'validacion positiva',
+                            regInvalid: 'validacion negativa'
                         })
                     }
 
@@ -41,6 +43,7 @@ module.exports = {
                         last_name: names[1],
                         email: email.trim(),
                         password: passcrypt,
+                        admin: 0
                     })
                         .then(() => {
                             res.redirect('/usuario/perfil')
@@ -76,7 +79,8 @@ module.exports = {
                             erroresLogin: {
                                 email: { msg: 'Dirección de correo electrónico no registrada' }
                             },
-                            old: req.body
+                            old: req.body,
+                          emailInvalid: 'validación negativa'  
                         })
                     }
 
@@ -104,7 +108,9 @@ module.exports = {
                                     msg: "Contraseña incorrecta"
                                 }
                             },
-                            old: req.body
+                            old: req.body,
+                            emailValid: 'validacion positiva',
+                            passInvalid: 'validacion negativa'
                         })
                     }
 

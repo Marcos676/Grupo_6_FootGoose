@@ -16,7 +16,7 @@ module.exports = {
             })
             .catch(error => res.send(error))
     },
-    createAdmin: (req,res) => {
+    createAdmin: (req, res) => {
         db.Users.findOne({
             where: {
                 id: req.session.user.id
@@ -29,6 +29,68 @@ module.exports = {
                 })
             })
             .catch(error => res.send(error))
+    },
+    createAdminProcess: (req, res) => {
+        let errores = validationResult(req);
+
+        if (errores.isEmpty()) {
+            let { name, email, password } = req.body;
+
+            db.Users.findOne({
+                where: {
+                    email: email.trim()
+                }
+            })
+                .then(user => {
+                    if (user) {
+                        return res.render('admin/adminCreate', {
+                            title: 'Creación de Admin',
+                            erroresRegister: {
+                                email: {
+                                    msg: 'Este email ya está registrado'
+                                }
+                            },
+                            oldRegister: req.body,
+                            regValid: 'validacion positiva',
+                            regInvalid: 'validacion negativa'
+                        })
+                    }
+
+                    let passcrypt = bcrypt.hashSync(password, 10);
+
+                    let names = name.trim().split(" ")
+
+                    let usuario = db.Users.create({
+                        first_name: names[0],
+                        last_name: names[1],
+                        email: email.trim(),
+                        password: passcrypt,
+                        admin: 1
+                    })
+                   let use = db.Users.findOne({
+                        where: {
+                            id: req.session.user.id
+                        }
+                    })
+                    Promise.all([usuario])
+                        .then(user => {
+                            res.render('admin/adminProfile', {
+                                title: 'Perfil',
+                                user: data[0]
+                            })
+                        })
+                        .catch(error => res.send(error))
+                })
+
+        } else {
+            return res.render('admin/adminCreate', {
+                title: 'Creación de Admin',
+                erroresRegister: errores.mapped(),
+                oldRegister: req.body,
+                regValidPass: 'validacion positiva'
+
+            })
+        }
     },
     logout: (req, res) => {
         if (req.cookies.FootGoose) {
@@ -102,7 +164,7 @@ module.exports = {
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
-                        return res.redirect('/admin/products')
+                        return res.redirect('/productos')
                     })
             })
             .catch(error => res.send(error))
@@ -168,7 +230,7 @@ module.exports = {
     },
     editProcess: (req, res) => {
         let errores = validationResult(req);
-        
+
         if (!errores.isEmpty()) {
             const animals = db.Animals.findAll()
             const categories = db.Categories.findAll()
@@ -236,7 +298,7 @@ module.exports = {
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
-                        return res.redirect('/admin/products')
+                        return res.redirect('/productos')
                     })
                     .catch(error => res.send(error))
             })
@@ -253,9 +315,9 @@ module.exports = {
                 id: req.params.id
             }
         })
-        Promise.all([ images, product])
+        Promise.all([images, product])
             .then(() => {
-                res.redirect('/admin/products')
+                res.redirect('/productos')
             })
             .catch(error => res.send(error))
     }

@@ -10,7 +10,7 @@
         <!-- Titulo -->
         <h1 class="col">EDITAR PRODUCTO</h1>
 
-        <form class="col-12 row creatEdit" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST"
+        <form class="col-12 row creatEdit needs-validation" action="/admin/products/<%= dataProduct[4].id %>?_method=PUT " method="POST"
           enctype="multipart/form-data">
           <!-- Carrusel -->
           <div class="carrusel-add-image col-12 col-lg-6">
@@ -60,9 +60,10 @@
 
           <div class="col-12 col-lg-6">
             <!-- Animales y Categorías -->
+
             <!-- ANIMALES -->
-              <select class="seleccionar col-11" name="animal">
-                <option value="">Elija una mascota</option>
+              <select class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.animal) ? "is-invalid" : null  %>" name="animal">
+                <option value="" selected disabled>Elija una mascota</option>
 
                 <% dataProduct[0].forEach(data=> { %>
 
@@ -73,15 +74,12 @@
                   </option>
 
                   <% }) %>
-
-              </select>
-              <span class="obligatorio col-1">
-                <%= (typeof errores !='undefined' && errores.animal) ? "*" : null %>
-              </span>
+                </select>
 
               <!-- CATEGORIAS -->
-              <select class="seleccionar col-11" name="category">
-                <option value="">Elija una categoría</option>
+              <select class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.category) ? "is-invalid" : null  %>" name="category">
+
+                <option value="" selected disabled >Elija una categoría</option>
 
                 <% dataProduct[1].forEach(categoria=> { %>
 
@@ -92,15 +90,12 @@
                   </option>
 
                   <% }) %>
-
               </select>
-              <span class="obligatorio col-1">
-                <%= (typeof errores !='undefined' && errores.category) ? "*" : null %>
-              </span>
 
             <!-- SUBCATEGORIAS -->
-            <select class="sub-categoria margen col-11" name="subCategory">
-              <option value="">Elija una subcategoría</option>
+            <select class="sub-categoria margen col-12 custom-select <%= (typeof errores != 'undefined' && errores.subCategory) ? "is-invalid" : null  %> " name="subCategory">
+
+              <option value="" selected disabled >Elija una subcategoría</option>
 
               <% dataProduct[2].forEach(subcat=> { %>
 
@@ -112,18 +107,16 @@
 
                 <% }) %>
             </select>
-            <span class="obligatorio col-1">
-              <%= (typeof errores !='undefined' && errores.subCategory) ? "*" : null %>
-            </span>
 
             <!-- Nombre -->
-            <div class="nombre margen form-group">
-              <input class="completar col-11 form-control" type="text" name="name" placeholder="Nombre"
+            <div class="nombre margen form-group" style="flex-wrap: wrap;">
+
+              <input class="completar col-12  form-control <%= (typeof errores != 'undefined' && errores.name) ? "is-invalid" : null  %>" type="text" name="name" placeholder="Nombre"
               value="<%= (typeof old != 'undefined' && old.name ? old.name : dataProduct[4].name) %>" >
 
-               <span class="obligatorio errorName col-1">
-                <%= (typeof errores != 'undefined' && errores.name) ? "*" : null %>
+              <span class="obligatorio errorName col-12">
               </span>
+
               <br>
               <% if (typeof errores != 'undefined' && errores.name && (errores.name.msg === 'El nombre debe tener al menos 5 caracteres') ) { %>
                 <span class="obligatorio"><%= errores.name.msg %> </span>
@@ -131,41 +124,42 @@
             </div>
 
             <!-- Descripcion -->
-            <div class="descripcion margen form-group">
-              <textarea class="completar col-11 form-control" name="description" cols="30" rows="3"
+            <div class="descripcion margen form-group" style="flex-wrap: wrap;">
+
+              <textarea class="completar col-12 form-control <%= (typeof errores != 'undefined' && errores.description) ? "is-invalid" : null  %>" name="description" cols="30" rows="3"
                 placeholder="Descripción"><%=(typeof old != 'undefined' && old.description ? old.description : dataProduct[4].description) %></textarea>
 
-                <span class="obligatorio col-1 errorDescription">
-                  <%= (typeof errores != 'undefined' && errores.description) ? "*" : null %>
+                <span class="obligatorio errorDescription col-12">
                 </span>
+
                 <br>
+
                 <% if (typeof errores != 'undefined' && errores.description && (errores.description.msg === 'La descripción debe tener al menos 20 caracteres') ) { %>
                   <span class="obligatorio"><%= errores.description.msg %> </span>
                 <% } %>
+
             </div>
 
             <!-- Cantidad y precio -->
-            <div class="cantidad-precio margen">
+            <div class="cantidad-precio margen" style="flex-wrap: wrap;">
+
               <!-- cantidad -->
-              <input class="completar col-5" type="number" name="cuantity" min="1" step="1" placeholder="Cantidad"
+              <input class="completar col-12 col-lg-6 form-control <%= (typeof errores != 'undefined' && errores.cuantity) ? "is-invalid" : null  %>"  type="number" name="cuantity" min="1" step="1" placeholder="Cantidad"
               value="<%= (typeof old != 'undefined' && old.cuantity ? old.cuantity : dataProduct[4].cuantity) %>" />
 
-             <span class="obligatorio col-1">
-                <%= (typeof errores != 'undefined' && errores.cuantity) ? "*" : null %>
-              </span>
+              <!-- Espacio -->
+              <div class="col-1"></div>
 
               <!-- Precio -->
-              <input class="input-precio completar col-5" type="number" name="price" min="1" step=".1"
+              <input class="input-precio completar col-12 col-lg-5 form-control <%= (typeof errores != 'undefined' && errores.price) ? "is-invalid" : null  %>" type="number" name="price" min="1" step=".1"
                 placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : dataProduct[4].price) %>" />
 
-               <span class="obligatorio col-1">
-                <%= (typeof errores != 'undefined' && errores.price) ? "*" : null %>
-              </span>
             </div>
 
             <!-- etiqueta y descuento -->
-            <div class="etiqueta-descuento margen">
-              <select class="seleccionar col-5" name="label" id="etiqueta">
+            <div class="etiqueta-descuento margen" style="flex-wrap: wrap;">
+
+              <select class="seleccionar col-12 col-lg-6 form-control" name="label" id="etiqueta">
                 <% dataProduct[3].forEach(etiqueta=> { %>
 
                   <option value=<%=etiqueta.id %>
@@ -175,30 +169,32 @@
                   </option>
                   
                   <% }) %>
+
               </select>
+
               <!-- Espacio -->
               <div class="col-1"></div>
 
               <!-- descuento -->
-              <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= typeof old != 'undefined' && old.discount ? old.discount : dataProduct[4].discount %>" />
+              <input class="completar col-12 col-lg-5 form-control" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= typeof old != 'undefined' && old.discount ? old.discount : dataProduct[4].discount %>" />
             </div>
 
             <!-- vencimiento(etiqueta-descuento) y precio final -->
               <!-- vencimiento -->
-
-              <input class="vencimiento seleccionar col-11" type="date" name="expiration" placeholder="Vencimiento"
+              <label class='col-12' for="vencimiento">Vencimiento de etiqueta y descuento</label>
+              <input class="vencimiento seleccionar col-12 form-control" type="date" name="expiration" placeholder="Vencimiento"
               value="<%= (typeof old != 'undefined' && old.expiration ? old.expiration : dataProduct[4].expiration) %>" >
+
               <!-- Espacio -->
               <div class="col-1"></div>
 
               <!-- Precio final -->
-
-              <input class="completar col-11" type="text" name="finalPrice" placeholder="$ Precio final"
+              <input class="completar col-12 form-control" type="text" name="finalPrice" placeholder="$ Precio final"
               value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].final_price) %>" >
 
             <% if (typeof errores != 'undefined' && (errores.animal || errores.category || errores.subCategory || errores.name || errores.cuantity || errores.price)) { %>
 
-              <span class="margen">* Campos obligatorios</span>
+              <span class="margen"><p><i class="fas fa-exclamation-circle"></i></p>  Campos obligatorios</span>
 
             <% } %>
 

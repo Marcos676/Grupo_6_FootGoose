@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <%- include('../partials/head.ejs') %>
 </head>
 
@@ -12,46 +11,73 @@
         <div class="contenido container-fluid adminCreate">
 
             <form class="formulario-registro col-12" method="POST" action="/admin/crear">
+
                 <h1> Crear administrador</h1>
+
                 <!-- nombre -->
                 <div class="input-contenedor form-group col-12">
+
                     <p><i class="fas fa-user icon"></i> Nombre y apellido</p>
-                    <input class="form-control" name="name" type="text" placeholder="Nombre y apellido"
+
+                    <input class="form-control <%= typeof regValid !== 'undefined'? 'is-valid' : null %> <%= typeof erroresRegister !== 'undefined' && erroresRegister.name? 'is-invalid' : null %> <%= typeof regValidPass !== 'undefined'? 'is-valid' : null %>" name="name" type="text" placeholder="Nombre y apellido"
                         value="<%= (typeof oldRegister != 'undefined' && oldRegister.name ? oldRegister.name : null) %>">
+
                     <br>
+
                     <span class="text-danger errorRegisterName">
                         <%= (typeof erroresRegister !='undefined' && erroresRegister.name) ? erroresRegister.name.msg :
                             null %>
                     </span>
+
                 </div>
+
                 <!-- email -->
                 <div class="input-contenedor form-group col-12">
+
                     <p><i class="fas fa-envelope icon"></i> Correo electrónico</p>
-                    <input class="form-control" name="email" type="text" placeholder="Correo electrónico"
-                        value="<%= (typeof oldRegister != 'undefined' && oldRegister.email ? oldRegister.email : null) %>"><br>
+
+                    <input class="form-control <%= typeof regInvalid !== 'undefined'? 'is-invalid' : null %> <%= typeof erroresRegister !== 'undefined' && erroresRegister.email? 'is-valid' : null %>  <%= typeof regValidPass !== 'undefined'? 'is-valid' : null %>" name="email" type="text" placeholder="Correo electrónico"
+                        value="<%= (typeof oldRegister != 'undefined' && oldRegister.email ? oldRegister.email : null) %>">
+
+                        <br>
+
                     <span class="text-danger errorRegisterEmail">
                         <%= (typeof erroresRegister !='undefined' && erroresRegister.email) ? erroresRegister.email.msg
                             : null %>
                     </span>
+
                 </div>
+
                 <!-- password -->
                 <div class="input-contenedor form-group col-12">
+                    
                     <p><i class="fas fa-key icon"></i> Contraseña</p>
-                    <input class="form-control" name="password" type="password" placeholder="Contraseña"><br>
+
+                    <input class="form-control" name="password" type="password" placeholder="Contraseña">
+                    
+                    <br>
+
                     <span class="text-danger errorRegisterPass">
                         <%= (typeof erroresRegister !='undefined' && erroresRegister.password) ?
                             erroresRegister.password.msg : null %>
                     </span>
+
                 </div>
                 <!-- confirmar password -->
                 <div class="input-contenedor form-group col-12">
+
                     <p><i class="fas fa-key icon"></i> Confirmar contraseña</p>
+
                     <input class="form-control" name="confirmacion" type="password"
-                        placeholder="Confirmar contraseña"><br>
+                        placeholder="Confirmar contraseña">
+                        
+                        <br>
+
                     <span class="text-danger errorRegisterConfirm">
                         <%= (typeof erroresRegister !='undefined' && erroresRegister.confirmacion) ?
                             erroresRegister.confirmacion.msg : null %>
                     </span>
+
                 </div>
 
                 <div class="boton-crear col-12">
@@ -60,13 +86,8 @@
 
         </div>
         <%- include('../partials/footer.ejs') %>
-            <script>
-                var check = document.getElementById("cambiarModo");
 
-                check.onclick = () => {
-                    document.querySelector("body").classList.toggle('active');
-                }
-            </script>
+<script src="/javascripts/loginRegisterValidator.js"></script>
 </body>
 
 </html>
