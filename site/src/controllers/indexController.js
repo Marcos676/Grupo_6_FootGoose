@@ -1,15 +1,25 @@
 const db = require('../database/models')
 
 module.exports = {
+
+
+    
     index: (req, res) => {
-        db.Animals.findAll()
-        .then(animals => {
-            res.render('index', {
-                title: 'Home',
-                animals
-            })
+        const products = db.Products.findAll({
+            include: [{ association: 'images' }]
         })
-        .catch(error => res.send(error))        
+        const animal = db.Animals.findAll()
+
+        Promise.all([products, animal])
+            .then(data => {
+                return res.render('index', {
+                    title: 'Home',
+                    products: data[0],
+                    animals: data[1],
+                    data
+                })
+            })
+            .catch(error => res.send(error))     
     },
     faqs: (req,res) => {
         res.render('faqs', {

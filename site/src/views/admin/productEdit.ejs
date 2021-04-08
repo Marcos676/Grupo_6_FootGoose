@@ -158,7 +158,7 @@
               </span>
 
               <!-- Precio -->
-              <input class="input-precio completar col-5" type="number" name="price" min="1" step=".1"
+              <input id="precio" class="input-precio completar col-5" type="number" name="price" min="1" step=".1"
                 placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : dataProduct[4].price) %>" />
 
                <span class="obligatorio col-1">
@@ -183,7 +183,7 @@
               <div class="col-1"></div>
 
               <!-- descuento -->
-              <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= typeof old != 'undefined' && old.discount ? old.discount : dataProduct[4].discount %>" />
+              <input id="descuento" class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= typeof old != 'undefined' && old.discount ? old.discount : dataProduct[4].discount %>" />
             </div>
 
             <!-- vencimiento(etiqueta-descuento) y precio final -->
@@ -197,7 +197,7 @@
 
               <!-- Precio final -->
 
-              <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"
+              <input id="precioFinal" class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final"
               value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : dataProduct[4].final_price) %>" >
             </div>
 

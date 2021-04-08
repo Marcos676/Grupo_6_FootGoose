@@ -118,12 +118,22 @@ window.addEventListener('load', () => {
     formRegister.addEventListener('submit', (e) => {
         e.preventDefault()
         if( 
+            !nameRegister.classList.contains('is-valid') ||
+            !emailRegister.classList.contains('is-valid') ||
+            !passRegister.classList.contains('is-valid') ||
+            !confirmRegister.classList.contains('is-valid')
+        ) {
+            alert("Revisa los campos incorrectos.")
+        }
+       
+        if( 
             nameRegister.classList.contains('is-valid') &&
             emailRegister.classList.contains('is-valid') &&
             passRegister.classList.contains('is-valid') &&
             confirmRegister.classList.contains('is-valid')
         ) {
             formRegister.submit()
+            alert("Usuario creado correctamente, ya puede loguearse.")
         }
     })
 
@@ -178,12 +188,13 @@ window.addEventListener('load', () => {
 
     /* Condición para la ejecución de submit en Login */
     formLogin.addEventListener('submit', (e) => {
-        e.preventDefault()
+        e.preventDefault() 
+        alert("Revisa los campos incorrectos.")
         if( 
             emailLogin.classList.contains('is-valid') &&
             passLogin.classList.contains('is-valid')
         ) {
-            formLogin.submit()
+            formLogin.submit() 
         }
     })
 

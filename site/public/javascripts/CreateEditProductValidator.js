@@ -3,6 +3,21 @@ window.addEventListener('load', () => {
 
     const qs = (element) => document.querySelector(element)
 
+    /* Dinamismo precio final // descuento ESTO LO HIZO GABI!!!!!!!!!! MACA NOMAS COPIO (Lo escribio y aprendio maca) */
+    window.addEventListener('change', () =>{
+        let precio = qs('#precio')
+        let descuento = qs('#descuento')
+        let precioFinal = qs('#precioFinal')
+
+        precioFinal.value = (precio.value * descuento.value)/100 
+
+        console.log(precioFinal.value)
+    })
+
+
+
+    /* Validaciones */
+
     let regExExt = /(.jpg|.jpeg|.png|.gif)$/i;
 
     let form = qs('form.creatEdit')

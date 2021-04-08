@@ -139,7 +139,7 @@
                 <%= (typeof errores != 'undefined' && errores.cuantity) ? "*" : null %>
               </span>
               <!-- Precio -->
-              <input class="input-precio completar col-5" type="number" name="price" min="1" step=".1" placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : null) %>" />
+              <input id="precio" class="input-precio completar col-5" type="number" name="price" min="1" step=".1" placeholder="$ Precio" value="<%= (typeof old != 'undefined' && old.price ? old.price : null) %>" />
               <span class="obligatorio col-1">
                 <%= (typeof errores != 'undefined' && errores.price) ? "*" : null %>
               </span>
@@ -161,7 +161,7 @@
               <div class="col-1"></div>
 
               <!-- descuento -->
-              <input class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= (typeof old != 'undefined' && old.discount ? old.discount : null) %>" />
+              <input id="descuento" class="completar col-5" type="number" name="discount" min="0" max="100" step="1" placeholder="% descuento" value="<%= (typeof old != 'undefined' && old.discount ? old.discount : null) %>" />
             </div>
 
             <!-- vencimiento(etiqueta-descuento y su aplicación) y precio final -->
@@ -174,7 +174,7 @@
               <div class="col-1"></div>
 
               <!-- Precio final -->
-              <input class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final" value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : null) %>">
+              <input id="precioFinal" class="completar col-5" type="text" name="finalPrice" placeholder="$ Precio final" value="<%= (typeof old != 'undefined' && old.finalPrice ? old.finalPrice : null) %>">
             </div>
 
             <% if (typeof errores != 'undefined' && (errores.animal || errores.category || errores.subCategory || errores.name || errores.cuantity || errores.price)) { %>
