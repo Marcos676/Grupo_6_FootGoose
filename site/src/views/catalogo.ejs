@@ -190,46 +190,7 @@
                 </div>
 
                 </article>
-                <!-- Páginador -->
-                <div class="paginas col-12">
-                  <nav aria-label="...">
-                    <ul class="pagination">
-                      <% if (offset>= 6) { %>
-                        <li class="page-item">
-                          <a class="page-link" href="/productos/<%= offsetN %>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                          </a>
-                        </li>
-                        <% } %>
-
-                          <% for( let i=0; i < pagT; i++ ) { %>
-
-                            <% if (offset==i * 6 ) { %>
-                              <li class="page-item active" aria-current="page">
-                                <a class="page-link" href="#">
-                                  <%= i + 1 %><span class="sr-only">(current)</span>
-                                </a>
-                              </li>
-
-                              <% } else { %>
-                                <li class="page-item"><a class="page-link" href="/productos/<%= i * 6 %>">
-                                    <%= i + 1 %>
-                                  </a></li>
-                                <% } %>
-
-                                  <% } %>
-
-                                    <% if (+offset !==(pagT - 1) *6) { %>
-                                      <li class="page-item">
-                                        <a class="page-link" href="/productos/<%= offsetP %>" aria-label="Next">
-                                          <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                      </li>
-                                      <% } %>
-
-                    </ul>
-                  </nav>
-                </div>
+               
                 </section>
 
 
