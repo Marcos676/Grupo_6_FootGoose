@@ -25,7 +25,12 @@ window.addEventListener('load', () => {
         var registArrayName = nameRegister.value.split(" ")
 
         switch (true) {
-            case ((nameRegister.value) || (registArrayName.length === 1)):
+            case (nameRegister.value):
+                qs('.errorRegisterName').innerHTML = 'Se requiere su nombre y apellido';
+                nameRegister.classList.add('is-invalid');
+                break;
+
+                case (registArrayName.length == 1):
                 qs('.errorRegisterName').innerHTML = 'Se requiere su nombre y apellido';
                 nameRegister.classList.add('is-invalid');
                 break;

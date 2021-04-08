@@ -1,5 +1,7 @@
 const db = require('../database/models')
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+
 
 module.exports = {
     profile: (req, res) => {
@@ -60,23 +62,17 @@ module.exports = {
 
                     let names = name.trim().split(" ")
 
-                    let usuario = db.Users.create({
+                    db.Users.create({
                         first_name: names[0],
                         last_name: names[1],
                         email: email.trim(),
                         password: passcrypt,
                         admin: 1
                     })
-                   let use = db.Users.findOne({
-                        where: {
-                            id: req.session.user.id
-                        }
-                    })
-                    Promise.all([usuario])
                         .then(user => {
                             res.render('admin/adminProfile', {
                                 title: 'Perfil',
-                                user: data[0]
+                                user
                             })
                         })
                         .catch(error => res.send(error))
