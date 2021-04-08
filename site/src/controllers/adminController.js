@@ -1,5 +1,7 @@
 const db = require('../database/models')
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+
 
 module.exports = {
     profile: (req, res) => {
@@ -15,6 +17,76 @@ module.exports = {
                 })
             })
             .catch(error => res.send(error))
+    },
+    createAdmin: (req, res) => {
+        db.User.findOne({
+            where: {
+                id: req.session.user.id
+            }
+        })
+            .then(user => {
+                res.render('admin/adminCreate', {
+                    title: 'Creación de Admin',
+                    user
+                })
+            })
+            .catch(error => res.send(error))
+    },
+    createAdminProcess: (req, res) => {
+        let errores = validationResult(req);
+
+        if (errores.isEmpty()) {
+            let { name, email, password } = req.body;
+
+            db.User.findOne({
+                where: {
+                    email: email.trim()
+                }
+            })
+                .then(user => {
+                    if (user) {
+                        return res.render('admin/adminCreate', {
+                            title: 'Creación de Admin',
+                            erroresRegister: {
+                                email: {
+                                    msg: 'Este email ya está registrado'
+                                }
+                            },
+                            oldRegister: req.body,
+                            regValid: 'validacion positiva',
+                            regInvalid: 'validacion negativa'
+                        })
+                    }
+
+                    let passcrypt = bcrypt.hashSync(password, 10);
+
+                    let names = name.trim().split(" ")
+
+                    db.User.create({
+                        firstName: names[0],
+                        lastName: names[1],
+                        email: email.trim(),
+                        password: passcrypt,
+                        admin: 1
+                    })
+                        .then(user => {
+                            res.render('admin/adminProfile', {
+                                title: 'Perfil',
+                                user
+                            })
+                        })
+                        .catch(error => res.send(error))
+                })
+
+        } else {
+            return res.render('admin/adminCreate', {
+                title: 'Creación de Admin',
+                erroresRegister: errores.mapped(),
+                oldRegister: req.body,
+                regValidPass: 'validacion positiva'
+
+            })
+        }
     },
     logout: (req, res) => {
         if (req.cookies.FootGoose) {
@@ -156,7 +228,7 @@ module.exports = {
     },
     editProcess: (req, res) => {
         let errores = validationResult(req);
-        
+
         if (!errores.isEmpty()) {
             const animals = db.Animal.findAll()
             const categories = db.Category.findAll()
@@ -251,7 +323,7 @@ module.exports = {
                 productId: req.params.id
             }
         })
-        Promise.all([product, images, favorite], cart)
+        Promise.all([product, images, favorite, cart])
             .then(() => {
                 res.redirect('/productos')
             })

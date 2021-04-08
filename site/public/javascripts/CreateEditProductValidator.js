@@ -8,8 +8,13 @@ window.addEventListener('load', () => {
     let form = qs('form.creatEdit')
 
     let imgs = form.elements[0];
+    let animal = form.elements[1];
+    let category = form.elements[2];
+    let subCategory = form.elements[3];
     let name = form.elements[4];
     let description = form.elements[5];
+    let cuantity = form.elements[6];
+    let price = form.elements[7];
 
     const oneMB = 1048576;
     (imgs.value) ? imgs.value = "" : null
@@ -67,10 +72,39 @@ window.addEventListener('load', () => {
                         qs('#img2').src = "/images/productos/1MoreImages.png"
                     }
                 }
-
-
-
                 break;
+        }
+    })
+
+
+
+    /* Validaciones de animal */
+    animal.addEventListener('blur', () => {
+        if (animal.value === "") {
+            animal.classList.add('is-invalid')
+        } else {
+            animal.classList.remove('is-invalid');
+            animal.classList.add('is-valid');
+        }
+    })
+
+    /* Validaciones de category */
+    category.addEventListener('blur', () => {
+        if (category.value === "") {
+            category.classList.add('is-invalid')
+        } else {
+            category.classList.remove('is-invalid');
+            category.classList.add('is-valid');
+        }
+    })
+
+    /* Validaciones de subCategory */
+    subCategory.addEventListener('blur', () => {
+        if (subCategory.value === "") {
+            subCategory.classList.add('is-invalid')
+        } else {
+            subCategory.classList.remove('is-invalid');
+            subCategory.classList.add('is-valid');
         }
     })
 
@@ -105,18 +139,43 @@ window.addEventListener('load', () => {
         }
     })
 
+    /* Validaciones de cuantity */
+    cuantity.addEventListener('blur', () => {
+        if (cuantity.value === "") {
+            cuantity.classList.add('is-invalid')
+        } else {
+            cuantity.classList.remove('is-invalid');
+            cuantity.classList.add('is-valid');
+        }
+    })
+
+     /* Validaciones de price */
+     price.addEventListener('blur', () => {
+        if (price.value === "") {
+            price.classList.add('is-invalid')
+        } else {
+            price.classList.remove('is-invalid');
+            price.classList.add('is-valid');
+        }
+    })
+
+
     /* Condición para enviar formulario */
     form.addEventListener('submit', (e) => {
         e.preventDefault()
         if (
             !imgs.classList.contains('is-invalid') &&
+            !animal.classList.contains('is-invalid') &&
+            !category.classList.contains('is-invalid') &&
+            !subCategory.classList.contains('is-invalid') &&
             !name.classList.contains('is-invalid') &&
-            !description.classList.contains('is-invalid')
+            !description.classList.contains('is-invalid') &&
+            !cuantity.classList.contains('is-invalid') &&
+            !price.classList.contains('is-invalid') 
         ) {
             form.submit()
         }
     })
 
-
-
+    
 })

@@ -4,7 +4,16 @@
 <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
+    <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
+
+      <%- include('./partials/headerAdmin') %>
+
+          <% } else { %>
+
+              <%- include('./partials/header') %>
+
+                  <% } %>
+                  
       <div class="home container-fluid contenido">
         <div class="row">
 
@@ -46,6 +55,13 @@
                 las
                 mascotas como un miembro más de la familia, y a cambio nosotros les proveemos un servicio de primer
                 nivel.
+                <br>
+                El proyecto FootGoose® surge cuando en 1984 Alejandro Patiño (padre del dueño de la marca), le realiza maniobras de RCP a un ganso en una playa de la costa este de los
+                Estados Unidos. Al salvarle la vida al animal, un extraño hombre le agradeció, era el mismísimo Kenny Loggins, dueño del ganso llamado <a href="/rupert">Rupert</a>.
+                <br>
+                <b><i>-"Jamás imaginé que conocería a Kenny Loggins, ni mucho menos descubrir que tenía un ganso mascota"-</i> dijo Alejandro.</b>
+                <br>
+                A partir de ese momento, Loggins formó una gran amistad con Patiño, y juntos fundaron FootGoose®, el primer centro veterinario con temática ochentosa.
               </p>
             </div>
 

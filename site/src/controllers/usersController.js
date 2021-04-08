@@ -28,7 +28,9 @@ module.exports = {
                                     msg: 'Este email ya está registrado'
                                 }
                             },
-                            oldRegister: req.body
+                            oldRegister: req.body,
+                            regValid: 'validacion positiva',
+                            regInvalid: 'validacion negativa'
                         })
                     }
 
@@ -77,7 +79,8 @@ module.exports = {
                             erroresLogin: {
                                 email: { msg: 'Dirección de correo electrónico no registrada' }
                             },
-                            old: req.body
+                            old: req.body,
+                          emailInvalid: 'validación negativa'  
                         })
                     }
 
@@ -105,7 +108,9 @@ module.exports = {
                                     msg: "Contraseña incorrecta"
                                 }
                             },
-                            old: req.body
+                            old: req.body,
+                            emailValid: 'validacion positiva',
+                            passInvalid: 'validacion negativa'
                         })
                     }
 

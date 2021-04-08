@@ -1,17 +1,10 @@
-
-
 .form-login-register {
-    justify-content: center;
     padding-right: 0px;
     padding-left: 0px;
-    width: auto;
-  margin-left: 10px;
-  margin-right: 10px;
+    margin: auto;
   }
   .form-login-register .formulario-iniciar{
   border-bottom: 1px solid var(--color-negro);
-  height: 250px;
-  
   }
   .form-login-register form {
   text-align: center;

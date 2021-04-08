@@ -2,6 +2,14 @@
 	justify-content: space-evenly;
 }
 
+.catalogo .form-group {
+	display: none;
+}
+
+.catalogo .type-categories a {
+	color: #7f7f7f;
+}
+
 .catalogo .card {
     margin: 30px 10px;
 	justify-content: space-between;
@@ -21,6 +29,7 @@
 	height: 148px;
 	width: 100%;
 	object-fit: contain;
+	padding: 10px;
 }
 
 .catalogo .card .producto-datos {
@@ -49,6 +58,10 @@ text-align: center;
 display: flex;
 background-color: transparent;
 justify-content: center;
+}
+
+.catalogo .breadcrumb a {
+	color: #7f7f7f;
 }
 
 .catalogo .containerheart {
