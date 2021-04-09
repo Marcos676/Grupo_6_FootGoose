@@ -39,8 +39,8 @@ module.exports = {
                     let names = name.trim().split(" ")
 
                     db.User.create({
-                        first_name: names[0],
-                        last_name: names[1],
+                        firstName: names[0],
+                        lastName: names[1],
                         email: email.trim(),
                         password: passcrypt,
                         admin: 0
@@ -200,6 +200,7 @@ module.exports = {
                         }, {
                             where: { id: req.params.id }
                         })
+
                             .then(() => {
                                 req.session.user = {
                                     id: promise[0].id,
@@ -216,6 +217,7 @@ module.exports = {
                                 })
                             })
                             .catch(error => res.send(error))
+                            
                     } else {
                         return res.render('users/profileEdit', {
                             title: 'Editar perfil',
@@ -251,6 +253,32 @@ module.exports = {
         }
         delete req.session.user
         res.redirect('/')
+    },
+    deleteUser: (req,res) => {
+        const usuario = db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        const carrito = db.Cart.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        const favorito = db.Favorite.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        Promise.all([usuario, carrito, favorito])
+        .then(() => {
+            if (req.cookies.FootGoose) {
+                res.cookie('FootGoose', '', { maxAge: -1 });
+            }
+            delete req.session.user
+            res.redirect('/')
+        })
+        .catch(error => res.send(error))
     }
 }
 

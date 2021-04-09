@@ -90,7 +90,7 @@
                 <% classifications[2].forEach(subCategoria => { %>
         
                   <option value=<%= subCategoria.id %> <%= (typeof old != 'undefined' && old.subCategory && old.subCategory == subCategoria.id ? "selected" : null) %> >
-                    <%= subCategoria.sub_category %>
+                    <%= subCategoria.subCategory %>
                   </option>
                   <% }) %>
               </select>
@@ -183,9 +183,9 @@
               
             </div>
             <!-- Botones -->
-            <div class="botones col-12 row">
-              <button class="btn btn-danger resetear col-5" type="reset">Resetear</button>
-              <button class="btn btn-success crear col-5" type="submit">Crear</button>
+            <div class="botones col-12 row" >
+              <button class="btn btn-danger resetear col-12 col-md-4" type="reset">Resetear</button>
+              <button class="btn btn-success crear col-12 col-md-4" type="submit">Crear</button>
             </div>
           </form>
         </div>

@@ -151,11 +151,12 @@ module.exports = {
 
                         return db.ImageProduct.create({
                             imgName: nombre.filename,
-                            productId: product.id
+                            productId: product.id 
                         })
                     })
                 } else {
                     var imgs = db.ImageProduct.create({
+                        imgName: 'undefinedProduct.png',
                         productId: product.id
                     })
                     imgs = [imgs]
