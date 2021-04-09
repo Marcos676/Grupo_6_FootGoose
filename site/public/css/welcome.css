@@ -32,6 +32,20 @@
     font-weight: 300;
     border-radius: 10px;
     }
+
+    .welcome .botonCrearAdmin {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        display: block;
+        padding: 20px;
+        margin-top: 40px;
+        color: white;
+        background: #4782C9;
+        font-size: 20px;
+        font-weight: 300;
+        border-radius: 10px;
+        }
     
     .welcome .botonDesloguear {
     width: 100%;

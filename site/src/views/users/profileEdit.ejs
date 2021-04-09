@@ -34,9 +34,9 @@
 
                         <!-- nombre de usuario -->
                         <div class="col-12 form-group">
-                            <i class="fas fa-user icon"></i>
+                            <i class="fas fa-user icon" ></i>
                             <input class="form-control" type="text" placeholder=" Nombre completo" name="name"
-                                value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.first_name} ${user.last_name}`) %>"><br>
+                                value="<%= (typeof old != 'undefined' && old.name ? old.name : `${user.firstName} ${user.lastName}`) %>"><br>
                             <span class="text-danger errorName">
                                 <%= (typeof errores !='undefined' && errores.name) ? errores.name.msg : null %>
                             </span>
@@ -106,8 +106,12 @@
                     <div class="col-12">
                         <button type="submit" class="btn btn-success ">Guardar</button>
                     </div>
-
                 </form>
+                <form id="formulario" class="row user-delete" action="/users/delete/<%=user.id%>?_method=DELETE" method="POST">
+                    <div class="formulario col-12">
+                    <button class="btn btn-danger" type="submit" onclick="eliminarUsuario(event,document.querySelector('#formulario'))">Eliminar cuenta</button>
+                    </div>
+                    </form>
             </div>
             <%- include('../partials/footer.ejs') %>
                 <script src="/javascripts/editUserValidator.js"></script>

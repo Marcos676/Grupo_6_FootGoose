@@ -5,10 +5,10 @@ module.exports = {
 
     
     index: (req, res) => {
-        const products = db.Products.findAll({
+        const products = db.Product.findAll({
             include: [{ association: 'images' }]
         })
-        const animal = db.Animals.findAll()
+        const animal = db.Animal.findAll()
 
         Promise.all([products, animal])
             .then(data => {
@@ -24,6 +24,11 @@ module.exports = {
     faqs: (req,res) => {
         res.render('faqs', {
             title: 'Preguntas frecuentes'
+        })
+    },
+    rupert: (req,res) => {
+        res.render('rupert', {
+            title: 'RUPERT CONFIRMED?'
         })
     }
 

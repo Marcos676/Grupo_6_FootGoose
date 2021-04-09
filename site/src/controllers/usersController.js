@@ -14,7 +14,7 @@ module.exports = {
         if (errores.isEmpty()) {
             let { name, email, password } = req.body;
 
-            db.Users.findOne({
+            db.User.findOne({
                 where: {
                     email: email.trim()
                 }
@@ -28,7 +28,9 @@ module.exports = {
                                     msg: 'Este email ya está registrado'
                                 }
                             },
-                            oldRegister: req.body
+                            oldRegister: req.body,
+                            regValid: 'validacion positiva',
+                            regInvalid: 'validacion negativa'
                         })
                     }
 
@@ -36,11 +38,12 @@ module.exports = {
 
                     let names = name.trim().split(" ")
 
-                    db.Users.create({
+                    db.User.create({
                         first_name: names[0],
                         last_name: names[1],
                         email: email.trim(),
                         password: passcrypt,
+                        admin: 0
                     })
                         .then(() => {
                             res.redirect('/usuario/perfil')
@@ -63,7 +66,7 @@ module.exports = {
         if (errores.isEmpty()) {
             const { email, password, rememberme } = req.body;
 
-            db.Users.findOne({
+            db.User.findOne({
                 where: {
                     email: email.trim()
                 }
@@ -76,15 +79,16 @@ module.exports = {
                             erroresLogin: {
                                 email: { msg: 'Dirección de correo electrónico no registrada' }
                             },
-                            old: req.body
+                            old: req.body,
+                          emailInvalid: 'validación negativa'  
                         })
                     }
 
                     if (bcrypt.compareSync(password.trim(), user.password)) {
                         req.session.user = {
                             id: user.id,
-                            firstName: user.first_name,
-                            lastName: user.last_name,
+                            firstName: user.firstName,
+                            lastName: user.lastName,
                             img: user.img,
                             admin: user.admin
                         }
@@ -104,7 +108,9 @@ module.exports = {
                                     msg: "Contraseña incorrecta"
                                 }
                             },
-                            old: req.body
+                            old: req.body,
+                            emailValid: 'validacion positiva',
+                            passInvalid: 'validacion negativa'
                         })
                     }
 
@@ -119,7 +125,7 @@ module.exports = {
         }
     },
     profile: (req, res) => {
-        db.Users.findOne({
+        db.User.findOne({
             where: {
                 id: req.session.user.id
             },
@@ -134,7 +140,7 @@ module.exports = {
             .catch(error => res.send(error))
     },
     edit: (req, res) => {
-        db.Users.findOne({
+        db.User.findOne({
             where: { id: req.params.id }
         })
             .then(user => {
@@ -151,12 +157,12 @@ module.exports = {
         if (errores.isEmpty()) {
             const { name, email, password, pass1, address, tel } = req.body;
 
-            const usuario = db.Users.findOne({
+            const usuario = db.User.findOne({
                 where: {
                     id: req.params.id
                 }
             })
-            const emailSearch = db.Users.findOne({
+            const emailSearch = db.User.findOne({
                 where: {
                     email: email
                 }
@@ -183,9 +189,9 @@ module.exports = {
 
                         let names = name.trim().split(" ")
 
-                        db.Users.update({
-                            first_name: names[0],
-                            last_name: names[1],
+                        db.User.update({
+                            firstName: names[0],
+                            lastName: names[1],
                             email,
                             password: passcrypt,
                             address,
@@ -223,7 +229,7 @@ module.exports = {
                 })
                 .catch(error => res.send(error))
         } else {
-            db.Users.findOne({
+            db.User.findOne({
                 where: {
                     id: req.params.id
                 }

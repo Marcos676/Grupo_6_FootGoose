@@ -77,8 +77,8 @@ header {
     font-family: var(--font2);
     color: var(--color-negro);
     border-radius: .25rem;
-    padding: 3px .75rem;
     transition: .5s;
+    margin-right: 10px;
   }
   header .ingresar a:hover{
     color: var(--color-blanco);
@@ -98,7 +98,6 @@ header {
   /* NAVEGACION CON BURGUER BUTTON */
   .boton-hamburguesa {
     display: flex;
-    justify-content: center;
   }
   header nav button.burger {
     color: var(--color-grisOscuro);
@@ -254,7 +253,7 @@ header {
     }
   
     /* boton nocturno */
-    header .navegador .nocturno{
+    .navegador .nocturno{
       padding-left: 30px;
       padding-right: 0;
     }
@@ -276,10 +275,10 @@ header {
   width: 100%;
   z-index: 5;
 }
- .headerAdmin .header-container {
+ .headerAdmin .header-container-admin {
   max-width: 1350px;
 }
- .headerAdmin .header-container .row{
+ .headerAdmin .header-container-admin .row{
   justify-content: space-between;
   align-content: center;
   padding-left: 0;
@@ -369,6 +368,7 @@ header {
 /* NAVEGACION CON BURGUER BUTTON */
 .boton-hamburguesa {
   display: flex;
+  margin-right: 10px;
 }
 .headerAdmin nav button.burger {
   color: var(--color-grisOscuro);
@@ -413,7 +413,7 @@ header {
 }
 
 /* Modo nocturno  */
-header input[type="checkbox"]{
+.nocturno input[type="checkbox"]{
   -webkit-appearance: none;
   outline: none;
   position: relative;
@@ -426,7 +426,7 @@ header input[type="checkbox"]{
   box-shadow: 0 2px 5px 1px gray;
   cursor: pointer;
 }
-header input[type="checkbox"]:before{
+.nocturno input[type="checkbox"]:before{
   content: "";
   width: 30px;
   height: 30px;
@@ -438,10 +438,10 @@ header input[type="checkbox"]:before{
   transition: all .9s;
   background-color: #4fc3f7;
 }
-input[type="checkbox"]:checked{
+.nocturno input[type="checkbox"]:checked{
   background-image: url(https://assets.codepen.io/1148131/114955-OP0CAQ-356.jpg);
 }
-input[type="checkbox"]:checked::before{
+.nocturno input[type="checkbox"]:checked::before{
   transform: translate(100%);
   background-color: #fdd835;
 }
@@ -456,7 +456,7 @@ input[type="checkbox"]:checked::before{
     margin: 0 8px;
   }
 /* Header boton ingresar */
-  .headerAdmin .ingresar{
+  .headerAdmin .ingresar a{
     display: flex;
   }
 
@@ -482,7 +482,7 @@ input[type="checkbox"]:checked::before{
   }
 
   /* contenedor */
-  .headerAdmin .header-container .row{
+  .headerAdmin .header-container-admin .row{
     justify-content: space-evenly;
   }
   .header-container-principal {

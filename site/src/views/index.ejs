@@ -4,7 +4,16 @@
 <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
+    <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
+
+      <%- include('./partials/headerAdmin') %>
+
+          <% } else { %>
+
+              <%- include('./partials/header') %>
+
+                  <% } %>
+
       <div class="home container-fluid contenido">
         <div class="row">
 
@@ -57,14 +66,14 @@
                             <div class="carousel-inner" style="width: 100%; object-fit: contain;">
 
                               <div class="carousel-item active">
-                                <img src="/images/productos/<%= products[i].images[0].img_name %>" class="d-block w-100"
+                                <img src="/images/productos/<%= products[i].images[0].imgName %>" class="d-block w-100"
                                   style="width: 100%; height: 250px; object-fit: contain;" data-interval="1000"
                                   alt="...">
                               </div>
 
                               <% for( let index=1; index < products[i].images.length; index++ ) { %>
                                 <div class="carousel-item">
-                                  <img src="/images/productos/<%= products[i].images[index].img_name %>"
+                                  <img src="/images/productos/<%= products[i].images[index].imgName %>"
                                     class="d-block w-100" style="width: 100%; height: 250px; object-fit: contain;"
                                     data-interval="1000" alt="...">
                                 </div>
@@ -81,7 +90,7 @@
                           </h5>
                           <!-- precio y descuento -->
                           <p><span class="precio-final">$
-                              <%= products[i].final_price %>
+                              <%= products[i].finalPrice %>
                             </span><span class="descontado">
                               <%= products[i].discount %>%off
                             </span></p>
@@ -114,6 +123,13 @@
                 las
                 mascotas como un miembro más de la familia, y a cambio nosotros les proveemos un servicio de primer
                 nivel.
+                <br>
+                El proyecto FootGoose® surge cuando en 1984 Alejandro Patiño (padre del dueño de la marca), le realiza maniobras de RCP a un ganso en una playa de la costa este de los
+                Estados Unidos. Al salvarle la vida al animal, un extraño hombre le agradeció, era el mismísimo Kenny Loggins, dueño del ganso llamado <a href="/rupert">Rupert</a>.
+                <br>
+                <b><i>-"Jamás imaginé que conocería a Kenny Loggins, ni mucho menos descubrir que tenía un ganso mascota"-</i> dijo Alejandro.</b>
+                <br>
+                A partir de ese momento, Loggins formó una gran amistad con Patiño, y juntos fundaron FootGoose®, el primer centro veterinario con temática ochentosa.
               </p>
             </div>
 
@@ -137,6 +153,8 @@
               </article>
 
             </div>
+          </div>
+        
           </div>
           <br><br>
 

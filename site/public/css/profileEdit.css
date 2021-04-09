@@ -28,3 +28,8 @@
   .user-profile .boton-image input{
     display: none;
   }
+
+  .user-delete .formulario {
+    text-align: center;
+    margin: 25px 0;
+  }

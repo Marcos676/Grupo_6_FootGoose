@@ -6,6 +6,7 @@
 .home .imagen-carrusel{
   height: 400px;
   margin-bottom: 20px;
+  object-fit: contain;
 }
 .home .categorias{
   justify-content: center;
