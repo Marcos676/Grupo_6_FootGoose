@@ -3,7 +3,7 @@ module.exports = {
   "development": {
     "username": process.env.DB_USERNAME || "root",
     "password": process.env.DB_PASSWORD || null,
-    "database": process.env.DATABASE || "footgoose",
+    "database": process.env.DATABASE || "footgooseDB",
     "host": process.env.DB_PORT || "127.0.0.1",
     "dialect": "mysql"
   },

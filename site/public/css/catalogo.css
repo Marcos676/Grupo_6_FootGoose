@@ -13,7 +13,14 @@
 .catalogo .card {
     margin: 30px 10px;
 	justify-content: space-between;
+	transform: scale(1.02);
 }
+.catalogo .card:hover{
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+	transition: transform .5s ease, box-shadow .5s ease;
+
+}
+
 
 .catalogo .card .precio-final {
 	color: green;
