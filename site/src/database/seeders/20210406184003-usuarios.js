@@ -64,6 +64,12 @@ let usuarios = [
   lastName: 'Loggins',
   email: 'admin@kl.com',
   ...admin
+},
+{
+  firstName: 'Nacho',
+  lastName: 'Vuotto',
+  email: 'nacho@dh.com',
+  ...admin
 }
 ]
 
