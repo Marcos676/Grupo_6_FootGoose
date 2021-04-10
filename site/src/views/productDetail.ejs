@@ -10,9 +10,6 @@
 		<div class="container contenido products-wrapper">
       <div class="row">
         <!-- titulo -->
-        <div class="col-12">
-          <h2 class="products-title"><%= product.name %></h2>
-        </div>
       </div>
       <div class="product-detail">
         <div class="row">
@@ -22,11 +19,11 @@
             <div id="carousel-controller" class="carousel slide col-12" data-ride="carousel">
               <div class="carousel-inner">
                   <div class="carousel-item active">
-                      <img src="/images/productos/<%= product.images[0].img_name %>" class="imagen-carrusel product-detail-img" alt="...">
+                      <img src="/images/productos/<%= product.images[0].imgName %>" class="imagen-carrusel product-detail-img" alt="...">
                   </div>
                   <% for( let index = 1; index < product.images.length; index++ ) { %>
                       <div class="carousel-item">
-                          <img src="/images/productos/<%= product.images[index].img_name %> " class="imagen-carrusel product-detail-img" alt="...">
+                          <img src="/images/productos/<%= product.images[index].imgName %> " class="imagen-carrusel product-detail-img" alt="...">
                       </div>
                   <% } %>
               </div>
@@ -47,7 +44,7 @@
               <!-- Nombre -->
               <h2 class="product-detail-title"><%= product.name %></h2>
               <!-- Precio final -->
-                  <p class="product-detail-price">$<%= product.final_price %></p>
+                  <p class="product-detail-price">$<%= product.finalPrice %></p>
               <ul class="actions-list">
                 <li>
                   <i class="fas fa-credit-card"></i>

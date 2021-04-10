@@ -25,7 +25,12 @@ window.addEventListener('load', () => {
         var registArrayName = nameRegister.value.split(" ")
 
         switch (true) {
-            case nameRegister.value || (registArrayName.length === 1):
+            case (nameRegister.value):
+                qs('.errorRegisterName').innerHTML = 'Se requiere su nombre y apellido';
+                nameRegister.classList.add('is-invalid');
+                break;
+
+                case (registArrayName.length == 1):
                 qs('.errorRegisterName').innerHTML = 'Se requiere su nombre y apellido';
                 nameRegister.classList.add('is-invalid');
                 break;
@@ -79,15 +84,35 @@ window.addEventListener('load', () => {
                 passRegister.classList.add('is-invalid');
                 break;
 
+                case regExPass.test(passRegister.value):
+                    qs('.errorRegisterPass').innerHTML = ''
+                    passRegister.classList.remove('is-invalid');
+                    passRegister.classList.add('is-valid');
+                    break;
+
             case !regExPass.test(passRegister.value):
                 qs('.errorRegisterPass').innerHTML = 'Debe tener numeros, letras (minúsculas y mayúsculas), caracteres especiales y por lo menos 8 caracteres';
                 passRegister.classList.add('is-invalid');
                 break;
 
+                case passRegister.value == confirmRegister.value:
+                qs('.errorRegisterConfirm').innerHTML = '';
+                confirmRegister.classList.remove('is-invalid');
+                confirmRegister.classList.add('is-valid');
+                break;
+
+                case passRegister.value !== confirmRegister.value:
+                qs('.errorRegisterConfirm').innerHTML = 'Las contraseñas no coinciden!!';
+                confirmRegister.classList.add('is-invalid');
+                break;
+
+
             default:
                 qs('.errorRegisterPass').innerHTML = '';
                 passRegister.classList.remove('is-invalid');
                 passRegister.classList.add('is-valid');
+                confirmRegister.classList.remove('is-invalid');
+                confirmRegister.classList.add('is-valid');
                 break;
         }
     })
@@ -106,6 +131,12 @@ window.addEventListener('load', () => {
                 confirmRegister.classList.add('is-invalid');
                 break;
 
+                case passRegister.value == confirmRegister.value:
+                qs('.errorRegisterConfirm').innerHTML = '';
+                confirmRegister.classList.remove('is-invalid');
+                confirmRegister.classList.add('is-valid');
+                break;
+
             default:
                 qs('.errorRegisterConfirm').innerHTML = '';
                 confirmRegister.classList.remove('is-invalid');
@@ -118,12 +149,22 @@ window.addEventListener('load', () => {
     formRegister.addEventListener('submit', (e) => {
         e.preventDefault()
         if( 
+            !nameRegister.classList.contains('is-valid') ||
+            !emailRegister.classList.contains('is-valid') ||
+            !passRegister.classList.contains('is-valid') ||
+            !confirmRegister.classList.contains('is-valid')
+        ) {
+            alert("Revisa los campos incorrectos.")
+        }
+       
+        if( 
             nameRegister.classList.contains('is-valid') &&
             emailRegister.classList.contains('is-valid') &&
             passRegister.classList.contains('is-valid') &&
             confirmRegister.classList.contains('is-valid')
         ) {
             formRegister.submit()
+            alert("Usuario creado correctamente, ya puede loguearse.")
         }
     })
 
@@ -178,12 +219,18 @@ window.addEventListener('load', () => {
 
     /* Condición para la ejecución de submit en Login */
     formLogin.addEventListener('submit', (e) => {
-        e.preventDefault()
+        e.preventDefault() 
+        if( 
+            !emailLogin.classList.contains('is-valid') ||
+            !passLogin.classList.contains('is-valid')
+        ) {
+            alert("Revisa los campos incorrectos.") 
+        }
         if( 
             emailLogin.classList.contains('is-valid') &&
             passLogin.classList.contains('is-valid')
         ) {
-            formLogin.submit()
+            formLogin.submit()  
         }
     })
 

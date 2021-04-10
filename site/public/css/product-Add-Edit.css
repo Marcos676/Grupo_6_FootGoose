@@ -49,6 +49,9 @@
     justify-content: space-around;
     margin: 25px 0;
   }
+  .nuevo-producto .botones button{
+    margin: 10px;
+  }
   .nuevo-producto .completar {
     border: none;
   }

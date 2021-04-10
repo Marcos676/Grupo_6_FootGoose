@@ -161,8 +161,8 @@ window.addEventListener('load', () => {
 
             default:
                 qs('.errorConfirmNew').innerHTML = '';
-                newPass.classList.remove('is-invalid');
-                password.classList.add('is-valid');
+                confirmNew.classList.remove('is-invalid');
+                confirmNew.classList.add('is-valid');
                 break;
         }
     })

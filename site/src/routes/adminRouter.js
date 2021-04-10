@@ -1,17 +1,20 @@
 var express = require('express');
 var router = express.Router();
-const {profile, logout,createAdmin, productAdd, productList, createProcess, productDetail, productEdit, editProcess, productDelete} = require('../controllers/adminController')
+const {profile, logout,createAdmin, productAdd, createProcess, productDetail, productEdit, editProcess, productDelete, createAdminProcess} = require('../controllers/adminController')
 
 const uploadProduct = require('../utils/uploadProduct')
 const adminCheck = require('../middlewares/adminCheck');
 const productValidator = require('../validations/productValidator');
 const imgsCreateProductValidator = require('../validations/imgsCreateProductValidator');
 const imgsEditProductValidator = require('../validations/imgsEditProductValidator');
+const registerValidator = require('../validations/registerValidator');
 
-
-router.get('/perfil', adminCheck,profile);
-/* cerrar sesión */
+/* Registrar admin */
 router.get('/crear', createAdmin)
+router.post('/crear', registerValidator, createAdminProcess)
+/* Perfil */
+router.get('/perfil', adminCheck, profile);
+/* cerrar sesión */
 router.get('/logout', logout)
 /* Crear */
 router.get('/products/create', adminCheck, productAdd);

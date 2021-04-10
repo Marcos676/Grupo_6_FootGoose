@@ -4,7 +4,16 @@
 <%- include('./partials/head') %>
 
   <body>
-    <%- include('./partials/header') %>
+    <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
+
+      <%- include('./partials/headerAdmin') %>
+
+          <% } else { %>
+
+              <%- include('./partials/header') %>
+
+                  <% } %>
+
       <div class="home container-fluid contenido">
         <div class="row">
 
@@ -28,14 +37,83 @@
             <div class="col-12 container-fluid categorias">
               <div class="row categorias-animales">
 
-                <% animals.forEach(animal => { %>
+                <% animals.forEach(animal=> { %>
                   <div>
-                    <a href="/productos/filtro/<%= animal.id %>"><img src="images/categorias/<%= animal.img %> " alt="<%= animal.animal %> "></a>
+                    <a href="/productos/filtro/<%= animal.id %>"><img src="images/categorias/<%= animal.img %> "
+                        alt="<%= animal.animal %> "></a>
                   </div>
-                <% }) %>
+                  <% }) %>
 
               </div>
             </div>
+
+            <br>
+            <!--PRODUCTOS-->
+            <section class="container">
+              <h3>Más vendidos</h3>
+              <div class="row products">
+
+                <% for( let i=0; i < 4; i++ ) { %>
+                  <div class="card producto container-fluid col-sm-5 col-lg-2">
+                    <!-- nuevo -->
+                    <% if (typeof localUser !=='undefined' ) { %>
+                      <div class="containerheart">
+                        <i onclick="toggle()" id="btn" class="far fa-star"></i>
+                      </div>
+                      <% } %>
+                        <!-- imagen -->
+                        <a href="/productos/detalle/<%= products[i].id %> ">
+                          <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" style="width: 100%; object-fit: contain;">
+
+                              <div class="carousel-item active">
+                                <img src="/images/productos/<%= products[i].images[0].imgName %>" class="d-block w-100"
+                                  style="width: 100%; height: 250px; object-fit: contain;" data-interval="1000"
+                                  alt="...">
+                              </div>
+
+                              <% for( let index=1; index < products[i].images.length; index++ ) { %>
+                                <div class="carousel-item">
+                                  <img src="/images/productos/<%= products[i].images[index].imgName %>"
+                                    class="d-block w-100" style="width: 100%; height: 250px; object-fit: contain;"
+                                    data-interval="1000" alt="...">
+                                </div>
+                                <% } %>
+
+                            </div>
+                          </div>
+                        </a>
+
+                        <div class="producto-datos">
+                          <!-- nombre -->
+                          <h5 class="titulo producto">
+                            <%=products[i].name%>
+                          </h5>
+                          <!-- precio y descuento -->
+                          <p><span class="precio-final">$
+                              <%= products[i].finalPrice %>
+                            </span><span class="descontado">
+                              <%= products[i].discount %>%off
+                            </span></p>
+                          <!-- cantidad y comprar -->
+                          <% if (typeof localUser !=='undefined' ) { %>
+                            <div class="box">
+                              <input type="number" max="<%= products[i].cuantity %> ">
+                            </div>
+                            <div class="btn-compra">
+                              <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>
+                                Agregar</button>
+                            </div>
+                            <% } %>
+                        </div>
+                  </div>
+
+                  <% } %>
+              </div>
+
+            </section>
+
+
 
             <div class="mt-5 col-12 info-nosotros">
               <p id="nosotros">En nuestra empresa FootGoose® ofrecemos una amplia gama de productos y alimentos para su
@@ -76,18 +154,27 @@
               </article>
 
             </div>
-
-            <br><br>
           </div>
+        
+          </div>
+          <br><br>
+
         </div>
-      
-      <%- include('./partials/footer') %>
-    </div>
+
+        <%- include('./partials/footer') %>
+      </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
+        </script>
+      <script src="https://unpkg.com/jquery.nice-number@2.1.0/dist/jquery.nice-number.min.js"></script>
+      <script>
+        $('input[type="number"]').niceNumber();
+      </script>
 
 
   </body>

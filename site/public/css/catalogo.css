@@ -13,7 +13,14 @@
 .catalogo .card {
     margin: 30px 10px;
 	justify-content: space-between;
+	transform: scale(1.02);
 }
+.catalogo .card:hover{
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+	transition: transform .5s ease, box-shadow .5s ease;
+
+}
+
 
 .catalogo .card .precio-final {
 	color: green;
@@ -26,7 +33,7 @@
 }
 
 .catalogo .card img {
-	height: 280px;
+	height: 148px;
 	width: 100%;
 	object-fit: contain;
 	padding: 10px;
@@ -67,11 +74,12 @@ justify-content: center;
 .catalogo .containerheart {
 	position: absolute;
 	padding: 5px;
-	left: 80%;
+	left: 73%;
 	top: 0%;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 	border-radius: 30px;
 	background-color: #fafafa;
+	z-index: 1;
 }
 
 .catalogo .containerheart i{
@@ -124,6 +132,10 @@ transition: .4s;
 .catalogo .card .box input:focus {
 background: #f5cd76;
 color: #000;
+}
+
+.catalogo .pagination {
+	justify-content: center;
 }
 /* responsive */
 

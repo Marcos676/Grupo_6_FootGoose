@@ -4,44 +4,44 @@
 <%- include('./partials/head')%>
 
   <body>
-    <% if (typeof localUser !=='undefined' && localUser.admin == 1) { %>
+    <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
 
       <%- include('./partials/headerAdmin') %>
-     
-    <% } else { %>
 
-      <%- include('./partials/header') %>
+        <% } else { %>
 
-    <% } %>
+          <%- include('./partials/header') %>
 
-      <main class="container-fluid contenido catalogo">
+            <% } %>
 
-        <div class="row">
-          <!-- FILTRO SUPERIOR -->
-          <div class="filtro-superior col-12 row">
-            <!-- Rutas -->
-            <div class="col-md-8 col-sm-8">
-              <section aria-label="breadcrumb ruta">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/">Home</a></li>
-                  <% if (typeof search !="undefined" ) { %>
-                    <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Busqueda </li>
+              <main class="container-fluid contenido catalogo">
 
-                    <% } else { %>
-                      <li class="breadcrumb-item active" aria-current="page"> Tienda </li>
-                      <% } %>
+                <div class="row">
+                  <!-- FILTRO SUPERIOR -->
+                  <div class="filtro-superior col-12 row">
+                    <!-- Rutas -->
+                    <div class="col-md-8 col-sm-8">
+                      <section aria-label="breadcrumb ruta">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <% if (typeof search !="undefined" ) { %>
+                            <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Busqueda </li>
 
-                </ol>
-              </section>
-            </div>
-            <!-- Resultados de busqueda -->
-            <div class="resultado col-md-4 col-sm-4">
-              <p>Resultados: <%= products.length %>
-              </p>
-            </div>
-            <!-- Ordenar por -->
-          <!--   <div class="topfilter col-md-2 col-sm-12">
+                            <% } else { %>
+                              <li class="breadcrumb-item active" aria-current="page"> Tienda </li>
+                              <% } %>
+
+                        </ol>
+                      </section>
+                    </div>
+                    <!-- Resultados de busqueda -->
+                    <div class="resultado col-md-4 col-sm-4">
+                      <p>Productos: <%= products.length%>
+                      </p>
+                    </div>
+                    <!-- Ordenar por -->
+                    <!--   <div class="topfilter col-md-2 col-sm-12">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,166 +55,157 @@
               </div>
             </div> -->
 
-            <!-- FILTRO IZQUIERDO -->
-          </div>
-          <div class="filtro-izquierdo col-sm-4 col-md-3">
-            <!-- animales -->
-            <div class="animales">
-              <h3>Comprar por</h3>
-              <section class="imgs">
-
-                <% animals.forEach(animal=> { %>
-                  <div class="animal-list">
-                    <a href="/productos/filtro/<%= animal.id %>"><img src="/images/categorias/<%= animal.img %>"
-                        alt="<%= animal.animal %>"></a>
+                    <!-- FILTRO IZQUIERDO -->
                   </div>
-                  <% }) %>
+                  <div class="filtro-izquierdo col-sm-4 col-md-3">
+                    <!-- animales -->
+                    <div class="animales">
+                      <h3>Comprar por</h3>
+                      <section class="imgs">
 
-              </section>
-            </div>
-            <!-- Rango de precio -->
-            <form>
-              <div class="form-group">
-                <label for="formControlRange">Filtrar por precio</label>
-                <input type="range" min="100" max="9000" step="1" class="form-control-range" id="formControlRange">
-                <span>100</span> <span>10000</span>
-              </div>
-            </form>
-            <!-- PRODUCTOS -->
-          </div>
-          <section class="col-sm-8 col-md-9">
-            <article class="col-12">
-
-              <div class="products row">
-                <% products.forEach(product=> { %>
-
-                  <% if (typeof localUser !=='undefined' && localUser.admin == 1) { %>
-
-                    <div class="card producto col-sm-3">
-                      <a href="/admin/products/<%= product.id %>" >
-                      <!-- carusel -->
-                      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-  
-                          <div class="carousel-item active">
-                            <img src="/images/productos/<%= product.images[0].img_name %>" class="d-block w-100" data-interval="1000" alt="...">
-                        </div>
-  
-                          <% for( let index = 1; index < product.images.length; index++ ) { %>
-                            <div class="carousel-item">
-                              <img src="/images/productos/<%= product.images[index].img_name %>" class="d-block w-100" data-interval="1000" alt="...">
+                        <% animals.forEach(animal=> { %>
+                          <div class="animal-list">
+                            <a href="/productos/filtro/<%= animal.id %>"><img src="/images/categorias/<%= animal.img %>"
+                                alt="<%= animal.animal %>"></a>
                           </div>
-                        <% } %>
-                          
-                        </div>
-                      </div>
-  
-                      <div class="producto-datos">
-                        <h5 class="titulo producto"><%=product.name%> </h5>
-                        <p><span class="precio-final">$<%= product.final_price %>
-                        </span><span class="descontado"><%= product.discount %>%off
-                        </span></p>
-                      </div>
-                    </a>
+                          <% }) %>
+
+                      </section>
                     </div>
+                    <!-- Rango de precio -->
+                    <form>
+                      <div class="form-group">
+                        <label for="formControlRange">Filtrar por precio</label>
+                        <input type="range" min="100" max="9000" step="1" class="form-control-range"
+                          id="formControlRange">
+                        <span>100</span> <span>10000</span>
+                      </div>
+                    </form>
+                    <!-- PRODUCTOS -->
+                  </div>
+                  <section class="col-sm-8 col-md-9">
+                    <article class="col-12">
 
-                    <% } else { %>
+                      <div class="products row">
+                        <% products.forEach(product=> { %>
 
-                      <div class="card producto container-fluid col-sm-5 col-lg-3">
-                        <!-- nuevo -->
-                        <% if (typeof localUser !=='undefined' ) { %>
-                          <div class="containerheart">
-                            <i onclick="toggle()" id="btn" class="far fa-star"></i>
-                          </div>
-                          <% } %>
-                            <!-- imagen -->
-                            <a href="/productos/detalle/<%= product.id %> ">
-                              <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
+                          <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
+                            <!-- 
+                      VISTA DE TRODUCTOS DE ADMIN
+                     -->
+                            <div class="card producto col-sm-3">
+                              <a href="/admin/products/<%= product.id %>">
+                                <!-- carusel -->
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                  <div class="carousel-inner">
 
-                                  <div class="carousel-item active">
-                                    <img src="/images/productos/<%= product.images[0].img_name %>" class="d-block w-100"
-                                      data-interval="1000" alt="...">
-                                  </div>
-
-                                  <% for( let index=1; index < product.images.length; index++ ) { %>
-                                    <div class="carousel-item">
-                                      <img src="/images/productos/<%= product.images[index].img_name %>"
+                                    <div class="carousel-item active">
+                                      <img src="/images/productos/<%= product.images[0].imgName %>"
                                         class="d-block w-100" data-interval="1000" alt="...">
                                     </div>
-                                    <% } %>
 
-                                </div>
-                              </div>
-                            </a>
+                                    <% for( let index=1; index < product.images.length; index++ ) { %>
+                                      <div class="carousel-item">
+                                        <img src="/images/productos/<%= product.images[index].imgName %>"
+                                          class="d-block w-100" data-interval="1000" alt="...">
+                                      </div>
+                                      <% } %>
 
-                            <div class="producto-datos">
-                              <!-- nombre -->
-                              <h5 class="titulo producto">
-                                <%=product.name%>
-                              </h5>
-                              <!-- precio y descuento -->
-                              <p><span class="precio-final">$
-                                  <%= product.final_price %>
-                                </span><span class="descontado">
-                                  <%= product.discount %>%off
-                                </span></p>
-                              <!-- cantidad y comprar -->
-                              <% if (typeof localUser !=='undefined' ) { %>
-                                <div class="box">
-                                  <input type="number" max="<%= product.cuantity %> ">
+                                  </div>
                                 </div>
-                                <div class="btn-compra">
-                                  <button type="button" class="btn btn-success"><i class="fas fa-shopping-cart"></i>
-                                    Agregar</button>
+
+                                <div class="producto-datos">
+                                  <h5 class="titulo producto">
+                                    <%=product.name%>
+                                  </h5>
+                                  <p><span class="precio-final">$<%= product.finalPrice %>
+                                    </span><span class="descontado">
+                                      <%= product.discount %>%off
+                                    </span></p>
                                 </div>
-                                <% } %>
+                              </a>
                             </div>
+
+                            <% } else { %>
+                              <!-- 
+                        VISTA DE PRODUCTOS DE USUARIO
+                       -->
+                              <div class="card producto container-fluid col-sm-5 col-lg-3">
+                                <!-- nuevo -->
+                                <% if (typeof localUser !=='undefined' ) { %>
+                                  <div class="containerheart">
+                                    <i onclick="toggle()" id="btn" class="far fa-star"></i>
+                                  </div>
+                                  <% } %>
+                                    <!-- imagen -->
+                                    <a href="/productos/detalle/<%= product.id %> ">
+                                      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+
+                                          <div class="carousel-item active">
+                                            <img src="/images/productos/<%= product.images[0].imgName %>"
+                                              class="d-block w-100" data-interval="1000" alt="...">
+                                          </div>
+
+                                          <% for( let index=1; index < product.images.length; index++ ) { %>
+                                            <div class="carousel-item">
+                                              <img src="/images/productos/<%= product.images[index].imgName %>"
+                                                class="d-block w-100" data-interval="1000" alt="...">
+                                            </div>
+                                            <% } %>
+
+                                        </div>
+                                      </div>
+
+                                      <div class="producto-datos">
+                                        <!-- nombre -->
+                                        <h5 class="titulo producto">
+                                          <%=product.name%>
+                                        </h5>
+                                        <!-- precio y descuento -->
+                                        <p><span class="precio-final">$
+                                            <%= product.finalPrice %>
+                                          </span><span class="descontado">
+                                            <%= product.discount %>%off
+                                          </span></p>
+                                    </a>
+
+                                    <!-- cantidad y comprar -->
+                                    <% if (typeof localUser !=='undefined' ) { %>
+                                      <div class="box">
+                                        <input type="number" min="0" max="<%= product.cuantity %>">
+                                      </div>
+                                      <div class="btn-compra">
+                                        <button type="button" class="btn btn-success"><i
+                                            class="fas fa-shopping-cart"></i>
+                                          Agregar</button>
+                                      </div>
+                                      <% } %>
+                              </div>
                       </div>
-                      
-                    <% } %>
 
-                      <% }) %>
-              </div>
+                      <% } %>
 
-            </article>
-            <!-- Páginador -->
-            <div class="paginas col-12">
-              <nav aria-label="...">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
+                        <% }) %>
+                </div>
 
-                </ul>
-              </nav>
-            </div>
-          </section>
+                </article>
+               
+                </section>
 
 
-        </div>
+                </div>
 
-      </main>
-      <%- include('./partials/footer') %>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-          integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
-          </script>
-        <script src="https://unpkg.com/jquery.nice-number@2.1.0/dist/jquery.nice-number.min.js"></script>
-        <script>
-          $('input[type="number"]').niceNumber();
-        </script>
+              </main>
+              <%- include('./partials/footer') %>
+                <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+                  integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+                  crossorigin="anonymous">
+                  </script>
+                <script src="https://unpkg.com/jquery.nice-number@2.1.0/dist/jquery.nice-number.min.js"></script>
+                <script>
+                  $('input[type="number"]').niceNumber();
+                </script>
   </body>
 
 </html>
