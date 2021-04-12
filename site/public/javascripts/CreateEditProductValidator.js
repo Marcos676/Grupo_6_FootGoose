@@ -10,11 +10,8 @@ window.addEventListener('load', () => {
         let precioFinal = qs('#precioFinal')
 
         precioFinal.value = precio - ((precio * descuento)/100)
-
-        console.log(precioFinal.value)
     })
-
-
+    
 
     /* Validaciones */
 

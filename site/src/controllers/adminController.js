@@ -129,7 +129,8 @@ module.exports = {
                     })
                 })
                 .catch(error => res.send(error))
-        }
+
+        } else {
 
         let { subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice } = req.body
 
@@ -145,6 +146,10 @@ module.exports = {
             labelId: label
         })
             .then((product) => {
+
+                sessionStorage.removeItem('categorias')//borro los valores de categorías guardados en session
+                sessionStorage.removeItem('subCategorias')//borro los valores de sub categorías guardados en session
+
                 if (typeof req.files[0] !== 'undefined') {
 
                     var imgs = req.files.map(nombre => {
@@ -167,7 +172,7 @@ module.exports = {
                     })
             })
             .catch(error => res.send(error))
-
+        }
 
     },
     productDetail: (req, res) => {

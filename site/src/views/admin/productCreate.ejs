@@ -59,7 +59,7 @@
               <!-- Animales y Categorías -->
         
               <!-- ANIMALES -->
-                <select class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.animal) ? "is-invalid" : null  %>" name="animal">
+                <select id="animal" class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.animal) ? "is-invalid" : null  %>" name="animal">
                   <option value="" selected disabled>Elija una mascota</option>
         
                   <% classifications[0].forEach(mascota => { %>
@@ -71,28 +71,17 @@
                 </select>
                 
                 <!-- CATEGORIAS -->
-                <select class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.category) ? "is-invalid" : null  %>" name="category">
+                <select id="category" class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.category) ? "is-invalid" : null  %>" name="category">
 
-                  <option value="" selected disabled >Elija una categoría</option>
+                  <option value="" disabled selected >Elija una categoría</option>
         
-                  <% classifications[1].forEach(categoria => { %>
-        
-                    <option value=<%=categoria.id %> <%= (typeof old != 'undefined' && old.category && old.category == categoria.id ? "selected" : null) %> ><%= categoria.category %></option>
-
-                    <% }) %>
                 </select>
         
               <!-- SUBCATEGORIA -->
-              <select class="sub-categoria margen col-12 custom-select <%= (typeof errores != 'undefined' && errores.subCategory) ? "is-invalid" : null  %> " name="subCategory">
+              <select id="subCategory" class="sub-categoria margen col-12 custom-select <%= (typeof errores != 'undefined' && errores.subCategory) ? "is-invalid" : null  %> " name="subCategory">
 
                 <option value="" selected disabled >Elija una subcategoría</option>
         
-                <% classifications[2].forEach(subCategoria => { %>
-        
-                  <option value=<%= subCategoria.id %> <%= (typeof old != 'undefined' && old.subCategory && old.subCategory == subCategoria.id ? "selected" : null) %> >
-                    <%= subCategoria.subCategory %>
-                  </option>
-                  <% }) %>
               </select>
         
               <!-- Nombre -->
@@ -193,6 +182,7 @@
 
 
       <%- include('../partials/footer') %>
+      <script src="/javascripts/apiCategories.js"></script>
       <script src="/javascripts/CreateEditProductValidator.js"></script>
 
   </body>
