@@ -8,17 +8,17 @@
 - Grille Macarena  
   19 años.  
   Lanús, Buenos Aires.  
-  Voluntaria en refugios de animales, Programadora Web Jr.
+  Voluntaria en refugios de animales, accionista , Programadora Web Jr.
 ___
 - Garcia Marcos  
   23 años.   
   Caseros, Buenos Aires.  
-  Licenciado en Cs. Veterinarias, Chef de alta cocina, Programador Web Jr.
+  Director creativo, Programador Web Jr.
 ___
 - Andrada Sofia  
   20 años.   
   Tres de Febrero, Buenos Aires.  
-  Técnica Química, Programadora Web Jr.
+  Community Manager, Técnica Química (Shampoos caninos), Programadora Web Jr.
 ___
 - Patiño Gabriel  
   24 años.  
