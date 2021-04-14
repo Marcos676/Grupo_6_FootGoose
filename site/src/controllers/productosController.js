@@ -6,29 +6,29 @@ module.exports = {
         let offset = req.params.pag || 0
 
         const products = db.Product.findAll({
-            include: [{ association: 'images' },{ association: 'label' }],
+            include: [{ association: 'images' }, { association: 'label' }],
             order: [
                 ['id', 'DESC']
             ],
             //distinct: true,
             //limit : 6,
-           // offset: +offset
+            // offset: +offset
         })
         const animal = db.Animal.findAll()
 
 
         const count = db.Product.count()
-        
+
         Promise.all([products, animal, count])
             .then(data => {
                 //res.send(data[0])
 
                 let pagT = data[2] / 6
                 let pagC = pagT % 1
-                if(pagC != 0){
+                if (pagC != 0) {
                     pagT = parseInt(++pagT)
                 }
-                
+
                 return res.render('catalogo', {
                     title: 'Catalogo',
                     products: data[0],
@@ -49,21 +49,24 @@ module.exports = {
             where: {
                 id: req.params.id
             },
-            include: [{association: 'images'},
-                {association: 'subCategory',
-                    include: [{association: 'category',
-                        include: [{association: 'animal'}]
-                    }]
+            include: [{ association: 'images' },
+            { association: 'label' },
+            {
+                association: 'subCategory',
+                include: [{
+                    association: 'category',
+                    include: [{ association: 'animal' }]
                 }]
+            }]
         })
-        .then(product => {
-            res.render("productDetail", {
-                title: 'Detalle',
-                product
+            .then(product => {
+                res.render("productDetail", {
+                    title: 'Detalle',
+                    product
+                })
             })
-        })
 
-       
+
     },
     carrito: (req, res) => {
         res.render('productCart', {
@@ -171,7 +174,7 @@ module.exports = {
                     typeCat: data[2].category,
                     subCategories,
                     dataList: data,
-                    
+
                 })
             })
             .catch(error => res.send(error))
@@ -222,7 +225,7 @@ module.exports = {
             }]
         })
 
-        Promise.all([productos, animals,categoria, subCategoria, subCategoryList])
+        Promise.all([productos, animals, categoria, subCategoria, subCategoryList])
             .then(data => {
 
                 let productos = []

@@ -154,7 +154,7 @@ window.addEventListener('load', () => {
             !passRegister.classList.contains('is-valid') ||
             !confirmRegister.classList.contains('is-valid')
         ) {
-            alert("Revisa los campos incorrectos.")
+            swal("Advertencia", "Revise los campos incorrectos.", "error");
         }
        
         if( 
@@ -164,7 +164,7 @@ window.addEventListener('load', () => {
             confirmRegister.classList.contains('is-valid')
         ) {
             formRegister.submit()
-            alert("Usuario creado correctamente, ya puede loguearse.")
+            swal("Enhorabuena!", "Su usuario se creo con exito!", "success");
         }
     })
 
@@ -224,7 +224,7 @@ window.addEventListener('load', () => {
             !emailLogin.classList.contains('is-valid') ||
             !passLogin.classList.contains('is-valid')
         ) {
-            alert("Revisa los campos incorrectos.") 
+            swal("Advertencia", "Revise los campos incorrectos.", "error");
         }
         if( 
             emailLogin.classList.contains('is-valid') &&

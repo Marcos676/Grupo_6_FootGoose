@@ -107,7 +107,8 @@
                         <button type="submit" class="btn btn-success ">Guardar</button>
                     </div>
                 </form>
-                <form id="formulario" class="row user-delete" action="/users/delete/<%=user.id%>?_method=DELETE" method="POST">
+                <!--ELIMINAR USER-->
+                <form id="userDelete" class="row user-delete" action="/users/delete/<%=user.id%>?_method=DELETE" method="POST">
                     <div class="formulario col-12">
                     <button class="btn btn-danger" type="submit" onclick="eliminarUsuario(event,document.querySelector('#formulario'))">Eliminar cuenta</button>
                     </div>
@@ -115,6 +116,8 @@
             </div>
             <%- include('../partials/footer.ejs') %>
                 <script src="/javascripts/editUserValidator.js"></script>
+                
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 
 

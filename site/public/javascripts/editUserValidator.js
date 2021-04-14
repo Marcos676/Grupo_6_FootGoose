@@ -178,6 +178,7 @@ window.addEventListener('load', () => {
             !confirmNew.classList.contains('is-invalid') 
         ) {
             formEdit.submit()
+            swal("Enhorabuena!", "Sus cambios fueron exitosos!", "success");
         }
     })
 })
