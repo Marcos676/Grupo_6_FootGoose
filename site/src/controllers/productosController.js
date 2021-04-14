@@ -70,6 +70,7 @@ module.exports = {
         })
     },
     animal: (req, res) => {
+
         let offset = req.params.pag || 0
 
         let cant = 9 
@@ -89,19 +90,15 @@ module.exports = {
                             ['id', 'DESC']
                         ],
                         offset: +offset * 2,
+
                     }]
                 }]
             }]
         })
         const animals = db.Animal.findAll()
+
         Promise.all([productos, animals])
             .then(data => {
-
-                let pagT = data[2] / cant
-                let pagC = pagT % 1
-                if(pagC != 0){
-                    pagT = parseInt(++pagT)
-                }
 
                 let productos = []
 
@@ -113,6 +110,12 @@ module.exports = {
                     });
                     return productos
                 });
+
+                let pagT = productos.length / cant
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
 
                 let categories = data[0].category.filter(categorias => {
                     return categorias
@@ -129,12 +132,17 @@ module.exports = {
                     offsetP: +offset + cant,
                     offsetN: +offset - cant,
                     offset,
+                    animalPaginator: 'paginador de animal activado'
                 })
             })
             .catch(error => res.send(error))
 
     },
     category: (req, res) => {
+
+        let offset = req.params.pag || 0
+
+        let cant = 9
 
         const productos = db.Animal.findOne({
             where: {
@@ -149,7 +157,9 @@ module.exports = {
                     association: 'subCategory',
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }]
+                        include: [{ association: 'images' }],
+                        offset: +offset * 2,
+                        distinct: true
                     }]
                 }]
             }]
@@ -172,6 +182,12 @@ module.exports = {
                     return productos
                 });
 
+                let pagT = productos.length / cant
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
+
                 let subCategories = []
                 data[0].category.forEach(categorias => {
                     categorias.subCategory.forEach(subCategorias => {
@@ -187,13 +203,21 @@ module.exports = {
                     typeCat: data[2].category,
                     subCategories,
                     dataList: data,
-                    
+                    pagT,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
+                    offset,
+                    categoryPaginator: 'paginador de categorías activado'
                 })
             })
             .catch(error => res.send(error))
 
     },
     subCategory: (req, res) => {
+
+        let offset = req.params.pag || 0
+
+        let cant = 9
 
         const productos = db.Animal.findOne({
             where: {
@@ -211,7 +235,9 @@ module.exports = {
                     },
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }]
+                        include: [{ association: 'images' }],
+                        offset: +offset * 2,
+                        distinct: true
                     }]
                 }]
             }]
@@ -251,6 +277,12 @@ module.exports = {
                     return productos
                 });
 
+                let pagT = productos.length / cant
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
+
                 let subCategories = []
                 data[4].category.forEach(categorias => {
                     categorias.subCategory.forEach(subCategorias => {
@@ -266,7 +298,11 @@ module.exports = {
                     typeCat: data[2].category,
                     subCategories,
                     subCatSelected: data[3],
-                    dataList: data
+                    dataList: data,
+                    pagT,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
+                    offset,
                 })
             })
             .catch(error => res.send(error))

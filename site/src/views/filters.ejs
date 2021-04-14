@@ -25,15 +25,16 @@
                                                 <ol class="breadcrumb">
                                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
                                                     <li class="breadcrumb-item"><a href="/productos">Tienda</a></li>
+
                                                     <% if ((typeof subCatSelected !="undefined" ) && (typeof
                                                         subCategories !="undefined" )) { %>
 
                                                         <li class="breadcrumb-item"><a
-                                                                href="/productos/filtro/<%= data.id %>">
+                                                                href="/productos/filtro/animal/<%= data.id %>">
                                                                 <%= data.animal %>
                                                             </a></li>
                                                         <li class="breadcrumb-item"><a
-                                                                href="/productos/filtro/<%= data.id %>/<%= dataList[2].id %> ">
+                                                                href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %> ">
                                                                 <%= typeCat %>
                                                             </a></li>
                                                         <li class="breadcrumb-item active" aria-current="page">
@@ -42,11 +43,8 @@
 
                                                         <% } else if(typeof subCategories !="undefined" ) { %>
 
-
-
-
                                                             <li class="breadcrumb-item"><a
-                                                                    href="/productos/filtro/<%= data.id %>">
+                                                                    href="/productos/filtro/animal/<%= data.id %>">
                                                                     <%= data.animal %>
                                                                 </a></li>
                                                             <li class="breadcrumb-item active" aria-current="page">
@@ -60,6 +58,7 @@
                                                                 </li>
 
                                                                 <% } %>
+
                                                 </ol>
                                             </section>
                                         </div>
@@ -97,7 +96,7 @@
 
                                                 <% animals.forEach(animal=> { %>
                                                     <div class="animal-list">
-                                                        <a href="/productos/filtro/<%= animal.id %>"><img
+                                                        <a href="/productos/filtro/animal/<%= animal.id %>"><img
                                                                 src="/images/categorias/<%= animal.img %>"
                                                                 alt="<%= animal.animal %>"></a>
                                                     </div>
@@ -114,7 +113,7 @@
                                                 <% if (typeof categories !="undefined" ) { %>
                                                     <% categories.forEach(category=> { %>
                                                         <li><a
-                                                                href="/productos/filtro/<%= data.id %>/<%= category.id %>"><i
+                                                                href="/productos/filtro/animal/<%= data.id %>/category/<%= category.id %>"><i
                                                                     class="fas fa-paw"></i>
                                                                 <%= category.category %>
                                                             </a></li>
@@ -124,7 +123,7 @@
                                                                 <% if (typeof subCategories !="undefined" ) { %>
                                                                     <% subCategories.forEach(subCategory=> { %>
                                                                         <li><a
-                                                                                href="/productos/filtro/<%= data.id %>/<%= dataList[2].id %>/<%= subCategory.id %>"><i
+                                                                                href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/sub-category/<%= subCategory.id %>"><i
                                                                                     class="fas fa-paw"></i>
                                                                                 <%= subCategory.subCategory %>
                                                                             </a></li>
@@ -143,133 +142,141 @@
                                                 <span>100</span> <span>10000</span>
                                             </div>
                                         </form>
+
                                         <!-- PRODUCTOS -->
                                     </div>
                                     <section class="col-sm-8 col-md-9">
                                         <article class="col-12">
-
                                             <div class="products row">
 
-                                                <% for( let i=0; i < 9; i++ ) { %>
+                                                <% if (products.length !=0) { %>
+                                                    <% for( let i=0; i < 9; i++ ) { %>
 
-                                                    <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
-                                                        <!-- VISTA DE PRODUCTOS DE ADMIN -->
-                                                        <div class="card producto col-sm-3">
-                                                            <a href="/admin/products/<%= products[i].id %>">
-                                                                <!-- carusel -->
-                                                                <div id="carouselExampleSlidesOnly"
-                                                                    class="carousel slide" data-ride="carousel">
-                                                                    <div class="carousel-inner">
+                                                        <% if (typeof localUser !=='undefined' && localUser.admin==1) {
+                                                            %>
+                                                            <!-- VISTA DE PRODUCTOS DE ADMIN -->
+                                                            <div class="card producto col-sm-3">
+                                                                <a href="/admin/products/<%= products[i].id %>">
+                                                                    <!-- carusel -->
+                                                                    <div id="carouselExampleSlidesOnly"
+                                                                        class="carousel slide" data-ride="carousel">
+                                                                        <div class="carousel-inner">
 
-                                                                        <div class="carousel-item active">
-                                                                            <img src="/images/productos/<%= products[i].images[0].imgName %>"
-                                                                                class="d-block w-100"
-                                                                                data-interval="1000" alt="...">
-                                                                        </div>
-
-                                                                        <% for( let index=1; index <
-                                                                            products[i].images.length; index++ ) { %>
-                                                                            <div class="carousel-item">
-                                                                                <img src="/images/productos/<%= products[i].images[index].imgName %>"
+                                                                            <div class="carousel-item active">
+                                                                                <img src="/images/productos/<%= products[i].images[0].imgName %>"
                                                                                     class="d-block w-100"
                                                                                     data-interval="1000" alt="...">
                                                                             </div>
-                                                                            <% } %>
 
+                                                                            <% for( let index=1; index <
+                                                                                products[i].images.length; index++ ) {
+                                                                                %>
+                                                                                <div class="carousel-item">
+                                                                                    <img src="/images/productos/<%= products[i].images[index].imgName %>"
+                                                                                        class="d-block w-100"
+                                                                                        data-interval="1000" alt="...">
+                                                                                </div>
+                                                                                <% } %>
+
+                                                                        </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="producto-datos">
-                                                                    <h5 class="titulo producto">
-                                                                        <%=products[i].name%>
-                                                                    </h5>
-                                                                    <p><span class="precio-final">$<%=
-                                                                                products[i].finalPrice %>
-                                                                        </span><span class="descontado">
-                                                                            <%= products[i].discount %>%off
-                                                                        </span></p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                                    <div class="producto-datos">
+                                                                        <h5 class="titulo producto">
+                                                                            <%=products[i].name%>
+                                                                        </h5>
+                                                                        <p><span class="precio-final">$<%=
+                                                                                    products[i].finalPrice %>
+                                                                            </span><span class="descontado">
+                                                                                <%= products[i].discount %>%off
+                                                                            </span></p>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
 
-                                                        <% } else { %>
-                                                            <!-- 
+                                                            <% } else { %>
+                                                                <!-- 
 VISTA DE PRODUCTOS DE USUARIO
 -->
-                                                            <div
-                                                                class="card producto container-fluid col-sm-5 col-lg-3">
-                                                                <!-- nuevo -->
-                                                                <% if (typeof localUser !=='undefined' ) { %>
-                                                                    <div class="containerheart">
-                                                                        <i onclick="toggle()" id="btn"
-                                                                            class="far fa-star"></i>
-                                                                    </div>
-                                                                    <% } %>
-                                                                        <!-- imagen -->
-                                                                        <a
-                                                                            href="/productos/detalle/<%= products[i].id %> ">
-                                                                            <div id="carouselExampleSlidesOnly"
-                                                                                class="carousel slide"
-                                                                                data-ride="carousel">
-                                                                                <div class="carousel-inner">
+                                                                <div
+                                                                    class="card producto container-fluid col-sm-5 col-lg-3">
+                                                                    <!-- nuevo -->
+                                                                    <% if (typeof localUser !=='undefined' ) { %>
+                                                                        <div class="containerheart">
+                                                                            <i onclick="toggle()" id="btn"
+                                                                                class="far fa-star"></i>
+                                                                        </div>
+                                                                        <% } %>
+                                                                            <!-- imagen -->
+                                                                            <a
+                                                                                href="/productos/detalle/<%= products[i].id %> ">
+                                                                                <div id="carouselExampleSlidesOnly"
+                                                                                    class="carousel slide"
+                                                                                    data-ride="carousel">
+                                                                                    <div class="carousel-inner">
 
-                                                                                    <div class="carousel-item active">
-                                                                                        <img src="/images/productos/<%= products[i].images[0].imgName %>"
-                                                                                            class="d-block w-100"
-                                                                                            data-interval="1000"
-                                                                                            alt="...">
-                                                                                    </div>
-
-                                                                                    <% for( let index=1; index <
-                                                                                        products[i].images.length;
-                                                                                        index++ ) { %>
-                                                                                        <div class="carousel-item">
-                                                                                            <img src="/images/productos/<%= products[i].images[index].imgName %>"
+                                                                                        <div
+                                                                                            class="carousel-item active">
+                                                                                            <img src="/images/productos/<%= products[i].images[0].imgName %>"
                                                                                                 class="d-block w-100"
                                                                                                 data-interval="1000"
                                                                                                 alt="...">
                                                                                         </div>
-                                                                                        <% } %>
 
+                                                                                        <% for( let index=1; index <
+                                                                                            products[i].images.length;
+                                                                                            index++ ) { %>
+                                                                                            <div class="carousel-item">
+                                                                                                <img src="/images/productos/<%= products[i].images[index].imgName %>"
+                                                                                                    class="d-block w-100"
+                                                                                                    data-interval="1000"
+                                                                                                    alt="...">
+                                                                                            </div>
+                                                                                            <% } %>
+
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
 
-                                                                            <div class="producto-datos">
-                                                                                <!-- nombre -->
-                                                                                <h5 class="titulo producto">
-                                                                                    <%=products[i].name%>
-                                                                                </h5>
-                                                                                <!-- precio y descuento -->
-                                                                                <p><span class="precio-final">$
-                                                                                        <%= products[i].finalPrice %>
-                                                                                    </span><span class="descontado">
-                                                                                        <%= products[i].discount %>%off
-                                                                                    </span></p>
-                                                                        </a>
+                                                                                <div class="producto-datos">
+                                                                                    <!-- nombre -->
+                                                                                    <h5 class="titulo producto">
+                                                                                        <%=products[i].name%>
+                                                                                    </h5>
+                                                                                    <!-- precio y descuento -->
+                                                                                    <p><span class="precio-final">$
+                                                                                            <%= products[i].finalPrice
+                                                                                                %>
+                                                                                        </span><span class="descontado">
+                                                                                            <%= products[i].discount %>
+                                                                                                %off
+                                                                                        </span></p>
+                                                                            </a>
 
-                                                                        <!-- cantidad y comprar -->
-                                                                        <% if (typeof localUser !=='undefined' ) { %>
-                                                                            <div class="box">
-                                                                                <input type="number" min="0"
-                                                                                    max="<%= products[i].cuantity %>">
-                                                                            </div>
-                                                                            <div class="btn-compra">
-                                                                                <button type="button"
-                                                                                    class="btn btn-success"><i
-                                                                                        class="fas fa-shopping-cart"></i>
-                                                                                    Agregar</button>
-                                                                            </div>
-                                                                            <% } %>
-                                                            </div>
+                                                                            <!-- cantidad y comprar -->
+                                                                            <% if (typeof localUser !=='undefined' ) {
+                                                                                %>
+                                                                                <div class="box">
+                                                                                    <input type="number" min="0"
+                                                                                        max="<%= products[i].cuantity %>">
+                                                                                </div>
+                                                                                <div class="btn-compra">
+                                                                                    <button type="button"
+                                                                                        class="btn btn-success"><i
+                                                                                            class="fas fa-shopping-cart"></i>
+                                                                                        Agregar</button>
+                                                                                </div>
+                                                                                <% } %>
+                                                                </div>
                                             </div>
 
                                             <% } %>
 
-                                                <% if (products.length -1==i) { %>
+                                                <% if (products.length - 1==i) { %>
                                                     <% i=9 %>
                                                         <% } %>
 
                                                             <% } %>
+                                                                <% } %>
                                 </div>
 
                                 </article>
@@ -278,12 +285,28 @@ VISTA DE PRODUCTOS DE USUARIO
                                 <div class="paginas col-12">
                                     <nav aria-label="...">
                                         <ul class="pagination">
-                                            <% if (offset >= 9) { %>
+
+
+                                            <% if (offset>= 9) { %>
                                                 <li class="page-item">
-                                                    <a class="page-link" href="/productos/filtro/<%= data.id %>/<%= offsetN %>"
-                                                        aria-label="Previous">
-                                                        <span aria-hidden="true">&laquo;</span>
-                                                    </a>
+
+                                                    <% if (typeof animalPaginator=='string' ) { %>
+                                                        <a class="page-link"
+                                                            href="/productos/filtro/animal/<%= data.id %>/<%= offsetN %>"
+                                                            aria-label="Previous"><span
+                                                                aria-hidden="true">&laquo;</span></a>
+                                                        <% } else if (typeof categoryPaginator=='string' ) { %>
+                                                            <a class="page-link"
+                                                                href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/<%= offsetN %>"
+                                                                aria-label="Previous"><span
+                                                                    aria-hidden="true">&laquo;</span></a>
+                                                            <% } else { %>
+                                                                <a class="page-link"
+                                                                    href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/sub-category/<%= subCatSelected.id %>/<%= offsetN %>"
+                                                                    aria-label="Previous"><span
+                                                                        aria-hidden="true">&laquo;</span></a>
+                                                                <% } %>
+
                                                 </li>
                                                 <% } %>
 
@@ -297,22 +320,55 @@ VISTA DE PRODUCTOS DE USUARIO
                                                             </li>
 
                                                             <% } else { %>
-                                                                <li class="page-item"><a class="page-link"
-                                                                        href="/productos/filtro/<%= data.id %>/<%= i * 9 %>">
-                                                                        <%= i + 1 %>
-                                                                    </a></li>
+                                                                <li class="page-item">
+
+                                                                    <% if (typeof animalPaginator=='string' ) { %>
+                                                                        <a class="page-link"
+                                                                            href="/productos/filtro/animal/<%= data.id %>/<%= i * 9 %>">
+                                                                            <%= i + 1 %>
+                                                                        </a>
+                                                                        <% } else if (typeof categoryPaginator=='string'
+                                                                            ) { %>
+                                                                            <a class="page-link"
+                                                                                href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/<%= i * 9 %>">
+                                                                                <%= i + 1 %>
+                                                                            </a>
+                                                                            <% } else { %>
+                                                                                <a class="page-link"
+                                                                                    href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/<%= subCatSelected.id %>/<%= i * 9 %>">
+                                                                                    <%= i + 1 %>
+                                                                                </a>
+                                                                                <% } %>
+                                                                </li>
                                                                 <% } %>
 
                                                                     <% } %>
 
+
+
                                                                         <% if (+offset !==(pagT - 1) *9) { %>
                                                                             <li class="page-item">
-                                                                                <a class="page-link"
-                                                                                    href="/productos/filtro/<%= data.id %>/<%= offsetP %>"
-                                                                                    aria-label="Next">
-                                                                                    <span
-                                                                                        aria-hidden="true">&raquo;</span>
-                                                                                </a>
+
+                                                                                <% if (typeof animalPaginator=='string'
+                                                                                    ) { %>
+                                                                                    <a class="page-link"
+                                                                                        href="/productos/filtro/animal/<%= data.id %>/<%= offsetP %>"
+                                                                                        aria-label="Next"><span
+                                                                                            aria-hidden="true">&raquo;</span></a>
+                                                                                    <% } else if (typeof
+                                                                                        categoryPaginator=='string' ) {
+                                                                                        %>
+                                                                                        <a class="page-link"
+                                                                                            href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/<%= offsetP %>"
+                                                                                            aria-label="Next"><span
+                                                                                                aria-hidden="true">&raquo;</span></a>
+                                                                                        <% } else { %>
+                                                                                            <a class="page-link"
+                                                                                                href="/productos/filtro/animal/<%= data.id %>/category/<%= dataList[2].id %>/sub-category/<%= subCatSelected.id %>/<%= offsetP %>"
+                                                                                                aria-label="Next"><span
+                                                                                                    aria-hidden="true">&raquo;</span></a>
+                                                                                            <% } %>
+
                                                                             </li>
                                                                             <% } %>
 
