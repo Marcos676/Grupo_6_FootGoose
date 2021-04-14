@@ -11,11 +11,11 @@ router.get('/carrito', checkUser,carrito);
 /* Buscador */
 router.get('/search',search);
 /* filtro animal */
-router.get('/filtro/:animalId',animal);
+router.get('/filtro/:animalId/:pag?',animal);
 /* Filtro categoria */
-router.get('/filtro/:animalId/:categoryId',category);
+router.get('/filtro/:animalId/:categoryId/:pag?',category);
 /* filtro sub categoria */
-router.get('/filtro/:animalId/:categoryId/:subCategoryId',subCategory);
+router.get('/filtro/:animalId/:categoryId/:subCategoryId/:pag?',subCategory);
 /* Listado */
 router.get('/:pag?',catalogo);
 
