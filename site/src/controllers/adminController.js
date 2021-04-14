@@ -147,9 +147,6 @@ module.exports = {
         })
             .then((product) => {
 
-                sessionStorage.removeItem('categorias')//borro los valores de categorías guardados en session
-                sessionStorage.removeItem('subCategorias')//borro los valores de sub categorías guardados en session
-
                 if (typeof req.files[0] !== 'undefined') {
 
                     var imgs = req.files.map(nombre => {
@@ -168,6 +165,7 @@ module.exports = {
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
+        
                         return res.redirect('/productos')
                     })
             })
