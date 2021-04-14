@@ -15,6 +15,8 @@ const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const adminRouter = require('./routes/adminRouter')
+/* ruta de API */
+const categoriesRouter = require('./routes/api/categoriesRouter')
 
 /* Middlewares */
 const cookieCheck = require('./middlewares/cookieCheck')
@@ -46,8 +48,8 @@ app.use('/', indexRouter);
 app.use('/productos', productsRouter);
 app.use('/usuario', usersRouter);
 app.use('/admin', adminRouter);
-
-
+/* ruta de api */
+app.use('/api/categories', categoriesRouter);
 
 
 // catch 404 and forward to error handler
