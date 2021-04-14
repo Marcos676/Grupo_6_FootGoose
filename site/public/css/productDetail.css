@@ -66,7 +66,7 @@ p{
     padding: 15px 30px;
     margin-top: 15px;
   }
-  .carrito-compra{
+  .detail-user-carrito-compra{
     justify-content: space-between;
     display: flex;
     flex-direction: column;
