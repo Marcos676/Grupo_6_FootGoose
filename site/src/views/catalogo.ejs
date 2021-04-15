@@ -96,6 +96,7 @@
                      -->
                             <div class="card producto col-sm-3">
                               <a href="/admin/products/<%= products[i].id %>">
+                                //<%= products[i].label.img %>
                                 <!-- carusel -->
                                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                                   <div class="carousel-inner">
@@ -163,7 +164,6 @@
                                         <h5 class="titulo producto">
                                           <%=products[i].name%>
                                         </h5>
-                                        <h3><%=products[i].id%></h3>
                                         <!-- precio y descuento -->
                                         <p><span class="precio-final">$
                                             <%= products[i].finalPrice %>
