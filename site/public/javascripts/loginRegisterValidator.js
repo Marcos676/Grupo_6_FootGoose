@@ -5,9 +5,11 @@ window.addEventListener('load', () => {
     const qs = (element) => document.querySelector(element)
 
     /* Expresiónes regulares */
+    
+    /* es email */
     let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
-
-    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[:!"#$%&'[()*+,\-./:;<=>?@^_`{|}:]).{8,}$/;
+    /* Contraseña con mayuscula, minuscula, caracter especial y por lo menos 8 caracteres */
+    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]).{8,}$/;;
 
 
     /* VALIDACIONES DE REGISTER */
@@ -154,7 +156,7 @@ window.addEventListener('load', () => {
             !passRegister.classList.contains('is-valid') ||
             !confirmRegister.classList.contains('is-valid')
         ) {
-            alert("Revisa los campos incorrectos.")
+            swal("Advertencia", "Revise los campos incorrectos.", "error");
         }
        
         if( 
@@ -164,7 +166,7 @@ window.addEventListener('load', () => {
             confirmRegister.classList.contains('is-valid')
         ) {
             formRegister.submit()
-            alert("Usuario creado correctamente, ya puede loguearse.")
+            swal("Enhorabuena!", "Su usuario se creo con exito!", "success");
         }
     })
 
@@ -224,7 +226,7 @@ window.addEventListener('load', () => {
             !emailLogin.classList.contains('is-valid') ||
             !passLogin.classList.contains('is-valid')
         ) {
-            alert("Revisa los campos incorrectos.") 
+            swal("Advertencia", "Revise los campos incorrectos.", "error");
         }
         if( 
             emailLogin.classList.contains('is-valid') &&
