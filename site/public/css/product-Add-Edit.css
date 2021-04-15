@@ -20,7 +20,13 @@
   }
   .nuevo-producto .imagen-carrusel {
     width: 100%;
+    object-fit: contain;
+    height: 100%;
   }
+  .nuevo-producto .img-content {
+    height: 350px;
+  }
+
   /* Boton de carrusel */
 
   .nuevo-producto .carrusel-add-image .boton-image{
@@ -61,11 +67,6 @@
     margin: 5px 0;
   }
 
-  @media (min-width: 425px){
-    .nuevo-producto .imagen-carrusel {
-      width: 300px;
-    }
-  }
   @media (min-width: 768px){
     .nuevo-producto {
         margin-top: 15px;
