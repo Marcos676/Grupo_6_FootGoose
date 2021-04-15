@@ -5,25 +5,24 @@ module.exports = {
     catalogo: (req, res) => {
         let offset = req.params.pag || 0
 
+        let cant = 9 //cantidad de productos a mostrar
+
         const products = db.Product.findAll({
             include: [{ association: 'images' }, { association: 'label' }],
             order: [
                 ['id', 'DESC']
             ],
-            //distinct: true,
-            //limit : 6,
-            // offset: +offset
+            offset: +offset * 2
+            //limit : 9, //al aplicar el limit genera un error de la base de datos. por alguna razon me tráe 2 columnas con nombre LabelId
         })
         const animal = db.Animal.findAll()
-
 
         const count = db.Product.count()
 
         Promise.all([products, animal, count])
             .then(data => {
-                //res.send(data[0])
 
-                let pagT = data[2] / 6
+                let pagT = data[2] / cant
                 let pagC = pagT % 1
                 if (pagC != 0) {
                     pagT = parseInt(++pagT)
@@ -36,8 +35,8 @@ module.exports = {
                     count: data[2],
                     data,
                     pagT,
-                    offsetP: +offset + 6,
-                    offsetN: +offset - 6,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
                     offset
                 })
             })
@@ -75,6 +74,10 @@ module.exports = {
     },
     animal: (req, res) => {
 
+        let offset = req.params.pag || 0
+
+        let cant = 9 
+
         const productos = db.Animal.findOne({
             where: {
                 id: req.params.animalId
@@ -85,12 +88,18 @@ module.exports = {
                     association: 'subCategory',
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }]
+                        include: [{ association: 'images' }],
+                        order: [
+                            ['id', 'DESC']
+                        ],
+                        offset: +offset * 2,
+
                     }]
                 }]
             }]
         })
         const animals = db.Animal.findAll()
+
         Promise.all([productos, animals])
             .then(data => {
 
@@ -105,6 +114,12 @@ module.exports = {
                     return productos
                 });
 
+                let pagT = productos.length / cant
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
+
                 let categories = data[0].category.filter(categorias => {
                     return categorias
                 })
@@ -115,13 +130,22 @@ module.exports = {
                     data: data[0],
                     products: productos,
                     typeCat: data[0].animal,
-                    categories
+                    categories,
+                    pagT,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
+                    offset,
+                    animalPaginator: 'paginador de animal activado'
                 })
             })
             .catch(error => res.send(error))
 
     },
     category: (req, res) => {
+
+        let offset = req.params.pag || 0
+
+        let cant = 9
 
         const productos = db.Animal.findOne({
             where: {
@@ -136,7 +160,9 @@ module.exports = {
                     association: 'subCategory',
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }]
+                        include: [{ association: 'images' }],
+                        offset: +offset * 2,
+                        distinct: true
                     }]
                 }]
             }]
@@ -159,6 +185,12 @@ module.exports = {
                     return productos
                 });
 
+                let pagT = productos.length / cant
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
+
                 let subCategories = []
                 data[0].category.forEach(categorias => {
                     categorias.subCategory.forEach(subCategorias => {
@@ -174,13 +206,21 @@ module.exports = {
                     typeCat: data[2].category,
                     subCategories,
                     dataList: data,
-
+                    pagT,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
+                    offset,
+                    categoryPaginator: 'paginador de categorías activado'
                 })
             })
             .catch(error => res.send(error))
 
     },
     subCategory: (req, res) => {
+
+        let offset = req.params.pag || 0
+
+        let cant = 9
 
         const productos = db.Animal.findOne({
             where: {
@@ -198,7 +238,9 @@ module.exports = {
                     },
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }]
+                        include: [{ association: 'images' }],
+                        offset: +offset * 2,
+                        distinct: true
                     }]
                 }]
             }]
@@ -238,6 +280,12 @@ module.exports = {
                     return productos
                 });
 
+                let pagT = productos.length / cant
+                let pagC = pagT % 1
+                if(pagC != 0){
+                    pagT = parseInt(++pagT)
+                }
+
                 let subCategories = []
                 data[4].category.forEach(categorias => {
                     categorias.subCategory.forEach(subCategorias => {
@@ -253,7 +301,11 @@ module.exports = {
                     typeCat: data[2].category,
                     subCategories,
                     subCatSelected: data[3],
-                    dataList: data
+                    dataList: data,
+                    pagT,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
+                    offset,
                 })
             })
             .catch(error => res.send(error))

@@ -39,13 +39,27 @@ module.exports = {
                     let names = name.trim().split(" ")
 
                     db.User.create({
-                        first_name: names[0],
-                        last_name: names[1],
+                        firstName: names[0],
+                        lastName: names[1],
                         email: email.trim(),
                         password: passcrypt,
                         admin: 0
                     })
-                        .then(() => {
+                        .then(user => {
+                            req.session.user = {
+                                id: user.id,
+                                firstName: user.firstName,
+                                lastName: user.lastName,
+                                img: 'undefined.PNG',
+                                admin: user.admin
+                            }
+    
+                                res.cookie('FootGoose', req.session.user, {
+                                    maxAge: 1000 * 60 * 60 * 24 /*La cookie vive por 24hs por ser el primer logue*/
+                                })                        
+
+                                res.locals.localUser = req.session.user
+                            
                             res.redirect('/usuario/perfil')
                         })
                         .catch(error => res.send(error))
@@ -85,6 +99,7 @@ module.exports = {
                     }
 
                     if (bcrypt.compareSync(password.trim(), user.password)) {
+
                         req.session.user = {
                             id: user.id,
                             firstName: user.firstName,
@@ -141,9 +156,10 @@ module.exports = {
     },
     edit: (req, res) => {
         db.User.findOne({
-            where: { id: req.params.id }
+            where: { id: req.session.user.id }
         })
             .then(user => {
+                
                 res.render('users/profileEdit', {
                     title: 'Editar perfil',
                     user
@@ -159,7 +175,7 @@ module.exports = {
 
             const usuario = db.User.findOne({
                 where: {
-                    id: req.params.id
+                    id: req.session.user.id
                 }
             })
             const emailSearch = db.User.findOne({
@@ -188,19 +204,24 @@ module.exports = {
                         }
 
                         let names = name.trim().split(" ")
-
+                        console.log(tel)
                         db.User.update({
                             firstName: names[0],
                             lastName: names[1],
                             email,
                             password: passcrypt,
                             address,
-                            tel,
+                            tel: req.body.tel,
                             img: req.files[0] ? req.files[0].filename : promise[0].img,
                         }, {
-                            where: { id: req.params.id }
+                            where: { id: req.session.user.id }
                         })
+
                             .then(() => {
+
+                                delete req.session.user
+                                delete res.locals.localUser
+                                
                                 req.session.user = {
                                     id: promise[0].id,
                                     firstName: names[0],
@@ -216,6 +237,8 @@ module.exports = {
                                 })
                             })
                             .catch(error => res.send(error))
+
+                            
                     } else {
                         return res.render('users/profileEdit', {
                             title: 'Editar perfil',
@@ -231,7 +254,7 @@ module.exports = {
         } else {
             db.User.findOne({
                 where: {
-                    id: req.params.id
+                    id: req.session.user.id
                 }
             })
                 .then(user => {
@@ -251,6 +274,32 @@ module.exports = {
         }
         delete req.session.user
         res.redirect('/')
+    },
+    deleteUser: (req,res) => {
+        const usuario = db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        const carrito = db.Cart.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        const favorito = db.Favorite.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        Promise.all([usuario, carrito, favorito])
+        .then(() => {
+            if (req.cookies.FootGoose) {
+                res.cookie('FootGoose', '', { maxAge: -1 });
+            }
+            delete req.session.user
+            res.redirect('/')
+        })
+        .catch(error => res.send(error))
     }
 }
 

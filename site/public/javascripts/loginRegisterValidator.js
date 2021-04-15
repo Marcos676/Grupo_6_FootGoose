@@ -5,9 +5,11 @@ window.addEventListener('load', () => {
     const qs = (element) => document.querySelector(element)
 
     /* Expresiónes regulares */
+    
+    /* es email */
     let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
-
-    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[:!"#$%&'[()*+,\-./:;<=>?@^_`{|}:]).{8,}$/;
+    /* Contraseña con mayuscula, minuscula, caracter especial y por lo menos 8 caracteres */
+    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]).{8,}$/;;
 
 
     /* VALIDACIONES DE REGISTER */

@@ -129,7 +129,8 @@ module.exports = {
                     })
                 })
                 .catch(error => res.send(error))
-        }
+
+        } else {
 
         let { subCategory, name, description, cuantity, price, label, discount, expiration, finalPrice } = req.body
 
@@ -145,28 +146,31 @@ module.exports = {
             labelId: label
         })
             .then((product) => {
+
                 if (typeof req.files[0] !== 'undefined') {
 
                     var imgs = req.files.map(nombre => {
 
                         return db.ImageProduct.create({
                             imgName: nombre.filename,
-                            productId: product.id
+                            productId: product.id 
                         })
                     })
                 } else {
                     var imgs = db.ImageProduct.create({
+                        imgName: 'undefinedProduct.png',
                         productId: product.id
                     })
                     imgs = [imgs]
                 }
                 Promise.all(imgs)
                     .then((imgs) => {
+        
                         return res.redirect('/productos')
                     })
             })
             .catch(error => res.send(error))
-
+        }
 
     },
     productDetail: (req, res) => {

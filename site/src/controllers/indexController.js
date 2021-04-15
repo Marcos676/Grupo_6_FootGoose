@@ -6,7 +6,8 @@ module.exports = {
     
     index: (req, res) => {
         const products = db.Product.findAll({
-            include: [{ association: 'images' }]
+            include: [{ association: 'images' }],
+            order: [["sold", "DESC"]]
         })
         const animal = db.Animal.findAll()
 

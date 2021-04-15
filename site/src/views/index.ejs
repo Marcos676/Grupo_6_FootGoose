@@ -39,7 +39,7 @@
 
                 <% animals.forEach(animal=> { %>
                   <div>
-                    <a href="/productos/filtro/<%= animal.id %>"><img src="images/categorias/<%= animal.img %> "
+                    <a href="/productos/filtro/animal/<%= animal.id %>"><img src="images/categorias/<%= animal.img %> "
                         alt="<%= animal.animal %> "></a>
                   </div>
                   <% }) %>
@@ -50,9 +50,10 @@
             <br>
             <!--PRODUCTOS-->
             <section class="container">
+              <h3>Más vendidos</h3>
               <div class="row products">
 
-                <% for( let i=0; i < 5; i++ ) { %>
+                <% for( let i=0; i < 4; i++ ) { %>
                   <div class="card producto container-fluid col-sm-5 col-lg-2">
                     <!-- nuevo -->
                     <% if (typeof localUser !=='undefined' ) { %>

@@ -62,7 +62,7 @@
             <!-- Animales y Categorías -->
 
             <!-- ANIMALES -->
-              <select class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.animal) ? "is-invalid" : null  %>" name="animal">
+              <select id="animal" class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.animal) ? "is-invalid" : null  %>" name="animal">
                 <option value="" selected disabled>Elija una mascota</option>
 
                 <% dataProduct[0].forEach(data=> { %>
@@ -77,35 +77,17 @@
                 </select>
 
               <!-- CATEGORIAS -->
-              <select class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.category) ? "is-invalid" : null  %>" name="category">
+              <select id="category" class="seleccionar col-12 custom-select <%= (typeof errores != 'undefined' && errores.category) ? "is-invalid" : null  %>" name="category">
 
                 <option value="" selected disabled >Elija una categoría</option>
 
-                <% dataProduct[1].forEach(categoria=> { %>
-
-                  <option value=<%=categoria.id %>
-                    <%=(typeof old !='undefined' && old.category && old.category==categoria.id ? "selected"
-                      :(categoria.id===dataProduct[4].subCategory.category.id? 'selected' : null)) %> ><%=
-                        categoria.category %>
-                  </option>
-
-                  <% }) %>
               </select>
 
             <!-- SUBCATEGORIAS -->
-            <select class="sub-categoria margen col-12 custom-select <%= (typeof errores != 'undefined' && errores.subCategory) ? "is-invalid" : null  %> " name="subCategory">
+            <select id="subCategory" class="sub-categoria margen col-12 custom-select <%= (typeof errores != 'undefined' && errores.subCategory) ? "is-invalid" : null  %> " name="subCategory">
 
               <option value="" selected disabled >Elija una subcategoría</option>
 
-              <% dataProduct[2].forEach(subcat=> { %>
-
-                <option value=<%=subcat.id %>
-                  <%=(typeof old !='undefined' && old.subCategory && old.subCategory==subcat.id ? "selected"
-                    :(subcat.id===dataProduct[4].subCategory.id? 'selected' : null)) %>
-                    ><%= subcat.subCategory %>
-                </option>
-
-                <% }) %>
             </select>
 
             <!-- Nombre -->
@@ -202,8 +184,11 @@
 
              <!-- Botones -->
           <div class="botones col-12 row" >
-            <a href="/admin/products/<%= dataProduct[4].id %>" class="btn btn-danger resetear col-4">Cancelar</a>
-            <button class="btn btn-success crear col-4" type="submit">Aceptar</button>
+            <button class="btn btn-danger resetear col-12 col-md-4">
+              <a href="/admin/products/<%= dataProduct[4].id %>" style="color: white;" >Cancelar</a>
+            </button>
+            
+            <button class="btn btn-success crear col-12 col-md-4" type="submit">Aceptar</button>
           </div>
 
           </div>
@@ -213,6 +198,7 @@
 
 
       <%- include('../partials/footer') %>
+      <script src="/javascripts/apiCategories.js"></script>
       <script src="/javascripts/CreateEditProductValidator.js"></script>
   </body>
 

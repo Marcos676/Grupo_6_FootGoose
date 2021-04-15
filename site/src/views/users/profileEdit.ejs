@@ -10,7 +10,7 @@
 
             <div class="container-fluid contenido">
                 <!--EDITAR-->
-                <form class="row user-profile" action="/usuario/editar/<%=user.id%>?_method=PUT" method="POST"
+                <form class="row user-profile" action="/usuario/editar?_method=PUT" method="POST"
                     enctype="multipart/form-data">
 
                     <!-- imagen + input -->
@@ -62,12 +62,12 @@
                             </span>
                         </div>
 
-                        <!-- telefono -->
+                        <!-- teléfono -->
                         <div class="col-12 form-group">
                             <i class="fas fa-phone-alt"></i>
                             <input class="form-control" type="tel" placeholder=" Teléfono" name="tel"
                                 value="<%= (typeof old != 'undefined' && old.tel ? old.tel : user.tel) %>"><br>
-                            <span class="text-danger">
+                            <span class="text-danger errorTel">
                                 <%= (typeof errores !='undefined' && errores.tel) ? errores.tel.msg : null %>
                             </span>
                         </div>
@@ -107,10 +107,9 @@
                         <button type="submit" class="btn btn-success ">Guardar</button>
                     </div>
                 </form>
-                <!--ELIMINAR USER-->
-                <form id="userDelete" class="row user-delete" action="/users/delete/<%=user.id%>?_method=DELETE" method="POST">
+                <form id="formulario" class="row user-delete" action="/usuario/delete/<%=user.id%>?_method=DELETE" method="POST">
                     <div class="formulario col-12">
-                    <button class="btn btn-danger" type="submit" onclick="eliminarUsuario(event,document.querySelector('#formulario'))">Eliminar cuenta</button>
+                    <button class="btn btn-danger" type="submit">Eliminar cuenta</button>
                     </div>
                     </form>
             </div>
@@ -119,6 +118,4 @@
                 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
-
-
 </html>
