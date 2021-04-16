@@ -11,9 +11,14 @@
 .admin-product-detail #carousel-controller{
   text-align: center;
 }
-  .admin-product-detail .imagen-carrusel {
-    width: 100%;
-  }
+.admin-product-detail .imagen-carrusel {
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+.admin-product-detail .img-content {
+  height: 350px;
+}
   /* Boton de carrusel */
   .admin-product-detail .carrusel-add-image .boton-image{
     text-align: center;
