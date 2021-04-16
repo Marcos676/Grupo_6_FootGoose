@@ -6,6 +6,16 @@
 	display: none;
 }
 
+.catalogo .card .labels {
+	position: absolute;
+	top: 0%;
+	right: 5%;
+	width: 70px; 
+	height: 70px; 
+	z-index: 1; 
+	padding: 0;
+}
+
 .catalogo .type-categories a {
 	color: #7f7f7f;
 }

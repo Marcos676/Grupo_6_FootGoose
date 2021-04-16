@@ -6,16 +6,16 @@ const checkUser = require('../middlewares/checkUser');
 
 /* detalle */
 router.get('/detalle/:id',detalle);
-/* carritp */
+/* carrito */
 router.get('/carrito', checkUser,carrito);
 /* Buscador */
 router.get('/search',search);
-/* filtro animal */
-router.get('/filtro/:animalId',animal);
-/* Filtro categoria */
-router.get('/filtro/:animalId/:categoryId',category);
 /* filtro sub categoria */
-router.get('/filtro/:animalId/:categoryId/:subCategoryId',subCategory);
+router.get('/filtro/animal/:animalId/category/:categoryId/sub-category/:subCategoryId/:pag?',subCategory);
+/* Filtro categoria */
+router.get('/filtro/animal/:animalId/category/:categoryId/:pag?',category);
+/* filtro animal */
+router.get('/filtro/animal/:animalId/:pag?',animal);
 /* Listado */
 router.get('/:pag?',catalogo);
 

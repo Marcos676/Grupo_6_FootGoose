@@ -21,8 +21,8 @@ router.post('/ingresar', loginValidator, loginProcess);
 /* Perfil */
 router.get('/perfil', checkUser,profile);
 /* Editar */
-router.get('/editar/:id', checkUser,edit);
-router.put('/editar/:id', uploadProfilePic.any(), imgUserValidator, editUserValidator, editProcess);
+router.get('/editar', checkUser,edit);
+router.put('/editar', uploadProfilePic.any(), imgUserValidator, editUserValidator, editProcess);
 /* cerrar sesión */
 router.get('/logout', logout)
 /* Eliminar usuario */

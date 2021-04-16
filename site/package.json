@@ -22,7 +22,9 @@
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.6.2",
-    "sequelize-cli": "^6.2.0"
+    "sequelize": "^6.5.1",
+    "sequelize-cli": "^6.2.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^10.16.0"
   }
 }

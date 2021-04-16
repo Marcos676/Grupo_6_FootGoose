@@ -10,7 +10,7 @@
 
             <div class="container-fluid contenido">
                 <!--EDITAR-->
-                <form class="row user-profile" action="/usuario/editar/<%=user.id%>?_method=PUT" method="POST"
+                <form class="row user-profile" action="/usuario/editar?_method=PUT" method="POST"
                     enctype="multipart/form-data">
 
                     <!-- imagen + input -->
@@ -62,12 +62,12 @@
                             </span>
                         </div>
 
-                        <!-- telefono -->
+                        <!-- teléfono -->
                         <div class="col-12 form-group">
                             <i class="fas fa-phone-alt"></i>
                             <input class="form-control" type="tel" placeholder=" Teléfono" name="tel"
                                 value="<%= (typeof old != 'undefined' && old.tel ? old.tel : user.tel) %>"><br>
-                            <span class="text-danger">
+                            <span class="text-danger errorTel">
                                 <%= (typeof errores !='undefined' && errores.tel) ? errores.tel.msg : null %>
                             </span>
                         </div>
@@ -115,5 +115,7 @@
             </div>
             <%- include('../partials/footer.ejs') %>
                 <script src="/javascripts/editUserValidator.js"></script>
+                
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 </html>

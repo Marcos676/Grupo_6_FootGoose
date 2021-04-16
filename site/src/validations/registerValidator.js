@@ -47,7 +47,7 @@ module.exports = [
         }).withMessage('La contraseña debe tener como mínimo 8'),
 
         body('password').custom((value, { req }) => {
-            let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[:!"#$%&'[()*+,\-./:;<=>?@^_`{|}:]).{8,}$/; 
+            let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]).{8,}$/;; 
             if (!regExPass.test(value)) {
                 return false
             } else {

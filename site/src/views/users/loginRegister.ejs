@@ -50,10 +50,11 @@
                     </div>
 
                     <!-- Rememberme -->
-                    <div class="input-contenedor col-12">
-                        <label for="rememberme">Recordar</label>
-                        <input type="checkbox" id="rememberme" name="rememberme">
-                    </div>
+                    <div class="custom-control custom-switch input-contenedor col-12">
+                        <input type="checkbox" class="custom-control-input" id="rememberme" name="rememberme">
+                        <label class="custom-control-label" for="rememberme">Recordar</label>
+                      </div>
+
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-success"> Ingresar</button>
@@ -138,7 +139,7 @@
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-success "> Registrarse</button>
-                        <p> Al registrarte, aceptas nuestras condiciones de uso y Politica de Privacidad.</p>
+                        <p> Al registrarte, aceptas nuestros <a href="/tyc" style="color: rgb(0, 48, 138);text-decoration: underline;">Términos y condiciones</a>.</p>
                     </div>
                 </form>
                 </div>
@@ -147,6 +148,7 @@
             <%- include('../partials/footer.ejs') %>
 
                 <script src="/javascripts/loginRegisterValidator.js"></script>
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 
 
