@@ -99,16 +99,20 @@
                                 <!-- 
                       VISTA DE PRODUCTOS DE ADMIN
                      -->
-                                <div class="card producto col-sm-3">
-                                  <a href="/admin/products/<%= products[i].id %>">
-                                    <!-- carusel -->
-                                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                      <div class="carousel-inner">
+                            <div class="card producto col-md-5 col-lg-3">
+                              <a href="/admin/products/<%= products[i].id %>">
+                                
+                                <% if (products[i].label.id != 1) { %>
+                                  <img class="labels" src="/images/labels/<%= products[i].label.img %> ">
+                                <% } %> 
+                                <!-- carusel -->
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                  <div class="carousel-inner">
 
-                                        <div class="carousel-item active">
-                                          <img src="/images/productos/<%= products[i].images[0].imgName %>"
-                                            class="d-block w-100" data-interval="1000" alt="...">
-                                        </div>
+                                    <div class="carousel-item active">
+                                      <img src="/images/productos/<%= products[i].images[0].imgName %>"
+                                        class="d-block w-100" data-interval="1000" alt="...">
+                                    </div>
 
                                         <% for( let index=1; index < products[i].images.length; index++ ) { %>
                                           <div class="carousel-item">
@@ -125,9 +129,13 @@
                                         <%=products[i].name%>
                                       </h5>
                                       <p><span class="precio-final">$<%= products[i].finalPrice %>
-                                        </span><span class="descontado">
-                                          <%= products[i].discount %>%off
-                                        </span></p>
+                                        </span>
+                                        <% if (products[i].discount != 0) { %>
+                                          <span class="descontado">
+                                            <%= products[i].discount %>%off
+                                          </span>
+                                        <% } %>
+                                      </p>
                                     </div>
                                   </a>
                                 </div>
@@ -139,12 +147,15 @@
                                   <div class="card producto container-fluid col-sm-5 col-lg-3">
                                     <!-- nuevo -->
                                     <% if (typeof localUser !=='undefined' ) { %>
-                                      <div class="containerheart">
+                                      <!-- <div class="containerheart">
                                         <i onclick="toggle()" id="btn" class="far fa-star"></i>
-                                      </div>
+                                      </div> -->
                                       <% } %>
                                         <!-- imagen -->
                                         <a href="/productos/detalle/<%= products[i].id %> ">
+                                          <% if (products[i].label.id != 1) { %>
+                                            <img class="labels" src="/images/labels/<%= products[i].label.img %> ">
+                                          <% } %> 
                                           <div id="carouselExampleSlidesOnly" class="carousel slide"
                                             data-ride="carousel">
                                             <div class="carousel-inner">
@@ -172,9 +183,13 @@
                                             <!-- precio y descuento -->
                                             <p><span class="precio-final">$
                                                 <%= products[i].finalPrice %>
-                                              </span><span class="descontado">
-                                                <%= products[i].discount %>%off
-                                              </span></p>
+                                              </span>
+                                              <% if (products[i].discount != 0) { %>
+                                                <span class="descontado">
+                                                  <%= products[i].discount %>%off
+                                                </span>
+                                              <% } %>
+                                              </p>
                                         </a>
 
                                         <!-- cantidad y comprar -->

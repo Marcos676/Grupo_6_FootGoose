@@ -49,6 +49,7 @@ module.exports = {
                 id: req.params.id
             },
             include: [{ association: 'images' },
+            { association: 'label' },
             {
                 association: 'subCategory',
                 include: [{
@@ -86,10 +87,10 @@ module.exports = {
                     association: 'subCategory',
                     include: [{
                         association: 'products',
+                        include: [{ association: 'images'}, {association: 'label'}],
                         order: [
                             ['id', 'DESC']
                         ],
-                        include: [{ association: 'images' }],
                         //subQuery: false,
                         offset: +offset * 2
                     }]
@@ -157,7 +158,7 @@ module.exports = {
                     association: 'subCategory',
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }],
+                        include: [{ association: 'images'}, { association: 'label' }],
                         offset: +offset * 2,
                         distinct: true
                     }]
@@ -235,7 +236,7 @@ module.exports = {
                     },
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }],
+                        include: [{ association: 'images' }, { association: 'label' }],
                         offset: +offset * 2,
                         distinct: true
                     }]
@@ -320,7 +321,7 @@ module.exports = {
                     { description: { [Op.like]: `%${req.query.b}%` } }
                 ]
             },
-            include: [{ association: 'images' }],
+            include: [{ association: 'images' }, { association: 'label' }],
             offset: +offset * 2,
             distinct: true
         })

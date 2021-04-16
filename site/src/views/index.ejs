@@ -54,15 +54,19 @@
               <div class="row products">
 
                 <% for( let i=0; i < 5; i++ ) { %>
-                  <div class="card producto container-fluid col-sm-5 col-lg-2">
+                  <div class="card producto container-fluid col-sm-5 col-lg-3">
                     <!-- nuevo -->
-                    <% if (typeof localUser !=='undefined' ) { %>
+                    <!-- <% if (typeof localUser !=='undefined' ) { %>
                       <div class="containerheart">
                         <i onclick="toggle()" id="btn" class="far fa-star"></i>
                       </div>
-                      <% } %>
+                      <% } %> -->
                         <!-- imagen -->
                         <a href="/productos/detalle/<%= products[i].id %> ">
+                          <% if (products[i].label.id !=1) { %>
+                            <img class="labels"
+                                src="/images/labels/<%= products[i].label.img %> ">
+                            <% } %>
                           <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner" style="width: 100%; object-fit: contain;">
 
@@ -92,9 +96,13 @@
                           <!-- precio y descuento -->
                           <p><span class="precio-final">$
                               <%= products[i].finalPrice %>
-                            </span><span class="descontado">
-                              <%= products[i].discount %>%off
-                            </span></p>
+                            </span>
+                            <% if (products[i].discount != 0) { %>
+                              <span class="descontado">
+                                <%= products[i].discount %>%off
+                              </span>
+                            <% } %>
+                          </p>
                           <!-- cantidad y comprar -->
                           <% if (typeof localUser !=='undefined' ) { %>
                             <div class="box">

@@ -17,7 +17,7 @@ const usersRouter = require('./routes/usersRouter');
 const adminRouter = require('./routes/adminRouter')
 /* ruta de API */
 const categoriesRouter = require('./routes/api/categoriesRouter')
-const carritoRouter = require('./routes/api/carritoRouter')
+/* const carritoRouter = require('./routes/api/carritoRouter') */
 
 /* Middlewares */
 const cookieCheck = require('./middlewares/cookieCheck')
@@ -51,7 +51,7 @@ app.use('/usuario', usersRouter);
 app.use('/admin', adminRouter);
 /* ruta de api */
 app.use('/api/categories', categoriesRouter);
-app.use('/api/carrito', carritoRouter);
+/* app.use('/api/carrito', carritoRouter); */
 
 
 // catch 404 and forward to error handler

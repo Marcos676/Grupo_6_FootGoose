@@ -3,7 +3,7 @@
 let nameCategory = [
   {category: 'Alimento'},
   {category: 'Accesorio'},
-  {category: 'Higiente'},
+  {category: 'Higiene'},
   {category: 'Salud'}
 ]
 let namesCategories = []

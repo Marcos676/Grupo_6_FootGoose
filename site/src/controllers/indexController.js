@@ -6,7 +6,8 @@ module.exports = {
     
     index: (req, res) => {
         const products = db.Product.findAll({
-            include: [{ association: 'images' }]
+            include: [{ association: 'images' }, { association: 'label' }],
+            order: [["sold", "DESC"]]
         })
         const animal = db.Animal.findAll()
 
@@ -21,15 +22,20 @@ module.exports = {
             })
             .catch(error => res.send(error))     
     },
-    faqs: (req,res) => {
-        res.render('faqs', {
-            title: 'Preguntas frecuentes'
+    tyc: (req,res) => {
+        res.render('tyc', {
+            title: 'Términos y condiciones'
         })
     },
     rupert: (req,res) => {
         res.render('rupert', {
             title: 'RUPERT CONFIRMED?'
         })
-    }
+    },
+    faqs: (req,res) => {
+        res.render('faqs', {
+            title: 'Preguntas frecuentes'
+        })
+    },
 
 }

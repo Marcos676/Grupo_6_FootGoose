@@ -19,6 +19,16 @@
 	margin: 15px 0;
 }
 
+.catalogo .card .labels {
+	position: absolute;
+	top: 0%;
+	right: 5%;
+	width: 70px; 
+	height: 70px; 
+	z-index: 1; 
+	padding: 0;
+}
+
 .catalogo .type-categories a {
 	color: #7f7f7f;
 	font-size: 26px;
@@ -101,7 +111,7 @@ justify-content: center;
 .catalogo .containerheart {
 	position: absolute;
 	padding: 5px;
-	left: 80%;
+	left: 73%;
 	top: 0%;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 	border-radius: 30px;

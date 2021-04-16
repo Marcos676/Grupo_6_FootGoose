@@ -205,8 +205,9 @@ window.addEventListener('load', () => {
             !newPass.classList.contains('is-invalid') &&
             !confirmNew.classList.contains('is-invalid')
         ) {
-            alert('Los cambios como en el nombre y la imagen de perfil seran visibles en su próximo inicio de sesión')
             formEdit.submit()
+            swal("Enhorabuena!",  `Sus cambios fueron exitosos! 
+            Algunos serán visibles en tu próxima sesión`, "success");
         }
     })
 })
