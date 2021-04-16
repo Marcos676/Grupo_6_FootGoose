@@ -63,7 +63,7 @@
                         <!-- CARRITO -->
                         <ul class="navbar-nav carrito col-12 col-md-1">
                             <li>
-                                <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
+                                <a  data-pushbar-target="pushbar-checkout" ><i class="fas fa-shopping-cart"></i></a>
                             </li>
                         </ul>
                         <!-- BOTON NOCTURNO -->
@@ -78,5 +78,7 @@
         </div>
     </div>
 </header>
-
+<%- include('./cart') %>
 <script src="/javascripts/darkMode.js"></script>
+<script src="/javascripts/cart.js"></script>
+

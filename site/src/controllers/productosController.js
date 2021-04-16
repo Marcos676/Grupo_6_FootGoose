@@ -8,7 +8,7 @@ module.exports = {
         let cant = 9 //cantidad de productos a mostrar
 
         const products = db.Product.findAll({
-            include: [{ association: 'images' },{ association: 'label' }],
+            include: [{ association: 'images' }, { association: 'label' }],
             order: [
                 ['id', 'DESC']
             ],
@@ -18,16 +18,16 @@ module.exports = {
         const animal = db.Animal.findAll()
 
         const count = db.Product.count()
-        
+
         Promise.all([products, animal, count])
             .then(data => {
 
                 let pagT = data[2] / cant
                 let pagC = pagT % 1
-                if(pagC != 0){
+                if (pagC != 0) {
                     pagT = parseInt(++pagT)
                 }
-                
+
                 return res.render('catalogo', {
                     title: 'Catalogo',
                     products: data[0],
@@ -48,21 +48,22 @@ module.exports = {
             where: {
                 id: req.params.id
             },
-            include: [{association: 'images'},
-                {association: 'subCategory',
-                    include: [{association: 'category',
-                        include: [{association: 'animal'}]
-                    }]
+            include: [{ association: 'images' },
+            {
+                association: 'subCategory',
+                include: [{
+                    association: 'category',
+                    include: [{ association: 'animal' }]
                 }]
+            }]
         })
-        .then(product => {
-            res.render("productDetail", {
-                title: 'Detalle',
-                product
+            .then(product => {
+                res.render("productDetail", {
+                    title: 'Detalle',
+                    product
+                })
             })
-        })
 
-       
     },
     carrito: (req, res) => {
         res.render('productCart', {
@@ -73,7 +74,7 @@ module.exports = {
 
         let offset = req.params.pag || 0
 
-        let cant = 9 
+        let cant = 9
 
         const productos = db.Animal.findOne({
             where: {
@@ -85,21 +86,20 @@ module.exports = {
                     association: 'subCategory',
                     include: [{
                         association: 'products',
-                        include: [{ association: 'images' }],
                         order: [
                             ['id', 'DESC']
                         ],
-                        offset: +offset * 2,
-
+                        include: [{ association: 'images' }],
+                        //subQuery: false,
+                        offset: +offset * 2
                     }]
                 }]
-            }]
+            }],
         })
         const animals = db.Animal.findAll()
 
         Promise.all([productos, animals])
             .then(data => {
-
                 let productos = []
 
                 data[0].category.forEach(categorias => {
@@ -113,7 +113,7 @@ module.exports = {
 
                 let pagT = productos.length / cant
                 let pagC = pagT % 1
-                if(pagC != 0){
+                if (pagC != 0) {
                     pagT = parseInt(++pagT)
                 }
 
@@ -184,7 +184,7 @@ module.exports = {
 
                 let pagT = productos.length / cant
                 let pagC = pagT % 1
-                if(pagC != 0){
+                if (pagC != 0) {
                     pagT = parseInt(++pagT)
                 }
 
@@ -264,7 +264,7 @@ module.exports = {
             }]
         })
 
-        Promise.all([productos, animals,categoria, subCategoria, subCategoryList])
+        Promise.all([productos, animals, categoria, subCategoria, subCategoryList])
             .then(data => {
 
                 let productos = []
@@ -279,7 +279,7 @@ module.exports = {
 
                 let pagT = productos.length / cant
                 let pagC = pagT % 1
-                if(pagC != 0){
+                if (pagC != 0) {
                     pagT = parseInt(++pagT)
                 }
 
@@ -309,6 +309,10 @@ module.exports = {
 
     },
     search: (req, res) => {
+        let offset = req.params.pag || 0
+
+        let cant = 9 //cantidad de productos a mostrar
+
         const products = db.Product.findAll({
             where: {
                 [Op.or]: [
@@ -316,17 +320,30 @@ module.exports = {
                     { description: { [Op.like]: `%${req.query.b}%` } }
                 ]
             },
-            include: [{ association: 'images' }]
+            include: [{ association: 'images' }],
+            offset: +offset * 2,
+            distinct: true
         })
         const animal = db.Animal.findAll()
 
         Promise.all([products, animal])
             .then(data => {
+
+                let pagT = data[0].length / cant
+                let pagC = pagT % 1
+                if (pagC != 0) {
+                    pagT = parseInt(++pagT)
+                }
+
                 return res.render('catalogo', {
                     title: 'Busqueda',
                     products: data[0],
                     animals: data[1],
-                    search: "Busqueda"
+                    search: "Busqueda",
+                    pagT,
+                    offsetP: +offset + cant,
+                    offsetN: +offset - cant,
+                    offset,
                 })
             })
             .catch(error => res.send(error))

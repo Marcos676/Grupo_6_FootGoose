@@ -37,7 +37,7 @@
                     </div>
                     <!-- Resultados de busqueda -->
                     <div class="resultado col-md-4 col-sm-4">
-                      <p>Productos: <%= products.length%>
+                      <p class="result">Productos: <%= products.length%>
                       </p>
                     </div>
                     <!-- Ordenar por -->
@@ -65,15 +65,15 @@
 
                         <% animals.forEach(animal=> { %>
                           <div class="animal-list">
-                            <a href="/productos/filtro/animal/<%= animal.id %>"><img src="/images/categorias/<%= animal.img %>"
-                                alt="<%= animal.animal %>"></a>
+                            <a href="/productos/filtro/animal/<%= animal.id %>"><img
+                                src="/images/categorias/<%= animal.img %>" alt="<%= animal.animal %>"></a>
                           </div>
                           <% }) %>
 
                       </section>
                     </div>
                     <!-- Rango de precio -->
-                   <!--  <form>
+                    <!--  <form>
                       <div class="form-group">
                         <label for="formControlRange">Filtrar por precio</label>
                         <input type="range" min="100" max="9000" step="1" class="form-control-range"
@@ -87,150 +87,169 @@
                     <article class="col-12">
 
                       <div class="products row">
+                        <% if (products.length===0 ) { %>
 
-                          <% for( let i = 0; i < 9; i++ ) { %>
+                          <h1 style="text-align: center;">No se encontraron resultados</h1>
 
-                          <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
-                            <!-- 
+                          <% }  else { %>
+
+                            <% for( let i=0; i < 9; i++ ) { %>
+
+                              <% if (typeof localUser !=='undefined' && localUser.admin==1) { %>
+                                <!-- 
                       VISTA DE PRODUCTOS DE ADMIN
                      -->
-                            <div class="card producto col-sm-3">
-                              <a href="/admin/products/<%= products[i].id %>">
-                                <!-- carusel -->
-                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                  <div class="carousel-inner">
+                                <div class="card producto col-sm-3">
+                                  <a href="/admin/products/<%= products[i].id %>">
+                                    <!-- carusel -->
+                                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                      <div class="carousel-inner">
 
-                                    <div class="carousel-item active">
-                                      <img src="/images/productos/<%= products[i].images[0].imgName %>"
-                                        class="d-block w-100" data-interval="1000" alt="...">
-                                    </div>
+                                        <div class="carousel-item active">
+                                          <img src="/images/productos/<%= products[i].images[0].imgName %>"
+                                            class="d-block w-100" data-interval="1000" alt="...">
+                                        </div>
 
-                                    <% for( let index=1; index < products[i].images.length; index++ ) { %>
-                                      <div class="carousel-item">
-                                        <img src="/images/productos/<%= products[i].images[index].imgName %>"
-                                          class="d-block w-100" data-interval="1000" alt="...">
-                                      </div>
-                                      <% } %>
-
-                                  </div>
-                                </div>
-
-                                <div class="producto-datos">
-                                  <h5 class="titulo producto">
-                                    <%=products[i].name%>
-                                  </h5>
-                                  <p><span class="precio-final">$<%= products[i].finalPrice %>
-                                    </span><span class="descontado">
-                                      <%= products[i].discount %>%off
-                                    </span></p>
-                                </div>
-                              </a>
-                            </div>
-
-                            <% } else { %>
-                              <!-- 
-                        VISTA DE PRODUCTOS DE USUARIO
-                       -->
-                              <div class="card producto container-fluid col-sm-5 col-lg-3">
-                                <!-- nuevo -->
-                                <% if (typeof localUser !=='undefined' ) { %>
-                                  <div class="containerheart">
-                                    <i onclick="toggle()" id="btn" class="far fa-star"></i>
-                                  </div>
-                                  <% } %>
-                                    <!-- imagen -->
-                                    <a href="/productos/detalle/<%= products[i].id %> ">
-                                      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                        <div class="carousel-inner">
-
-                                          <div class="carousel-item active">
-                                            <img src="/images/productos/<%= products[i].images[0].imgName %>"
+                                        <% for( let index=1; index < products[i].images.length; index++ ) { %>
+                                          <div class="carousel-item">
+                                            <img src="/images/productos/<%= products[i].images[index].imgName %>"
                                               class="d-block w-100" data-interval="1000" alt="...">
                                           </div>
+                                          <% } %>
 
-                                          <% for( let index=1; index < products[i].images.length; index++ ) { %>
-                                            <div class="carousel-item">
-                                              <img src="/images/productos/<%= products[i].images[index].imgName %>"
-                                                class="d-block w-100" data-interval="1000" alt="...">
-                                            </div>
-                                            <% } %>
-
-                                        </div>
                                       </div>
+                                    </div>
 
-                                      <div class="producto-datos">
-                                        <!-- nombre -->
-                                        <h5 class="titulo producto">
-                                          <%=products[i].name%>
-                                        </h5>
-                                        <!-- precio y descuento -->
-                                        <p><span class="precio-final">$
-                                            <%= products[i].finalPrice %>
-                                          </span><span class="descontado">
-                                            <%= products[i].discount %>%off
-                                          </span></p>
-                                    </a>
+                                    <div class="producto-datos">
+                                      <h5 class="titulo producto">
+                                        <%=products[i].name%>
+                                      </h5>
+                                      <p><span class="precio-final">$<%= products[i].finalPrice %>
+                                        </span><span class="descontado">
+                                          <%= products[i].discount %>%off
+                                        </span></p>
+                                    </div>
+                                  </a>
+                                </div>
 
-                                    <!-- cantidad y comprar -->
+                                <% } else { %>
+                                  <!-- 
+                        VISTA DE PRODUCTOS DE USUARIO
+                       -->
+                                  <div class="card producto container-fluid col-sm-5 col-lg-3">
+                                    <!-- nuevo -->
                                     <% if (typeof localUser !=='undefined' ) { %>
-                                      <div class="box">
-                                        <input type="number" min="0" max="<%= products[i].cuantity %>">
-                                      </div>
-                                      <div class="btn-compra">
-                                        <button type="button" class="btn btn-success"><i
-                                            class="fas fa-shopping-cart"></i>
-                                          Agregar</button>
+                                      <div class="containerheart">
+                                        <i onclick="toggle()" id="btn" class="far fa-star"></i>
                                       </div>
                                       <% } %>
-                              </div>
+                                        <!-- imagen -->
+                                        <a href="/productos/detalle/<%= products[i].id %> ">
+                                          <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                            data-ride="carousel">
+                                            <div class="carousel-inner">
+
+                                              <div class="carousel-item active">
+                                                <img src="/images/productos/<%= products[i].images[0].imgName %>"
+                                                  class="d-block w-100" data-interval="1000" alt="...">
+                                              </div>
+
+                                              <% for( let index=1; index < products[i].images.length; index++ ) { %>
+                                                <div class="carousel-item">
+                                                  <img src="/images/productos/<%= products[i].images[index].imgName %>"
+                                                    class="d-block w-100" data-interval="1000" alt="...">
+                                                </div>
+                                                <% } %>
+
+                                            </div>
+                                          </div>
+
+                                          <div class="producto-datos">
+                                            <!-- nombre -->
+                                            <h5 class="titulo producto">
+                                              <%=products[i].name%>
+                                            </h5>
+                                            <!-- precio y descuento -->
+                                            <p><span class="precio-final">$
+                                                <%= products[i].finalPrice %>
+                                              </span><span class="descontado">
+                                                <%= products[i].discount %>%off
+                                              </span></p>
+                                        </a>
+
+                                        <!-- cantidad y comprar -->
+                                        <% if (typeof localUser !=='undefined' ) { %>
+                                          <form>
+                                            <div class="box">
+                                              <input id="<%=products[i].id%>" type="number" min="0"
+                                                max="<%= products[i].cuantity %>">
+                                            </div>
+                                            <div class="btn-compra">
+                                              <a type="button" onclick="agregarItem(event,'<%=products[i].id%>')"
+                                                class="btn btn-success"><i class="fas fa-shopping-cart"></i>
+                                                Agregar</a>
+                                            </div>
+                                          </form>
+
+                                          <% } %>
+                                  </div>
                       </div>
 
                       <% } %>
 
-                      <% if (products.length -1 == i) { %>
-                       <% i = 9  %> 
-                      <% } %>
+                        <% if (products.length -1==i) { %>
+                          <% i=9 %>
+                            <% } %>
 
-                        <% } %>
+                              <% } %>
+                    <% } %>
+
                 </div>
 
                 </article>
-               <!-- Páginador -->
-            <div class="paginas col-12">
-              <nav aria-label="...">
-                <ul class="pagination">
-                  <% if (offset >= 9) { %>
-                    <li class="page-item">
-                      <a class="page-link" href="/productos/<%= offsetN %>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                  <% } %>
+                <% if (products.length != 0) { %>
+                
+                <!-- Páginador -->
+                <div class="paginas col-12">
+                  <nav aria-label="...">
+                    <ul class="pagination">
+                      <% if (offset>= 9) { %>
+                        <li class="page-item">
+                          <a class="page-link" href="/productos/<%= offsetN %>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <% } %>
 
-                  <% for( let i = 0; i < pagT; i++ ) { %>
-                   
-                    <% if (offset == i * 9 ) { %>
-                      <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#"><%= i + 1 %><span class="sr-only">(current)</span></a>
-                      </li>
-                      
-                    <% } else { %>
-                    <li class="page-item"><a class="page-link" href="/productos/<%= i * 9 %>"><%= i + 1 %> </a></li>
-                    <% } %>
+                          <% for( let i=0; i < pagT; i++ ) { %>
 
-                  <% } %>
-                  
-                  <% if (+offset !== (pagT - 1) *9) { %>
-                    <li class="page-item">
-                      <a class="page-link" href="/productos/<%= offsetP %>" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  <% } %>
- 
-                </ul>
-              </nav>
-            </div>
+                            <% if (offset==i * 9 ) { %>
+                              <li class="page-item active" aria-current="page">
+                                <a class="page-link" href="#">
+                                  <%= i + 1 %><span class="sr-only">(current)</span>
+                                </a>
+                              </li>
+
+                              <% } else { %>
+                                <li class="page-item"><a class="page-link" href="/productos/<%= i * 9 %>">
+                                    <%= i + 1 %>
+                                  </a></li>
+                                <% } %>
+
+                                  <% } %>
+
+                                    <% if (+offset !==(pagT - 1) *9) { %>
+                                      <li class="page-item">
+                                        <a class="page-link" href="/productos/<%= offsetP %>" aria-label="Next">
+                                          <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                      </li>
+                                      <% } %>
+
+                    </ul>
+                  </nav>
+                </div>
+                <% } %>
 
                 </section>
 
@@ -238,6 +257,7 @@
                 </div>
 
               </main>
+
               <%- include('./partials/footer') %>
                 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
                   integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
@@ -247,6 +267,8 @@
                 <script>
                   $('input[type="number"]').niceNumber();
                 </script>
+
+                <script src="/javascripts/cart.js"></script>
   </body>
 
 </html>
