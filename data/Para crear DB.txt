@@ -1,0 +1,18 @@
+Desde la carpeta "site"
+
+1° sequelize db:create
+2° sequelize db:migrate
+3° sequelize db:seed:all
+
+Luego en la carpeta site crear un archivo llamado ".env" para configurar las variables de entorno
+
+DB_USERNAME=root
+DB_PASSWORD=
+DATABASE=footgooseDB
+DB_PORT="127.0.0.1"
+PORT=3000
+
+Las variables tienen la configuración por defecto pero puede editarlas con sus datos
+En "DB_USERNAME", "DB_PASSWORD" y "DB_PORT" completa con sus datos de configuración y usuario de MySQL,
+y en "PORT" puede editar el puerto donde puede levantar el proyecto al ejecutar en su navegador el 
+"localhost:...."

@@ -12,7 +12,9 @@ const productos = [...Array(100)].map(producto => (
     discount: faker.datatype.number({min:0, max:100}),
     sold:  faker.datatype.number({min:0, max:100}),
     expiration: faker.date.future(),
-    finalPrice: faker.datatype.number({min: 100, max: 9999}),
+    get finalPrice() {
+      return (this.price - ((this.price * this.discount)/100)).toFixed(2);
+    },
     subCategoryId: faker.datatype.number({max:78, min:1}),
     labelId: faker.datatype.number({max:3, min:1}),
     createdAt: new Date,
