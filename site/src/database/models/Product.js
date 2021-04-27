@@ -1,99 +1,56 @@
-module.exports = (sequelize, dataType) => {
-
-    const alias = "Products";
-
-    const cols = {
-        id: {
-            type: dataType.INTEGER,
-            allowNull: true,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        name: {
-            type: dataType.STRING(70),
-            allowNull: true
-        },
-        description: {
-            type: dataType.STRING(300),
-            allowNull: true
-        },
-        cuantity: {
-            type: dataType.INTEGER,
-            allowNull: true,
-        },
-        price: {
-            type: dataType.DECIMAL(7,2),
-            allowNull: true
-        },
-        discount: {
-            type: dataType.INTEGER(3)
-        },
-        sold: {
-            type: dataType.INTEGER,
-            defaulValue: 0
-        },
-        expiration: {
-            type: dataType.DATE
-        },
-        final_price: {
-            type: dataType.DECIMAL(7,2),
-            allowNull: true,
-        },
-        created_at: {
-            type: dataType.DATE,
-            defaultValue: null
-        },
-        updated_at: {
-            type: dataType.DATE,
-            defaultValue: null
-        },
-        sub_category_id: {
-            type: dataType.INTEGER,
-            allowNull: true
-        },
-        label_id: {
-            type: dataType.INTEGER,
-            allowNull: true
-        }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Product extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Product.belongsTo(models.SubCategory, {
+        as: "subCategory",
+        foreingKey: "subCategoryId"
+    })
+    Product.belongsTo(models.Label, {
+        as: "label",
+        foreingKey: "labelId"
+    })
+    Product.hasMany(models.ImageProduct, {
+        as: "images",
+        foreingKey: "productId"
+    })
+    Product.belongsToMany(models.User,{
+        as: 'cartProduct',
+        through: 'Carts',
+        foreingKey: 'productId',
+        otherKey: 'favoriteId'
+    })
+    Product.belongsToMany(models.User,{
+        as: 'favoriteOfUser',
+        through: 'Favorites',
+        foreingKey: 'productId',
+        otherKey: 'userId'
+    })
     }
-    const config = {
-        tableName: "products",
-        timestamps: true,
-        underscored: true
-    }
-    const Product = sequelize.define(alias, cols, config)
-
-    Product.associate = (models) => {
-
-        Product.belongsTo(models.SubCategories, {
-            as: "subCategory",
-            foreingKey: "sub_category_id",
-            underscored: true
-        })
-        Product.belongsTo(models.Labels, {
-            as: "label",
-            foreingKey: "label_id",
-            underscored: true
-        })
-        Product.hasMany(models.ProductsImages, {
-            as: "images",
-            foreingKey: "product_id",
-            underscored: true
-        })
-        Product.belongsToMany(models.Users,{
-            as: 'cartProduct',
-            through: 'cart',
-            foreingKey: 'product_id',
-            otherKey: 'favorite_id',
-            underscored: true
-        })
-        Product.belongsToMany(models.Users,{
-            as: 'favoriteOfUser',
-            through: 'favorites',
-            foreingKey: 'product_id',
-            otherKey: 'user_id',
-            underscored: true
-        })
-    }
-    return Product
-}
+  };
+  Product.init({
+    name: DataTypes.STRING,
+    description: DataTypes.STRING,
+    cuantity: DataTypes.INTEGER,
+    price: DataTypes.DECIMAL,
+    discount: DataTypes.INTEGER,
+    sold: DataTypes.INTEGER,
+    expiration: DataTypes.DATE,
+    finalPrice: DataTypes.DECIMAL,
+    subCategoryId: DataTypes.INTEGER,
+    labelId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Product',
+  });
+  return Product;
+};

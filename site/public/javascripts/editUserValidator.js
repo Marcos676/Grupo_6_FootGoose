@@ -7,7 +7,10 @@ window.addEventListener('load', () => {
     /* Expresiónes regulares */
     let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
-    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[:!"#$%&'[()*+,\-./:;<=>?@^_`{|}:]).{8,}$/;
+    let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]).{8,}$/;;
+
+    let regExTel = /[^0-9]/
+
 
     let regExExt = /(.jpg|.jpeg|.png|.gif)$/i;
 
@@ -17,6 +20,7 @@ window.addEventListener('load', () => {
     let img = formEdit.elements[0];
     let name = formEdit.elements[1];
     let email = formEdit.elements[2];
+    let tel = formEdit.elements[4];
     let password = formEdit.elements[5];
     let newPass = formEdit.elements[6];
     let confirmNew = formEdit.elements[7];
@@ -103,6 +107,29 @@ window.addEventListener('load', () => {
         }
     })
 
+    /* Validacion de tel */
+    tel.addEventListener('blur', (e) => {
+        var phone = tel.value.split(" ")
+
+        switch (true) {
+            case regExTel.test(tel.value):
+                qs('.errorTel').innerHTML = 'El teléfono no debe contener símbolos, letras o espacios';
+                tel.classList.add('is-invalid');
+                break;
+
+            case (tel.value.length != 0) && !(tel.value.length === 10 || tel.value.length === 8):
+                qs('.errorTel').innerHTML = 'Un teléfono tiene 8 o 10 dígitos';
+                tel.classList.add('is-invalid');
+                break;
+
+            default:
+                qs('.errorTel').innerHTML = '';
+                tel.classList.remove('is-invalid');
+                tel.classList.add('is-valid');
+                break;
+        }
+    })
+
 
     /* Validacion de contraseña actual */
     password.addEventListener('blur', () => {
@@ -161,23 +188,26 @@ window.addEventListener('load', () => {
 
             default:
                 qs('.errorConfirmNew').innerHTML = '';
-                newPass.classList.remove('is-invalid');
-                password.classList.add('is-valid');
+                confirmNew.classList.remove('is-invalid');
+                confirmNew.classList.add('is-valid');
                 break;
         }
     })
     /* Validación para submit */
     formEdit.addEventListener('submit', (e) => {
         e.preventDefault()
-        if(
+        if (
             !img.classList.contains('is-invalid') &&
             !name.classList.contains('is-invalid') &&
             !email.classList.contains('is-invalid') &&
+            !tel.classList.contains('is-invalid') &&
             !password.classList.contains('is-invalid') &&
             !newPass.classList.contains('is-invalid') &&
-            !confirmNew.classList.contains('is-invalid') 
+            !confirmNew.classList.contains('is-invalid')
         ) {
             formEdit.submit()
+            swal("Enhorabuena!",  `Sus cambios fueron exitosos! 
+            Algunos serán visibles en tu próxima sesión`, "success");
         }
     })
 })

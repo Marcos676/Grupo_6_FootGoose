@@ -20,7 +20,13 @@
   }
   .nuevo-producto .imagen-carrusel {
     width: 100%;
+    object-fit: contain;
+    height: 100%;
   }
+  .nuevo-producto .img-content {
+    height: 350px;
+  }
+
   /* Boton de carrusel */
 
   .nuevo-producto .carrusel-add-image .boton-image{
@@ -49,15 +55,18 @@
     justify-content: space-around;
     margin: 25px 0;
   }
+  .nuevo-producto .botones button{
+    margin: 10px;
+  }
   .nuevo-producto .completar {
     border: none;
   }
 
-  @media (min-width: 425px){
-    .nuevo-producto .imagen-carrusel {
-      width: 300px;
-    }
+  .nuevo-producto form select,
+  .nuevo-producto form input {
+    margin: 5px 0;
   }
+
   @media (min-width: 768px){
     .nuevo-producto {
         margin-top: 15px;

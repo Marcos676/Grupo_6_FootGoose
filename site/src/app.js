@@ -1,5 +1,5 @@
 /* VARIABLES E IMPORTACIONES */
-
+require('dotenv').config()
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -8,13 +8,16 @@ const logger = require('morgan');
 const app = express();
 const methodOverride =  require('method-override')
 const session = require('express-session')
-require('dotenv').config()
+
 
 /* Requerimientos de rutas */
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const adminRouter = require('./routes/adminRouter')
+/* ruta de API */
+const categoriesRouter = require('./routes/api/categoriesRouter')
+/* const carritoRouter = require('./routes/api/carritoRouter') */
 
 /* Middlewares */
 const cookieCheck = require('./middlewares/cookieCheck')
@@ -46,8 +49,9 @@ app.use('/', indexRouter);
 app.use('/productos', productsRouter);
 app.use('/usuario', usersRouter);
 app.use('/admin', adminRouter);
-
-
+/* ruta de api */
+app.use('/api/categories', categoriesRouter);
+/* app.use('/api/carrito', carritoRouter); */
 
 
 // catch 404 and forward to error handler

@@ -18,6 +18,7 @@
 /* admin */
 @import 'adminProductDetail.css';
 @import 'product-Add-Edit.css';
+@import 'adminCreate.css';
 
 
 /* VARIABLES */
@@ -55,6 +56,10 @@ a:hover {
 }
 li{
   list-style: none;
+}
+
+.faqs a {
+  color: var(--color-gris50);
 }
 /* ------------CONTENIDO DE PÁGINAS ---------------*/
 .contenido {

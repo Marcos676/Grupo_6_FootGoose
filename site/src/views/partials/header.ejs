@@ -9,7 +9,7 @@
             </div>
             <div class="container-principal col-10 col-xl-11 row">
                 <!-- BUSCADOR -->
-                <div class="buscador col-8 col-md-9">
+                <div class="buscador col-7 col-md-9">
                     <form action="/productos/search">
                         <input type="text" placeholder="Busca" name="b">
                         <button type="submit">
@@ -20,7 +20,7 @@
                 <!-- INGRESAR -->
                 <div class="ingresar col-2 col-md-3">
                     <% if (typeof localUser != 'undefined') { %>
-                        <a href="/usuario/ingresar"><img src="/images/users/<%= localUser.img %> " alt="imagen de perfil"> <%= `  ${localUser.firstName}`%> </a>
+                        <a href="/usuario/ingresar"><img src="/images/users/<%= localUser.img %>" alt="imagen de perfil"> <%= `  ${localUser.firstName}`%> </a>
                     <% } else { %>
                         <a href="/usuario/ingresar"> <i class="fas fa-paw"></i>  INGRESAR </a>
                     <% } %>
@@ -57,13 +57,13 @@
                         <ul class="navbar-nav mr-auto menu col-12 col-md-9">
                             <li><a href="/">HOME</a></li>
                             <li><a href="/productos">TIENDA</a></li>
-                            <li><a href="/#nosotros">NOSOTROS</a></li>
-                            <li><a href="/preguntas-frecuentes">FAQS</a></li>
+                            <li><a href="/#refugios">REFUGIOS</a></li>
+                            <li><a href="/tyc">TyC</a></li>
                         </ul>
                         <!-- CARRITO -->
                         <ul class="navbar-nav carrito col-12 col-md-1">
                             <li>
-                                <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
+                                <a  data-pushbar-target="pushbar-checkout" ><i class="fas fa-shopping-cart"></i></a>
                             </li>
                         </ul>
                         <!-- BOTON NOCTURNO -->
@@ -78,11 +78,7 @@
         </div>
     </div>
 </header>
+<%- include('./cart') %>
+<script src="/javascripts/darkMode.js"></script>
+<script src="/javascripts/cart.js"></script>
 
-<script>
-    var check = document.getElementById("cambiarModo");
-
-    check.onclick = () => {
-        document.querySelector("body").classList.toggle('active');
-    }
-</script>

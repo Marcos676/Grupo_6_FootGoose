@@ -6,6 +6,7 @@
 .home .imagen-carrusel{
   height: 400px;
   margin-bottom: 20px;
+  object-fit: contain;
 }
 .home .categorias{
   justify-content: center;
@@ -29,6 +30,115 @@
   padding: 25px;
 }
 
+/*PRODUCTOS*/
+
+.home .products {
+	justify-content: space-evenly;	
+}
+.home .card {
+    margin: 30px 10px;
+	justify-content: space-between;
+	transform: scale(1.02);
+}
+.home .card:hover{
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+	transition: transform .5s ease, box-shadow .5s ease;
+
+}
+
+.home .card .labels {
+	position: absolute;
+	top: 0%;
+	right: 5%;
+	width: 70px; 
+	height: 70px; 
+	z-index: 1; 
+	padding: 0;
+	margin: 0;
+}
+
+.home .card .precio-final {
+	color: green;
+	font-size: 1.3em;
+}
+
+.home .card .descontado {
+	color: red;
+	font-size: 10px;
+}
+
+.home .card img {
+	height: 280px;
+	width: 100%;
+	object-fit: contain;
+	margin-top: 8px;
+}
+
+.home .card .producto-datos {
+	align-items: baseline;
+}
+.home .containerheart {
+	position: absolute;
+	padding: 5px;
+	left: 70%;
+	top: 0%;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+	border-radius: 30px;
+	background-color: #fafafa;
+	z-index: 1;
+}
+
+.home .containerheart i{
+font-size: 1.5rem;
+transition: .4s;
+}
+
+.home .containerheart .fas {
+	color: gold;
+	transition: .4s;
+}
+
+.home .containerheart:hover i{
+	color: gold;
+}
+
+.home .card .box {
+	text-align: center;
+}
+
+.home .card .box input {
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 0 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+	width: 100%;
+}
+
+.home .card .box button {
+	background-color: var(--color-grisOscuro);
+	color: var(--color-blanco);
+	border: none;
+	outline: none;
+	padding: 0 10px;
+	border-radius: 5px;
+}
+
+.home .card .box button:hover {
+	background-color: var(--color-naranjaClaro);
+	color: #000;
+}
+.home .card .btn-compra {
+	text-align: center;
+	margin: 10px;
+}
+
+.home .card .box input:hover,
+.home .card .box input:focus {
+background: #f5cd76;
+color: #000;
+}
 @media (min-width: 768px){
   #myCarousel{
     display: block;

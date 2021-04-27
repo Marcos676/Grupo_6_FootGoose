@@ -1,0 +1,69 @@
+<div class="headerAdmin">
+    <div class="container-fluid header-container-admin ">
+        <div class="row ">
+            <!-- LOGO -->
+            <div class="col-2 col-xl-1 logo-container">
+                <a>
+                    <img src="/images/logo/logoDark.png" alt="">
+                </a>
+            </div>
+            <div class="container-principal col-10 col-xl-11 row">
+                <!-- BUSCADOR -->
+                <div class="buscador col-8 col-md-9">
+                    <form action="/productos/search">
+                        <input type="text" placeholder="Busca" name="b">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- AGREGAR PRODUCTO -->
+                <div class="agregarProducto col-2 col-md-3">
+                        <a href="/admin/products/create"> <i class="fas fa-paw"></i> AGREGAR PRODUCTO</a>
+                </div>
+                <!-- BURGUER BUTTON -->
+                <nav class="navbar-expand-md boton-hamburguesa col-2 col-md-12 row">
+                    <button class="navbar-toggler burger" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars "></i></button>
+                </nav>
+                <!-- NAV DESPLEGABLE MOBILE -->
+                <nav class="navbar-expand-md col-10 col-md-12">
+                    <div class="collapse navbar-collapse navegador" id="navbarSupportedContent">
+                        <!-- BUSCADOR SOLO MOBILE -->
+                        <ul class="navbar-nav solo-mobile col-12">
+                            <li>
+                                <form action="">
+                                    <input type="text" placeholder="Busca">
+                                    <button type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        <!-- INGRESAR SOLO MOBILE -->
+                        <ul class="navbar-nav ingresar solo-mobile col-12">
+                            <li><a href="/admin/products/create"> AGREGAR PRODUCTO</a></li>
+                            <li><a href="/admin/perfil"></i> MI CUENTA</a></li>
+                        </ul>
+                        <!-- NAVEGACION -->
+                        <ul class="navbar-nav mr-auto menu col-12 col-md-9">
+                            <li><a href="/productos">PRODUCTOS</a></li>
+                        </ul>
+                        <!-- BOTON MI CUENTA -->
+                        <a class="miCuenta" href="/admin/perfil"><i class="fas fa-user-tie"></i>PERFIL</a>
+
+                        <!-- BOTON NOCTURNO -->
+                        <ul class="navbar-nav nocturno col-12 col-md-2">
+                            <li>
+                                <input id="cambiarModo" type="checkbox">
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/darkMode.js"></script>

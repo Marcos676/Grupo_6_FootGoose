@@ -4,10 +4,9 @@
 <%- include('./partials/head') %>
 
     <body>
-        <%- include('./partials/header') %>
+        <%- include('../partials/headerAdmin.ejs') %>
 
             <div class="container contenido row admin-product-detail">
-
                 <!-- Carrusel -->
                 <div class="carrusel-add-image col-12 col-lg-6">
                     <!-- Titulo -->
@@ -16,14 +15,16 @@
                     </h3>
                     <div id="carousel-controller" class="carousel slide col-12" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="/images/productos/<%= product.images[0].img_name %>" class="imagen-carrusel" alt="...">
+                            <div class="carousel-item active img-content">
+                                <img src="/images/productos/<%= product.images[0].imgName %>" class="imagen-carrusel"
+                                    alt="...">
                             </div>
-                            <% for( let index = 1; index < product.images.length; index++ ) { %>
-                                <div class="carousel-item">
-                                    <img src="/images/productos/<%= product.images[index].img_name %> " class="imagen-carrusel" alt="...">
+                            <% for( let index=1; index < product.images.length; index++ ) { %>
+                                <div class="carousel-item img-content">
+                                    <img src="/images/productos/<%= product.images[index].imgName %> "
+                                        class="imagen-carrusel" alt="...">
                                 </div>
-                            <% } %>
+                                <% } %>
                         </div>
                         <a class="carousel-control-prev" href="#carousel-controller" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,7 +42,7 @@
 
                 <!-- Datos -->
                 <div class="padding-r-no col-12 col-lg-6 centrar">
-                    
+
                     <ul class="borde-inferior">
                         <li>
                             <p>Para: <%= product.subCategory.category.animal.animal %>
@@ -52,7 +53,7 @@
                             </p>
                         </li>
                         <li>
-                            <p>Sub-categoría: <%= product.subCategory.sub_category %>
+                            <p>Sub-categoría: <%= product.subCategory.subCategory %>
                             </p>
                         </li>
                     </ul>
@@ -65,17 +66,17 @@
                             <p>Descuento: <%= product.discount %>%</p>
                         </li>
                         <li>
-                            <p>Precio final: $<%= product.final_price %>
+                            <p>Precio final: $<%= product.finalPrice %>
                             </p>
                         </li>
                         <li>
                             <p>Etiqueta: <%= product.label.label %>
                             </p>
                         </li>
-                        <li>
-                            <p>Vencimiento de etiqueta: <%= product.expiration %>
-                            </p>
-                        </li>
+                        <!-- <li>
+                                <p>Vencimiento de etiqueta: <%= product.expiration %>
+                                </p>
+                            </li> -->
                     </ul>
                     <ul>
                         <li>
@@ -86,16 +87,67 @@
 
                 </div>
                 <div class="col-12">
-                    <form action="/admin/products/<%= product.id %>?_method=DELETE " method="POST">
+                    <form class="eliminar-prod" action="/admin/products/<%= product.id %>?_method=DELETE " method="POST">
                         <div class="botones">
                             <a href="/admin/products/<%= product.id %> /edit" class="btn btn-success">Editar</a>
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger btn-eliminar" onclick="javascript:return eliminar()" >Eliminar</button>
                         </div>
                     </form>
                 </div>
             </div>
+            </div>
 
             <%- include('../partials/footer') %>
+                <script>
+                    var check = document.getElementById("cambiarModo");
+
+                    check.onclick = () => {
+                        document.querySelector("body").classList.toggle('active');
+                    }
+                </script>
+               <!--  <script>
+                    document.querySelector(".eliminar-prod").addEventListener('submit', (e) => {
+                        e.preventDefault()
+
+                            let alerta = swal("Estás seguro de eliminar el producto?", {
+                                icon: 'warning',
+                                buttons: true,
+                                dangerMode: false
+                            })
+
+                            if (alerta) {
+                                document.querySelector(".eliminar-prod").submit()
+                            }
+
+                    })
+                </script> -->
+
+<script>
+    function eliminar ()
+      {
+          resultado = confirm("¿Seguro que desea eliminar este producto?");
+              return resultado;
+
+/*           swal("Estás seguro de eliminar el producto?", {
+                                icon: 'warning',
+                                buttons: true,
+                                dangerMode: false
+                            })
+.then((willDelete) => {
+  if (willDelete) {
+    swal("El producto se ha eliminado correctamente", {
+      icon: "success",
+    });
+  } else {
+    swal("Okey.No eliminaste el producto");
+  }
+}); */
+      }
+    </script>
+
+
+
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 
 </html>

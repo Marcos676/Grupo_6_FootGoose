@@ -1,10 +1,10 @@
 const db = require('../database/models')
 
 module.exports = (req, res, next) => {
-    const animals = db.Animals.findAll()
-    const categories = db.Categories.findAll()
-    const subCategories = db.SubCategories.findAll()
-    const labels = db.Labels.findAll()
+    const animals = db.Animal.findAll()
+    const categories = db.Category.findAll()
+    const subCategories = db.SubCategory.findAll()
+    const labels = db.Label.findAll()
 
     Promise.all([animals, categories, subCategories, labels])
         .then((classifications) => {

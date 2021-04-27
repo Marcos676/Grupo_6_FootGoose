@@ -4,12 +4,19 @@ var router = express.Router();
 const {catalogo, detalle, carrito, search, animal, category, subCategory} = require('../controllers/productosController')
 const checkUser = require('../middlewares/checkUser');
 
-router.get('/',catalogo);
+/* detalle */
 router.get('/detalle/:id',detalle);
+/* carrito */
 router.get('/carrito', checkUser,carrito);
+/* Buscador */
 router.get('/search',search);
-router.get('/filtro/:animalId',animal);
-router.get('/filtro/:animalId/:categoryId',category);
-router.get('/filtro/:animalId/:categoryId/:subCategoryId',subCategory);
+/* filtro sub categoria */
+router.get('/filtro/animal/:animalId/category/:categoryId/sub-category/:subCategoryId/:pag?',subCategory);
+/* Filtro categoria */
+router.get('/filtro/animal/:animalId/category/:categoryId/:pag?',category);
+/* filtro animal */
+router.get('/filtro/animal/:animalId/:pag?',animal);
+/* Listado */
+router.get('/:pag?',catalogo);
 
 module.exports = router;
