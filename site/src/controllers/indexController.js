@@ -20,7 +20,7 @@ module.exports = {
                     data
                 })
             })
-            .catch(error => res.send(error))     
+            .catch(error => res.send(error))
     },
     tyc: (req,res) => {
         res.render('tyc', {

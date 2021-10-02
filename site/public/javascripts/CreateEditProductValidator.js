@@ -3,7 +3,6 @@ window.addEventListener('load', () => {
 
     const qs = (element) => document.querySelector(element)
 
-    /* Dinamismo precio final // descuento ESTO LO HIZO GABI!!!!!!!!!! MACA NOMAS COPIO (Lo escribio y aprendio maca) */
     window.addEventListener('change', () =>{
         let precio = qs('#precio').value
         let descuento = qs('#descuento').value
@@ -119,7 +118,6 @@ window.addEventListener('load', () => {
             subCategory.classList.add('is-valid');
         }
     })
-
 
     /* Validaciones de nombre */
     name.addEventListener('blur', () => {

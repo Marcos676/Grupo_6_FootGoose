@@ -112,7 +112,7 @@ module.exports = {
     },
     createProcess: (req, res) => {
         let errores = validationResult(req);
-
+        
         if (!errores.isEmpty()) {
             const animals = db.Animal.findAll()
             const categories = db.Category.findAll()

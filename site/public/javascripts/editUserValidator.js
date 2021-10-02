@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
     let confirmNew = formEdit.elements[7];
 
     const oneMB = 1048576;
-    (img.value) ? img.value = "" : null
+    (img.value) ? img.value = "" : null;
 
     /* validación de extensión de imagen */
     img.addEventListener('change', (e) => {

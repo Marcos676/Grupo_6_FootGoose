@@ -1,268 +1,261 @@
 header {
-    background-color: var(--color-naranjaClaro);
-    padding: 5px 5px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5;
-  }
-  header .header-container {
-    max-width: 1350px;
-  }
-   header .header-container .row{
-    justify-content: space-between;
-    align-content: center;
-    padding-left: 0;
-    }
+  background-color: var(--color-naranjaClaro);
+  padding: 5px 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+header .header-container {
+  max-width: 1350px;
+}
+header .header-container .row {
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 0;
+}
 
-  /* Logo */
-  header .logo-container {
-    padding: 0;
-  }
-  header .row .logo-container a img{
-    width: 80px;
-  }
-  
-  /* Contenedor del resto */
-    header .container-principal{
-      display: contents;
-  }
-  
+/* Logo */
+header .logo-container {
+  padding: 0;
+}
+header .row .logo-container a img {
+  width: 80px;
+}
 
-  /* BUSCADOR */
+/* Contenedor del resto */
+header .container-principal {
+  display: contents;
+}
+
+/* BUSCADOR */
+header .buscador {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  display: none;
+}
+header form {
+  background-color: var(--color-grisClaro);
+  border-radius: 50px;
+  display: flex;
+  width: 100%;
+}
+header form input {
+  background-color: transparent;
+  border: none;
+  border-right: 2px solid var(--color-grisOscuro);
+  padding: 0px 10px;
+  width: 100%;
+  flex-grow: 1;
+  font-family: var(--font);
+}
+header form input:focus {
+  outline-width: 0px;
+}
+header form button {
+  background: none;
+  border: none;
+  color: var(--color-grisOscuro);
+  margin: 0;
+}
+header form button:focus {
+  outline-width: 0px;
+}
+
+/*INGRESAR*/
+header .ingresar {
+  padding: 0;
+  justify-content: center;
+  display: none;
+}
+header .ingresar a {
+  text-align: center;
+  font-size: 18px;
+  font-family: var(--font2);
+  color: var(--color-negro);
+  border-radius: 0.25rem;
+  transition: 0.5s;
+  margin-right: 10px;
+}
+header .ingresar a:hover {
+  color: var(--color-blanco);
+  background-color: var(--color-grisOscuro);
+}
+
+header .solo-mobile {
+  display: flex;
+}
+
+header .ingresar a img {
+  width: 15%;
+  border-radius: 50%;
+}
+
+/* NAVEGACION CON BURGUER BUTTON */
+.boton-hamburguesa {
+  display: flex;
+}
+header nav button.burger {
+  color: var(--color-grisOscuro);
+  font-size: 35px;
+}
+header nav button.burger:focus {
+  outline-width: 0px;
+}
+
+/* NAVEGACION */
+header .navegador ul {
+  font-family: var(--font2);
+  border-bottom: 1px solid var(--color-grisOscuro);
+  padding: 0 15px;
+}
+header .navegador ul:last-child {
+  border-bottom: none;
+}
+header .navegador ul li {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 0px 7px;
+  width: 100%;
+  margin: 10px auto;
+}
+header .navegador ul li a {
+  font-size: 30px;
+  color: var(--color-negro);
+  transition: 0.5s ease;
+}
+header .navegador ul li a:hover {
+  font-size: 34px;
+  color: var(--color-grisOscuro);
+}
+
+/* carrito */
+header .navegador .carrito li a {
+  display: flex;
+  justify-content: center;
+  color: var(--color-verde);
+}
+header .navegador .carrito li a:hover {
+  font-size: 34px;
+  color: var(--color-verde);
+  transform: rotate(360deg);
+}
+
+/* Modo nocturno  */
+header input[type="checkbox"] {
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-image: url(https://assets.codepen.io/1148131/18956-NRVK2Q.jpg);
+  background-size: cover;
+  border-radius: 50px;
+  transition: background-image 0.9s;
+  box-shadow: 0 2px 5px 1px gray;
+  cursor: pointer;
+}
+header input[type="checkbox"]:before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: rgb(244, 189, 33);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.9s;
+  background-color: #4fc3f7;
+}
+header input[type="checkbox"]:checked {
+  background-image: url(https://assets.codepen.io/1148131/114955-OP0CAQ-356.jpg);
+}
+header input[type="checkbox"]:checked::before {
+  transform: translate(100%);
+  background-color: #fdd835;
+}
+
+/*---------- MOBILE M ------------*/
+@media (min-width: 375px) {
+  /* Header buscador */
   header .buscador {
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    display: none;
-  }
-  header form {
-    background-color: var(--color-grisClaro);
-    border-radius: 50px;
-    display: flex;
-    width: 100%;
-  }
-  header form input {
-    background-color: transparent;
-    border: none;
-    border-right: 2px solid var(--color-grisOscuro);
-    padding: 0px 10px;
-    width: 100%;
-    flex-grow: 1;
-    font-family: var(--font);
-  }
-  header form input:focus {
-    outline-width: 0px;
   }
   header form button {
-    background: none;
-    border: none;
-    color: var(--color-grisOscuro);
-    margin: 0;
+    margin: 0 8px;
   }
-  header form button:focus {
-    outline-width: 0px;
-  }
-  
-  
-  /*INGRESAR*/
+  /* Header boton ingresar */
   header .ingresar {
-    padding:0;
-    justify-content: center;
+    display: flex;
+  }
+
+  header .solo-mobile {
     display: none;
   }
-  header .ingresar a {
-    text-align: center;
-    font-size: 18px;
-    font-family: var(--font2);
-    color: var(--color-negro);
-    border-radius: .25rem;
-    transition: .5s;
-    margin-right: 10px;
-  }
-  header .ingresar a:hover{
-    color: var(--color-blanco);
-    background-color: var(--color-grisOscuro);
-  }
-  
-  header .solo-mobile{
+  /* Contenedor del resto */
+  header .container-principal {
     display: flex;
   }
-  
-  header .ingresar a img {
-    width: 15%;
-    border-radius: 50%;
-  }
-
-  
-  /* NAVEGACION CON BURGUER BUTTON */
-  .boton-hamburguesa {
-    display: flex;
-  }
-  header nav button.burger {
-    color: var(--color-grisOscuro);
-    font-size: 35px;
-  }
-  header nav button.burger:focus {
-    outline-width: 0px;
-  }
-  
-  
-  /* NAVEGACION */
-  header .navegador ul {
-    font-family: var(--font2);
-    border-bottom: 1px solid var(--color-grisOscuro);
-    padding: 0 15px;
-  }
-  header .navegador ul:last-child{
-    border-bottom: none
-  }
-  header .navegador ul li {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    padding: 0px 7px;
-    width: 100%;
-    margin: 10px auto;
-  }
-  header .navegador ul li a {
-    font-size: 30px;
-    color: var(--color-negro);
-    transition: .5s ease;
-  }
-  header .navegador ul li a:hover {
-    font-size: 34px;
-    color: var(--color-grisOscuro);
-  }
-  
-  
-  /* carrito */
-  header .navegador .carrito li a {
-    display: flex;
-    justify-content: center;
-    color: var(--color-verde);
-  }
-  header .navegador .carrito li a:hover {
-    font-size: 34px;
-    color: var(--color-verde);
-    transform: rotate(360deg);  
-  }
-  
-  
-  /* Modo nocturno  */
-  header input[type="checkbox"]{
-    -webkit-appearance: none;
-    outline: none;
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-image: url(https://assets.codepen.io/1148131/18956-NRVK2Q.jpg);
-    background-size: cover;
-    border-radius: 50px;
-    transition: background-image .9s;
-    box-shadow: 0 2px 5px 1px gray;
-    cursor: pointer;
-  }
-  header input[type="checkbox"]:before{
-    content: "";
-    width: 30px;
-    height: 30px;
-    background-color: rgb(244, 189, 33);
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all .9s;
-    background-color: #4fc3f7;
-  }
-  header input[type="checkbox"]:checked{
-    background-image: url(https://assets.codepen.io/1148131/114955-OP0CAQ-356.jpg);
-  }
-  header input[type="checkbox"]:checked::before{
-    transform: translate(100%);
-    background-color: #fdd835;
-  }
-
-  /*---------- MOBILE M ------------*/
-@media (min-width: 375px){
-  /* Header buscador */
-    header .buscador{
-      display: flex;
-    }
-    header form button{
-      margin: 0 8px;
-    }
-  /* Header boton ingresar */
-    header .ingresar{
-      display: flex;
-    }
-  
-    header .solo-mobile{
-      display: none;
-    }
-    /* Contenedor del resto */
-    header .container-principal{
-      display: flex;
-    }
-  
-  }
-  /*---------- TABLET Y DESKTOP Large ------------*/
-  @media (min-width: 768px){
-  /*----------------- HEADER ----------------------*/
-    header {
-    position: initial;
-    }
-  
-    /* contenedor */
-    header .header-container .row{
-      justify-content: space-evenly;
-    }
-    .header-container-principal {
-      padding: 0;
-    }
-  
-  /* LOGO */
-    header .row .logo-container a img{
-      width: 129px;
-    }
-  
-    /* navegador*/
-    header .navegador ul{
-      border-bottom: none;
-    }
-    header .navegador .menu li {
-      border-right: 2px solid var(--color-negro);;
-    }
-    header .navegador .menu li:last-child{
-      border-right: none
-    }
-    header .navegador .menu ul li a{
-      font-size: 20px;
-    }
-  
-    /* ingresar */  
-    header .ingresar a {
-      font-size: 22px;
-      background-color: var(--color-grisClaro);
-      width: 100%;
-    }
-  
-    /* carrito */
-    header .navegador .carrito{
-      padding-left: 30px;
-    }
-  
-    /* boton nocturno */
-    .navegador .nocturno{
-      padding-left: 30px;
-      padding-right: 0;
-    }
-  @media (min-width: 1200px){
-      /* ------------HEADER--------------- */
-        header .buscador {
-          padding-left: 39px;
-        }
 }
+/*---------- TABLET Y DESKTOP Large ------------*/
+@media (min-width: 768px) {
+  /*----------------- HEADER ----------------------*/
+  header {
+    position: initial;
+  }
+
+  /* contenedor */
+  header .header-container .row {
+    justify-content: space-evenly;
+  }
+  .header-container-principal {
+    padding: 0;
+  }
+
+  /* LOGO */
+  header .row .logo-container a img {
+    width: 129px;
+  }
+
+  /* navegador*/
+  header .navegador ul {
+    border-bottom: none;
+  }
+  header .navegador .menu li {
+    border-right: 2px solid var(--color-negro);
+  }
+  header .navegador .menu li:last-child {
+    border-right: none;
+  }
+  header .navegador .menu ul li a {
+    font-size: 20px;
+  }
+
+  /* ingresar */
+  header .ingresar a {
+    font-size: 22px;
+    background-color: var(--color-grisClaro);
+    width: 100%;
+  }
+
+  /* carrito */
+  header .navegador .carrito {
+    padding-left: 30px;
+  }
+
+  /* boton nocturno */
+  .navegador .nocturno {
+    padding-left: 30px;
+    padding-right: 0;
+  }
+  @media (min-width: 1200px) {
+    /* ------------HEADER--------------- */
+    header .buscador {
+      padding-left: 39px;
+    }
+  }
 }
 
 /* ADMIN HEADER */
@@ -275,26 +268,26 @@ header {
   width: 100%;
   z-index: 5;
 }
- .headerAdmin .header-container-admin {
+.headerAdmin .header-container-admin {
   max-width: 1350px;
 }
- .headerAdmin .header-container-admin .row{
+.headerAdmin .header-container-admin .row {
   justify-content: space-between;
   align-content: center;
   padding-left: 0;
-  }
+}
 
 /* Logo */
 .headerAdmin .logo-container {
   padding: 0;
 }
-.headerAdmin .row .logo-container a img{
+.headerAdmin .row .logo-container a img {
   width: 80px;
 }
 
 /* Contenedor del resto */
-  .headerAdmin .container-principal{
-    display: contents;
+.headerAdmin .container-principal {
+  display: contents;
 }
 
 /* BUSCADOR */
@@ -336,7 +329,7 @@ header {
   display: none;
 }
 
-.headerAdmin .agregarProducto a{
+.headerAdmin .agregarProducto a {
   color: white;
   font-family: var(--font2);
   font-size: 1em;
@@ -348,22 +341,21 @@ header {
   max-width: 220px;
 }
 
-.headerAdmin .miCuenta{
- color: white;
- font-family: var(--font2);
- font-size: 1em;
- background-color: #303030;
- padding: 5px;
- border-radius: 10px;
- border: whitesmoke 2px solid;
- display: none;
+.headerAdmin .miCuenta {
+  color: white;
+  font-family: var(--font2);
+  font-size: 1em;
+  background-color: #303030;
+  padding: 5px;
+  border-radius: 10px;
+  border: whitesmoke 2px solid;
+  display: none;
 }
 
 .headerAdmin .miCuenta i,
-.headerAdmin .agregarProducto i{
+.headerAdmin .agregarProducto i {
   padding: 6px;
 }
-
 
 /* NAVEGACION CON BURGUER BUTTON */
 .boton-hamburguesa {
@@ -388,8 +380,8 @@ header {
   border-bottom: 1px solid var(--color-grisOscuro);
   padding: 0 15px;
 }
-.headerAdmin .navegador ul:last-child{
-  border-bottom: none
+.headerAdmin .navegador ul:last-child {
+  border-bottom: none;
 }
 .headerAdmin .navegador ul li {
   display: flex;
@@ -405,7 +397,7 @@ header {
 .headerAdmin .navegador ul li a {
   font-size: 30px;
   color: var(--color-grisClaro);
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 .headerAdmin .navegador ul li a:hover {
   font-size: 34px;
@@ -413,7 +405,7 @@ header {
 }
 
 /* Modo nocturno  */
-.nocturno input[type="checkbox"]{
+.nocturno input[type="checkbox"] {
   -webkit-appearance: none;
   outline: none;
   position: relative;
@@ -422,11 +414,11 @@ header {
   background-image: url(https://assets.codepen.io/1148131/18956-NRVK2Q.jpg);
   background-size: cover;
   border-radius: 50px;
-  transition: background-image .9s;
+  transition: background-image 0.9s;
   box-shadow: 0 2px 5px 1px gray;
   cursor: pointer;
 }
-.nocturno input[type="checkbox"]:before{
+.nocturno input[type="checkbox"]:before {
   content: "";
   width: 30px;
   height: 30px;
@@ -435,80 +427,79 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  transition: all .9s;
+  transition: all 0.9s;
   background-color: #4fc3f7;
 }
-.nocturno input[type="checkbox"]:checked{
+.nocturno input[type="checkbox"]:checked {
   background-image: url(https://assets.codepen.io/1148131/114955-OP0CAQ-356.jpg);
 }
-.nocturno input[type="checkbox"]:checked::before{
+.nocturno input[type="checkbox"]:checked::before {
   transform: translate(100%);
   background-color: #fdd835;
 }
 
 /*---------- MOBILE M ------------*/
-@media (min-width: 375px){
-/* Header buscador */
-  .headerAdmin .buscador{
+@media (min-width: 375px) {
+  /* Header buscador */
+  .headerAdmin .buscador {
     display: flex;
   }
-  .headerAdmin form button{
+  .headerAdmin form button {
     margin: 0 8px;
   }
-/* Header boton ingresar */
-  .headerAdmin .ingresar a{
+  /* Header boton ingresar */
+  .headerAdmin .ingresar a {
     display: flex;
   }
 
   .headerAdmin .navbar-nav form {
     display: none;
-  }  
+  }
 
   /* Contenedor del resto */
-  .headerAdmin .container-principal{
+  .headerAdmin .container-principal {
     display: flex;
   }
-
 }
 /*---------- TABLET Y DESKTOP Large ------------*/
-@media (min-width: 768px){
-/*----------------- HEADER ----------------------*/
+@media (min-width: 768px) {
+  /*----------------- HEADER ----------------------*/
   .headerAdmin {
-  position: initial;
+    position: initial;
   }
 
-  .headerAdmin .solo-mobile{
+  .headerAdmin .solo-mobile {
     display: none;
   }
 
   /* contenedor */
-  .headerAdmin .header-container-admin .row{
+  .headerAdmin .header-container-admin .row {
     justify-content: space-evenly;
   }
   .header-container-principal {
     padding: 0;
   }
 
-/* LOGO */
-  .headerAdmin .row .logo-container a img{
+  /* LOGO */
+  .headerAdmin .row .logo-container a img {
     width: 129px;
   }
 
   /* navegador*/
-  .headerAdmin .navegador ul{
+  .headerAdmin .navegador ul {
     border-bottom: none;
   }
   .headerAdmin .navegador .menu li {
-    border-right: 2px solid var(--color-grisOscuro);;
+    border-right: 2px solid var(--color-grisOscuro);
   }
-  .headerAdmin .navegador .menu li:last-child{
+  .headerAdmin .navegador .menu li:last-child {
     border-right: none;
   }
-  .headerAdmin .navegador .menu ul li a{
+  .headerAdmin .navegador .menu ul li a {
     font-size: 20px;
   }
 
-  /* ingresar */  
+  /* ingresar */
   .headerAdmin .ingresar a {
     font-size: 22px;
     background-color: var(--color-grisClaro);
@@ -517,32 +508,30 @@ header {
 
   .headerAdmin .agregarProducto a,
   .headerAdmin .agregarProducto,
-  .headerAdmin .miCuenta{
+  .headerAdmin .miCuenta {
     display: flex;
     align-items: center;
   }
 
   /* carrito */
-  .headerAdmin .navegador .carrito{
+  .headerAdmin .navegador .carrito {
     padding-left: 30px;
   }
 
   /* boton nocturno */
-  .headerAdmin .navegador .nocturno{
+  .headerAdmin .navegador .nocturno {
     padding-left: 30px;
     padding-right: 0;
   }
 }
 
-@media (min-width: 1200px){
-    /* ------------HEADER--------------- */
-      .headerAdmin .buscador {
-        padding-left: 39px;
-      }
-.headerAdmin .agregarProducto a,
-.headerAdmin .miCuenta{
-  font-size: 1.5em;
+@media (min-width: 1200px) {
+  /* ------------HEADER--------------- */
+  .headerAdmin .buscador {
+    padding-left: 39px;
+  }
+  .headerAdmin .agregarProducto a,
+  .headerAdmin .miCuenta {
+    font-size: 1.5em;
+  }
 }
-
-}
-  
